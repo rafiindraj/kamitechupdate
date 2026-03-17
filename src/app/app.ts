@@ -1,14 +1,15 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { PageComponent } from './page/page.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, PageComponent],
     templateUrl: './app.html',
-    styleUrl: './app.css'
+    styleUrl: './app.css',
+    encapsulation: ViewEncapsulation.None
 })
 export class App {
     hideNav = false;
@@ -93,7 +94,7 @@ export class App {
         },
         {
             name: "Jeff Sullivan",
-            role: "Finance & Admin Strategist",
+            role: "Finance Strategist",
             image: "jeff-white.jpeg",
             desc: "Fokus pada manajemen kelayakan finansial, alokasi pengeluaran modal (CAPEX) & biaya operasional (OPEX), serta mengelola administrasi, manajemen risiko, dan kepatuhan hukum."
         },
