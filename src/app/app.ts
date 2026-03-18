@@ -100,7 +100,7 @@ export class App {
         },
         {
             name: "Jane Collei",
-            role: "Business Strategy Analyst",
+            role: "Business Analyst",
             image: "jane-white.jpeg",
             desc: "Bertanggung jawab menganalisis ekosistem digital dan memetakan positioning perusahaan. Mengelola strategi penetrasi pasar B2B, skema harga layanan, serta komunikasi klien (CRM)."
         }
