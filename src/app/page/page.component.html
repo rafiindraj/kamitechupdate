@@ -1,0 +1,13 @@
+<div class="absolute -inset-[2.54cm] z-0 pointer-events-none" [style.opacity]="watermarkOpacity">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+        class="w-full h-full object-cover grayscale" alt="Watermark" />
+</div>
+
+<div class="relative z-10 flex-grow" [ngClass]="contentClass">
+    <ng-content></ng-content>
+</div>
+
+<div class="mt-auto flex justify-between items-end border-t border-slate-200 pt-4 relative z-10 w-full bg-white">
+    <span class="text-[14px]" [ngClass]="footerTextClass">{{ footerText }}</span>
+    <span class="text-[18px]" [ngClass]="pageNumClass">{{ pageNum }}</span>
+</div>
