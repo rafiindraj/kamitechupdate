@@ -13,16 +13,16 @@ import { PageComponent } from './page/page.component';
 })
 export class App {
     hideNav = false;
-    billableHours = signal(400);
+    billableHours = signal(800);
 
     // Constants
     readonly pricePerHour = 500000;
     readonly unitTotalHPP = 50000;
-    readonly marketingCostValue = 5000000;
-    readonly operationalCostValue = 10000000;
-    readonly softwareCostValue = 5000000;
-    readonly salaryCostValue = 61000000;
-    readonly initialCapital = 50000000 + 100000000 + 120000000 + 10000000 + 20000000;
+    readonly marketingCostValue = 35000000;
+    readonly operationalCostValue = 30000000;
+    readonly softwareCostValue = 45000000;
+    readonly salaryCostValue = 169000000;
+    readonly initialCapital = 50000000 + 100000000 + 300000000 + 30000000 + 20000000;
 
     // Computed Values
     totalRevenue = computed(() => this.billableHours() * this.pricePerHour);
@@ -107,10 +107,17 @@ export class App {
     ];
 
     tenagaKerja = [
-        { role: "Project Manager / Scrum Master", count: 1, salary: "Rp 20.000.000" },
-        { role: "Frontend Engineer (React/Next.js)", count: 1, salary: "Rp 15.000.000" },
-        { role: "Backend Engineer (Go/Node.js)", count: 1, salary: "Rp 15.000.000" },
-        { role: "UI/UX Designer & QA", count: 1, salary: "Rp 11.000.000" }
+        { role: "CEO/CTO", count: 2, salary: "Rp 30.000.000" },
+        { role: "IT Engineer (Front End, Back End, UI/UX & QA)", count: 3, salary: "Rp 15.000.000" },
+        { role: "IT Engineer (DevSecOps)", count: 1, salary: "Rp 20.000.000" },
+        { role: "Sales & Marketing, Accounting, Logistic, Tax", count: 4, salary: "Rp 11.000.000" }
+    ];
+
+    goalsArray = [
+        { title: "Customized Technology Solutions", desc: "Menyediakan solusi teknologi informasi yang dirancang sesuai dengan kebutuhan spesifik setiap organisasi klien untuk meningkatkan efisiensi." },
+        { title: "System Migration", desc: "Membantu organisasi dalam mengintegrasikan dan migrasi berbagai sistem teknologi agar operasional perusahaan menjadi lebih efisien dan terkoordinasi." },
+        { title: "Cybersecurity & Audit", desc: "Memberikan perlindungan data maksimal melalui layanan audit IT dan pengecekan penetrasi sistem (penetration testing)." },
+        { title: "Strategic IT Consulting", desc: "Memberikan analisis serta rekomendasi strategis terkait pemanfaatan teknologi informasi guna mendukung perkembangan organisasi jangka panjang." }
     ];
 
     keys = ['a', 'b', 'c', 'd'];
