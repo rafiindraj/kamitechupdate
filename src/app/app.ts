@@ -115,6 +115,42 @@ export class App {
         { role: "Sales & Marketing, Accounting, Logistic, Tax", count: 4, salary: "Rp 11.000.000" }
     ];
 
+    // OPEX Detail Breakdowns
+    opexGajiDetail = [
+        { item: 'CEO / CTO', detail: '2 Orang × Rp 30.000.000', amount: 60000000 },
+        { item: 'IT Engineer (DevSecOps)', detail: '4 Orang × Rp 20.000.000', amount: 80000000 },
+        { item: 'IT Engineer (FE, BE, UI/UX & QA)', detail: '12 Orang × Rp 15.000.000', amount: 180000000 },
+        { item: 'Finance Strategist', detail: '1 Orang × Rp 20.000.000', amount: 20000000 },
+        { item: 'Business Analyst', detail: '1 Orang × Rp 20.000.000', amount: 20000000 },
+        { item: 'Sales, Marketing, Accounting, Logistic, Tax', detail: '4 Orang × Rp 11.000.000', amount: 44000000 },
+    ];
+
+    opexOperasionalDetail = [
+        { item: 'Listrik Kantor', amount: 5000000 },
+        { item: 'Air (PDAM)', amount: 1000000 },
+        { item: 'Dedicated Internet 5G', amount: 10000000 },
+        { item: 'Kebersihan & Maintenance', amount: 5000000 },
+        { item: 'Konsumsi & Pantry', amount: 5000000 },
+        { item: 'Transportasi & Operasional Harian', amount: 4000000 },
+    ];
+
+    opexSoftwareDetail = [
+        { item: 'AWS / GCP Cloud Hosting', amount: 20000000 },
+        { item: 'GitHub Team + Copilot Business', amount: 8000000 },
+        { item: 'Domain & SSL Renewal', amount: 1000000 },
+        { item: 'Monitoring & Analytics (Datadog/NR)', amount: 6000000 },
+        { item: 'SaaS Tools (Slack, Notion, Figma)', amount: 5000000 },
+        { item: 'Security & Backup Services', amount: 5000000 },
+    ];
+
+    opexMarketingDetail = [
+        { item: 'LinkedIn Ads & B2B Campaign', amount: 15000000 },
+        { item: 'Event & Networking Sponsorship', amount: 8000000 },
+        { item: 'CRM Subscription (HubSpot)', amount: 5000000 },
+        { item: 'Content Marketing & SEO', amount: 4000000 },
+        { item: 'Branding & Design Collateral', amount: 3000000 },
+    ];
+
     goalsArray = [
         { title: "Customized Technology Solutions", desc: "Menyediakan solusi teknologi informasi yang dirancang sesuai dengan kebutuhan spesifik setiap organisasi klien untuk meningkatkan efisiensi." },
         { title: "System Migration", desc: "Membantu organisasi dalam mengintegrasikan dan migrasi berbagai sistem teknologi agar operasional perusahaan menjadi lebih efisien dan terkoordinasi." },
