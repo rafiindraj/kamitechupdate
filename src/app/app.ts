@@ -13,16 +13,16 @@ import { PageComponent } from './page/page.component';
 })
 export class App {
     hideNav = false;
-    billableHours = signal(800);
+    billableHours = signal(2720);
 
     // Constants
-    readonly pricePerHour = 500000;
-    readonly unitTotalHPP = 50000;
+    readonly pricePerHour = 250000;
+    readonly unitTotalHPP = 5000;
     readonly marketingCostValue = 35000000;
     readonly operationalCostValue = 30000000;
-    readonly softwareCostValue = 45000000;
-    readonly salaryCostValue = 169000000;
-    readonly initialCapital = 50000000 + 100000000 + 300000000 + 30000000 + 20000000;
+    readonly softwareCostValue = 45000000;  
+    readonly salaryCostValue = 404000000;
+    readonly initialCapital = 50000000 + 100000000 + 254000000 + 36000000 + 6500000 + 2550000 + 4950000 ;
 
     // Computed Values
     totalRevenue = computed(() => this.billableHours() * this.pricePerHour);
@@ -69,7 +69,7 @@ export class App {
         { title: "Kekuatan Layanan", list: ["Metodologi Agile yang transparan dan adaptif (Beck et al., 2001).", "Tech-stack modern (React/Go) yang anti-usang.", "Standar kode internasional dengan code review ketat."] },
         { title: "Tantangan Utama", list: ["Siklus penutupan klien B2B (sales cycle) yang relatif panjang.", "Ketatnya persaingan dengan Software House skala enterprise."] },
         { title: "Peluang (Opportunity)", list: ["Kebijakan digitalisasi UMKM/Korporat dari pemerintah.", "Banyaknya bisnis konvensional yang beralih ke e-commerce & aplikasi custom."] },
-        { title: "Strategi Harga", content: "Menggunakan skema Billable Hours (Jam Kerja) senilai Rp 500.000/jam atau paket Retainer bulanan (Osterwalder & Pigneur, 2010)." }
+        { title: "Strategi Harga", content: "Menggunakan skema Billable Hours (Jam Kerja) senilai Rp 750.000/jam atau paket Retainer bulanan (Osterwalder & Pigneur, 2010)." }
     ];
 
     devSteps = [
@@ -108,8 +108,10 @@ export class App {
 
     tenagaKerja = [
         { role: "CEO/CTO", count: 2, salary: "Rp 30.000.000" },
-        { role: "IT Engineer (Front End, Back End, UI/UX & QA)", count: 3, salary: "Rp 15.000.000" },
-        { role: "IT Engineer (DevSecOps)", count: 1, salary: "Rp 20.000.000" },
+        { role: "IT Engineer (DevSecOps)", count: 4, salary: "Rp 20.000.000" },
+        { role: "IT Engineer (Front End, Back End, UI/UX & QA)", count: 12, salary: "Rp 15.000.000" },
+        { role: "Finance Strategist", count: 1, salary: "Rp 20.000.000" },
+        { role: "Business Analyst", count: 1, salary: "Rp 20.000.000" },
         { role: "Sales & Marketing, Accounting, Logistic, Tax", count: 4, salary: "Rp 11.000.000" }
     ];
 
@@ -121,6 +123,118 @@ export class App {
     ];
 
     keys = ['a', 'b', 'c', 'd'];
+
+     // Helper format currency standard
+  formatCurrency(value: number): string {
+    if (value === 0) return '-';
+    const formatted = Math.abs(Math.round(value)).toLocaleString('id-ID');
+    return value < 0 ? `(${formatted})` : formatted;
+  }
+
+  // Helper format currency singkatan (M/B)
+  formatCurrencyShort(value: number): string {
+    if (value === 0) return '-';
+    const absVal = Math.abs(value);
+    let formatted = '';
+
+    if (absVal >= 1e9) {
+      formatted = (absVal / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+    } else if (absVal >= 1e6) {
+      formatted = (absVal / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+    } else if (absVal >= 1e3) {
+      formatted = (absVal / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+    } else {
+      formatted = absVal.toString();
+    }
+
+    return value < 0 ? `(Rp ${formatted})` : `Rp ${formatted}`;
+  }
+
+  // 5 Year Projection Logic
+  yearlyCashFlow = computed(() => {
+    let currentRev = this.totalRevenue() * 12;
+    let currentCOGS = this.totalCOGS() * 12;
+    let currentOpex = this.monthlyFixedCostTotal() * 12;
+    
+    let cumulativeCF = 0;
+    const projection = [];
+
+    for (let year = 1; year <= 5; year++) {
+      if (year > 1) {
+          currentRev *= 1.15; // 15% revenue growth year over year
+          currentCOGS *= 1.15;
+          currentOpex *= 1.08; // 8% opex inflation
+      }
+
+      const grossProfit = currentRev - currentCOGS;
+      const ebitda = grossProfit - currentOpex;
+      
+      // Depreciation: Hardware (254M/4thn=63.5M), Renovasi (100M/10thn=10M), Lisensi (30M/5thn=6M) -> Total 79.5 Juta/Tahun
+      const depreciation = 79500000;
+      
+      const ebit = ebitda - depreciation;
+      // Tax: UMKM rate assumption (11% of EBIT if profitable)
+      const tax = ebit > 0 ? ebit * 0.11 : 0; 
+      const netIncome = ebit - tax;
+      
+      const operatingCF = netIncome + depreciation;
+      
+      // CAPEX: Year 1 Full (Sewa+Renovasi+Hardware+Lisensi+Legalitas = 454M)
+      // Year 2-5: Diulang untuk Sewa, Lisensi, Legalitas (50M + 30M + 20M = 100M)
+      const capex = year === 1 ? -this.initialCapital : -100000000;
+
+      const freeCashFlow = operatingCF + capex;
+      cumulativeCF += freeCashFlow;
+
+      projection.push({
+          year,
+          revenue: currentRev,
+          cogs: -currentCOGS,
+          grossProfit,
+          opex: -currentOpex,
+          ebitda,
+          depreciation: -depreciation,
+          ebit,
+          tax: -tax,
+          netIncome,
+          operatingCF,
+          capex,
+          fcf: freeCashFlow,
+          cumulative: cumulativeCF
+      });
+    }
+    return projection;
+  });
+
+  cashFlowTableData = computed(() => {
+    const data = this.yearlyCashFlow();
+    const getRow = (label: string, key: keyof typeof data[0], isBold = false, isHeader = false, isHighlight = false) => {
+       return {
+          label, isBold, isHeader, isHighlight,
+          y1: data[0][key] as number,
+          y2: data[1][key] as number,
+          y3: data[2][key] as number,
+          y4: data[3][key] as number,
+          y5: data[4][key] as number
+       };
+    };
+
+    return [
+       getRow('Pendapatan Kotor', 'revenue', true, true),
+       getRow('HPP / COGS', 'cogs'),
+       getRow('Laba Kotor (Gross Profit)', 'grossProfit', true),
+       getRow('Biaya Operasional Tetap', 'opex'),
+       getRow('EBITDA', 'ebitda', true, true),
+       getRow('Depresiasi Aset', 'depreciation'),
+       getRow('Laba Operasi (EBIT)', 'ebit', true),
+       getRow('Pajak Badan (PPh 11%)', 'tax'),
+       getRow('Laba Bersih (Net Income)', 'netIncome', true, false, true),
+       getRow('Arus Kas Operasi', 'operatingCF', true, true),
+       getRow('Belanja Modal (CAPEX)', 'capex'),
+       getRow('Free Cash Flow (FCF)', 'fcf', true, true, true),
+       getRow('Kumulatif FCF', 'cumulative', true, false, true)
+    ];
+  });
 
     onHoursChange(event: Event) {
         const target = event.target as HTMLInputElement;
