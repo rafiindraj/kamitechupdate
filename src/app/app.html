@@ -2244,15 +2244,20 @@
                                 <td class="p-2 font-sans" [class.font-bold]="row.isBold"
                                     [class.pl-4]="!row.isHeader && !row.isBold"
                                     [class.text-[#0284C7]]="row.isHighlight">{{row.label}}</td>
-                                <td class="p-2 text-right" [class.text-red-600]="row.y1 < 0">{{
+                                <td class="p-2 text-right" [class.text-red-600]="row.y1 < 0"
+                                    [class.text-[#0284C7]]="row.isHighlight && row.y1 >= 0">{{
                                     formatCurrencyShort(row.y1) }}</td>
-                                <td class="p-2 text-right" [class.text-red-600]="row.y2 < 0">{{
+                                <td class="p-2 text-right" [class.text-red-600]="row.y2 < 0"
+                                    [class.text-[#0284C7]]="row.isHighlight && row.y2 >= 0">{{
                                     formatCurrencyShort(row.y2) }}</td>
-                                <td class="p-2 text-right" [class.text-red-600]="row.y3 < 0">{{
+                                <td class="p-2 text-right" [class.text-red-600]="row.y3 < 0"
+                                    [class.text-[#0284C7]]="row.isHighlight && row.y3 >= 0">{{
                                     formatCurrencyShort(row.y3) }}</td>
-                                <td class="p-2 text-right" [class.text-red-600]="row.y4 < 0">{{
+                                <td class="p-2 text-right" [class.text-red-600]="row.y4 < 0"
+                                    [class.text-[#0284C7]]="row.isHighlight && row.y4 >= 0">{{
                                     formatCurrencyShort(row.y4) }}</td>
-                                <td class="p-2 text-right" [class.text-red-600]="row.y5 < 0">{{
+                                <td class="p-2 text-right" [class.text-red-600]="row.y5 < 0"
+                                    [class.text-[#0284C7]]="row.isHighlight && row.y5 >= 0">{{
                                     formatCurrencyShort(row.y5) }}</td>
                             </tr>
                             }
@@ -2278,15 +2283,27 @@
                 Kesimpulan & Penutup
             </h3>
 
-            <div class="mt-1 bg-[#E0F2FE] p-4 rounded-xl border border-sky-200 flex items-center justify-between">
+            <div class="mt-1 p-4 rounded-xl flex items-center justify-between"
+                [class.bg-[#E0F2FE]]="isFcfPositive()" [class.border-sky-200]="isFcfPositive()"
+                [class.bg-red-50]="!isFcfPositive()" [class.border-red-200]="!isFcfPositive()"
+                [class.border]="true">
                 <div>
                     <strong class="text-[14px] text-[#0F172A] font-sans block uppercase tracking-wide">Kesimpulan
                         Kelayakan & Sustainabilitas</strong>
+                    @if (isFcfPositive()) {
                     <p class="text-[14px] text-slate-700 font-serif leading-tight mt-1 mb-0">Berdasarkan proyeksi 5
                         tahun, <strong class="text-[#0284C7]">Free Cash Flow (FCF)</strong> perusahaan konsisten
                         positif setelah melewati masa serapan CAPEX di Tahun 1. Ini memastikan bahwa operasional
                         bisnis mampu berjalan <em>self-sustaining</em> secara finansial tanpa suntikan modal
                         lanjutan dari investor.</p>
+                    } @else {
+                    <p class="text-[14px] text-slate-700 font-serif leading-tight mt-1 mb-0">Berdasarkan proyeksi 5
+                        tahun, <strong class="text-red-600">Free Cash Flow (FCF)</strong> perusahaan masih
+                        menunjukkan nilai negatif pada akhir periode proyeksi. Model bisnis ini memerlukan
+                        penyesuaian berupa peningkatan volume penjualan (<em>billable hours</em>), efisiensi biaya
+                        operasional, atau tambahan suntikan modal untuk mencapai titik
+                        <em>self-sustaining</em>.</p>
+                    }
                 </div>
             </div>
 

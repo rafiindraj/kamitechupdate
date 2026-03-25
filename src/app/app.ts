@@ -272,6 +272,14 @@ export class App {
         ];
     });
 
+    // Check if the 5-year projection ends with positive FCF
+    isFcfPositive = computed(() => {
+        const data = this.yearlyCashFlow();
+        if (data.length === 0) return false;
+        const lastYear = data[data.length - 1];
+        return lastYear.cumulative >= 0 && lastYear.fcf >= 0;
+    });
+
     onHoursChange(event: Event) {
         const target = event.target as HTMLInputElement;
         if (target) {
