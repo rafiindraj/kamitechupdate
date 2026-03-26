@@ -1,56 +1,56 @@
- /* Print Styles */
-    @media print {
-      @page { margin: 0; size: A4; }
-      body { 
-        -webkit-print-color-adjust: exact; 
-        background: white !important; 
-        margin: 0;
-      }
-      nav { display: none !important; }
-      main { 
-        padding: 0 !important; 
-        width: 100% !important; 
-        gap: 0 !important;
-      }
-      /* Override the Tailwind space-y class specifically for print */
-      main > * + * {
-        margin-top: 0 !important;
-      }
-      .page-container {
-        width: 21cm !important;
-        height: 29.7cm !important;
-        min-height: 29.7cm !important;
-        max-width: none !important;
-        padding: 2.54cm !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        page-break-after: always;
-        overflow: hidden !important;
-      }
-    }
+/* Print Styles */
+@media print {
+  @page { margin: 0; size: A4; }
+  body { 
+    -webkit-print-color-adjust: exact; 
+    background: white !important; 
+    margin: 0;
+  }
+  nav { display: none !important; }
+  main { 
+    padding: 0 !important; 
+    width: 100% !important; 
+    gap: 0 !important;
+  }
+  /* Override the Tailwind space-y class specifically for print */
+  main > * + * {
+    margin-top: 0 !important;
+  }
+  .page-container {
+    width: 21cm !important;
+    height: 29.7cm !important;
+    min-height: 29.7cm !important;
+    max-width: none !important;
+    padding: 2.54cm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always;
+    overflow: hidden !important;
+  }
+}
 
-    /* Screen Styles */
-    .page-container {
-      width: 100%;
-      max-width: 21cm;
-      min-height: 29.7cm;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 2.54cm;
-      background-color: #ffffff;
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      color: #0F172A;
-    }
+/* Screen Styles - Material 3 Surface */
+.page-container {
+  width: 100%;
+  max-width: 21cm;
+  min-height: 29.7cm;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.54cm;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #1C1B1F;
+}
 
-    /* Utilities */
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #F8FAFC; }
-    ::-webkit-scrollbar-thumb { background: #0F172A; border-radius: 5px; }
-    ::-webkit-scrollbar-thumb:hover { background: #1E293B; }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Utilities */
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #FFFBFE; }
+::-webkit-scrollbar-thumb { background: #49454F; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #1C1B1F; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
