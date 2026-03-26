@@ -183,7 +183,7 @@ export class App {
             formatted = absVal.toString();
         }
 
-        return value < 0 ? `(Rp ${formatted})` : `Rp ${formatted}`;
+        return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
     }
 
     // 5 Year Projection Logic
