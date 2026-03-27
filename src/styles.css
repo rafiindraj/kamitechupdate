@@ -2,7 +2,59 @@
 
 @import "tailwindcss";
 
-/* Material 3 Typography - Override Tailwind defaults */
+/* Material 3 Design System Tokens */
 @theme {
+  /* Typography */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* ── M3 Primary Tonal Palette (seed: #42A5F5) ── */
+  --color-primary: #1565C0;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #D4E3FF;
+  --color-on-primary-container: #001C3A;
+  --color-primary-fixed: #A8C8FF;
+
+  /* ── M3 Secondary ── */
+  --color-secondary: #565E71;
+  --color-on-secondary: #FFFFFF;
+  --color-secondary-container: #DAE2F9;
+  --color-on-secondary-container: #131C2C;
+
+  /* ── M3 Tertiary ── */
+  --color-tertiary: #6E5676;
+  --color-on-tertiary: #FFFFFF;
+  --color-tertiary-container: #F8D8FF;
+  --color-on-tertiary-container: #27132F;
+
+  /* ── M3 Surface Layers ── */
+  --color-surface: #FBF8FF;
+  --color-surface-dim: #DBD9E0;
+  --color-surface-bright: #FBF8FF;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F5F3FA;
+  --color-surface-container: #EFEDF4;
+  --color-surface-container-high: #E9E7EE;
+  --color-surface-container-highest: #E3E1E8;
+
+  /* ── M3 On-Surface ── */
+  --color-on-surface: #1B1B1F;
+  --color-on-surface-variant: #44474E;
+
+  /* ── M3 Outline ── */
+  --color-outline: #74777F;
+  --color-outline-variant: #C4C6CF;
+
+  /* ── M3 Inverse ── */
+  --color-inverse-surface: #303034;
+  --color-inverse-on-surface: #F2F0F4;
+  --color-inverse-primary: #A8C8FF;
+
+  /* ── M3 Error ── */
+  --color-error: #BA1A1A;
+  --color-on-error: #FFFFFF;
+  --color-error-container: #FFDAD6;
+  --color-on-error-container: #410002;
+
+  /* ── M3 Scrim ── */
+  --color-scrim: #000000;
 }
