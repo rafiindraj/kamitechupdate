@@ -69,7 +69,7 @@ export class App {
         { title: "Kekuatan Layanan", list: ["Metodologi Agile yang transparan dan adaptif (Beck et al., 2001).", "Tech-stack modern (React/Go) yang anti-usang.", "Standar kode internasional dengan code review ketat."] },
         { title: "Tantangan Utama", list: ["Siklus penutupan klien B2B (sales cycle) yang relatif panjang.", "Ketatnya persaingan dengan Software House skala enterprise."] },
         { title: "Peluang (Opportunity)", list: ["Kebijakan digitalisasi UMKM/Korporat dari pemerintah.", "Banyaknya bisnis konvensional yang beralih ke e-commerce & aplikasi custom."] },
-        { title: "Strategi Harga", content: "Menggunakan skema Billable Hours (Jam Kerja) senilai Rp 750.000/jam atau paket Retainer bulanan (Osterwalder & Pigneur, 2010)." }
+        { title: "Strategi Harga", content: "Menggunakan skema Billable Hours (Jam Kerja) senilai Rp 250.000/jam atau paket Retainer bulanan (Osterwalder & Pigneur, 2010)." }
     ];
 
     devSteps = [
