@@ -2156,7 +2156,10 @@
                     <p class="indent-8 leading-[1.15] mb-0">
                         Tim eksekutor bertanggung jawab penuh dalam menghasilkan {{billableHours()}} jam kerja produktif
                         per
-                        bulan, dengan rata-rata beban kerja sebesar 171,8 jam per personel guna menjamin kualitas kode
+                        bulan, dengan rata-rata beban kerja sebesar {{ (billableHours() / 17).toFixed(1) }} jam per
+                        personel
+                        guna
+                        menjamin kualitas aplikasi
                         tetap prima dan sesuai dengan standar metodologi Agile.
                     </p>
                 </div>
