@@ -1,0 +1,609 @@
+        <!-- PAGE 04: BAB II - GAMBARAN UMUM (Part 1) -->
+        <app-page pageId="bab2" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="04">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+
+            <h3 class="flex items-center gap-3 text-[18px] font-bold text-on-surface mb-6 uppercase tracking-wide">
+                <span
+                    class="w-8 h-8 bg-surface border border-outline-variant flex items-center justify-center text-primary text-[18px] rounded font-sans font-bold">II</span>
+                Gambaran Umum
+            </h3>
+
+
+            <div class="space-y-6 flex-grow">
+                <!-- A. Identitas -->
+                <section>
+                    <h4
+                        class="font-bold text-primary text-[18px] mb-1 border-b border-outline-variant pb-1 uppercase tracking-wide font-sans">
+                        A. Identitas Jenis Usaha & Filosofi Nama & Logo</h4>
+
+                    <div
+                        class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant shadow-sm font-sans flex flex-col gap-6 mt-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 text-[16px]">
+                            <div class="sm:col-span-2 border-b border-outline-variant pb-2">
+                                <p
+                                    class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                    Nama
+                                    Perusahaan</p>
+                                <p class="text-[20px] font-bold text-on-surface">PT. KamiTech Solusi Digital</p>
+                            </div>
+                            <div>
+                                <p
+                                    class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                    Sektor
+                                    Industri</p>
+                                <p class="text-[16px] font-bold text-on-surface">Teknologi Informasi & Konsultasi IT</p>
+                            </div>
+                            <div>
+                                <p
+                                    class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                    Bentuk
+                                    Badan Usaha</p>
+                                <p class="text-[16px] font-bold text-on-surface">Perseroan Terbatas (PT) Perorangan</p>
+                            </div>
+                            <div>
+                                <p
+                                    class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                    Tahun
+                                    Pendirian (Estimasi)</p>
+                                <p class="text-[16px] font-bold text-on-surface">Maret 2026</p>
+                            </div>
+                            <div>
+                                <p
+                                    class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                    Skala
+                                    Pasar</p>
+                                <p class="text-[16px] font-bold text-on-surface">B2B (Business to Business)</p>
+                            </div>
+                            <div>
+                                <p class="text-[12px] text-outline uppercase tracking-widest font-bold mb-0.5">Kontak
+                                    Resmi</p>
+                                <p class="font-medium leading-[1.15] mb-0">+62 812-9999-8888</p>
+                            </div>
+                            <div>
+                                <p class="text-[12px] text-outline uppercase tracking-widest font-bold mb-0.5">Website
+                                    & Email</p>
+                                <p class="font-medium leading-[1.15] mb-0">www.kamitech.co.id <br />
+                                    hello&#64;kamitech.co.id</p>
+                            </div>
+
+                            <!-- Tambahan Modal Awal & Realisasi -->
+                            <div
+                                class="sm:col-span-2 pt-4 mt-2 border-t border-outline-variant grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
+                                <div>
+                                    <p
+                                        class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                        Estimasi Modal Awal</p>
+                                    <p class="text-[16px] font-bold text-on-surface font-sans">Rp {{
+                                        initialCapital.toLocaleString() }}</p>
+                                    <p class="text-[11px] text-on-surface-variant mt-0.5">Pendanaan Mandiri & Investor
+                                        (Bootstrap)</p>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
+                                        Target Rencana Realisasi</p>
+                                    <p class="text-[16px] font-bold text-on-surface">Kuartal I / Tahun 2027</p>
+                                    <p class="text-[11px] text-on-surface-variant mt-0.5">Fase operasional dan pelayanan
+                                        klien
+                                        awal</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Paragraf Narasi Realisasi -->
+                    <div class="mt-4 text-[16px] text-on-surface-variant text-justify font-sans">
+                        <p class="indent-8 leading-[1.15] mb-0">
+                            Terkait dengan rencana realisasi pendirian usaha, perusahaan menargetkan tingkat persentase
+                            ketercapaian sebesar <strong>100% dari total estimasi modal awal</strong> (senilai Rp {{
+                            initialCapital.toLocaleString() }}) dapat terserap dan terealisasi secara penuh pada Kuartal
+                            I tahun 2027. Realisasi persentase ini mencakup perampungan seluruh fondasi infrastruktur
+                            utama, mulai dari tahap finalisasi sewa dan renovasi ruang kerja fisik, pengadaan aset
+                            perangkat keras (<em>hardware</em>) untuk tim <em>engineer</em>, hingga pemenuhan
+                            kelengkapan aspek legalitas operasional (PT dan NIB). Dengan tercapainya target 100% serapan
+                            modal pada fase inisiasi tersebut, KamiTech diproyeksikan dapat langsung beroperasi dengan
+                            kapasitas optimal dan mulai mengakuisisi serta melayani klien B2B secara komersial tanpa
+                            adanya hambatan teknis. <b>Rincian lebih komprehensif mengenai alokasi pengeluaran modal dan
+                                biaya operasional atas aset awal ini akan diuraikan lebih lanjut pada Bab Aspek
+                                Keuangan.</b>
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </app-page>
+
+        <!-- PAGE 05: BAB II - GAMBARAN UMUM (Part 2) -->
+        <app-page pageId="bab2-2" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="05">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+
+            <div class="space-y-6 flex-grow flex flex-col">
+                <section class="flex flex-col items-center">
+                    <h4
+                        class="font-bold text-primary text-[18px] mb-8 uppercase tracking-wide font-sans text-center w-full">
+                        Filosofi Nama & Logo</h4>
+
+                    <!-- Big Logo Display -->
+                    <div
+                        class="w-48 h-48 bg-inverse-surface rounded-3xl flex flex-col items-center justify-center shadow-2xl border-4 border-primary relative overflow-hidden rotate-12 hover:rotate-0 transition-transform duration-500 mb-8">
+                        <span class="text-7xl font-bold text-primary font-sans z-10 -rotate-12">K</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-transparent to-white opacity-10 pointer-events-none">
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-on-surface-variant italic mt-2 font-sans text-center mb-8">Gambar 2.1
+                        Logo
+                        Perusahaan KamiTech</p>
+
+                    <!-- Deskripsi Filosofi -->
+                    <div class="w-full max-w-2xl text-[16px] text-on-surface-variant text-justify font-sans space-y-1">
+                        <p class="indent-8 leading-[1.15]">
+                            Nama <strong>"KamiTech"</strong> merupakan akronim yang menggabungkan dua konsep utama,
+                            yakni kata <strong>"Kami"</strong> dan <strong>"Tech"</strong>. Kata "Kami"
+                            merepresentasikan filosofi inklusivitas, semangat kolaborasi, dan kesetaraan. Filosofi ini
+                            mencerminkan komitmen perusahaan untuk menjadi mitra teknologi yang tidak hanya menempatkan
+                            klien sebagai target pasar, melainkan merangkul mereka sebagai satu kesatuan tim ('kami')
+                            dalam merancang dan mengeksekusi transformasi digital yang adaptif dan inovatif.
+                        </p>
+                        <p class="indent-8 leading-[1.15]">
+                            Sedangkan desain logo yang menonjolkan inisial huruf <strong>"K"</strong> berwujud presisi
+                            geometris melambangkan soliditas struktur kode dan arsitektur perangkat lunak yang kokoh.
+                            Penggunaan dominasi warna biru tua (<em>Slate</em>) yang melambangkan profesionalisme,
+                            kepercayaan, dan stabilitas yang menjadi dasar dalam memberikan layanan kepada klien
+                            sedangkan
+                            warna biru laut (<em>Azure Blue</em>)
+                            secara psikologis mewakili inovasi tiada henti, fleksibilitas, tingkat kepercayaan yang
+                            tinggi, dan
+                            keandalan keamanan data di dunia digital yang dinamis.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </app-page>
+
+        <!-- PAGE 06: BAB II - GAMBARAN UMUM (Part 3) -->
+        <app-page pageId="bab2-3" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="06">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+            <div class="space-y-6 flex-grow">
+                <!-- B. Visi Misi Nilai -->
+                <section>
+                    <h4
+                        class="font-bold text-primary text-[18px] mb-1 border-b border-outline-variant pb-1 uppercase tracking-wide font-sans">
+                        B. Visi, Misi, dan Nilai Perusahaan</h4>
+
+                    <div
+                        class="bg-surface-container-low p-6 border-l-4 border-primary rounded-r-xl shadow-sm mt-4 mb-6">
+                        <h5 class="font-bold text-on-surface text-[16px] mb-1 font-sans tracking-widest uppercase">Visi
+                        </h5>
+                        <p class="text-[16px] text-on-surface-variant italic leading-[1.15]">"Menjadi partner teknologi
+                            terpercaya di Asia Tenggara yang mendorong transformasi digital perusahaan melalui solusi
+                            perangkat lunak yang inovatif, aman, dan scalable."</p>
+                    </div>
+
+                    <div class="bg-surface-container-low p-6 border-l-4 border-on-surface rounded-r-xl shadow-sm mb-6">
+                        <h5 class="font-bold text-on-surface text-[16px] mb-3 font-sans tracking-widest uppercase">Misi
+                        </h5>
+                        <ul class="text-[16px] text-on-surface-variant space-y-2">
+                            <li class="flex items-start gap-2"><span class="text-primary">✦</span> <span
+                                    class="leading-[1.15]">Membangun arsitektur perangkat lunak dengan standar kualitas
+                                    global.</span></li>
+                            <li class="flex items-start gap-2"><span class="text-primary">✦</span> <span
+                                    class="leading-[1.15]">Mengimplementasikan metodologi Agile untuk pengiriman produk
+                                    yang efisien.</span></li>
+                            <li class="flex items-start gap-2"><span class="text-primary">✦</span> <span
+                                    class="leading-[1.15]">Mengedepankan keamanan data dalam setiap siklus
+                                    pengembangan.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 border border-outline-variant rounded-xl shadow-sm">
+                        <h5 class="font-bold text-on-surface text-[16px] mb-4 font-sans tracking-widest uppercase">Nilai
+                            Perusahaan</h5>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#E3F2FD] text-primary flex items-center justify-center font-bold text-[14px]">
+                                    P</div>
+                                <div class="flex-grow">
+                                    <strong class="text-[14px] text-on-surface block uppercase">Professionalism</strong>
+                                    <span class="text-[12px] text-on-surface-variant">Standar kerja dan etika
+                                        tinggi.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#E3F2FD] text-primary flex items-center justify-center font-bold text-[14px]">
+                                    C</div>
+                                <div class="flex-grow">
+                                    <strong class="text-[14px] text-on-surface block uppercase">Collaboration</strong>
+                                    <span class="text-[12px] text-on-surface-variant">Sinergi tim dan kemitraan.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#E3F2FD] text-primary flex items-center justify-center font-bold text-[14px]">
+                                    C</div>
+                                <div class="flex-grow">
+                                    <strong class="text-[14px] text-on-surface block uppercase">Continuous
+                                        Improvement</strong>
+                                    <span class="text-[12px] text-on-surface-variant">Terus belajar dan
+                                        berkembang.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#E3F2FD] text-primary flex items-center justify-center font-bold text-[14px]">
+                                    R</div>
+                                <div class="flex-grow">
+                                    <strong class="text-[14px] text-on-surface block uppercase">Reliability</strong>
+                                    <span class="text-[12px] text-on-surface-variant">Solusi andal dan
+                                        terpercaya.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#E3F2FD] text-primary flex items-center justify-center font-bold text-[14px]">
+                                    C</div>
+                                <div class="flex-grow">
+                                    <strong class="text-[14px] text-on-surface block uppercase">Client Centric</strong>
+                                    <span class="text-[12px] text-on-surface-variant">Fokus pada kepuasan klien.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#E3F2FD] text-primary flex items-center justify-center font-bold text-[14px]">
+                                    I</div>
+                                <div class="flex-grow">
+                                    <strong class="text-[14px] text-on-surface block uppercase">Innovation</strong>
+                                    <span class="text-[12px] text-on-surface-variant">Inovasi teknologi tanpa
+                                        batas.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </app-page>
+
+        <!-- PAGE 07: BAB II - GAMBARAN UMUM (Part 4) -->
+        <app-page pageId="bab2-4" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="07">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+            <div class="space-y-6 flex-grow">
+                <!-- C. Tujuan-->
+                <section>
+                    <h4
+                        class="font-bold text-primary text-[18px] mb-1 border-b border-outline-variant pb-1 uppercase tracking-wide font-sans">
+                        C. Tujuan</h4>
+                    <div class="text-[16px] text-on-surface-variant text-justify font-sans mb-4">
+                        <p class="indent-8 leading-[1.15] mb-0">Secara umum, pendirian PT. KamiTech Solusi Digital
+                            memiliki tujuan strategis yang difokuskan pada penyelesaian kendala operasional klien dan
+                            peningkatan efisiensi secara berkelanjutan melalui nilai-nilai utama berikut:</p>
+                    </div>
+                    <ul class="space-y-4 text-[16px] text-on-surface-variant font-sans pl-2">
+                        @for (goal of goalsArray; track $index) {
+                        <li class="flex items-start gap-4">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center bg-inverse-surface text-white text-[14px] rounded-full flex-shrink-0 font-bold mt-0.5">{{
+                                $index + 1 }}</span>
+                            <div>
+                                <strong class="text-[16px] block text-on-surface mb-1 uppercase tracking-wide">{{
+                                    goal.title }}</strong>
+                                <span
+                                    class="font-medium leading-[1.15] text-[16px] text-on-surface-variant block text-justify">{{
+                                    goal.desc }}</span>
+                            </div>
+                        </li>
+                        }
+                    </ul>
+                </section>
+            </div>
+        </app-page>
+
+        <!-- PAGE 08: BAB II - GAMBARAN UMUM (Part 5) -->
+        <app-page pageId="bab2-5" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="08">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+            <div class="space-y-6 flex-grow">
+                <!-- D. Lokasi -->
+                <section>
+                    <h4
+                        class="font-bold text-primary text-[18px] mb-4 border-b border-outline-variant pb-1 uppercase tracking-wide font-sans">
+                        D. Lokasi dan Asas Strategis</h4>
+                    <div class="text-[16px] text-on-surface-variant text-justify font-sans space-y-4">
+                        <p class="leading-[1.15] mb-0"><strong class="text-on-surface font-sans">Alamat Operasional
+                                Utama:</strong><br /> Jl. Karapitan No.116, Cikawao, Lengkong, Kota Bandung, Jawa Barat
+                            40261.</p>
+
+                        <!-- Gambar Kota Bandung -->
+                        <div class="w-full flex flex-col items-center justify-center my-4">
+                            <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/720x0/webp/photo/2024/07/11/579839050.jpg"
+                                alt="Kawasan Perkotaan Asia Afrika Bandung"
+                                class="w-full h-56 object-cover object-center rounded-xl shadow-sm border border-outline-variant"
+                                onerror="this.src='https://placehold.co/800x300/0F172A/38BDF8?text=Kawasan+Asia+Afrika+Bandung'" />
+                            <p class="text-[12px] text-on-surface-variant italic mt-2 font-sans text-center">Gambar 2.2
+                                Kawasan
+                                Strategis Kota Bandung sebagai Tech Hub</p>
+                        </div>
+
+                        <p class="indent-8 leading-[1.15] mb-0">Pemilihan Kota Bandung sebagai basis kantor pusat
+                            (Headquarter) bukan tanpa alasan. Bandung dikenal luas sebagai salah satu ekosistem
+                            teknologi (<em>Tech Hub</em>) terbesar dan paling berkembang di Indonesia. Asas strategis
+                            secara demografis sangat menguntungkan, mengingat kota ini dikelilingi oleh institusi
+                            pendidikan tinggi terkemuka. Hal ini memberikan akses langsung secara konsisten kepada
+                            <em>talent pool</em> rekayasa perangkat lunak (<em>software engineer</em>) yang berkualitas
+                            tinggi.
+                        </p>
+
+                        <p class="indent-8 leading-[1.15] mb-0">Dari segi kelayakan ekonomi (<em>economic
+                                viability</em>), biaya operasional (OPEX) harian di Bandung relatif lebih efisien jika
+                            dikomparasikan dengan ibukota Jakarta. Tingkat efisiensi ini memungkinkan KamiTech untuk
+                            mengalokasikan anggaran lebih besar pada pengembangan kualitas infrastruktur perangkat keras
+                            (<em>hardware</em>) dan pemeliharaan peladen (<em>cloud server</em>).</p>
+
+                        <p class="indent-8 leading-[1.15] mb-0">Secara infrastruktur, kawasan operasional kami juga
+                            telah terintegrasi dengan ketersediaan jaringan telekomunikasi berkecepatan tinggi (fiber
+                            optik & 5G), lingkungan kerja komunal (<em>coworking ecosystem</em>) yang kondusif untuk
+                            pertemuan bisnis, serta stabilitas pasokan energi listrik yang esensial dalam menunjang
+                            kegiatan operasional layanan 24/7 kepada klien B2B skala nasional maupun internasional.</p>
+                    </div>
+                </section>
+
+            </div>
+        </app-page>
+
+        <!-- PAGE 09: BAB II - GAMBARAN UMUM (Part 6) -->
+        <app-page pageId="bab2-6" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="09">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+            <div class="flex flex-col flex-grow">
+                <!-- E. Struktur Organisasi Full Page Design -->
+                <section class="flex-grow flex flex-col">
+                    <h4
+                        class="font-bold text-primary text-[18px] mb-4 border-b border-outline-variant pb-1 uppercase tracking-wide font-sans">
+                        E. Susunan Organisasi</h4>
+
+                    <div class="grid grid-cols-2 gap-6 w-full mt-6 items-start flex-grow">
+                        <!-- LEFT BRANCH: Business & Finance (Suci) -->
+                        <div class="flex flex-col items-center relative w-full">
+                            <!-- CEO -->
+                            <div
+                                class="bg-inverse-surface text-white px-4 py-3 rounded-2xl shadow-lg border-b-4 border-primary text-center w-[14rem] z-10 hover:scale-105 transition-transform">
+                                <p class="font-bold text-[16px] font-sans">Suci Septia Hamzah</p>
+                                <p class="text-[11px] text-primary uppercase tracking-widest mt-1 font-sans">CEO /
+                                    Founder</p>
+                            </div>
+
+                            <!-- Line down to Jeff & Jane -->
+                            <div class="w-0.5 h-8 bg-slate-300"></div>
+                            <div class="w-full max-w-[16rem] h-0.5 bg-slate-300"></div>
+                            <div class="grid grid-cols-2 w-full max-w-[16rem] px-8">
+                                <div class="w-0.5 h-8 bg-slate-300 justify-self-start"></div>
+                                <div class="w-0.5 h-8 bg-slate-300 justify-self-end"></div>
+                            </div>
+
+                            <!-- Jeff & Jane -->
+                            <div class="grid grid-cols-2 gap-4 w-full max-w-[18rem] z-10">
+                                <div
+                                    class="bg-white border border-outline-variant px-2 py-3 rounded-xl shadow-md text-center w-full relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-8 h-8 bg-surface-container rounded-bl-full">
+                                    </div>
+                                    <p class="font-bold text-[14px] text-slate-800 font-sans relative z-10">Jeff
+                                        Sullivan</p>
+                                    <p
+                                        class="text-[10px] text-on-surface-variant uppercase tracking-widest font-sans mt-1 relative z-10">
+                                        Finance Strategist</p>
+                                </div>
+                                <div
+                                    class="bg-white border border-outline-variant px-2 py-3 rounded-xl shadow-md text-center w-full relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-8 h-8 bg-surface-container rounded-bl-full">
+                                    </div>
+                                    <p class="font-bold text-[14px] text-slate-800 font-sans relative z-10">Jane Collei
+                                    </p>
+                                    <p
+                                        class="text-[10px] text-on-surface-variant uppercase tracking-widest font-sans mt-1 relative z-10">
+                                        Business Analyst</p>
+                                </div>
+                            </div>
+
+                            <!-- Line down to Sub-divisions (Acc, Sales, Tax, Mkt) -->
+                            <div class="w-0.5 h-8 bg-slate-300"></div>
+                            <div class="w-full max-w-[20rem] h-0.5 bg-slate-300"></div>
+                            <div class="flex justify-between w-full max-w-[20rem] px-4">
+                                <div class="w-0.5 h-6 bg-slate-300"></div>
+                                <div class="w-0.5 h-6 bg-slate-300"></div>
+                                <div class="w-0.5 h-6 bg-slate-300"></div>
+                                <div class="w-0.5 h-6 bg-slate-300"></div>
+                            </div>
+
+                            <!-- Sub-divisions -->
+                            <div class="grid grid-cols-4 gap-2 w-full max-w-[22rem] z-10">
+                                <div
+                                    class="bg-surface-container-low border border-outline-variant py-3 rounded-xl text-center shadow-sm hover:bg-surface-container">
+                                    <p class="font-bold text-[11px] text-on-surface-variant uppercase tracking-wider">
+                                        Acct.</p>
+                                </div>
+                                <div
+                                    class="bg-surface-container-low border border-outline-variant py-3 rounded-xl text-center shadow-sm hover:bg-surface-container">
+                                    <p class="font-bold text-[11px] text-on-surface-variant uppercase tracking-wider">
+                                        Sales &
+                                        Mrkt</p>
+                                </div>
+                                <div
+                                    class="bg-surface-container-low border border-outline-variant py-3 rounded-xl text-center shadow-sm hover:bg-surface-container">
+                                    <p class="font-bold text-[11px] text-on-surface-variant uppercase tracking-wider">
+                                        Tax</p>
+                                </div>
+                                <div
+                                    class="bg-surface-container-low border border-outline-variant py-3 rounded-xl text-center shadow-sm hover:bg-surface-container">
+                                    <p class="font-bold text-[11px] text-on-surface-variant uppercase tracking-wider">
+                                        Lgstc</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT BRANCH: Technology (Rafi) -->
+                        <div class="flex flex-col items-center relative w-full">
+                            <!-- CTO -->
+                            <div
+                                class="bg-inverse-surface text-white px-4 py-3 rounded-2xl shadow-lg border-b-4 border-primary text-center w-[14rem] z-10 hover:scale-105 transition-transform">
+                                <p class="font-bold text-[16px] font-sans">Rafi Indrajati</p>
+                                <p class="text-[11px] text-primary uppercase tracking-widest mt-1 font-sans">CTO /
+                                    co-Founder</p>
+                            </div>
+
+                            <!-- Tambahan DevSecOps Shape -->
+                            <div class="w-0.5 h-8 bg-slate-300"></div>
+                            <div
+                                class="bg-white border border-outline-variant px-6 py-3 rounded-xl text-center shadow-md w-3/4 max-w-[14rem] relative overflow-hidden z-10">
+                                <div class="absolute top-0 right-0 w-8 h-8 bg-surface-container rounded-bl-full"></div>
+                                <p class="font-bold text-[14px] text-slate-800 font-sans relative z-10">DevSecOps</p>
+                                <p
+                                    class="text-[10px] text-on-surface-variant uppercase tracking-widest font-sans mt-1 relative z-10">
+                                    Infra & Security</p>
+                            </div>
+
+                            <!-- Line down to Tech Team -->
+                            <div class="w-0.5 h-8 bg-slate-300"></div>
+                            <div class="w-full max-w-[16rem] h-0.5 bg-slate-300"></div>
+                            <div class="flex justify-between w-full max-w-[16rem] px-6">
+                                <div class="w-0.5 h-8 bg-slate-300"></div>
+                                <div class="w-0.5 h-8 bg-slate-300"></div>
+                                <div class="w-0.5 h-8 bg-slate-300"></div>
+                            </div>
+
+                            <!-- Branches L3: Engineering & Design -->
+                            <div class="grid grid-cols-3 gap-3 w-full max-w-[18rem] z-10">
+                                <div
+                                    class="bg-white border border-outline-variant px-2 py-3 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:scale-105 transition-transform">
+                                    <div
+                                        class="w-8 h-8 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mb-1 font-bold font-sans text-[12px]">
+                                        FE</div>
+                                    <p class="font-bold text-[12px] text-slate-800 font-sans">Frontend</p>
+                                    <p
+                                        class="text-[9px] text-on-surface-variant uppercase tracking-widest mt-1 font-sans">
+                                        React
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white border border-outline-variant px-2 py-3 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:scale-105 transition-transform">
+                                    <div
+                                        class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mb-1 font-bold font-sans text-[12px]">
+                                        BE</div>
+                                    <p class="font-bold text-[12px] text-slate-800 font-sans">Backend</p>
+                                    <p
+                                        class="text-[9px] text-on-surface-variant uppercase tracking-widest mt-1 font-sans">
+                                        Go /
+                                        Node</p>
+                                </div>
+                                <div
+                                    class="bg-white border border-outline-variant px-2 py-3 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:scale-105 transition-transform">
+                                    <div
+                                        class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-1 font-bold font-sans text-[12px]">
+                                        QA</div>
+                                    <p class="font-bold text-[12px] text-slate-800 font-sans">UI/UX QA</p>
+                                    <p
+                                        class="text-[9px] text-on-surface-variant uppercase tracking-widest mt-1 font-sans">
+                                        Testing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-on-surface-variant italic mt-auto font-sans text-center">Gambar 2.3 Bagan
+                        Susunan
+                        Organisasi Perusahaan</p>
+                </section>
+            </div>
+        </app-page>
+
+        <!-- PAGE 10: BAB II - GAMBARAN UMUM (Part 7) -->
+        <app-page pageId="bab2-7" watermarkOpacity="0.03" contentClass="flex flex-col"
+            footerText="Dokumen Studi Kelayakan Bisnis" pageNum="10">
+            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+                <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Gambaran
+                    Umum</span>
+                <span class="text-[14px] font-sans font-bold text-primary">KamiTech Business Plan</span>
+            </div>
+            <div class="space-y-5 flex-grow">
+                <!-- F. Deskripsi Peran -->
+                <section>
+                    <div class="text-[16px] text-on-surface-variant text-justify font-sans space-y-4">
+                        <p class="leading-[1.15] mb-0">Berikut adalah penjelasan masing-masing peran pendukung dalam
+                            struktur
+                            organisasi PT. KamiTech Solusi Digital:</p>
+                        <br>
+                        <ul class="space-y-3">
+                            <li class="leading-[1.15]">
+                                <strong class="text-on-surface">1. Accounting</strong><br />
+                                Bertanggung jawab dalam mengelola keuangan perusahaan, mulai dari pencatatan transaksi,
+                                penyusunan laporan keuangan, hingga pengendalian arus kas. Peran ini sangat penting
+                                untuk memastikan kondisi keuangan perusahaan tetap sehat dan terkontrol.
+                            </li>
+                            <li class="leading-[1.15]">
+                                <strong class="text-on-surface">2. Sales & Marketing</strong><br />
+                                Berperan dalam merancang strategi pemasaran, membangun brand awareness, menjalin
+                                hubungan dengan klien, melakukan penawaran layanan, serta mencapai target penjualan,
+                                serta
+                                mengkomunikasikan layanan perusahaan kepada target pasar. Dalam bisnis konsultasi IT,
+                                marketing memiliki peran penting dalam membangun citra profesional dan menarik calon
+                                klien.
+                            </li>
+                            <li class="leading-[1.15]">
+                                <strong class="text-on-surface">3. Tax</strong><br />
+                                Bertanggung jawab dalam pengelolaan perpajakan perusahaan, termasuk perhitungan,
+                                pelaporan, serta kepatuhan terhadap peraturan perpajakan yang berlaku. Hal ini penting
+                                untuk memastikan perusahaan berjalan sesuai dengan ketentuan hukum.
+                            </li>
+                            <li class="leading-[1.15]">
+                                <strong class="text-on-surface">4. Logistic</strong><br />
+                                Berfokus pada penyediaan sarana dan prasarana teknologi serta kebutuhan operasional
+                                lainnya. Seperti perangkat teknologi, software dan tools pendukung, infrastruktur dan
+                                fasilitas kantor, sistem komunikasi dan kolaborasi, serta kebutuhan administrasi dan
+                                operasional
+                            </li>
+                            <li class="leading-[1.15]">
+                                <strong class="text-on-surface">5. Tim Engineering (Frontend, Backend, UI/UX QA, &
+                                    DevSecOps)</strong><br />
+                                Mengeksekusi, mengelola pembuatan antarmuka (UI) interaktif serta membangun logika
+                                <em>server</em>
+                                dan sistem basis data terpusat menggunakan standar teknologi modern (React, Node.js,
+                                Golang) dan Mengelola infrastruktur <em>cloud</em>, memelihara alur CI/CD, dan
+                                memastikan standar
+                                keamanan informasi serta perlindungan data klien terjaga pada setiap tahap
+                                <em>deployment</em>.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </app-page>

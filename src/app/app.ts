@@ -2,11 +2,14 @@ import { Component, computed, signal, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PageComponent } from './page/page.component';
+import { Pendahuluan } from './components/pendahuluan/pendahuluan';
+import { GambaranUmum } from './components/gambaran-umum/gambaran-umum';
+import { RencanaPembangunan } from './components/rencana-pembangunan/rencana-pembangunan';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, FormsModule, PageComponent],
+    imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan],
     templateUrl: './app.html',
     styleUrl: './app.css',
     encapsulation: ViewEncapsulation.None
@@ -280,10 +283,14 @@ export class App {
         return lastYear.cumulative >= 0 && lastYear.fcf >= 0;
     });
 
-    onHoursChange(event: Event) {
-        const target = event.target as HTMLInputElement;
-        if (target) {
-            this.billableHours.set(parseInt(target.value, 10));
+    onHoursChange(event: Event | number) {
+        if (typeof event === 'number') {
+            this.billableHours.set(event);
+        } else {
+            const target = event.target as HTMLInputElement;
+            if (target) {
+                this.billableHours.set(parseInt(target.value, 10));
+            }
         }
     }
 
