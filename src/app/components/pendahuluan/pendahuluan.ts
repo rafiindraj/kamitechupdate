@@ -6,7 +6,7 @@ import { PageComponent } from '../../page/page.component';
   standalone: true,
   imports: [PageComponent],
   templateUrl: './pendahuluan.html',
-  styles: [`:host { display: contents; }`],
+  styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Pendahuluan {}
