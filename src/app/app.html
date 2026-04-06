@@ -399,23 +399,27 @@
                 <div class="flex justify-between pl-6 items-end group mt-1"><span class="bg-white pr-2 text-[16px]">A.
                         Identitas Jenis Usaha & Filosofi Nama & Logo</span><span
                         class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span><span
-                        class="bg-white pl-2 text-[16px]">04</span></div>
+                        class="bg-white pl-2 text-[16px]">05</span></div>
                 <div class="flex justify-between pl-6 items-end group mt-1"><span class="bg-white pr-2 text-[16px]">B.
                         Visi, Misi, dan Nilai Perusahaan</span><span
                         class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span><span
-                        class="bg-white pl-2 text-[16px]">06</span></div>
+                        class="bg-white pl-2 text-[16px]">07</span></div>
                 <div class="flex justify-between pl-6 items-end group mt-1"><span class="bg-white pr-2 text-[16px]">C.
                         Tujuan</span><span
                         class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span><span
-                        class="bg-white pl-2 text-[16px]">07</span></div>
+                        class="bg-white pl-2 text-[16px]">08</span></div>
                 <div class="flex justify-between pl-6 items-end group mt-1"><span class="bg-white pr-2 text-[16px]">D.
                         Lokasi dan Asas Strategis</span><span
                         class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span><span
-                        class="bg-white pl-2 text-[16px]">08</span></div>
+                        class="bg-white pl-2 text-[16px]">09</span></div>
                 <div class="flex justify-between pl-6 items-end group mt-1"><span class="bg-white pr-2 text-[16px]">E.
                         Susunan Organisasi</span><span
                         class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span><span
-                        class="bg-white pl-2 text-[16px]">09</span></div>
+                        class="bg-white pl-2 text-[16px]">10</span></div>
+                <div class="flex justify-between pl-6 items-end group mt-1"><span class="bg-white pr-2 text-[16px]">F.
+                        Hasil Kerja, Portofolio, & Produk </span><span
+                        class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span><span
+                        class="bg-white pl-2 text-[16px]">12</span></div>
                 <!-- III. RENCANA DAN ASPEK PEMBANGUNAN -->
                 <div class="flex justify-between font-bold text-[18px] mt-1 text-on-surface"><span>III. RENCANA DAN
                         ASPEK PEMBANGUNAN</span></div>
@@ -525,6 +529,16 @@
                     <span class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span>
                     <span class="bg-white pl-2 text-[16px]">09</span>
                 </div>
+                <div class="flex justify-between pl-2 items-end group mt-4">
+                    <span class="bg-white pr-2 text-[16px]">Gambar 2.4 Website Susan IOT</span>
+                    <span class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span>
+                    <span class="bg-white pl-2 text-[16px]">12</span>
+                </div>
+                <div class="flex justify-between pl-2 items-end group mt-4">
+                    <span class="bg-white pr-2 text-[16px]">Gambar 2.5 Website Manajemen Kinerja Setsuna</span>
+                    <span class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span>
+                    <span class="bg-white pl-2 text-[16px]">12</span>
+                </div>
                 <!-- <div class="flex justify-between pl-2 items-end group mt-2">
                     <span class="bg-white pr-2 text-[16px]">Gambar 1.2 Statistik Serangan Siber di Indonesia</span>
                     <span class="flex-grow border-b-2 border-dotted border-outline-variant mx-2 mb-1"></span>
@@ -537,40 +551,23 @@
         <app-pendahuluan></app-pendahuluan>
 
         <!-- BAB II: GAMBARAN UMUM -->
-        <app-gambaran-umum
-            [initialCapital]="initialCapital"
-            [goalsArray]="goalsArray"
-        ></app-gambaran-umum>
+        <app-gambaran-umum [initialCapital]="initialCapital" [goalsArray]="goalsArray"></app-gambaran-umum>
 
         <!-- BAB III: RENCANA PEMBANGUNAN -->
-        <app-rencana-pembangunan
-            [servicesItems]="servicesItems"
-            [devSteps]="devSteps"
-            [tenagaKerja]="tenagaKerja"
-            [initialCapital]="initialCapital"
-            [opexGajiDetail]="opexGajiDetail"
-            [opexOperasionalDetail]="opexOperasionalDetail"
-            [opexSoftwareDetail]="opexSoftwareDetail"
-            [opexMarketingDetail]="opexMarketingDetail"
-            [salaryCostValue]="salaryCostValue"
-            [operationalCostValue]="operationalCostValue"
-            [softwareCostValue]="softwareCostValue"
-            [marketingCostValue]="marketingCostValue"
-            [monthlyFixedCostTotal]="monthlyFixedCostTotal()"
-            [billableHours]="billableHours()"
-            (billableHoursChange)="onHoursChange($event)"
-            [totalRevenue]="totalRevenue()"
-            [totalCOGS]="totalCOGS()"
-            [totalMonthlyExpense]="totalMonthlyExpense()"
-            [monthlyNetProfit]="monthlyNetProfit()"
-            [roiProjection]="roiProjection()"
-            [cashFlowTableData]="cashFlowTableData()"
-            [marketAnalysis]="marketAnalysis"
-            [keys]="keys"
-        ></app-rencana-pembangunan>
+        <app-rencana-pembangunan [servicesItems]="servicesItems" [devSteps]="devSteps" [tenagaKerja]="tenagaKerja"
+            [initialCapital]="initialCapital" [opexGajiDetail]="opexGajiDetail"
+            [opexOperasionalDetail]="opexOperasionalDetail" [opexSoftwareDetail]="opexSoftwareDetail"
+            [opexMarketingDetail]="opexMarketingDetail" [salaryCostValue]="salaryCostValue"
+            [operationalCostValue]="operationalCostValue" [softwareCostValue]="softwareCostValue"
+            [marketingCostValue]="marketingCostValue" [monthlyFixedCostTotal]="monthlyFixedCostTotal()"
+            [billableHours]="billableHours()" (billableHoursChange)="onHoursChange($event)"
+            [totalRevenue]="totalRevenue()" [totalCOGS]="totalCOGS()" [totalMonthlyExpense]="totalMonthlyExpense()"
+            [monthlyNetProfit]="monthlyNetProfit()" [roiProjection]="roiProjection()"
+            [cashFlowTableData]="cashFlowTableData()" [marketAnalysis]="marketAnalysis"
+            [keys]="keys"></app-rencana-pembangunan>
 
-        <!-- PAGE 25: PENUTUP -->
-        <app-page pageId="penutup" pageNum="25" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+        <!-- PAGE 27: PENUTUP -->
+        <app-page pageId="penutup" pageNum="27" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
             contentClass="flex flex-col">
             <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
                     class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Kesimpulan &
@@ -654,8 +651,8 @@
 
         </app-page>
 
-        <!-- PAGE 26: DAFTAR PUSTAKA & LAMPIRAN -->
-        <app-page pageId="pustaka" pageNum="26" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+        <!-- PAGE 28: DAFTAR PUSTAKA & LAMPIRAN -->
+        <app-page pageId="pustaka" pageNum="28" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
             contentClass="flex flex-col">
             <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
                     class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Referensi</span><span
@@ -664,68 +661,53 @@
 
             <h3
                 class="flex items-center gap-4 text-[18px] font-bold text-on-surface mb-6 uppercase tracking-[0.2em] font-sans">
-                Daftar Pustaka & Lampiran
+                Daftar Pustaka &amp; Lampiran
             </h3>
 
             <div class="text-[16px] text-on-surface-variant font-sans flex-grow w-full">
                 <div class="mb-8">
                     <h4 class="font-bold text-primary mb-1 text-[18px]">Daftar Pustaka</h4>
-                    <ul class="list-disc pl-5 space-y-1.5 text-[16px] text-justify leading-[1.15]">
-                        <li>Antara News. (2023). <em>Ekonomi digital Indonesia siap capai GMV Rp1,7 kuadriliun di
-                                2025</em>.</li>
-                        <li>Badan Pusat Statistik. (2024). <em>Statistik Telekomunikasi Indonesia 2024</em>.</li>
-                        <!-- <li>Badan Siber dan Sandi Negara (BSSN). (2023). <em>Laporan Tahunan Keamanan Siber
-                                Indonesia</em>.</li> -->
-                        <!-- <li>Beck, K., et al. (2001). <em>Manifesto for Agile Software Development</em>. Agile
-                            Alliance.</li> -->
-                        <li>Google, Temasek, Bain & Company. (2023). <em>e-Conomy SEA Report 2023</em>.</li>
-                        <!-- <li>IBAI. (2023). <em>Largest in Southeast Asia, Indonesia’s Digital Economy Value Surpasses
-                                IDR 1,266 Trillion</em>.</li> -->
-                        <!-- <li>Laudon, K. C., & Laudon, J. P. (2018). <em>Management Information Systems: Managing the
-                                Digital Firm</em>. Pearson.</li> -->
-                        <li>Barry Libert, Megan Beck, and Jerry Kaufman. (2016). <em>The Four Profit Center: How to
-                                Create a Sustainable Competitive Advantage</em>. John Wiley & Sons.</li>
-                        <li>Osterwalder, A., & Pigneur, Y. (2010). <em>Business Model Generation: A Handbook for
-                                Visionaries, Game Changers, and Challengers</em>. John Wiley & Sons.</li>
-                        <!-- <li>Ries, E. (2011). <em>The Lean Startup: How Today's Entrepreneurs Use Continuous
-                                Innovation to Create Radically Successful Businesses</em>. Crown Business.</li> -->
-                        <li>Sommerville, I. (2015). <em>Software Engineering</em> (10th ed.). Pearson.</li>
-                        <li>Ravelinda, Z. (2015), Ramadhan Rian, A. (2015), Iswanto, P. (2015), <em> Pengaruh Penerapan
-                                Teknologi Informasi Terhadap Efisiensi Operasional Perusahaan Manufaktur</em> (Vol. 4,
-                            No. 2).
-                            Jurnal JAMAN.
-                        </li>
-                        <li>Payscale.com. <em>Hourly Rate for Skill: IT Consulting</em></li>
-                    </ul>
+                    <div class="space-y-2 text-[16px] text-justify leading-[1.15]">
+                        <p class="pl-10 -indent-10 mb-0">Antara News. (2023). <em>Ekonomi digital Indonesia siap capai
+                                GMV Rp1,7 kuadriliun di 2025</em>. Antara News. https://www.antaranews.com</p>
+                        <p class="pl-10 -indent-10 mb-0">Badan Pusat Statistik. (2024). <em>Statistik telekomunikasi
+                                Indonesia 2024</em>. Badan Pusat Statistik.</p>
+                        <p class="pl-10 -indent-10 mb-0">Google, Temasek, &amp; Bain &amp; Company. (2025). <em>e-Conomy
+                                SEA 2025</em>. https://blog.google/intl/id-id</p>
+                        <p class="pl-10 -indent-10 mb-0">Kementerian Komunikasi dan Digital. (2025). <em>Indeks
+                                Masyarakat Digital Indonesia (IMDI) 2025</em>. Kementerian Komdigi.
+                            https://komdigi.go.id</p>
+                        <p class="pl-10 -indent-10 mb-0">Libert, B., Beck, M., &amp; Kaufman, J. (2016). <em>The four
+                                profit center: How to create a sustainable competitive advantage</em>. John Wiley &amp;
+                            Sons.</p>
+                        <p class="pl-10 -indent-10 mb-0">Numbeo. (2025). <em>Cost of living comparison between Bandung
+                                and Jakarta</em>. Numbeo. Retrieved March 2026, from
+                            https://www.numbeo.com/cost-of-living/compare_cities.jsp</p>
+                        <p class="pl-10 -indent-10 mb-0">Osterwalder, A., &amp; Pigneur, Y. (2010). <em>Business model
+                                generation: A handbook for visionaries, game changers, and challengers</em>. John Wiley
+                            &amp; Sons.</p>
+                        <p class="pl-10 -indent-10 mb-0">PayScale. (n.d.). <em>Hourly rate for skill: IT
+                                consulting</em>. PayScale. Retrieved March 2026, from https://www.payscale.com</p>
+                        <p class="pl-10 -indent-10 mb-0">Ravelinda, Z., Ramadhan Rian, A., &amp; Iswanto, P. (2015).
+                            Pengaruh penerapan teknologi informasi terhadap efisiensi operasional perusahaan manufaktur.
+                            <em>Jurnal JAMAN, 4</em>(2).
+                        </p>
+                        <p class="pl-10 -indent-10 mb-0">Sommerville, I. (2015). <em>Software engineering</em> (10th
+                            ed.). Pearson.</p>
+                        <p class="pl-10 -indent-10 mb-0">StartupBlink. (2025). <em>Global Startup Ecosystem Index 2025:
+                                Bandung</em>. StartupBlink.
+                            https://www.startupblink.com/startup-ecosystem/bandung-id</p>
+                        <p class="pl-10 -indent-10 mb-0">Telkom University. (2025). <em>Kemitraan strategis Telkom
+                                University dan PT Telkom Indonesia untuk pengembangan AI Talent Pool</em>. Telkom
+                            University. https://telkomuniversity.ac.id</p>
+                    </div>
                 </div>
-
-                <!-- <div>
-                 <h4 class="font-bold text-primary mb-1 text-[18px]">Lampiran</h4>
-                 <ul class="list-disc pl-5 space-y-2 text-[16px]">
-                   <li class="flex flex-col">
-                     <strong class="leading-[1.15]">Lampiran I: Curriculum Vitae (CV) Tim Manajemen</strong>
-                     <span class="text-[14px] text-on-surface-variant leading-[1.15]">Berisi profil lengkap, pengalaman, dan sertifikasi IT dari para pendiri KamiTech.</span>
-                   </li>
-                   <li class="flex flex-col">
-                     <strong class="leading-[1.15]">Lampiran II: Detail Proyeksi Arus Kas (Cash Flow) 3 Tahun</strong>
-                     <span class="text-[14px] text-on-surface-variant leading-[1.15]">Perincian tabel cash flow bulanan yang lebih mendalam untuk tiga tahun operasional pertama.</span>
-                   </li>
-                   <li class="flex flex-col">
-                     <strong class="leading-[1.15]">Lampiran III: Mockup / Wireframe Portofolio Aplikasi</strong>
-                     <span class="text-[14px] text-on-surface-variant leading-[1.15]">Contoh desain UI/UX dari proyek-proyek sebelumnya yang telah diselesaikan.</span>
-                   </li>
-                   <li class="flex flex-col">
-                     <strong class="leading-[1.15]">Lampiran IV: Dokumen Legalitas Usaha (Draft)</strong>
-                     <span class="text-[14px] text-on-surface-variant leading-[1.15]">Draft Akta Pendirian PT, NIB, dan NDA standar untuk klien KamiTech.</span>
-                   </li>
-                 </ul>
-               </div> -->
             </div>
 
         </app-page>
 
-        <!-- PAGE 27: GLOSSARIUM -->
-        <app-page pageId="glossarium" pageNum="27" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+        <!-- PAGE 29: GLOSSARIUM -->
+        <app-page pageId="glossarium" pageNum="29" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
             contentClass="flex flex-col">
             <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
                     class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Glossarium</span><span
@@ -734,7 +716,7 @@
 
             <h3
                 class="flex items-center gap-4 text-[18px] font-bold text-on-surface mb-6 uppercase tracking-[0.2em] font-sans">
-                Glosarium Istilah Keuangan & Bisnis
+                Glosarium Istilah Keuangan &amp; Bisnis
             </h3>
 
             <div class="text-[16px] text-on-surface-variant font-sans flex-grow w-full">
