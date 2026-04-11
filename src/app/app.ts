@@ -25,7 +25,7 @@ export class App {
     readonly operationalCostValue = 30000000;
     readonly softwareCostValue = 45000000;
     readonly salaryCostValue = 404000000;
-    readonly initialCapital = 50000000 + 100000000 + 254000000 + 36000000 + 6500000 + 2550000 + 4950000;
+    readonly initialCapital = 50000000 + 100000000 + 254000000 + 36000000 + 6500000 + 7500000 + 4950000;
 
     // Computed Values
     totalRevenue = computed(() => this.billableHours() * this.pricePerHour);
@@ -91,7 +91,7 @@ export class App {
         },
         {
             name: "Rafi Indrajati",
-            role: "CTO / co-Founder",
+            role: "CTO",
             image: "me-white.jpeg",
             desc: "Memimpin arah arsitektur teknologi, pemilihan tech-stack, dan manajemen infrastruktur Cloud. Menjaga skalabilitas sistem dan mengimplementasikan metodologi Agile pada siklus pengembangan perangkat lunak."
         },
@@ -110,7 +110,7 @@ export class App {
     ];
 
     tenagaKerja = [
-        { role: "CEO/CTO", count: 2, salary: "Rp 30.000.000" },
+        { role: "CEO / CTO", count: 2, salary: "Rp 30.000.000" },
         { role: "IT Engineer (DevSecOps)", count: 4, salary: "Rp 20.000.000" },
         { role: "IT Engineer (Front End, Back End, UI/UX & QA)", count: 12, salary: "Rp 15.000.000" },
         { role: "Finance Strategist", count: 1, salary: "Rp 20.000.000" },
