@@ -1,43 +1,23 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { PageComponent } from '../../page/page.component';
-
-import { AspekPasar } from './aspek-pasar/aspek-pasar';
-import { AspekTeknis } from './aspek-teknis/aspek-teknis';
-import { AspekSdm } from './aspek-sdm/aspek-sdm';
-import { AspekSosialEkonomi } from './aspek-sosial-ekonomi/aspek-sosial-ekonomi';
-import { AspekKeuangan } from './aspek-keuangan/aspek-keuangan';
-import { AspekHukumLingkungan } from './aspek-hukum-lingkungan/aspek-hukum-lingkungan';
-import { AspekRisiko } from './aspek-risiko/aspek-risiko';
+import { PageComponent } from '../../../page/page.component';
 
 @Component({
-  selector: 'app-rencana-pembangunan',
+  selector: 'app-aspek-keuangan',
   standalone: true,
-  imports: [
-    
-    AspekPasar,
-    AspekTeknis,
-    AspekSdm,
-    AspekSosialEkonomi,
-    AspekKeuangan,
-    AspekHukumLingkungan,
-    AspekRisiko
-  ],
-  templateUrl: './rencana-pembangunan.html',
+  imports: [PageComponent],
+  templateUrl: './aspek-keuangan.html',
   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RencanaPembangunan {
-  @Input() servicesItems!: any[];
-  @Input() devSteps!: string[];
-  @Input() tenagaKerja!: any[];
+export class AspekKeuangan {
   @Input() initialCapital!: number;
   @Input() opexGajiDetail!: any[];
-  @Input() opexOperasionalDetail!: any[];
-  @Input() opexSoftwareDetail!: any[];
-  @Input() opexMarketingDetail!: any[];
   @Input() salaryCostValue!: number;
+  @Input() opexOperasionalDetail!: any[];
   @Input() operationalCostValue!: number;
+  @Input() opexSoftwareDetail!: any[];
   @Input() softwareCostValue!: number;
+  @Input() opexMarketingDetail!: any[];
   @Input() marketingCostValue!: number;
   @Input() monthlyFixedCostTotal!: number;
   @Input() billableHours!: number;
@@ -48,21 +28,12 @@ export class RencanaPembangunan {
   @Input() monthlyNetProfit!: number;
   @Input() roiProjection!: any[];
   @Input() cashFlowTableData!: any[];
-  @Input() marketAnalysis!: any[];
-  @Input() keys!: string[];
-  @Input() isFcfPositive: boolean = true;
 
   onHoursChange(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target) {
       this.billableHoursChange.emit(parseInt(target.value, 10));
     }
-  }
-
-  formatCurrency(value: number): string {
-    if (value === 0) return '-';
-    const formatted = Math.abs(Math.round(value)).toLocaleString('id-ID');
-    return value < 0 ? `(${formatted})` : formatted;
   }
 
   formatCurrencyShort(value: number): string {
