@@ -7,7 +7,10 @@
   [salaryCostValue]="salaryCostValue">
 </app-aspek-sdm>
 
-<app-aspek-sosial-ekonomi></app-aspek-sosial-ekonomi>
+<app-aspek-hukum-lingkungan 
+  [marketAnalysis]="marketAnalysis" 
+  [keys]="keys">
+</app-aspek-hukum-lingkungan>
 
 <app-aspek-keuangan 
   [initialCapital]="initialCapital"
@@ -30,9 +33,6 @@
   [cashFlowTableData]="cashFlowTableData">
 </app-aspek-keuangan>
 
-<app-aspek-hukum-lingkungan 
-  [marketAnalysis]="marketAnalysis" 
-  [keys]="keys">
-</app-aspek-hukum-lingkungan>
+<app-aspek-sosial-ekonomi></app-aspek-sosial-ekonomi>
 
 <app-aspek-risiko></app-aspek-risiko>
