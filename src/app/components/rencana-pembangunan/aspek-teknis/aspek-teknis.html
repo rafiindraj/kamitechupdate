@@ -1,4 +1,4 @@
-<!-- PAGE 19: BAB III - ASPEK TEKNIS & OPERASIONAL -->
+﻿<!-- PAGE 19: BAB III - ASPEK TEKNIS & OPERASIONAL -->
 <app-page pageId="bab3-teknis" pageNum="21" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
@@ -237,7 +237,8 @@
             </div>
             <p class="text-[14px] leading-[1.15] mb-4 text-on-surface-variant text-justify">Alur kerja disusun
                 berdasarkan tahapan SDLC: area <em>requirement gathering</em>, zona <em>development</em>, ruang QA
-                <em>testing</em>, dan ruang <em>deployment</em> memastikan serah terima antar tahap berjalan mulus.</p>
+                <em>testing</em>, dan ruang <em>deployment</em> memastikan serah terima antar tahap berjalan mulus.
+            </p>
 
             <!-- Visualization: Floor Plan / Pipeline -->
             <div
@@ -395,17 +396,22 @@
                             Open Space</span>
                         <div class="grid grid-cols-3 gap-3 h-full">
                             <div class="bg-blue-100 rounded border border-blue-300 flex items-center justify-center">
-                                <span class="text-[10px] text-blue-800 font-medium">Squad A</span></div>
+                                <span class="text-[10px] text-blue-800 font-medium">Squad A</span>
+                            </div>
                             <div class="bg-blue-100 rounded border border-blue-300 flex items-center justify-center">
-                                <span class="text-[10px] text-blue-800 font-medium">Squad B</span></div>
+                                <span class="text-[10px] text-blue-800 font-medium">Squad B</span>
+                            </div>
                             <div class="bg-blue-100 rounded border border-blue-300 flex items-center justify-center">
-                                <span class="text-[10px] text-blue-800 font-medium">Squad C</span></div>
+                                <span class="text-[10px] text-blue-800 font-medium">Squad C</span>
+                            </div>
                             <div class="bg-blue-100 rounded border border-blue-300 flex items-center justify-center">
-                                <span class="text-[10px] text-blue-800 font-medium">Squad D</span></div>
+                                <span class="text-[10px] text-blue-800 font-medium">Squad D</span>
+                            </div>
                             <div
                                 class="col-span-2 bg-slate-200 rounded border border-slate-300 flex items-center justify-center">
                                 <span class="text-[10px] text-slate-600 font-bold uppercase tracking-widest">Task Desk
-                                    (Kanban Area)</span></div>
+                                    (Kanban Area)</span>
+                            </div>
                         </div>
                     </div>
 
@@ -464,7 +470,8 @@
             </div>
             <p class="text-[14px] leading-[1.15] mb-4 text-on-surface-variant text-justify">Area resepsionis dan ruang
                 presentasi klien dirancang terpisah dari zona produksi. <em>Client lounge</em> dilengkapi fasilitas
-                <em>video conference</em> berkualitas tinggi untuk mendukung pertemuan B2B profesional.</p>
+                <em>video conference</em> berkualitas tinggi untuk mendukung pertemuan B2B profesional.
+            </p>
 
             <!-- Visualization: Receptionist Area -->
             <div
@@ -530,7 +537,12 @@
                 untuk inventaris hardware (laptop cadangan, perangkat <em>testing</em>, UPS, switch jaringan) dengan
                 sistem pencatatan aset digital. Dilengkapi rak terorganisir dan kontrol suhu untuk perangkat sensitif.
             </p>
-            <p class="text-[14px] leading-[1.15] mb-4 text-on-surface-variant text-justify">Dalam operasional KamiTech, fasilitas ini tidak merujuk pada gudang penyimpanan mesin pabrik konvensional, melainkan berfungsi sebagai pusat manajemen <strong>"alat produksi"</strong> yang digunakan untuk menghasilkan layanan digital. Daftar peralatan kerja utama yang dibutuhkan tim dan dikelola dalam sistem ini mencakup laptop <em>development-grade</em>, server lokal maupun <em>cloud</em>, lisensi <em>software</em> profesional (seperti Microsoft 365, GitHub Copilot, dan Figma), serta peralatan pendukung kantor lainnya.
+            <p class="text-[14px] leading-[1.15] mb-4 text-on-surface-variant text-justify">Dalam operasional KamiTech,
+                fasilitas ini tidak merujuk pada gudang penyimpanan mesin pabrik konvensional, melainkan berfungsi
+                sebagai pusat manajemen <strong>"alat produksi"</strong> yang digunakan untuk menghasilkan layanan
+                digital. Daftar peralatan kerja utama yang dibutuhkan tim dan dikelola dalam sistem ini mencakup laptop
+                <em>development-grade</em>, server lokal maupun <em>cloud</em>, lisensi <em>software</em> profesional
+                (seperti Microsoft 365, GitHub Copilot, dan Figma), serta peralatan pendukung kantor lainnya.
             </p>
 
             <!-- Visualization: Warehouse Racks -->
@@ -797,8 +809,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 28: BAB III - MANAJEMEN PERSEDIAAN -->
-<app-page pageId="bab3-persediaan" pageNum="28" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 28: BAB III - PROSES PENGEMBANGAN (AGILE SCRUM) -->
+<app-page pageId="bab3-agile" pageNum="28" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -807,10 +819,218 @@
     </div>
 
     <div class="flex flex-col flex-grow gap-2">
-        <!-- 5. Manajemen Persediaan -->
         <h5
             class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            5. Manajemen Persediaan</h5>
+            5. Proses Produksi/Pengembangan (Agile Scrum)</h5>
+
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+            KamiTech mengadopsi metodologi <strong>Agile Scrum</strong> untuk menjamin fleksibilitas, kecepatan, dan
+            kualitas dalam setiap pengembangan produk digital. Proses ini memungkinkan tim untuk beradaptasi dengan
+            perubahan kebutuhan klien secara dinamis melalui siklus pengembangan yang iteratif.
+        </p>
+
+        <!-- Agile Flowchart Diagram -->
+        <div
+            class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant shadow-sm mb-6 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary opacity-5 rounded-bl-full"></div>
+
+            <div class="relative z-10 grid grid-cols-3 gap-6">
+                <!-- Step 1: Product Backlog -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 mb-2 border border-blue-200">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                        </svg>
+                    </div>
+                    <span
+                        class="text-[12px] font-bold text-on-surface text-center uppercase tracking-tighter leading-tight">Product<br>Backlog</span>
+                </div>
+
+                <!-- Step 2: Sprint Planning -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-700 mb-2 border border-indigo-200">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <span
+                        class="text-[12px] font-bold text-on-surface text-center uppercase tracking-tighter leading-tight">Sprint<br>Planning</span>
+                </div>
+
+                <!-- Step 3: Sprint Backlog -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center text-cyan-700 mb-2 border border-cyan-200">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span
+                        class="text-[12px] font-bold text-on-surface text-center uppercase tracking-tighter leading-tight">Sprint<br>Backlog</span>
+                </div>
+
+                <!-- Arrow Connector row 1 to 2 -->
+                <div class="col-span-3 flex justify-around py-1">
+                    <div class="text-outline-variant"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg></div>
+                    <div class="text-outline-variant"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg></div>
+                    <div class="text-outline-variant"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg></div>
+                </div>
+
+                <!-- Step 4: Sprint Execution -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 mb-2 border border-amber-200 relative">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <div
+                            class="absolute -top-1 -right-1 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-[10px] animate-spin-slow">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <path
+                                    d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.3" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span
+                        class="text-[12px] font-bold text-on-surface text-center uppercase tracking-tighter leading-tight">Sprint
+                        (2-4 Wks)<br>Daily Standup</span>
+                </div>
+
+                <!-- Step 5: Sprint Review & QA -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-700 mb-2 border border-purple-200">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <span
+                        class="text-[12px] font-bold text-on-surface text-center uppercase tracking-tighter leading-tight">Sprint
+                        Review<br>&amp; QA Testing</span>
+                </div>
+
+                <!-- Step 6: Retrospective -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-700 mb-2 border border-emerald-200">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
+                        </svg>
+                    </div>
+                    <span
+                        class="text-[12px] font-bold text-on-surface text-center uppercase tracking-tighter leading-tight">Sprint<br>Retrospective</span>
+                </div>
+            </div>
+
+            <!-- Loopback Arrow (Abstract) -->
+            <div
+                class="absolute bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 border-b-2 border-dashed border-primary/30 rounded-b-[40px] flex justify-center items-end">
+                <div class="bg-primary/10 px-3 py-0.5 rounded-full text-[10px] text-primary font-bold mb-[-12px]">
+                    CONTINUOUS IMPROVEMENT LOOP</div>
+            </div>
+        </div>
+
+        <!-- Narrative Table/Grid -->
+        <div class="grid grid-cols-2 gap-3">
+            <div
+                class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm transition-all hover:shadow-md">
+                <div class="flex items-center gap-2 mb-1">
+                    <span
+                        class="w-6 h-6 bg-blue-600 text-white flex items-center justify-center rounded text-[12px] font-bold">1</span>
+                    <h6 class="font-bold text-on-surface text-[14px]">Product Backlog &amp; Planning</h6>
+                </div>
+                <p class="text-[12px] text-on-surface-variant text-justify leading-tight">Proses dimulai dengan
+                    identifikasi dan prioritas kebutuhan fitur oleh <em>Product Owner</em> dan tim <em>Business
+                        Analyst</em>. Tim kemudian melakukan estimasi kapasitas untuk menentukan <em>scope</em>
+                    pekerjaan selama satu sprint.</p>
+            </div>
+
+            <div
+                class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm transition-all hover:shadow-md">
+                <div class="flex items-center gap-2 mb-1">
+                    <span
+                        class="w-6 h-6 bg-amber-600 text-white flex items-center justify-center rounded text-[12px] font-bold">2</span>
+                    <h6 class="font-bold text-on-surface text-[14px]">Sprint Execution &amp; Daily</h6>
+                </div>
+                <p class="text-[12px] text-on-surface-variant text-justify leading-tight">Fase produksi aktif di mana
+                    <em>engineers</em> mengembangkan kode menggunakan standar TDD. <em>Daily Standup</em> (15 menit)
+                    dilakukan setiap pagi untuk sinkronisasi progress dan memitigasi hambatan teknis (<em>blockers</em>)
+                    secara cepat.</p>
+            </div>
+
+            <div
+                class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm transition-all hover:shadow-md">
+                <div class="flex items-center gap-2 mb-1">
+                    <span
+                        class="w-6 h-6 bg-purple-600 text-white flex items-center justify-center rounded text-[12px] font-bold">3</span>
+                    <h6 class="font-bold text-on-surface text-[14px]">Sprint Review &amp; QA Testing</h6>
+                </div>
+                <p class="text-[12px] text-on-surface-variant text-justify leading-tight">Hasil kerja diuji melalui
+                    <em>Automated Testing</em> dan <em>Manual QA</em>. Fitur yang selesai kemudian didemonstrasikan
+                    kepada <em>stakeholder</em> untuk mendapatkan umpan balik langsung sebelum dinyatakan <em>Done</em>.
+                </p>
+            </div>
+
+            <div
+                class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm transition-all hover:shadow-md">
+                <div class="flex items-center gap-2 mb-1">
+                    <span
+                        class="w-6 h-6 bg-emerald-600 text-white flex items-center justify-center rounded text-[12px] font-bold">4</span>
+                    <h6 class="font-bold text-on-surface text-[14px]">Retrospective &amp; Deployment</h6>
+                </div>
+                <p class="text-[12px] text-on-surface-variant text-justify leading-tight">Tim mengevaluasi proses kerja
+                    untuk perbaikan berkelanjutan. Kode yang lolos QA dideploy secara otomatis melalui CI/CD pipeline,
+                    sementara <em>Product Backlog</em> diperbarui untuk persiapan siklus sprint berikutnya.</p>
+            </div>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 29: BAB III - MANAJEMEN PERSEDIAAN -->
+<app-page pageId="bab3-persediaan" pageNum="29" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <div class="flex flex-col flex-grow gap-2">
+        <!-- 6. Manajemen Persediaan -->
+        <h5
+            class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+            6. Manajemen Persediaan</h5>
 
         <div class="grid grid-cols-2 gap-3 mb-2">
             <div
@@ -854,10 +1074,10 @@
             </div>
         </div>
 
-        <!-- 6. Economic Order Quantity -->
+        <!-- 7. Economic Order Quantity -->
         <h5
             class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            6. Economic Order Quantity (EOQ)</h5>
+            7. Economic Order Quantity (EOQ)</h5>
 
         <div class="bg-inverse-surface text-white p-4 rounded-xl shadow-md mb-2 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-20 h-20 bg-primary opacity-10 rounded-bl-full"></div>
@@ -884,10 +1104,10 @@
             </div>
         </div>
 
-        <!-- 7. Safety Stock -->
+        <!-- 8. Safety Stock -->
         <h5
             class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            7. Safety Stock</h5>
+            8. Safety Stock</h5>
 
         <div
             class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm mb-2 flex items-start gap-3">
@@ -914,8 +1134,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 29: BAB III - REORDER POINT (ROP) -->
-<app-page pageId="bab3-rop" pageNum="29" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 30: BAB III - REORDER POINT (ROP) -->
+<app-page pageId="bab3-rop" pageNum="30" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -925,7 +1145,7 @@
     <div class="flex flex-col flex-grow gap-4">
         <h5
             class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            8. Reorder Point (ROP)</h5>
+            9. Reorder Point (ROP)</h5>
         <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-2 indent-8">
             <em>Reorder point</em> atau titik pemesanan ulang adalah tingkat tertentu di mana persediaan perlu
             diisi ulang oleh perusahaan untuk memastikan bisnis dapat terus memenuhi pesanan (Sia, 2023).
