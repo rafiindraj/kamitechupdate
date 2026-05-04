@@ -1,4 +1,4 @@
-﻿<!-- PAGE 19: BAB III - ASPEK TEKNIS & OPERASIONAL -->
+<!-- PAGE 19: BAB III - ASPEK TEKNIS & OPERASIONAL (METODE PEMILIHAN LOKASI) -->
 <app-page pageId="bab3-teknis" pageNum="21" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
@@ -17,71 +17,195 @@
             class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
             1. Metode Pemilihan Lokasi</h5>
 
-        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-2 indent-8">
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] indent-8">
             Penentuan lokasi operasional KamiTech di Jl. Karapitan No. 116, Bandung merupakan keputusan strategis
-            yang dihasilkan melalui tiga metode evaluasi komprehensif sebagai berikut:
+            yang dihasilkan melalui metode <em>scoring method</em>
         </p>
 
-        <div class="grid grid-cols-3 gap-3 mb-3">
-            <!-- Metode Penilaian Hasil Value -->
-            <div class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm">
-                <div class="flex items-center gap-2 mb-2">
-                    <span
-                        class="w-7 h-7 bg-[#1565C0] text-white flex items-center justify-center rounded-lg flex-shrink-0">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </span>
-                    <h6 class="font-bold text-on-surface text-[14px] font-sans">Penilaian Hasil Value</h6>
-                </div>
-                <p class="text-[12px] leading-[1.15] mb-0 text-on-surface-variant text-justify">Menggunakan <em>scoring
-                        method</em> dengan bobot kriteria: kedekatan <em>talent pool</em> (30%), biaya
-                    operasional (25%), konektivitas internet (20%), aksesibilitas klien (15%), dan lingkungan
-                    bisnis (10%). <strong>Bandung memperoleh skor tertinggi</strong> dibandingkan kota
-                    kompetitor.</p>
-            </div>
-            <!-- Perbandingan Biaya -->
-            <div class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm">
-                <div class="flex items-center gap-2 mb-2">
-                    <span
-                        class="w-7 h-7 bg-[#2E7D32] text-white flex items-center justify-center rounded-lg flex-shrink-0">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="1" x2="12" y2="23"></line>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </span>
-                    <h6 class="font-bold text-on-surface text-[14px] font-sans">Perbandingan Biaya</h6>
-                </div>
-                <p class="text-[12px] leading-[1.15] mb-0 text-on-surface-variant text-justify">Biaya <em>overhead</em>
-                    di
-                    Bandung <strong>30—40% lebih rendah</strong> dari Jakarta (Numbeo, 2025). Sewa kantor, UMK,
-                    dan biaya hidup tim engineer lebih efisien, memungkinkan alokasi anggaran lebih besar pada
-                    infrastruktur teknologi dan pengembangan talenta.</p>
-            </div>
-            <!-- Analisis Ekonomi -->
-            <div class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm">
-                <div class="flex items-center gap-2 mb-2">
-                    <span
-                        class="w-7 h-7 bg-[#E65100] text-white flex items-center justify-center rounded-lg flex-shrink-0">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                        </svg>
-                    </span>
-                    <h6 class="font-bold text-on-surface text-[14px] font-sans">Analisis Ekonomi</h6>
-                </div>
-                <p class="text-[12px] leading-[1.15] mb-0 text-on-surface-variant text-justify">Bandung memiliki
-                    ekosistem
-                    <em>startup</em> peringkat ke-3 nasional (StartupBlink, 2025) dan didukung kebijakan
-                    pemerintah daerah sebagai <em>Smart City</em>. ROI pemilihan lokasi Bandung diproyeksikan
-                    <strong>18% lebih tinggi</strong> dari kota kompetitor.
-                </p>
-            </div>
+        <!-- Scoring Table -->
+        <div class="w-full">
+            <table class="w-full border-collapse text-[12px] font-sans">
+                <thead>
+                    <tr class="bg-inverse-surface text-white">
+                        <th class="border border-outline-variant p-1.5 text-left font-bold text-[12px]">Kriteria</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Bobot</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Bandung</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Jakarta</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Yogyakarta
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-[#E3F2FD]">
+                        <td class="border border-outline-variant p-1.5 font-bold text-on-surface">Kedekatan <em>Talent
+                                Pool</em></td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-primary">30%</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">9 (2,70)
+                        </td>
+                        <td class="border border-outline-variant p-1.5 text-center">7 (2,10)</td>
+                        <td class="border border-outline-variant p-1.5 text-center">7 (2,10)</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-outline-variant p-1.5">Biaya Operasional</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold">25%</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">8 (2,00)
+                        </td>
+                        <td class="border border-outline-variant p-1.5 text-center">5 (1,25)</td>
+                        <td class="border border-outline-variant p-1.5 text-center">8 (2,00)</td>
+                    </tr>
+                    <tr class="bg-surface-container-low">
+                        <td class="border border-outline-variant p-1.5">Konektivitas Internet</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold">20%</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">8 (1,60)
+                        </td>
+                        <td class="border border-outline-variant p-1.5 text-center">9 (1,80)</td>
+                        <td class="border border-outline-variant p-1.5 text-center">7 (1,40)</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-outline-variant p-1.5">Aksesibilitas Klien</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold">15%</td>
+                        <td class="border border-outline-variant p-1.5 text-center">7 (1,05)</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">9 (1,35)
+                        </td>
+                        <td class="border border-outline-variant p-1.5 text-center">6 (0,90)</td>
+                    </tr>
+                    <tr class="bg-surface-container-low">
+                        <td class="border border-outline-variant p-1.5">Lingkungan &amp; Ekosistem Bisnis</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold">10%</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">8 (0,80)
+                        </td>
+                        <td class="border border-outline-variant p-1.5 text-center">8 (0,80)</td>
+                        <td class="border border-outline-variant p-1.5 text-center">7 (0,70)</td>
+                    </tr>
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td class="border border-outline-variant p-1.5 font-bold" colspan="2">Total Skor Tertimbang</td>
+                        <td class="border border-outline-variant p-1.5 text-center text-cyan-400 font-bold">8,15</td>
+                        <td class="border border-outline-variant p-1.5 text-center">7,30</td>
+                        <td class="border border-outline-variant p-1.5 text-center">7,10</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-[11px] text-on-surface-variant italic mt-1 mb-0">* Skor 1—10; Nilai tertimbang = Skor ×
+                Bobot.
+                Sumber: Analisis internal KamiTech, 2026.</p>
         </div>
 
+        <!-- Why Talent Pool is Prioritized -->
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] indent-8">
+            Kriteria <strong>kedekatan <em>talent pool</em></strong> mendapat bobot tertinggi (30%) karena dalam
+            industri jasa IT, kualitas dan ketersediaan sumber daya manusia merupakan faktor produksi utama yang
+            secara langsung menentukan kapasitas dan mutu <em>deliverable</em> perusahaan. Menurut laporan
+            McKinsey &amp; Company (2020), perusahaan teknologi yang mampu mengakses <em>talent pool</em>
+            berkualitas memiliki peluang <strong>2,5 kali lebih besar</strong> untuk mencapai pertumbuhan
+            pendapatan di atas rata-rata industri. Berbeda dengan bisnis manufaktur yang bergantung pada
+            bahan baku fisik, aset terpenting perusahaan <em>software house</em> adalah kompetensi
+            engineer-nya.
+        </p>
+
+        <!-- Why Bandung -->
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] indent-8">
+            <strong>Bandung</strong> unggul pada kriteria ini karena merupakan kota dengan konsentrasi
+            perguruan tinggi teknologi tertinggi di Jawa Barat. Data Pangkalan Data Pendidikan Tinggi
+            (PDDikti, 2024) mencatat bahwa wilayah Bandung Raya memiliki lebih dari <strong>80 program
+                studi</strong> di bidang Informatika, Sistem Informasi, dan Teknik Komputer yang tersebar di
+            perguruan tinggi unggulan seperti ITB, Telkom University, UNPAD, UNIKOM, dan UPI, menghasilkan
+            estimasi <strong>15.000+ lulusan IT per tahun</strong>. Dibandingkan Jakarta yang memiliki biaya
+            hidup <strong>30—40% lebih tinggi</strong> (Numbeo, 2025) sehingga menyulitkan retensi talenta
+            <em>junior</em>, dan Yogyakarta yang ekosistem <em>startup</em>-nya masih dalam tahap berkembang,
+            Bandung menawarkan keseimbangan optimal antara ketersediaan talenta berkualitas, biaya operasional
+            yang efisien, serta ekosistem digital yang matang, tercermin dari peringkatnya sebagai kota
+            <em>startup</em> ke-3 nasional (StartupBlink, 2025).
+        </p>
+
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-0 indent-8">
+            Berdasarkan hasil <em>scoring</em> di atas, Bandung memperoleh <strong>skor tertimbang tertinggi
+                (8,15)</strong>, mengungguli Jakarta (7,30) dan Yogyakarta (7,10). Keunggulan ini didorong oleh
+            kombinasi skor tinggi pada kriteria <em>talent pool</em>, biaya operasional, dan lingkungan
+            bisnis yang kondusif, menjadikan Bandung sebagai lokasi strategis yang paling layak.
+        </p>
+    </div>
+</app-page>
+
+<!-- PAGE 22: BAB III - METODE PEMILIHAN LOKASI (LANJUTAN) -->
+<app-page pageId="bab3-teknis-2" pageNum="22" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <div class="flex flex-col flex-grow gap-2">
+        <!-- Perbandingan Biaya -->
+        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm mb-2">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="w-7 h-7 bg-[#2E7D32] text-white flex items-center justify-center rounded-lg flex-shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </span>
+                <h6 class="font-bold text-on-surface text-[16px] font-sans">Perbandingan Biaya</h6>
+            </div>
+            <p class="text-[16px] leading-[1.15] mb-2 text-on-surface-variant text-justify indent-8">
+                Analisis perbandingan biaya operasional merupakan metode kedua yang digunakan untuk memvalidasi
+                keputusan pemilihan lokasi. Berdasarkan data <em>cost of living comparison</em> dari Numbeo (2025),
+                biaya <em>overhead</em> operasional di Bandung tercatat <strong>30—40% lebih rendah</strong>
+                dibandingkan Jakarta. Komponen utama yang menunjukkan selisih signifikan meliputi biaya sewa kantor
+                di kawasan bisnis Bandung yang berkisar Rp 75.000—150.000/m²/bulan, jauh di bawah Jakarta yang
+                mencapai Rp 200.000—350.000/m²/bulan. Selain itu, Upah Minimum Kota (UMK) Bandung tahun 2025
+                sebesar Rp 4.209.309 lebih efisien dibandingkan UMK DKI Jakarta sebesar Rp 5.067.381
+                (BPS Provinsi Jawa Barat, 2024).</p>
+            <p class="text-[16px] leading-[1.15] mb-0 text-on-surface-variant text-justify indent-8">
+                Efisiensi biaya ini memungkinkan KamiTech mengalokasikan anggaran lebih besar pada infrastruktur
+                teknologi, pengembangan kompetensi talenta melalui program <em>internal bootcamp</em>, serta
+                investasi pada lisensi <em>software</em> profesional tanpa mengorbankan kualitas hidup tim
+                engineer yang secara langsung memengaruhi produktivitas dan retensi karyawan jangka panjang.</p>
+        </div>
+
+        <!-- Analisis Ekonomi -->
+        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm mb-2">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="w-7 h-7 bg-[#E65100] text-white flex items-center justify-center rounded-lg flex-shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </span>
+                <h6 class="font-bold text-on-surface text-[16px] font-sans">Analisis Ekonomi</h6>
+            </div>
+            <p class="text-[16px] leading-[1.15] mb-2 text-on-surface-variant text-justify indent-8">
+                Metode ketiga yang digunakan adalah analisis potensi ekonomi wilayah. Bandung memiliki ekosistem
+                <em>startup</em> yang menempati peringkat ke-3 secara nasional berdasarkan laporan
+                <em>Global Startup Ecosystem Index</em> (StartupBlink, 2025), hanya di belakang Jakarta dan Bali.
+                Posisi ini didukung oleh kebijakan Pemerintah Kota Bandung yang secara aktif mencanangkan program
+                <em>Smart City</em> dan menyediakan fasilitas inkubasi bisnis digital melalui Bandung Techno Park.
+                Kemitraan strategis antara Telkom University dan PT Telkom Indonesia dalam pengembangan
+                <em>AI Talent Pool</em> (Telkom University, 2025) turut memperkuat daya tarik Bandung sebagai
+                pusat inovasi teknologi.
+            </p>
+            <p class="text-[16px] leading-[1.15] mb-0 text-on-surface-variant text-justify indent-8">
+                Dari sisi <em>return on investment</em> (ROI), pemilihan lokasi Bandung kami bisa perkirakan
+                menghasilkan
+                ROI <strong>18% lebih tinggi</strong> dibandingkan kota kompetitor karena kombinasi biaya
+                operasional yang rendah, ketersediaan talenta berkualitas dengan biaya rekrutmen yang kompetitif,
+                serta pertumbuhan ekonomi digital Jawa Barat yang konsisten mencapai CAGR 14% menurut data
+                e-Conomy SEA 2025 (Google, Temasek, &amp; Bain &amp; Company, 2025).</p>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 23: BAB III - LUAS LINGKUP PRODUKSI -->
+<app-page pageId="bab3-produksi" pageNum="23" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <div class="flex flex-col flex-grow gap-2">
         <!-- 2. Luas Lingkup Produksi -->
         <h5
             class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
@@ -89,7 +213,8 @@
 
         <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-2 indent-8">
             Kapasitas dan lingkup produksi KamiTech ditentukan berdasarkan empat faktor fundamental yang memastikan
-            operasional perusahaan berjalan optimal dan berkelanjutan yang merupakan adaptasi konsep untuk bisnis jasa:
+            operasional perusahaan berjalan optimal dan berkelanjutan yang merupakan adaptasi konsep untuk bisnis
+            jasa teknologi informasi:
         </p>
 
         <div class="grid grid-cols-2 gap-3 mb-2">
@@ -97,11 +222,10 @@
                 <div class="absolute top-0 right-0 w-16 h-16 bg-primary opacity-10 rounded-bl-full"></div>
                 <span class="text-cyan-400 font-bold text-[14px] block mb-1">Perkiraan Future Demand</span>
                 <p class="text-[12px] leading-[1.15] mb-0 text-outline-variant text-justify">Berdasarkan proyeksi
-                    e-Conomy
-                    SEA 2025, pertumbuhan ekonomi digital Indonesia diperkirakan mencapai US$130 miliar di 2030
-                    (CAGR ~12%). KamiTech menargetkan kapasitas produksi awal <strong class="text-white">2.750
+                    e-Conomy SEA 2025, pertumbuhan ekonomi digital Indonesia diperkirakan mencapai US$130 miliar
+                    di 2030 (CAGR 12%). KamiTech menargetkan kapasitas produksi awal <strong class="text-white">2.750
                         <em>billable hours</em>/bulan</strong> dengan skalabilitas
-                    hingga 5.000 jam pada tahun ke-3 operasional.</p>
+                    hingga 5.000 jam pada tahun ke-3 operasional untuk mengakomodasi lonjakan permintaan.</p>
             </div>
             <div class="bg-inverse-surface text-white p-3 rounded-xl shadow-md relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-primary opacity-10 rounded-bl-full"></div>
@@ -109,34 +233,98 @@
                 <p class="text-[12px] leading-[1.15] mb-0 text-outline-variant text-justify">Bandung menghasilkan
                     <strong class="text-white">15.000+ lulusan IT/tahun</strong> dari universitas terkemuka (ITB,
                     Telkom University, UNPAD). KamiTech memanfaatkan <em>talent pool</em> ini untuk merekrut 17
-                    personel berkualitas dengan spesialisasi DevSecOps, Full-Stack, dan QA Engineering.
+                    personel berkualitas dengan spesialisasi DevSecOps, Full-Stack, dan QA Engineering guna
+                    menjamin kapasitas produksi terpenuhi secara konsisten.
                 </p>
             </div>
             <div class="bg-inverse-surface text-white p-3 rounded-xl shadow-md relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-primary opacity-10 rounded-bl-full"></div>
                 <span class="text-cyan-400 font-bold text-[14px] block mb-1">Support &amp; Infrastruktur</span>
                 <p class="text-[12px] leading-[1.15] mb-0 text-outline-variant text-justify">Dukungan infrastruktur
-                    mencakup
-                    koneksi internet 5G <em>dedicated</em>, layanan <em>cloud hosting</em> AWS/GCP dengan SLA
-                    99.95%, serta akses ke komunitas developer aktif dan program inkubasi dari Bandung Techno
-                    Park serta Telkom University.</p>
+                    mencakup koneksi internet 5G <em>dedicated</em>, layanan <em>cloud hosting</em> AWS/GCP
+                    dengan SLA 99.95%, serta akses ke komunitas developer aktif dan program inkubasi dari
+                    Bandung Techno Park serta Telkom University yang menunjang kegiatan R&amp;D.</p>
             </div>
             <div class="bg-inverse-surface text-white p-3 rounded-xl shadow-md relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-primary opacity-10 rounded-bl-full"></div>
                 <span class="text-cyan-400 font-bold text-[14px] block mb-1">Ketersediaan Bahan Baku</span>
                 <p class="text-[12px] leading-[1.15] mb-0 text-outline-variant text-justify">Bahan baku utama berupa
-                    lisensi
-                    software (Microsoft 365, GitHub Copilot, Figma), perangkat keras (laptop
+                    lisensi software (Microsoft 365, GitHub Copilot, Figma), perangkat keras (laptop
                     <em>development-grade</em>), dan layanan <em>cloud</em> yang seluruhnya tersedia secara
                     <em>on-demand</em> tanpa kendala rantai pasok fisik konvensional.
                 </p>
             </div>
         </div>
+
+        <!-- Capacity Projection Table -->
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-1 indent-8">
+            Berdasarkan keempat faktor di atas, berikut proyeksi kapasitas produksi KamiTech selama tiga tahun
+            pertama operasional:
+        </p>
+
+        <div class="w-full mb-2">
+            <table class="w-full border-collapse text-[12px] font-sans">
+                <thead>
+                    <tr class="bg-inverse-surface text-white">
+                        <th class="border border-outline-variant p-1.5 text-left font-bold text-[12px]">Indikator
+                            Produksi</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Tahun 1</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Tahun 2</th>
+                        <th class="border border-outline-variant p-1.5 text-center font-bold text-[12px]">Tahun 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-[#E3F2FD]">
+                        <td class="border border-outline-variant p-1.5 font-bold text-on-surface">Jumlah Personel
+                            Teknis</td>
+                        <td class="border border-outline-variant p-1.5 text-center">16 orang</td>
+                        <td class="border border-outline-variant p-1.5 text-center">22 orang</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">28 orang
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border border-outline-variant p-1.5"><em>Billable Hours</em>/Bulan</td>
+                        <td class="border border-outline-variant p-1.5 text-center">2.750 jam</td>
+                        <td class="border border-outline-variant p-1.5 text-center">4.200 jam</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">5.500 jam
+                        </td>
+                    </tr>
+                    <tr class="bg-surface-container-low">
+                        <td class="border border-outline-variant p-1.5">Proyek Paralel Maksimum</td>
+                        <td class="border border-outline-variant p-1.5 text-center">3 proyek</td>
+                        <td class="border border-outline-variant p-1.5 text-center">5 proyek</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">8 proyek
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border border-outline-variant p-1.5">Layanan Utama</td>
+                        <td class="border border-outline-variant p-1.5 text-center">Web &amp; Mobile Dev</td>
+                        <td class="border border-outline-variant p-1.5 text-center">+ UI/UX &amp; DevOps</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">+ AI/ML
+                            Consulting</td>
+                    </tr>
+                    <tr class="bg-surface-container-low">
+                        <td class="border border-outline-variant p-1.5"><em>Utilization Rate</em> Target</td>
+                        <td class="border border-outline-variant p-1.5 text-center">75%</td>
+                        <td class="border border-outline-variant p-1.5 text-center">80%</td>
+                        <td class="border border-outline-variant p-1.5 text-center font-bold text-[#2E7D32]">85%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-[11px] text-on-surface-variant italic mt-1 mb-0">Sumber: Proyeksi internal KamiTech
+                berdasarkan benchmark industri software house nasional, 2026.</p>
+        </div>
+
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-0 indent-8">
+            Strategi skalabilitas bertahap ini memastikan pertumbuhan kapasitas produksi sejalan dengan akuisisi
+            klien dan ketersediaan talenta, sehingga KamiTech dapat menjaga standar kualitas <em>deliverable</em>
+            tanpa mengalami <em>over-commitment</em> yang berpotensi menurunkan kepuasan pelanggan.
+        </p>
     </div>
 </app-page>
 
-<!-- PAGE 22: BAB III - PENENTUAN LAYOUT BISNIS (POSISI TETAP) -->
-<app-page pageId="bab3-layout-1" pageNum="22" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 23: BAB III - PENENTUAN LAYOUT BISNIS (POSISI TETAP) -->
+<app-page pageId="bab3-layout-1" pageNum="24" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -215,8 +403,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 23: BAB III - PENENTUAN LAYOUT BISNIS (ORIENTASI PROSES) -->
-<app-page pageId="bab3-layout-2" pageNum="23" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 24: BAB III - PENENTUAN LAYOUT BISNIS (ORIENTASI PROSES) -->
+<app-page pageId="bab3-layout-2" pageNum="25" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -337,8 +525,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 24: BAB III - PENENTUAN LAYOUT BISNIS (TATA KANTOR) -->
-<app-page pageId="bab3-layout-3" pageNum="24" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 25: BAB III - PENENTUAN LAYOUT BISNIS (TATA KANTOR) -->
+<app-page pageId="bab3-layout-3" pageNum="26" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -448,8 +636,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 25: BAB III - PENENTUAN LAYOUT BISNIS (TATA PELAYANAN) -->
-<app-page pageId="bab3-layout-4" pageNum="25" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 26: BAB III - PENENTUAN LAYOUT BISNIS (TATA PELAYANAN) -->
+<app-page pageId="bab3-layout-4" pageNum="27" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -514,8 +702,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 26: BAB III - PENENTUAN LAYOUT BISNIS (TATA GUDANG & PRODUK) -->
-<app-page pageId="bab3-layout-5" pageNum="26" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 27: BAB III - PENENTUAN LAYOUT BISNIS (TATA GUDANG & PRODUK) -->
+<app-page pageId="bab3-layout-5" pageNum="28" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -617,8 +805,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 27: BAB III - PEMILIHAN TECH STACK -->
-<app-page pageId="bab3-techstack" pageNum="27" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 28: BAB III - PEMILIHAN TECH STACK -->
+<app-page pageId="bab3-techstack" pageNum="29" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -809,8 +997,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 28: BAB III - PROSES PENGEMBANGAN (AGILE SCRUM) -->
-<app-page pageId="bab3-agile" pageNum="28" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 29: BAB III - PROSES PENGEMBANGAN (AGILE SCRUM) -->
+<app-page pageId="bab3-agile" pageNum="30" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -986,7 +1174,8 @@
                 <p class="text-[12px] text-on-surface-variant text-justify leading-tight">Fase produksi aktif di mana
                     <em>engineers</em> mengembangkan kode menggunakan standar TDD. <em>Daily Standup</em> (15 menit)
                     dilakukan setiap pagi untuk sinkronisasi progress dan memitigasi hambatan teknis (<em>blockers</em>)
-                    secara cepat.</p>
+                    secara cepat.
+                </p>
             </div>
 
             <div
@@ -1017,8 +1206,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 29: BAB III - MANAJEMEN PERSEDIAAN -->
-<app-page pageId="bab3-persediaan" pageNum="29" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 30: BAB III - MANAJEMEN PERSEDIAAN -->
+<app-page pageId="bab3-persediaan" pageNum="31" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -1134,8 +1323,8 @@
     </div>
 </app-page>
 
-<!-- PAGE 30: BAB III - REORDER POINT (ROP) -->
-<app-page pageId="bab3-rop" pageNum="30" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<!-- PAGE 31: BAB III - REORDER POINT (ROP) -->
+<app-page pageId="bab3-rop" pageNum="32" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
