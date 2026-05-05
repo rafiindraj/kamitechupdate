@@ -198,30 +198,31 @@
             <table class="w-full text-[13px] bg-surface-container-low font-sans text-left">
                 <thead class="bg-slate-200 text-on-surface-variant uppercase tracking-widest text-[11px]">
                     <tr>
-                        <th class="p-2 pl-3 w-1/4">Aspek Perbandingan</th>
-                        <th class="p-2 border-l border-outline-variant w-[37%]">Commanditaire Vennootschap (CV)</th>
-                        <th class="p-2 border-l border-outline-variant text-primary w-[38%]">Perseroan Terbatas (PT)
-                        </th>
+                        <th class="p-2 pl-3 w-[22%]">Aspek</th>
+                        <th class="p-2 border-l border-outline-variant w-[39%]">Commanditaire Vennootschap (CV)</th>
+                        <th class="p-2 border-l border-outline-variant text-primary w-[39%]">Perseroan Terbatas (PT)</th>
                     </tr>
                 </thead>
-                <tbody class="text-on-surface-variant">
+                <tbody class="text-on-surface-variant align-top">
                     <tr class="border-b border-outline-variant">
-                        <td class="p-2 pl-3 font-medium">Tanggung Jawab</td>
-                        <td class="p-2 border-l border-outline-variant">Tanggung jawab sekutu aktif tidak terbatas
-                            (hingga harta pribadi).</td>
-                        <td class="p-2 border-l border-outline-variant">Tanggung jawab pemegang saham terbatas pada
-                            modal disetor.</td>
+                        <td class="p-2 pl-3 font-medium">Bentuk &amp; Status</td>
+                        <td class="p-2 border-l border-outline-variant">Non-badan hukum (pendaftaran sistem SABH). Tanggung jawab sampai harta pribadi.</td>
+                        <td class="p-2 border-l border-outline-variant">Badan hukum (pengesahan Menkumham). Tanggung jawab sebatas modal disetor.</td>
                     </tr>
                     <tr class="border-b border-outline-variant">
-                        <td class="p-2 pl-3 font-medium">Status Hukum</td>
-                        <td class="p-2 border-l border-outline-variant">Bukan entitas badan hukum mandiri.</td>
-                        <td class="p-2 border-l border-outline-variant">Status badan hukum sah dan mandiri.</td>
+                        <td class="p-2 pl-3 font-medium">Pendiri &amp; Modal</td>
+                        <td class="p-2 border-l border-outline-variant">Minimal 2 orang (wajib WNI). Tanpa modal minimum.</td>
+                        <td class="p-2 border-l border-outline-variant">Minimal 2 orang (boleh ada WNA). Modal minimum sesuai UU / kesepakatan.</td>
+                    </tr>
+                    <tr class="border-b border-outline-variant">
+                        <td class="p-2 pl-3 font-medium">Nama Perusahaan</td>
+                        <td class="p-2 border-l border-outline-variant">Tidak ada aturan khusus, nama boleh sama.</td>
+                        <td class="p-2 border-l border-outline-variant">Wajib frasa PT, nama harus unik/belum dipakai.</td>
                     </tr>
                     <tr>
-                        <td class="p-2 pl-3 font-medium">Kredibilitas Bisnis</td>
-                        <td class="p-2 border-l border-outline-variant">Sulit menembus tender berskala besar.</td>
-                        <td class="p-2 border-l border-outline-variant">Syarat utama pengadaan sistem IT korporasi/BUMN.
-                        </td>
+                        <td class="p-2 pl-3 font-medium">Pengurusan &amp; Bisnis</td>
+                        <td class="p-2 border-l border-outline-variant">Diurus Sekutu Aktif. Bidang kegiatan terbatas.</td>
+                        <td class="p-2 border-l border-outline-variant">Diurus oleh Direksi (RUPS). Bidang bisnis fleksibel &amp; bebas.</td>
                     </tr>
                 </tbody>
             </table>
@@ -469,7 +470,19 @@
         <p class="text-[13px] text-on-surface-variant italic font-sans text-center mt-1 mb-1">
             *Semua dokumen di atas harus dilegalisir dan dilampirkan dalam satuan arsip legalitas perusahaan.
         </p>
+    </div>
+</app-page>
 
+<!-- PAGE 38: BAB III - JAMINAN KREDIT & PENDANAAN -->
+<app-page pageId="bab3-hukum-jaminan" pageNum="52" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <div class="flex flex-col flex-grow gap-4">
         <h5
             class="font-bold text-secondary text-[16px] mb-1 mt-1 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
             6. Jaminan Kredit &amp; Pendanaan (Collateral)</h5>
@@ -508,7 +521,7 @@
 </app-page>
 
 <!-- PAGE 39: BAB III - ANALISIS LINGKUNGAN -->
-<app-page pageId="bab3-p24" pageNum="52" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-p24" pageNum="53" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -516,38 +529,73 @@
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
     </div>
 
-    <div class="flex flex-col flex-grow gap-6">
+    <div class="flex flex-col flex-grow gap-4">
         <div class="flex flex-col">
             <h4
                 class="font-bold text-primary text-[18px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
                 E. Analisis Lingkungan Ekosistem Digital</h4>
-            <p class="text-[16px] text-on-surface-variant mb-3 leading-[1.15] text-justify">Analisis kondisi ekosistem
-                eksternal, kompetitor, inovasi, dan demografi
-                diperlukan agar layanan konsultasi IT KamiTech dapat dirancang, dioperasikan, dan diserap secara efektif
-                oleh target pasar:</p>
+            <p class="text-[16px] text-on-surface-variant mb-4 leading-[1.15] text-justify indent-8">
+                Keberhasilan operasional KamiTech sangat bergantung pada pemahaman mendalam terhadap ekosistem digital makro dan mikro. 
+                Dengan pasar IT Services Indonesia yang diproyeksikan tumbuh hingga <strong>USD 5,41 Miliar pada 2026</strong> (CAGR 12%), 
+                KamiTech memposisikan diri untuk menangkap peluang dari digitalisasi korporat dan kepatuhan terhadap regulasi keamanan data (UU PDP).
+            </p>
+
             <div class="grid grid-cols-2 gap-4 text-[16px] text-on-surface-variant">
                 @for (item of marketAnalysis; track $index) {
                 <div
-                    class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm relative overflow-hidden">
+                    class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm relative overflow-hidden flex flex-col h-full">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-[#E3F2FD] opacity-30 rounded-bl-full"></div>
                     <h5
                         class="font-bold text-on-surface mb-2 flex items-center gap-2 font-sans text-[15px] z-10 relative">
                         <span
-                            class="w-6 h-6 bg-[#E3F2FD] rounded-md flex items-center justify-center text-[12px] text-primary font-bold">{{keys[$index].toUpperCase()}}</span>
+                            class="w-6 h-6 bg-[#E3F2FD] rounded-md flex items-center justify-center text-[12px] text-primary font-bold uppercase">{{keys[$index]}}</span>
                         {{item.title}}
                     </h5>
                     @if (item.list) {
                     <ul
-                        class="list-disc list-inside pl-1 space-y-1 text-[14px] text-on-surface-variant leading-[1.2] z-10 relative">
-                        @for (li of item.list; track $index) {<li>{{li}}</li>}
+                        class="list-disc list-inside pl-1 space-y-2 text-[14px] text-on-surface-variant leading-[1.2] z-10 relative flex-grow">
+                        @for (li of item.list; track $index) {<li class="text-justify">{{li}}</li>}
                     </ul>
                     }
                     @if (item.content) {<p
-                        class="pl-1 text-[14px] text-on-surface-variant leading-[1.2] mb-0 z-10 relative">
+                        class="pl-1 text-[14px] text-on-surface-variant leading-[1.2] mb-0 z-10 relative text-justify italic">
                         {{item.content}}</p>}
                 </div>
                 }
             </div>
+
+            <div class="mt-4">
+                <h5 class="font-bold text-on-surface mb-3 font-sans text-[15px] border-l-4 border-primary pl-2">
+                    Strategi Kompetisi (Porter's Five Forces)</h5>
+                <div class="grid grid-cols-5 gap-2 text-[12px]">
+                    <div class="bg-white p-2 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="font-bold text-primary block mb-1">Pendatang Baru</span>
+                        <p class="leading-[1.15] mb-0 text-on-surface-variant italic">Hambatan masuk tinggi pada segmen B2B Enterprise (Medium).</p>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="font-bold text-primary block mb-1">Daya Tawar Pembeli</span>
+                        <p class="leading-[1.15] mb-0 text-on-surface-variant italic">Klien memiliki banyak opsi vendor IT (Tinggi).</p>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="font-bold text-primary block mb-1">Daya Tawar Pemasok</span>
+                        <p class="leading-[1.15] mb-0 text-on-surface-variant italic">Standardisasi layanan Cloud (AWS/GCP) (Rendah).</p>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="font-bold text-primary block mb-1">Produk Substitusi</span>
+                        <p class="leading-[1.15] mb-0 text-on-surface-variant italic">No-Code tools untuk proyek sederhana (Rendah).</p>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg border border-outline-variant shadow-sm">
+                        <span class="font-bold text-primary block mb-1">Persaingan Industri</span>
+                        <p class="leading-[1.15] mb-0 text-on-surface-variant italic">Ketat di Bandung & Jakarta (Tinggi).</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-[16px] text-on-surface-variant mt-4 leading-[1.15] text-justify indent-8">
+                Bandung, sebagai pusat pendidikan teknologi dengan lebih dari <strong>50 institusi pendidikan tinggi</strong>, 
+                memberikan keunggulan kompetitif bagi KamiTech dalam hal akses terhadap <em>top-tier engineering talent</em>. 
+                Sinergi antara biaya operasional yang kompetitif dan ekosistem kreatif yang matang menjadikan KamiTech mitra strategis bagi bisnis yang ingin bertransformasi secara digital di tingkat nasional maupun regional.
+            </p>
         </div>
     </div>
 </app-page>

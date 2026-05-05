@@ -69,10 +69,34 @@ export class App {
     ];
 
     marketAnalysis = [
-        { title: "Kekuatan Layanan", list: ["Metodologi Agile yang transparan dan adaptif (Beck et al., 2001).", "Tech-stack modern (React/Go) yang anti-usang.", "Standar kode internasional dengan code review ketat."] },
-        { title: "Tantangan Utama", list: ["Siklus penutupan klien B2B (sales cycle) yang relatif panjang.", "Ketatnya persaingan dengan Software House skala enterprise."] },
-        { title: "Peluang (Opportunity)", list: ["Kebijakan digitalisasi UMKM/Korporat dari pemerintah.", "Banyaknya bisnis konvensional yang beralih ke e-commerce & aplikasi custom."] },
-        { title: "Strategi Harga", content: "Menggunakan skema Billable Hours (Jam Kerja) senilai Rp 250.000/jam atau paket Retainer bulanan (Osterwalder & Pigneur, 2010)." }
+        { 
+            title: "Kondisi Pasar & Tren (2025-2026)", 
+            list: [
+                "Pasar IT Services Indonesia diproyeksikan mencapai USD 5,41 Miliar pada 2026 (CAGR 12%).",
+                "Pergeseran model bisnis dari project-based menjadi outcome-driven managed services.",
+                "Meningkatnya kebutuhan kepatuhan regulasi terhadap UU PDP No. 27/2022."
+            ] 
+        },
+        { 
+            title: "Analisis SWOT: Internal (S-W)", 
+            list: [
+                "Strength: Metodologi Agile & Tech-stack modern (React/Go/Cloud-Native).",
+                "Strength: Sertifikasi keamanan informasi dan ketaatan regulasi (UU PDP).",
+                "Weakness: Siklus penjualan B2B yang panjang dan ketergantungan pada talenta spesifik."
+            ] 
+        },
+        { 
+            title: "Analisis SWOT: Eksternal (O-T)", 
+            list: [
+                "Opportunity: Akselerasi transformasi digital UMKM dan Korporasi di Jawa Barat.",
+                "Opportunity: Bandung sebagai Hub Teknologi terkuat ke-2 di Indonesia (StartupBlink, 2025).",
+                "Threat: Persaingan ketat dengan vendor global dan kelangkaan talenta digital senior."
+            ] 
+        },
+        { 
+            title: "Strategi Kompetisi & Harga", 
+            content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 250.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)." 
+        }
     ];
 
     devSteps = [
