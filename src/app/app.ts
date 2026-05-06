@@ -5,21 +5,22 @@ import { PageComponent } from './page/page.component';
 import { Pendahuluan } from './components/pendahuluan/pendahuluan';
 import { GambaranUmum } from './components/gambaran-umum/gambaran-umum';
 import { RencanaPembangunan } from './components/rencana-pembangunan/rencana-pembangunan';
+import { FinancialModel } from './services/financial.service';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan],
     templateUrl: './app.html',
-    styleUrl: './app.css',
+    styleUrls: ['./app.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class App {
     hideNav = false;
-    billableHours = signal(2750);
+    billableHours = signal(2050);
 
-    // Constants
-    readonly pricePerHour = 250000;
+    // Constants (moved to model instance below)
+    readonly pricePerHour = 350000;
     readonly unitTotalHPP = 5000;
     readonly marketingCostValue = 35000000;
     readonly operationalCostValue = 30000000;
@@ -27,31 +28,24 @@ export class App {
     readonly salaryCostValue = 404000000;
     readonly initialCapital = 50000000 + 100000000 + 254000000 + 36000000 + 6500000 + 7500000 + 4950000;
 
-    // Computed Values
-    totalRevenue = computed(() => this.billableHours() * this.pricePerHour);
-    totalCOGS = computed(() => this.billableHours() * this.unitTotalHPP);
-    monthlyFixedCostTotal = computed(() => this.marketingCostValue + this.operationalCostValue + this.softwareCostValue + this.salaryCostValue);
-    totalMonthlyExpense = computed(() => this.totalCOGS() + this.monthlyFixedCostTotal());
-    monthlyNetProfit = computed(() => this.totalRevenue() - this.totalMonthlyExpense());
-
-    roiProjection = computed(() => {
-        const monthly = this.monthlyNetProfit();
-        const initial = this.initialCapital;
-        let cumulative = -initial;
-        const projection = [];
-
-        for (let i = 1; i <= 12; i++) {
-            cumulative += monthly;
-            const isBEP = cumulative >= 0 && (cumulative - monthly) < 0;
-            projection.push({
-                month: `Bulan ${i}`,
-                revenue: monthly,
-                cumulative: cumulative,
-                isBEP: isBEP
-            });
-        }
-        return projection;
+    private financialModel = new FinancialModel({
+        pricePerHour: this.pricePerHour,
+        unitTotalHPP: this.unitTotalHPP,
+        marketingCostValue: this.marketingCostValue,
+        operationalCostValue: this.operationalCostValue,
+        softwareCostValue: this.softwareCostValue,
+        salaryCostValue: this.salaryCostValue,
+        initialCapital: this.initialCapital
     });
+
+    // Computed Values — now delegated to FinancialModel
+    totalRevenue = computed(() => this.financialModel.totalRevenue(this.billableHours()));
+    totalCOGS = computed(() => this.financialModel.totalCOGS(this.billableHours()));
+    monthlyFixedCostTotal = computed(() => this.financialModel.monthlyFixedCostTotal());
+    totalMonthlyExpense = computed(() => this.financialModel.totalMonthlyExpense(this.billableHours()));
+    monthlyNetProfit = computed(() => this.financialModel.monthlyNetProfit(this.billableHours()));
+
+    roiProjection = computed(() => this.financialModel.roiProjection(this.billableHours()));
 
     // Data
     goals = [
@@ -95,7 +89,7 @@ export class App {
         },
         { 
             title: "Strategi Kompetisi & Harga", 
-            content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 250.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)." 
+            content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 350.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)." 
         }
     ];
 
@@ -213,61 +207,7 @@ export class App {
         return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
     }
 
-    // 5 Year Projection Logic
-    yearlyCashFlow = computed(() => {
-        let currentRev = this.totalRevenue() * 12;
-        let currentCOGS = this.totalCOGS() * 12;
-        let currentOpex = this.monthlyFixedCostTotal() * 12;
-
-        let cumulativeCF = 0;
-        const projection = [];
-
-        for (let year = 1; year <= 5; year++) {
-            if (year > 1) {
-                currentRev *= 1.15; // 15% revenue growth year over year
-                currentCOGS *= 1.15;
-                currentOpex *= 1.08; // 8% opex inflation
-            }
-
-            const grossProfit = currentRev - currentCOGS;
-            const ebitda = grossProfit - currentOpex;
-
-            // Depreciation: Hardware (254M/4thn=63.5M), Renovasi (100M/10thn=10M) -> Total 73.5 Juta/Tahun
-            const depreciation = 73500000;
-
-            const ebit = ebitda - depreciation;
-            // Tax: UMKM rate assumption (11% of EBIT if profitable)
-            const tax = ebit > 0 ? ebit * 0.11 : 0;
-            const netIncome = ebit - tax;
-
-            const operatingCF = netIncome + depreciation;
-
-            // CAPEX: Year 1 Full (Sewa+Renovasi+Hardware+Lisensi+Branding+Legalitas+Lain-Lain = 454M)
-            // Year 2-5: Hanya Sewa Kantor (50M) + Lisensi Software (36M) = 86M
-            const capex = year === 1 ? -this.initialCapital : -86000000;
-
-            const freeCashFlow = operatingCF + capex;
-            cumulativeCF += freeCashFlow;
-
-            projection.push({
-                year,
-                revenue: currentRev,
-                cogs: -currentCOGS,
-                grossProfit,
-                opex: -currentOpex,
-                ebitda,
-                depreciation: -depreciation,
-                ebit,
-                tax: -tax,
-                netIncome,
-                operatingCF,
-                capex,
-                fcf: freeCashFlow,
-                cumulative: cumulativeCF
-            });
-        }
-        return projection;
-    });
+    yearlyCashFlow = computed(() => this.financialModel.yearlyCashFlow(this.billableHours()));
 
     cashFlowTableData = computed(() => {
         const data = this.yearlyCashFlow();
