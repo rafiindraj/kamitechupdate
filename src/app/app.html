@@ -1,5 +1,7 @@
 <div class="min-h-screen bg-[#FFFBFE] text-[#1C1B1F] font-sans overflow-x-hidden flex flex-col items-center">
 
+    <app-loading></app-loading>
+
     <!-- Navigation Toolbar -->
     <nav
         class="fixed top-0 w-full z-50 bg-[#1C1B1F] text-[#DCE0D9] shadow-lg h-14 flex items-center justify-between px-4 md:px-6 print:hidden font-sans text-xs">
@@ -38,6 +40,10 @@
                 class="hover:text-white transition-colors font-bold text-[#42A5F5]">Lampiran</button>
 
             <button (click)="downloadPDF()"
+                [disabled]="isGenerating"
+                [attr.aria-busy]="isGenerating"
+                [class.opacity-50]="isGenerating"
+                [class.cursor-not-allowed]="isGenerating"
                 class="ml-2 px-3 py-1.5 bg-[#42A5F5] hover:bg-[#1565C0] text-[#1C1B1F] font-bold rounded-full flex items-center gap-2 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

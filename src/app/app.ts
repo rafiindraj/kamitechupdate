@@ -1,4 +1,4 @@
-import { Component, computed, signal, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { Component, computed, signal, ViewEncapsulation, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +8,11 @@ import { GambaranUmum } from './components/gambaran-umum/gambaran-umum';
 import { RencanaPembangunan } from './components/rencana-pembangunan/rencana-pembangunan';
 import { FinancialModel } from './services/financial.service';
 import { ApiService } from './services/api.service';
+import { LoadingService } from './services/loading.service';
+import { Subscription } from 'rxjs';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { API_ENDPOINTS } from './constants/endpoint';
 import { PRINT_OPTIMIZER_CSS } from './constants/web.constant';
 import { PdfPayload } from './models/pdf-payload.model';
@@ -15,7 +20,10 @@ import { PdfPayload } from './models/pdf-payload.model';
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan, HttpClientModule],
+    imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan, HttpClientModule, LoadingComponent],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    ],
     templateUrl: './app.html',
     styleUrls: ['./app.css'],
     encapsulation: ViewEncapsulation.None
@@ -276,13 +284,22 @@ export class App {
 
     isGenerating = false;
     readyToDownloadUrl: string | null = null;
-    constructor(private api: ApiService) { }
+    private loadingSub?: Subscription;
+
+    constructor(private api: ApiService, private loading: LoadingService) {
+        this.loadingSub = this.loading.isLoading$.subscribe((v) => {
+            this.isGenerating = v;
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.loadingSub?.unsubscribe();
+    }
 
 // State variable for your HTML loading spinner
 
         downloadPDF() {
-                this.isGenerating = true;
-
+                // Loading state is managed globally by the LoadingInterceptor -> LoadingService
                 // 1. Helper to extract the actual compiled CSS
                 const getActiveCSS = () => {
                         let cssString = '';
@@ -319,16 +336,18 @@ export class App {
                 };
 
                 // 4. Send to backend via ApiService and handle fallback
+                // Manually show loading for this export (interceptor excludes the export endpoint)
+                this.loading.show();
                 this.api.post<any>(API_ENDPOINTS.pdfExport, payload).subscribe({
-                        next: (res: any) => {
-                                this.isGenerating = false;
-                                window.location.href = res.downloadUrl;
-                        },
-                        error: (err) => {
-                                this.isGenerating = false;
-                                console.warn('Backend PDF generation failed. Falling back to native browser print.', err);
-                                setTimeout(() => window.print(), 100);
-                        }
+                    next: (res: any) => {
+                        this.loading.hide();
+                        window.location.href = res.downloadUrl;
+                    },
+                    error: (err) => {
+                        this.loading.hide();
+                        console.warn('Backend PDF generation failed. Falling back to native browser print.', err);
+                        setTimeout(() => window.print(), 100);
+                    }
                 });
         }
 }
