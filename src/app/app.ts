@@ -1,5 +1,6 @@
-import { Component, computed, signal, ViewEncapsulation } from '@angular/core';
+import { Component, computed, signal, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PageComponent } from './page/page.component';
 import { Pendahuluan } from './components/pendahuluan/pendahuluan';
@@ -10,7 +11,7 @@ import { FinancialModel } from './services/financial.service';
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan],
+    imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan, HttpClientModule],
     templateUrl: './app.html',
     styleUrls: ['./app.css'],
     encapsulation: ViewEncapsulation.None
@@ -63,33 +64,33 @@ export class App {
     ];
 
     marketAnalysis = [
-        { 
-            title: "Kondisi Pasar & Tren (2025-2026)", 
+        {
+            title: "Kondisi Pasar & Tren (2025-2026)",
             list: [
                 "Pasar IT Services Indonesia diproyeksikan mencapai USD 5,41 Miliar pada 2026 (CAGR 12%).",
                 "Pergeseran model bisnis dari project-based menjadi outcome-driven managed services.",
                 "Meningkatnya kebutuhan kepatuhan regulasi terhadap UU PDP No. 27/2022."
-            ] 
+            ]
         },
-        { 
-            title: "Analisis SWOT: Internal (S-W)", 
+        {
+            title: "Analisis SWOT: Internal (S-W)",
             list: [
                 "Strength: Metodologi Agile & Tech-stack modern (React/Go/Cloud-Native).",
                 "Strength: Sertifikasi keamanan informasi dan ketaatan regulasi (UU PDP).",
                 "Weakness: Siklus penjualan B2B yang panjang dan ketergantungan pada talenta spesifik."
-            ] 
+            ]
         },
-        { 
-            title: "Analisis SWOT: Eksternal (O-T)", 
+        {
+            title: "Analisis SWOT: Eksternal (O-T)",
             list: [
                 "Opportunity: Akselerasi transformasi digital UMKM dan Korporasi di Jawa Barat.",
                 "Opportunity: Bandung sebagai Hub Teknologi terkuat ke-2 di Indonesia (StartupBlink, 2025).",
                 "Threat: Persaingan ketat dengan vendor global dan kelangkaan talenta digital senior."
-            ] 
+            ]
         },
-        { 
-            title: "Strategi Kompetisi & Harga", 
-            content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 350.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)." 
+        {
+            title: "Strategi Kompetisi & Harga",
+            content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 350.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)."
         }
     ];
 
@@ -265,7 +266,91 @@ export class App {
         }
     }
 
-    downloadPDF() {
-        window.print();
-    }
+
+
+    @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
+
+    isGenerating = false;
+    readyToDownloadUrl: string | null = null;
+    constructor(private http: HttpClient) { }
+
+// State variable for your HTML loading spinner
+
+  downloadPDF() {
+    this.isGenerating = true;
+
+    // 1. Helper to extract the actual compiled CSS
+    const getActiveCSS = () => {
+      let cssString = '';
+      for (let i = 0; i < document.styleSheets.length; i++) {
+        const sheet = document.styleSheets[i];
+        try {
+          if (sheet.cssRules) {
+            for (let j = 0; j < sheet.cssRules.length; j++) {
+              cssString += sheet.cssRules[j].cssText + '\n';
+            }
+          }
+        } catch (e) {
+          console.warn('Skipped a cross-origin stylesheet');
+        }
+      }
+      return cssString;
+    };
+
+    const activeCss = getActiveCSS();
+    
+    // 2. Grab the raw HTML string (No chunking needed anymore!)
+    let rawHtml = this.pdfContent?.nativeElement?.innerHTML || '';
+
+    // 2. OPTIMIZATION: Scrub Angular Dev attributes from the HTML
+    // This removes all the useless ng-reflect and _ngcontent attributes that bloat the payload
+    rawHtml = rawHtml.replace(/ ng-reflect-[a-zA-Z0-9\-]+="[^"]*"/g, '');
+    rawHtml = rawHtml.replace(/ _ng[a-zA-Z0-9\-]+=""/g, '');
+
+    // 3. OPTIMIZATION: The Vector-Forcer CSS
+    // We append this special CSS to kill anything that causes Chrome to rasterize the PDF
+    const printOptimizerCss = `
+      * {
+        /* Kill all shadows and blurs to force vector rendering! */
+        box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+        
+        /* Optional: Ensure everything is forced into the correct color space */
+        color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+      }
+    `;
+
+    const finalCss = activeCss + '\n' + printOptimizerCss;
+
+    const payload = {
+      css: finalCss,
+      html: rawHtml 
+    };
+
+    // 3. Send to the NestJS backend
+    this.http.post('http://localhost:3000/pdf/export', payload)
+      .subscribe({
+          next: (res: any) => {
+              // Success! Download the server-generated PDF
+              this.isGenerating = false;
+              window.location.href = res.downloadUrl; 
+          },
+          error: (err) => {
+              // ==========================================
+              // GRACEFUL FALLBACK: Server failed, use native print!
+              // ==========================================
+              this.isGenerating = false;
+              console.warn('Backend PDF generation failed. Falling back to native browser print.', err);
+              
+              // Give Angular a tiny fraction of a second to hide the 
+              // "Generating PDF..." spinner before snapping the print screen
+              setTimeout(() => {
+                window.print();
+              }, 100);
+          }
+      });
+  }
 }
