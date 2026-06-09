@@ -4,20 +4,22 @@ import { PageComponent } from '../../page/page.component';
 import { AspekPasar } from './aspek-pasar/aspek-pasar';
 import { AspekTeknis } from './aspek-teknis/aspek-teknis';
 import { AspekSdm } from './aspek-sdm/aspek-sdm';
-import { AspekSosialEkonomi } from './aspek-sosial-ekonomi/aspek-sosial-ekonomi';
 import { AspekKeuangan } from './aspek-keuangan/aspek-keuangan';
 import { AspekHukumLingkungan } from './aspek-hukum-lingkungan/aspek-hukum-lingkungan';
 import { AspekRisiko } from './aspek-risiko/aspek-risiko';
+import { AspekLingkungan } from './aspek-lingkungan/aspek-lingkungan';
+import { AspekEkonomi } from './aspek-ekonomi/aspek-ekonomi';
 
 @Component({
   selector: 'app-rencana-pembangunan',
   standalone: true,
   imports: [
-    
+
     AspekPasar,
     AspekTeknis,
     AspekSdm,
-    AspekSosialEkonomi,
+    AspekEkonomi,
+    AspekLingkungan,
     AspekKeuangan,
     AspekHukumLingkungan,
     AspekRisiko
