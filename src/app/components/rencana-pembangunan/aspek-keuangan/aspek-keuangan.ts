@@ -1,6 +1,12 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { PageComponent } from '../../../page/page.component';
 
+// Models
+import { OpexDetailItem, RoiProjectionItem, CashFlowTableRow } from '../../../models/financial.model';
+
+// Shared utilities (DRY — single source of truth)
+import { formatCurrencyShort } from '../../../utils/currency.util';
+
 @Component({
   selector: 'app-aspek-keuangan',
   standalone: true,
@@ -11,13 +17,13 @@ import { PageComponent } from '../../../page/page.component';
 })
 export class AspekKeuangan {
   @Input() initialCapital!: number;
-  @Input() opexGajiDetail!: any[];
+  @Input() opexGajiDetail!: readonly OpexDetailItem[];
   @Input() salaryCostValue!: number;
-  @Input() opexOperasionalDetail!: any[];
+  @Input() opexOperasionalDetail!: readonly OpexDetailItem[];
   @Input() operationalCostValue!: number;
-  @Input() opexSoftwareDetail!: any[];
+  @Input() opexSoftwareDetail!: readonly OpexDetailItem[];
   @Input() softwareCostValue!: number;
-  @Input() opexMarketingDetail!: any[];
+  @Input() opexMarketingDetail!: readonly OpexDetailItem[];
   @Input() marketingCostValue!: number;
   @Input() monthlyFixedCostTotal!: number;
   @Input() billableHours!: number;
@@ -26,31 +32,16 @@ export class AspekKeuangan {
   @Input() totalCOGS!: number;
   @Input() totalMonthlyExpense!: number;
   @Input() monthlyNetProfit!: number;
-  @Input() roiProjection!: any[];
-  @Input() cashFlowTableData!: any[];
+  @Input() roiProjection!: readonly RoiProjectionItem[];
+  @Input() cashFlowTableData!: readonly CashFlowTableRow[];
 
-  onHoursChange(event: Event) {
+  onHoursChange(event: Event): void {
     const target = event.target as HTMLInputElement;
     if (target) {
       this.billableHoursChange.emit(parseInt(target.value, 10));
     }
   }
 
-  formatCurrencyShort(value: number): string {
-    if (value === 0) return '-';
-    const absVal = Math.abs(value);
-    let formatted = '';
-
-    if (absVal >= 1e9) {
-      formatted = (absVal / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
-    } else if (absVal >= 1e6) {
-      formatted = (absVal / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
-    } else if (absVal >= 1e3) {
-      formatted = (absVal / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
-    } else {
-      formatted = absVal.toString();
-    }
-
-    return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
-  }
+  // Delegate to shared utility (eliminates duplication)
+  formatCurrencyShort = formatCurrencyShort;
 }

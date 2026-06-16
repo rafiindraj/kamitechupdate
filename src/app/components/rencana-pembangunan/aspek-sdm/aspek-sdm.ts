@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { PageComponent } from '../../../page/page.component';
+import { TenagaKerjaItem } from '../../../models/financial.model';
 
 @Component({
   selector: 'app-aspek-sdm',
@@ -10,6 +11,7 @@ import { PageComponent } from '../../../page/page.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AspekSdm {
-  @Input() tenagaKerja!: any[];
+  @Input() tenagaKerja!: readonly TenagaKerjaItem[];
   @Input() salaryCostValue!: number;
 }
+

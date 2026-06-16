@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { PageComponent } from '../../page/page.component';
+import { GoalItem } from '../../models/financial.model';
 
 @Component({
   selector: 'app-gambaran-umum',
@@ -11,5 +12,6 @@ import { PageComponent } from '../../page/page.component';
 })
 export class GambaranUmum {
   @Input() initialCapital!: number;
-  @Input() goalsArray!: any[];
+  @Input() goalsArray!: readonly GoalItem[];
 }
+

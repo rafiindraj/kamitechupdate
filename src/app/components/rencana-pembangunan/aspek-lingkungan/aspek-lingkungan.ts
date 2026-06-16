@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { PageComponent } from '../../../page/page.component';
+import { MarketAnalysisItem } from '../../../models/financial.model';
 
 @Component({
   selector: 'app-aspek-lingkungan',
@@ -10,6 +11,7 @@ import { PageComponent } from '../../../page/page.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AspekLingkungan {
-  @Input() marketAnalysis!: any[];
-  @Input() keys!: string[];
+  @Input() marketAnalysis!: readonly MarketAnalysisItem[];
+  @Input() keys!: readonly string[];
 }
+

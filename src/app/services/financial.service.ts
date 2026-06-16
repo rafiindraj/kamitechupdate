@@ -1,45 +1,57 @@
+import { RoiProjectionItem, YearlyCashFlowItem } from '../models/financial.model';
+
+/**
+ * Configuration for the financial model calculations.
+ */
 export interface FinancialConfig {
-    pricePerHour: number;
-    unitTotalHPP: number;
-    marketingCostValue: number;
-    operationalCostValue: number;
-    softwareCostValue: number;
-    salaryCostValue: number;
-    initialCapital: number;
+    readonly pricePerHour: number;
+    readonly unitTotalHPP: number;
+    readonly marketingCostValue: number;
+    readonly operationalCostValue: number;
+    readonly softwareCostValue: number;
+    readonly salaryCostValue: number;
+    readonly initialCapital: number;
 }
 
+/**
+ * Pure calculation model for all financial projections.
+ *
+ * Not an Angular service — instantiated with config values.
+ * All methods are pure functions of their inputs + config,
+ * making them deterministic and easily testable.
+ */
 export class FinancialModel {
-    private cfg: FinancialConfig;
+    private readonly cfg: FinancialConfig;
 
     constructor(cfg: FinancialConfig) {
         this.cfg = cfg;
     }
 
-    totalRevenue(hours: number) {
+    totalRevenue(hours: number): number {
         return hours * this.cfg.pricePerHour;
     }
 
-    totalCOGS(hours: number) {
+    totalCOGS(hours: number): number {
         return hours * this.cfg.unitTotalHPP;
     }
 
-    monthlyFixedCostTotal() {
+    monthlyFixedCostTotal(): number {
         return this.cfg.marketingCostValue + this.cfg.operationalCostValue + this.cfg.softwareCostValue + this.cfg.salaryCostValue;
     }
 
-    totalMonthlyExpense(hours: number) {
+    totalMonthlyExpense(hours: number): number {
         return this.totalCOGS(hours) + this.monthlyFixedCostTotal();
     }
 
-    monthlyNetProfit(hours: number) {
+    monthlyNetProfit(hours: number): number {
         return this.totalRevenue(hours) - this.totalMonthlyExpense(hours);
     }
 
-    roiProjection(hours: number) {
+    roiProjection(hours: number): RoiProjectionItem[] {
         const monthly = this.monthlyNetProfit(hours);
         const initial = this.cfg.initialCapital;
         let cumulative = -initial;
-        const projection: Array<any> = [];
+        const projection: RoiProjectionItem[] = [];
 
         for (let i = 1; i <= 12; i++) {
             cumulative += monthly;
@@ -55,13 +67,13 @@ export class FinancialModel {
         return projection;
     }
 
-    yearlyCashFlow(hours: number) {
+    yearlyCashFlow(hours: number): YearlyCashFlowItem[] {
         let currentRev = this.totalRevenue(hours) * 12;
         let currentCOGS = this.totalCOGS(hours) * 12;
         let currentOpex = this.monthlyFixedCostTotal() * 12;
 
         let cumulativeCF = 0;
-        const projection: Array<any> = [];
+        const projection: YearlyCashFlowItem[] = [];
 
         for (let year = 1; year <= 5; year++) {
             if (year > 1) {

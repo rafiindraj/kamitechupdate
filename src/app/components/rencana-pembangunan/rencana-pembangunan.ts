@@ -10,6 +10,19 @@ import { AspekRisiko } from './aspek-risiko/aspek-risiko';
 import { AspekLingkungan } from './aspek-lingkungan/aspek-lingkungan';
 import { AspekEkonomi } from './aspek-ekonomi/aspek-ekonomi';
 
+// Models
+import { ServiceItem } from '../../models/service-item.model';
+import {
+  OpexDetailItem,
+  TenagaKerjaItem,
+  MarketAnalysisItem,
+  RoiProjectionItem,
+  CashFlowTableRow,
+} from '../../models/financial.model';
+
+// Shared utilities (DRY — single source of truth)
+import { formatCurrency, formatCurrencyShort } from '../../utils/currency.util';
+
 @Component({
   selector: 'app-rencana-pembangunan',
   standalone: true,
@@ -29,14 +42,14 @@ import { AspekEkonomi } from './aspek-ekonomi/aspek-ekonomi';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RencanaPembangunan {
-  @Input() servicesItems!: any[];
-  @Input() devSteps!: string[];
-  @Input() tenagaKerja!: any[];
+  @Input() servicesItems!: readonly ServiceItem[];
+  @Input() devSteps!: readonly string[];
+  @Input() tenagaKerja!: readonly TenagaKerjaItem[];
   @Input() initialCapital!: number;
-  @Input() opexGajiDetail!: any[];
-  @Input() opexOperasionalDetail!: any[];
-  @Input() opexSoftwareDetail!: any[];
-  @Input() opexMarketingDetail!: any[];
+  @Input() opexGajiDetail!: readonly OpexDetailItem[];
+  @Input() opexOperasionalDetail!: readonly OpexDetailItem[];
+  @Input() opexSoftwareDetail!: readonly OpexDetailItem[];
+  @Input() opexMarketingDetail!: readonly OpexDetailItem[];
   @Input() salaryCostValue!: number;
   @Input() operationalCostValue!: number;
   @Input() softwareCostValue!: number;
@@ -48,40 +61,20 @@ export class RencanaPembangunan {
   @Input() totalCOGS!: number;
   @Input() totalMonthlyExpense!: number;
   @Input() monthlyNetProfit!: number;
-  @Input() roiProjection!: any[];
-  @Input() cashFlowTableData!: any[];
-  @Input() marketAnalysis!: any[];
-  @Input() keys!: string[];
+  @Input() roiProjection!: readonly RoiProjectionItem[];
+  @Input() cashFlowTableData!: readonly CashFlowTableRow[];
+  @Input() marketAnalysis!: readonly MarketAnalysisItem[];
+  @Input() keys!: readonly string[];
   @Input() isFcfPositive: boolean = true;
 
-  onHoursChange(event: Event) {
+  onHoursChange(event: Event): void {
     const target = event.target as HTMLInputElement;
     if (target) {
       this.billableHoursChange.emit(parseInt(target.value, 10));
     }
   }
 
-  formatCurrency(value: number): string {
-    if (value === 0) return '-';
-    const formatted = Math.abs(Math.round(value)).toLocaleString('id-ID');
-    return value < 0 ? `(${formatted})` : formatted;
-  }
-
-  formatCurrencyShort(value: number): string {
-    if (value === 0) return '-';
-    const absVal = Math.abs(value);
-    let formatted = '';
-
-    if (absVal >= 1e9) {
-      formatted = (absVal / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
-    } else if (absVal >= 1e6) {
-      formatted = (absVal / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
-    } else if (absVal >= 1e3) {
-      formatted = (absVal / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
-    } else {
-      formatted = absVal.toString();
-    }
-
-    return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
-  }
+  // Delegate to shared utility (eliminates duplication)
+  formatCurrency = formatCurrency;
+  formatCurrencyShort = formatCurrencyShort;
 }
