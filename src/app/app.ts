@@ -112,7 +112,7 @@ export class App implements OnDestroy {
             getRow('EBITDA', 'ebitda', true, true),
             getRow('Depresiasi Aset', 'depreciation'),
             getRow('Laba Operasi (EBIT)', 'ebit', true),
-            getRow('Pajak Badan (PPh 11%)', 'tax'),
+            getRow('Pajak Badan (PPh 11% / 22%)', 'tax'),
             getRow('Laba Bersih (Net Income)', 'netIncome', true, false, true),
             getRow('Arus Kas Operasi', 'operatingCF', true, true),
             getRow('Belanja Modal (CAPEX)', 'capex'),

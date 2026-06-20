@@ -417,11 +417,6 @@
                             Subtotal Modal Kerja</td>
                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 1.041.050.000</td>
                     </tr>
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Modal Kerja</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 1.041.050.000</td>
-                    </tr>
 
                     <!-- Grand Total -->
                     <tr class="bg-inverse-surface text-white font-bold">
@@ -693,9 +688,12 @@
                 Sedangkan biaya yang bersifat berulang hanyalah Sewa Kantor (Rp 50 Juta) dan
                 Lisensi Software (Rp 36 Juta) yang dicatat sebagai pengeluaran CAPEX tahunan
                 sebesar Rp 86 Juta pada Tahun ke-2 hingga ke-5. Model ini juga memperhitungkan penyusutan
-                aset fisik (<em>Depreciation</em>) sebesar Rp 73,5 Juta/tahun, pembayaran Pajak Penghasilan
-                (PPh) Badan (asumsi 11% dari EBIT), serta proyeksi eskalasi pertumbuhan pendapatan tahunan
-                (15%) yang disesuaikan dengan inflasi OPEX (8%) mulai Tahun ke-2.</p>
+                aset fisik (<em>Depreciation</em>) sebesar Rp 73,5 Juta/tahun. Pajak Penghasilan (PPh) Badan
+                dihitung sebesar 11% dari EBIT saat laba sebelum pajak tahunan masih di bawah Rp 4,8 Miliar, dan
+                menjadi 22% dari EBIT ketika laba sebelum pajak tahunan mencapai atau melampaui Rp 4,8 Miliar. Proyeksi
+                juga
+                menggunakan eskalasi pertumbuhan pendapatan tahunan 15% yang disesuaikan dengan inflasi OPEX 8%
+                mulai Tahun ke-2.</p>
         </div>
 
         <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
@@ -739,5 +737,6 @@
         </div>
     </div>
     <p class="text-[12px] text-on-surface-variant italic mt-0 font-sans">* Asumsi penjualan stabil sesuai input
-        slider jam billable di Part 5 ({{billableHours}} jam/bulan).</p>
+        slider jam billable di Part 5 ({{billableHours}} jam/bulan). Tarif PPh Badan berubah menjadi 22% saat
+        laba sebelum pajak tahunan mencapai Rp 4,8 Miliar.</p>
 </app-page>

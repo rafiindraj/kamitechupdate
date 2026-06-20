@@ -25,6 +25,38 @@ describe('FinancialModel', () => {
         expect(cf.length).toBe(5);
     });
 
+    it('applies 11% corporate tax below Rp4.8B annual pre-tax profit', () => {
+        const model = new FinancialModel({
+            ...cfg,
+            pricePerHour: 406125,
+            unitTotalHPP: 0,
+            marketingCostValue: 0,
+            operationalCostValue: 0,
+            softwareCostValue: 0,
+            salaryCostValue: 0
+        });
+        const firstYear = model.yearlyCashFlow(999)[0];
+
+        expect(firstYear.ebit).toBe(4_795_126_500);
+        expect(-firstYear.tax).toBeCloseTo(firstYear.ebit * 0.11);
+    });
+
+    it('applies 22% corporate tax at Rp4.8B annual pre-tax profit', () => {
+        const model = new FinancialModel({
+            ...cfg,
+            pricePerHour: 406125,
+            unitTotalHPP: 0,
+            marketingCostValue: 0,
+            operationalCostValue: 0,
+            softwareCostValue: 0,
+            salaryCostValue: 0
+        });
+        const firstYear = model.yearlyCashFlow(1000)[0];
+
+        expect(firstYear.ebit).toBe(4_800_000_000);
+        expect(-firstYear.tax).toBeCloseTo(firstYear.ebit * 0.22);
+    });
+
     it('roiProjection returns 12 months', () => {
         const model = new FinancialModel(cfg);
         const proj = model.roiProjection(2050);

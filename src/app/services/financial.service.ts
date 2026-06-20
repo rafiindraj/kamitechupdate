@@ -21,6 +21,10 @@ export interface FinancialConfig {
  * making them deterministic and easily testable.
  */
 export class FinancialModel {
+    private static readonly FULL_CORPORATE_TAX_PROFIT_THRESHOLD = 4_800_000_000;
+    private static readonly REDUCED_CORPORATE_TAX_RATE = 0.11;
+    private static readonly FULL_CORPORATE_TAX_RATE = 0.22;
+
     private readonly cfg: FinancialConfig;
 
     constructor(cfg: FinancialConfig) {
@@ -88,7 +92,10 @@ export class FinancialModel {
             const depreciation = 73500000;
 
             const ebit = ebitda - depreciation;
-            const tax = ebit > 0 ? ebit * 0.11 : 0;
+            const corporateTaxRate = ebit >= FinancialModel.FULL_CORPORATE_TAX_PROFIT_THRESHOLD
+                ? FinancialModel.FULL_CORPORATE_TAX_RATE
+                : FinancialModel.REDUCED_CORPORATE_TAX_RATE;
+            const tax = ebit > 0 ? ebit * corporateTaxRate : 0;
             const netIncome = ebit - tax;
 
             const operatingCF = netIncome + depreciation;
