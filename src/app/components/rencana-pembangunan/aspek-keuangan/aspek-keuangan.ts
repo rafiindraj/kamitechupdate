@@ -2,7 +2,15 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 import { PageComponent } from '../../../page/page.component';
 
 // Models
-import { OpexDetailItem, RoiProjectionItem, CashFlowTableRow } from '../../../models/financial.model';
+import {
+  CashFlowTableRow,
+  IntegratedFinancialYear,
+  InvestmentMetrics,
+  InvestorReturnItem,
+  InvestorReturnSummary,
+  OpexDetailItem,
+  RoiProjectionItem
+} from '../../../models/financial.model';
 
 // Shared utilities (DRY — single source of truth)
 import { formatCurrencyShort } from '../../../utils/currency.util';
@@ -34,6 +42,15 @@ export class AspekKeuangan {
   @Input() monthlyNetProfit!: number;
   @Input() roiProjection!: readonly RoiProjectionItem[];
   @Input() cashFlowTableData!: readonly CashFlowTableRow[];
+  @Input() founderOwnership!: number;
+  @Input() investorOwnership!: number;
+  @Input() dividendPayoutRatio!: number;
+  @Input() discountRate!: number;
+  @Input() exitMultiple!: number;
+  @Input() investorReturns!: readonly InvestorReturnItem[];
+  @Input() investorReturnSummary!: InvestorReturnSummary;
+  @Input() investmentMetrics!: InvestmentMetrics;
+  @Input() integratedFinancialStatements!: readonly IntegratedFinancialYear[];
 
   onHoursChange(event: Event): void {
     const target = event.target as HTMLInputElement;

@@ -405,6 +405,14 @@
                     </tr>
 
                     <!-- Lain-Lain -->
+                    <tr class="border-b border-dashed border-outline-variant">
+                        <td class="py-1 pl-4">ATK, Kabel, dan Perlengkapan Kecil</td>
+                        <td class="text-right font-sans font-bold py-1">Rp 2.950.000</td>
+                    </tr>
+                    <tr class="border-b border-dashed border-outline-variant">
+                        <td class="py-1 pl-4">Peralatan Kebersihan</td>
+                        <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
+                    </tr>
                     <tr class="border-b border-outline-variant bg-surface-container">
                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
                             Subtotal Lain-Lain (ATK, Kabel, Kebersihan)</td>
@@ -739,4 +747,581 @@
     <p class="text-[12px] text-on-surface-variant italic mt-0 font-sans">* Asumsi penjualan stabil sesuai input
         slider jam billable di Part 5 ({{billableHours}} jam/bulan). Tarif PPh Badan berubah menjadi 22% saat
         laba sebelum pajak tahunan mencapai Rp 4,8 Miliar.</p>
+</app-page>
+<!-- PAGE 9: BAB V - ASPEK KEUANGAN (EKONOMI INVESTOR) -->
+<app-page pageId="bab3-keuangan.9" pageNum="67" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        8. Ekonomi Investor dan Kebijakan Pembagian Laba</h5>
+    <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+        Simulasi ini mengasumsikan komposisi kepemilikan mengikuti kontribusi modal: Founder {{
+        (founderOwnership * 100).toFixed(0) }}% dan investor {{ (investorOwnership * 100).toFixed(0) }}%.
+        Dividen mulai dibagikan pada Tahun ke-2 sebesar {{ (dividendPayoutRatio * 100).toFixed(0) }}% dari laba bersih
+        positif, sedangkan sisanya ditahan untuk mendukung pertumbuhan dan modal kerja perusahaan.
+    </p>
+
+    <div class="grid grid-cols-4 gap-3 mb-5 font-sans">
+        <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3 text-center">
+            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Modal Founder</p>
+            <p class="text-[18px] font-black text-primary mb-0">{{
+                formatCurrencyShort(investorReturnSummary.founderCapital) }}</p>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3 text-center">
+            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Modal Investor</p>
+            <p class="text-[18px] font-black text-primary mb-0">{{
+                formatCurrencyShort(investorReturnSummary.investorCapital) }}</p>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3 text-center">
+            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Payout Ratio</p>
+            <p class="text-[18px] font-black text-primary mb-0">{{ (dividendPayoutRatio * 100).toFixed(0) }}%</p>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3 text-center">
+            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Exit Multiple</p>
+            <p class="text-[18px] font-black text-primary mb-0">{{ exitMultiple.toFixed(1) }}x</p>
+        </div>
+    </div>
+
+    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
+        <table class="w-full text-[12px] bg-white">
+            <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                <tr>
+                    <th class="p-2 text-center">Tahun</th>
+                    <th class="p-2 text-right">Laba Bersih</th>
+                    <th class="p-2 text-right">Total Dividen</th>
+                    <th class="p-2 text-right">Dividen Founder</th>
+                    <th class="p-2 text-right">Dividen Investor</th>
+                    <th class="p-2 text-right">Laba Ditahan</th>
+                </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+                @for (row of investorReturns; track row.year) {
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-2 text-center font-bold">Th {{ row.year }}</td>
+                    <td class="p-2 text-right" [class.text-red-600]="row.netIncome < 0">{{
+                        formatCurrencyShort(row.netIncome) }}</td>
+                    <td class="p-2 text-right text-primary font-bold">{{ formatCurrencyShort(row.dividend) }}</td>
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.founderDividend) }}</td>
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.investorDividend) }}</td>
+                    <td class="p-2 text-right" [class.text-red-600]="row.retainedEarnings < 0">{{
+                        formatCurrencyShort(row.retainedEarnings) }}</td>
+                </tr>
+                }
+                <tr class="bg-surface-container font-bold border-t-2 border-outline-variant">
+                    <td class="p-2 text-center text-primary uppercase tracking-wider text-[11px]">Total 5 Tahun</td>
+                    <td class="p-2 text-right"></td>
+                    <td class="p-2 text-right text-primary">{{
+                        formatCurrencyShort(investorReturnSummary.founderDividends +
+                        investorReturnSummary.investorDividends) }}</td>
+                    <td class="p-2 text-right text-primary">{{
+                        formatCurrencyShort(investorReturnSummary.founderDividends) }}</td>
+                    <td class="p-2 text-right text-primary">{{
+                        formatCurrencyShort(investorReturnSummary.investorDividends) }}</td>
+                    <td class="p-2 text-right"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="text-[11px] text-on-surface-variant italic mt-auto mb-0 font-sans leading-[1.15]">
+        * Simulasi ini belum memperhitungkan Terminal Value perusahaan pada saat exit strategy. Laba Ditahan (Retained
+        Earnings) dicatat sebagai penambahan modal untuk ekspansi tahun berikutnya.
+    </p>
+</app-page>
+
+<!-- PAGE 10: BAB V - ASPEK KEUANGAN (KELAYAKAN) -->
+<app-page pageId="bab3-keuangan.10" pageNum="68" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-4 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        9. NPV, IRR, dan Discounted Payback</h5>
+
+    <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+        Indikator kelayakan finansial menunjukkan bahwa model bisnis KamiTech
+        memiliki prospek yang solid. <strong>Net Present Value (NPV)</strong> yang bernilai positif menegaskan bahwa
+        agregat proyeksi arus kas bebas di masa depan setelah didiskontokan dengan tingkat risiko (<em>discount
+            rate</em>) sebesar {{ (discountRate * 100).toFixed(0) }}% jauh melampaui nilai modal awal yang disuntikkan.
+        Hal ini dikonfirmasi oleh tingginya <strong>Internal Rate of Return (IRR)</strong> yang melebihi ekspektasi
+        imbal hasil standar (<em>Hurdle Rate</em>) di pasar modal. Selanjutnya, <strong>Profitability Index
+            (PI)</strong> di atas angka 1,0x membuktikan bahwa setiap Rupiah yang diinvestasikan sanggup menciptakan
+        nilai tambah eksponensial bagi perusahaan. Terakhir, dari perspektif mitigasi risiko likuiditas,
+        <strong>Discounted Payback Period</strong> memperlihatkan durasi yang efisien bagi para pemegang saham untuk
+        memperoleh kembali keseluruhan modal awal mereka sepenuhnya (walaupun telah disesuaikan dengan nilai waktu dari
+        uang).
+    </p>
+    <div class="grid grid-cols-2 gap-4 mb-6 font-sans">
+        <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
+            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Net Present Value (NPV)</p>
+            <p class="text-[20px] font-black text-primary mb-0">{{ formatCurrencyShort(investmentMetrics.npv) }}</p>
+        </div>
+        <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
+            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Internal Rate of Return (IRR)
+            </p>
+            <p class="text-[20px] font-black text-primary mb-0">{{ investmentMetrics.irr === null ? 'N/A' :
+                (investmentMetrics.irr * 100).toFixed(1) + '%' }}</p>
+        </div>
+        <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
+            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Discounted Payback Period</p>
+            <p class="text-[20px] font-black text-primary mb-0">{{ investmentMetrics.discountedPaybackYears === null ?
+                'Lebih dari 5 Tahun' : investmentMetrics.discountedPaybackYears.toFixed(2) + ' Tahun' }}</p>
+        </div>
+        <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
+            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Profitability Index (PI)</p>
+            <p class="text-[20px] font-black text-primary mb-0">{{ investmentMetrics.profitabilityIndex.toFixed(2) }}x
+            </p>
+        </div>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        10. Proyeksi Laporan Keuangan Terintegrasi</h5>
+
+    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
+        <table class="w-full text-[12px] bg-white">
+            <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                <tr>
+                    <th class="p-2 text-left">Laporan Laba Rugi</th>
+                    @for (row of integratedFinancialStatements; track row.year) {<th class="p-2 text-right">Th {{
+                        row.year }}</th>}
+                </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+                <tr class="border-b border-outline-variant">
+                    <td class="p-2 font-bold">Pendapatan</td>@for (row of integratedFinancialStatements; track row.year)
+                    {<td class="p-2 text-right">{{ formatCurrencyShort(row.revenue) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">HPP / COGS</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.cogs) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">OPEX</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.opex) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Depresiasi</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.depreciation) }}</td>}
+                </tr>
+                <tr class="border-b border-outline-variant">
+                    <td class="p-2 pl-4">PPh Badan</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.tax) }}</td>}
+                </tr>
+                <tr class="bg-surface-container font-bold">
+                    <td class="p-2 text-primary">Laba Bersih</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.netIncome) }}</td>}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</app-page>
+
+<!-- PAGE 11: BAB V - ASPEK KEUANGAN (LAPORAN TERINTEGRASI LANJUTAN) -->
+<app-page pageId="bab3-keuangan.11" pageNum="69" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-6 font-sans w-full">
+        <table class="w-full text-[12px] bg-white">
+            <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                <tr>
+                    <th class="p-2 text-left">Neraca Sederhana</th>
+                    @for (row of integratedFinancialStatements; track row.year) {<th class="p-2 text-right">Th {{
+                        row.year }}</th>}
+                </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Kas</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right">{{ formatCurrencyShort(row.endingCash) }}</td>}
+                </tr>
+                <tr class="border-b border-outline-variant">
+                    <td class="p-2 pl-4">Aset Produktif Bersih</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netProductiveAssets) }}</td>}
+                </tr>
+                <tr class="bg-surface-container font-bold border-b border-outline-variant">
+                    <td class="p-2">Total Aset</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right">{{ formatCurrencyShort(row.totalAssets) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Liabilitas</td>@for (row of integratedFinancialStatements; track row.year) {<td
+                        class="p-2 text-right">{{ formatCurrencyShort(row.liabilities) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Modal Disetor</td>@for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.shareCapital) }}</td>}
+                </tr>
+                <tr class="border-b border-outline-variant">
+                    <td class="p-2 pl-4">Akumulasi Laba Ditahan</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.retainedEarnings) }}</td>}
+                </tr>
+                <tr class="bg-surface-container font-bold">
+                    <td class="p-2 text-primary">Total Ekuitas</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.totalEquity) }}</td>}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
+        <table class="w-full text-[12px] bg-white">
+            <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                <tr>
+                    <th class="p-2 text-left">Laporan Arus Kas</th>
+                    @for (row of integratedFinancialStatements; track row.year) {<th class="p-2 text-right">Th {{
+                        row.year }}</th>}
+                </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Arus Kas Operasi</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.operatingCF) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Arus Kas Investasi</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.investingCF) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Arus Kas Pendanaan</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.financingCF) }}</td>}
+                </tr>
+                <tr class="border-b border-dashed border-outline-variant">
+                    <td class="p-2 pl-4">Pembayaran Dividen</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.dividends) }}</td>}
+                </tr>
+                <tr class="border-b border-outline-variant">
+                    <td class="p-2 pl-4">Perubahan Kas Bersih</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netCashChange) }}</td>}
+                </tr>
+                <tr class="bg-surface-container font-bold">
+                    <td class="p-2 text-primary">Saldo Kas Akhir</td>@for (row of integratedFinancialStatements; track
+                    row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.endingCash) }}</td>}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="text-[12px] text-on-surface-variant italic mt-auto mb-0 font-sans leading-[1.15]">
+        * Neraca merupakan proyeksi manajemen tanpa utang berbunga; aset produktif menggunakan pendekatan biaya
+        perolehan dikurangi depresiasi. Seluruh tabel terhubung pada asumsi dan arus kas yang sama.
+    </p>
+</app-page>
+
+<!-- PAGE 12: BAB V - ASPEK KEUANGAN (ANALISIS SKENARIO) -->
+<app-page pageId="bab3-keuangan.12" pageNum="70" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        11. Analisis Skenario dan Sensitivitas</h5>
+
+    <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+        Dalam memproyeksikan kinerja keuangan KamiTech, analisis sensitivitas dilakukan untuk mengevaluasi dampak
+        berbagai kondisi eksternal dan internal. Kami menguji tiga skenario utama:
+        <strong>Pessimistic</strong>, <strong>Base Case</strong>, dan <strong>Optimistic</strong>. Skenario
+        ini difokuskan pada perubahan faktor-faktor kritis seperti utilisasi jam billable (<em>utilization rate</em>),
+        harga per jam (<em>price per hour</em>), inflasi gaji (<em>salary inflation</em>), potensi keterlambatan
+        pembayaran pelanggan (<em>delayed customer payments</em>), dan perlambatan pertumbuhan penjualan (<em>slower
+            sales growth</em>).
+    </p>
+
+    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-6 font-sans w-full">
+        <table class="w-full text-[13px] bg-white">
+            <thead class="bg-inverse-surface text-white uppercase text-[11px] font-bold tracking-wider">
+                <tr>
+                    <th class="p-3 text-left w-1/4">Parameter Skenario</th>
+                    <th class="p-3 text-center w-1/4 bg-red-800/30">Pessimistic</th>
+                    <th class="p-3 text-center w-1/4 bg-primary/30">Base Case</th>
+                    <th class="p-3 text-center w-1/4 bg-green-800/30">Optimistic</th>
+                </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 font-bold">Utilisasi Kapasitas</td>
+                    <td class="p-3 text-center">60%</td>
+                    <td class="p-3 text-center font-bold text-primary">75%</td>
+                    <td class="p-3 text-center">90%</td>
+                </tr>
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 font-bold">Pertumbuhan Pendapatan</td>
+                    <td class="p-3 text-center">10% / tahun</td>
+                    <td class="p-3 text-center font-bold text-primary">15% / tahun</td>
+                    <td class="p-3 text-center">25% / tahun</td>
+                </tr>
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 font-bold">Inflasi OPEX & Gaji</td>
+                    <td class="p-3 text-center text-red-600">12% / tahun</td>
+                    <td class="p-3 text-center font-bold text-primary">8% / tahun</td>
+                    <td class="p-3 text-center text-green-600">5% / tahun</td>
+                </tr>
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 font-bold">Keterlambatan Pembayaran</td>
+                    <td class="p-3 text-center text-red-600">60 - 90 Hari</td>
+                    <td class="p-3 text-center font-bold text-primary">30 - 45 Hari</td>
+                    <td class="p-3 text-center text-green-600">Tepat Waktu</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 font-bold">Dampak pada Cashflow</td>
+                    <td class="p-3 text-center text-red-600 font-bold">Risiko defisit kas di Tahun 2. Penundaan
+                        ekspansi.</td>
+                    <td class="p-3 text-center font-bold text-primary">Arus kas positif mulai pertengahan Tahun 2.</td>
+                    <td class="p-3 text-center text-green-600 font-bold">Pembagian dividen lebih besar, akselerasi
+                        ekspansi.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p
+        class="text-[14px] text-on-surface-variant italic font-sans leading-[1.3] p-4 bg-surface-container-low rounded-xl border-l-4 border-primary">
+        <strong>Kesimpulan Sensitivitas:</strong> Titik paling rentan bagi KamiTech berada pada keterlambatan pembayaran
+        klien (Piutang). Meskipun bisnis konsultan dapat mencatat laba (Profit), penundaan pencairan kas dapat menguras
+        <em>runway</em> modal operasional bulanan.
+    </p>
+
+</app-page>
+
+<!-- PAGE 13: BAB V - ASPEK KEUANGAN (ASUMSI MODAL KERJA) -->
+<app-page pageId="bab3-keuangan.13" pageNum="71" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        12. Asumsi Modal Kerja</h5>
+
+    <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-6 indent-8">
+        Bisnis berbasis layanan (<em>services business</em>) memiliki karakteristik modal kerja yang berbeda dengan
+        bisnis ritel.
+        Biaya terbesar setiap bulan adalah komponen gaji (<em>payroll</em>) yang harus dibayarkan secara tunai tanpa
+        kompromi,
+        sementara termin pembayaran klien B2B seringkali bervariasi antara 30 hingga 60 hari.
+        Oleh karena itu, manajemen modal kerja (<em>Working Capital Management</em>) yang ketat sangat penting.
+    </p>
+
+    <div class="grid grid-cols-2 gap-4 mb-6 font-sans">
+        <div class="border border-outline-variant bg-surface-container p-4 rounded-xl shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    1</div>
+                <h6 class="font-bold text-primary text-[14px] m-0 uppercase tracking-wide">Piutang (Accounts Receivable)
+                </h6>
+            </div>
+            <p class="text-[13px] text-on-surface-variant mb-0">
+                Termin standar <strong>30 Hari (Net 30)</strong>. Manajemen mengasumsikan 10% potensi <em>bad debt</em>
+                atau <em>dispute</em> proyek yang dicadangkan dari pendapatan tahunan. Penagihan ketat dilakukan pada
+                H+1 setelah jatuh tempo.
+            </p>
+        </div>
+
+        <div class="border border-outline-variant bg-surface-container p-4 rounded-xl shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    2</div>
+                <h6 class="font-bold text-primary text-[14px] m-0 uppercase tracking-wide">Utang (Accounts Payable)</h6>
+            </div>
+            <p class="text-[13px] text-on-surface-variant mb-0">
+                Untuk biaya vendor atau sub-kontraktor independen, pembayaran menggunakan termin
+                <strong>Back-to-Back</strong>,
+                artinya vendor akan dibayar 14 hari setelah klien membayar KamiTech, untuk melindungi arus kas.
+            </p>
+        </div>
+
+        <div class="border border-outline-variant bg-surface-container p-4 rounded-xl shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    3</div>
+                <h6 class="font-bold text-primary text-[14px] m-0 uppercase tracking-wide">Cadangan Kas (Cash Reserve)
+                </h6>
+            </div>
+            <p class="text-[13px] text-on-surface-variant mb-0">
+                Kebijakan internal mewajibkan mempertahankan kas minimum setara <strong>3 bulan beban gaji operasional
+                    (OPEX)</strong>.
+                Sisa kas di luar cadangan ini yang dapat dialokasikan untuk dividen atau investasi perangkat baru.
+            </p>
+        </div>
+
+        <div class="border border-outline-variant bg-surface-container p-4 rounded-xl shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    4</div>
+                <h6 class="font-bold text-primary text-[14px] m-0 uppercase tracking-wide">Minimum Runway</h6>
+            </div>
+            <p class="text-[13px] text-on-surface-variant mb-0">
+                Pada awal tahun pertama, modal kerja disuntikkan secara tunai sebesar Rp 1.041.050.000,
+                memberikan <em>runway</em> aman selama lebih dari 6 bulan berturut-turut tanpa pemasukan apa pun.
+            </p>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 14: BAB V - ASPEK KEUANGAN (PAJAK & DEPRESIASI) -->
+<app-page pageId="bab3-keuangan.14" pageNum="72" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        13. Jadwal Pajak dan Depresiasi</h5>
+
+    <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+        Berdasarkan regulasi Pajak Penghasilan (PPh) Badan di Indonesia, UMKM dengan peredaran bruto tertentu
+        mendapatkan fasilitas pengurangan tarif. Untuk bisnis jasa konsultasi, pembukuan komersial dan fiskal harus
+        diselaraskan. Pada model ini, kami menggunakan tarif <strong>11%</strong> (50% dari tarif normal 22%)
+        selama pendapatan belum menembus Rp 4,8 Miliar. Depresiasi aset fisik menggunakan metode garis lurus.
+    </p>
+
+    <div class="overflow-hidden rounded-xl border border-outline-variant mb-6 font-sans flex-grow w-full">
+        <table class="w-full text-[13px] bg-white">
+            <thead class="bg-inverse-surface text-white uppercase text-[11px] font-bold tracking-wider">
+                <tr>
+                    <th class="p-3 text-left w-1/3">Kategori Aset / Pajak</th>
+                    <th class="p-3 text-center">Metode</th>
+                    <th class="p-3 text-center">Umur Ekonomis</th>
+                    <th class="p-3 text-right">Beban Tahunan</th>
+                </tr>
+            </thead>
+            <tbody class="text-on-surface-variant">
+                <tr class="bg-surface-container font-bold border-b border-outline-variant">
+                    <td colspan="4" class="p-3 text-primary uppercase tracking-wider text-[11px]">Depresiasi Aset
+                        (Fiskal & Komersial)</td>
+                </tr>
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 pl-6 font-bold">Perangkat Komputer / Laptop</td>
+                    <td class="p-3 text-center">Garis Lurus</td>
+                    <td class="p-3 text-center">4 Tahun</td>
+                    <td class="p-3 text-right">Rp 67.500.000</td>
+                </tr>
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 pl-6 font-bold">Furnitur Kantor</td>
+                    <td class="p-3 text-center">Garis Lurus</td>
+                    <td class="p-3 text-center">4 Tahun</td>
+                    <td class="p-3 text-right">Rp 6.000.000</td>
+                </tr>
+                <tr
+                    class="border-b border-outline-variant hover:bg-surface-container-low transition-colors bg-surface-container/30">
+                    <td colspan="3" class="p-3 pl-6 font-bold text-right">Total Depresiasi Tahunan:</td>
+                    <td class="p-3 text-right font-bold text-primary">Rp 73.500.000</td>
+                </tr>
+                <tr class="bg-surface-container font-bold border-b border-outline-variant">
+                    <td colspan="4" class="p-3 text-primary uppercase tracking-wider text-[11px] mt-4">Kebijakan Pajak
+                        (PPh Badan)</td>
+                </tr>
+                <tr
+                    class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 pl-6 font-bold">EBIT &lt; Rp 4,8 Miliar</td>
+                    <td class="p-3 text-center">Fasilitas Pasal 31E</td>
+                    <td class="p-3 text-center">-</td>
+                    <td class="p-3 text-right font-bold">Tarif 11%</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low transition-colors">
+                    <td class="p-3 pl-6 font-bold">EBIT &gt;= Rp 4,8 Miliar</td>
+                    <td class="p-3 text-center">Tarif Normal</td>
+                    <td class="p-3 text-center">-</td>
+                    <td class="p-3 text-right font-bold text-red-600">Tarif 22%</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-[11px] text-on-surface-variant italic p-3 pb-1 mb-0 font-sans leading-[1.15]">
+            * Jadwal depresiasi dan tarif pajak ini disimulasikan untuk perencanaan awal. Pada saat operasional,
+            angka ini akan disesuaikan kembali berdasarkan verifikasi oleh akuntan pajak bersertifikat (Brevet C)
+            guna memastikan kepatuhan penuh terhadap undang-undang perpajakan di Indonesia.
+        </p>
+    </div>
+</app-page>
+
+<!-- PAGE 15: BAB V - ASPEK KEUANGAN (EXIT STRATEGY) -->
+<app-page pageId="bab3-keuangan.15" pageNum="73" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <h5
+        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        14. Asumsi Exit Investor</h5>
+
+    <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-6 indent-8">
+        Bagi investor institusional seperti MDI Ventures atau pemodal ventura lainnya, pengembalian investasi
+        (<em>return on investment</em>) pada umumnya direalisasikan melalui beberapa skenario <em>Exit Strategy</em>.
+        Meskipun bisnis agensi atau konsultan teknologi cenderung dinilai dengan <em>multiple</em> yang lebih
+        konservatif
+        dibandingkan perusahaan produk SaaS murni, bisnis ini menghasilkan <em>cash flow</em> yang kuat dan stabil.
+    </p>
+
+    <div class="flex flex-col gap-4">
+        <div class="border-l-4 border-primary bg-surface-container-low p-4 rounded-r-xl shadow-sm">
+            <h6 class="font-bold text-[14px] text-primary mb-1">1. Dividen Reguler (Cash Yield)</h6>
+            <p class="text-[13px] text-on-surface-variant mb-0 leading-[1.3]">
+                Ini adalah mekanisme <em>return</em> paling pasti bagi investor. Dengan komitmen <strong>Payout Ratio {{
+                    (dividendPayoutRatio * 100).toFixed(0) }}%</strong>,
+                investor akan mendapatkan pembagian dividen tunai setiap akhir tahun buku (mulai tahun ke-2 atau ke-3
+                saat laba bersih positif dan akumulasi kerugian tertutupi).
+            </p>
+        </div>
+
+        <div class="border-l-4 border-secondary bg-surface-container-low p-4 rounded-r-xl shadow-sm">
+            <h6 class="font-bold text-[14px] text-secondary mb-1">2. Founder Buyback (Pembelian Kembali Saham)</h6>
+            <p class="text-[13px] text-on-surface-variant mb-0 leading-[1.3]">
+                Skenario yang umum di bisnis agensi: setelah 3-5 tahun beroperasi dan perusahaan memiliki kas melimpah,
+                <em>founder</em> dapat membeli kembali saham (<em>buyback</em>) milik investor dengan valuasi yang
+                disepakati
+                berdasarkan <strong>{{ exitMultiple.toFixed(1) }}x EBITDA</strong> atau laba bersih rata-rata.
+            </p>
+        </div>
+
+        <div class="border-l-4 border-tertiary bg-surface-container-low p-4 rounded-r-xl shadow-sm">
+            <h6 class="font-bold text-[14px] text-tertiary mb-1">3. Akuisisi Strategis (M&A)</h6>
+            <p class="text-[13px] text-on-surface-variant mb-0 leading-[1.3]">
+                Perusahaan konsultan TI besar (seperti Accenture lokal, atau System Integrator nasional) dapat
+                mengakuisisi KamiTech demi mendapatkan talenta (<em>acqui-hire</em>), klien-klien korporat eksklusif,
+                atau kapasitas produksi. Pada skenario ini, investor dapat mencairkan seluruh sahamnya sekaligus.
+            </p>
+        </div>
+
+        <div class="border-l-4 border-on-surface bg-surface-container-low p-4 rounded-r-xl shadow-sm">
+            <h6 class="font-bold text-[14px] text-on-surface mb-1">4. Penjualan Saham Sekunder (Secondary Sale)</h6>
+            <p class="text-[13px] text-on-surface-variant mb-0 leading-[1.3]">
+                Jika KamiTech tumbuh cukup pesat dan membutuhkan putaran pendanaan lanjutan (misal: Seri A untuk
+                ekspansi menjadi perusahaan produk/SaaS), investor tahap awal dapat menjual sebagian atau seluruh
+                porsi saham mereka ke investor tahap lanjutan (<em>Private Equity</em>).
+            </p>
+        </div>
+    </div>
 </app-page>

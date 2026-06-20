@@ -1,0 +1,599 @@
+Created At: 2026-06-20T13:41:41Z
+Completed At: 2026-06-20T13:41:41Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 907
+Total Bytes: 61753
+Showing lines 1 to 800
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <!-- PAGE 1: BAB V - ASPEK KEUANGAN (Aktiva Berwujud & Tidak Berwujud) -->
+2: <app-page pageId="bab3-keuangan" pageNum="59" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+3:     contentClass="flex flex-col">
+4:     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+5:         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+6:             Pembangunan</span>
+7:         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+8:     </div>
+9:     <h4
+10:         class="font-bold text-primary text-[18px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+11:         F. Aspek Keuangan</h4>
+12: 
+13:     <!-- 1. Aktiva Berwujud & Tidak Berwujud -->
+14:     <div class="mb-6 flex flex-col flex-grow">
+15:         <h5
+16:             class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+17:             1. Aktiva Berwujud &amp; Tidak Berwujud</h5>
+18: 
+19:         <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+20:             Aspek keuangan merupakan akumulasi dari seluruh perencanaan dan analisis yang telah dijabarkan pada
+21:             aspek-aspek sebelumnya. Berdasarkan kebutuhan sarana, prasarana, operasional teknis, dan kepatuhan hukum
+22:             yang telah diidentifikasi, kami meng
+<truncated 45282 bytes>
+nterior, Pengadaan
+686:                     Hardware, Branding, Legalitas, Lain-Lain, serta Modal Kerja Operasional 3 Bulan hanya terjadi pada
+687:                     Tahun ke-1</strong>.
+688:                 Sedangkan biaya yang bersifat berulang hanyalah Sewa Kantor (Rp 50 Juta) dan
+689:                 Lisensi Software (Rp 36 Juta) yang dicatat sebagai pengeluaran CAPEX tahunan
+690:                 sebesar Rp 86 Juta pada Tahun ke-2 hingga ke-5. Model ini juga memperhitungkan penyusutan
+691:                 aset fisik (<em>Depreciation</em>) sebesar Rp 73,5 Juta/tahun. Pajak Penghasilan (PPh) Badan
+692:                 dihitung sebesar 11% dari EBIT saat laba sebelum pajak tahunan masih di bawah Rp 4,8 Miliar, dan
+693:                 menjadi 22% dari EBIT ketika laba sebelum pajak tahunan mencapai atau melampaui Rp 4,8 Miliar. Proyeksi
+694:                 juga
+695:                 menggunakan eskalasi pertumbuhan pendapatan tahunan 15% yang disesuaikan dengan inflasi OPEX 8%
+696:                 mulai Tahun ke-2.</p>
+697:         </div>
+698: 
+699:         <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
+700:             <table class="w-full text-[12px] bg-white">
+701:                 <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+702:                     <tr>
+703:                         <th class="p-2 text-left">Komponen (Rp)</th>
+704:                         <th class="p-2 text-right">Tahun 1</th>
+705:                         <th class="p-2 text-right">Tahun 2</th>
+706:                         <th class="p-2 text-right">Tahun 3</th>
+707:                         <th class="p-2 text-right">Tahun 4</th>
+708:                         <th class="p-2 text-right">Tahun 5</th>
+709:                     </tr>
+710:                 </thead>
+<truncated 7056 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.
+===
+Created At: 2026-06-20T13:41:47Z
+Completed At: 2026-06-20T13:41:48Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 907
+Total Bytes: 61753
+Showing lines 700 to 907
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+700:             <table class="w-full text-[12px] bg-white">
+701:                 <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+702:                     <tr>
+703:                         <th class="p-2 text-left">Komponen (Rp)</th>
+704:                         <th class="p-2 text-right">Tahun 1</th>
+705:                         <th class="p-2 text-right">Tahun 2</th>
+706:                         <th class="p-2 text-right">Tahun 3</th>
+707:                         <th class="p-2 text-right">Tahun 4</th>
+708:                         <th class="p-2 text-right">Tahun 5</th>
+709:                     </tr>
+710:                 </thead>
+711:                 <tbody class="font-sans text-on-surface-variant">
+712:                     @for (row of cashFlowTableData; track $index) {
+713:                     <tr class="border-b border-outline-variant last:border-0 hover:bg-surface-container-low transition-colors"
+714:                         [class.bg-surface-container]="row.isHeader" [class.font-bold]="row.isBold">
+715:                         <td class="p-2 font-sans" [class.font-bold]="row.isBold"
+716:                             [class.pl-4]="!row.isHeader && !row.isBold" [class.text-primary]="row.isHighlight">
+717:                             {{row.label}}</td>
+718:                         <td class="p-2 text-right" [class.text-red-600]="row.y1 < 0"
+719:                             [class.text-primary]="row.isHighlight && row.y1 >= 0">{{
+720:             
+<truncated 14763 bytes>
+s="p-1.5 text-right">Th {{ row.year }}</th>}</tr></thead>
+893:             <tbody class="text-on-surface-variant">
+894:                 <tr><td class="p-1.5">Arus Kas Operasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-1.5 text-right">{{ formatCurrencyShort(row.operatingCF) }}</td>}</tr>
+895:                 <tr><td class="p-1.5">Arus Kas Investasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-1.5 text-right text-red-600">{{ formatCurrencyShort(row.investingCF) }}</td>}</tr>
+896:                 <tr><td class="p-1.5">Arus Kas Pendanaan</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-1.5 text-right">{{ formatCurrencyShort(row.financingCF) }}</td>}</tr>
+897:                 <tr><td class="p-1.5">Pembayaran Dividen</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-1.5 text-right text-red-600">{{ formatCurrencyShort(row.dividends) }}</td>}</tr>
+898:                 <tr><td class="p-1.5">Perubahan Kas Bersih</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-1.5 text-right">{{ formatCurrencyShort(row.netCashChange) }}</td>}</tr>
+899:                 <tr class="bg-surface-container font-bold"><td class="p-1.5 text-primary">Saldo Kas Akhir</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-1.5 text-right text-primary">{{ formatCurrencyShort(row.endingCash) }}</td>}</tr>
+900:             </tbody>
+901:         </table>
+902:     </div>
+903:     <p class="text-[9px] text-on-surface-variant italic mt-auto mb-0 leading-tight">
+904:         * Neraca merupakan proyeksi manajemen tanpa utang berbunga; aset produktif menggunakan pendekatan biaya perolehan dikurangi depresiasi. Seluruh tabel terhubung pada asumsi dan arus kas yang sama.
+905:     </p>
+906: </app-page>
+907: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+Created At: 2026-06-20T13:46:49Z
+Completed At: 2026-06-20T13:46:49Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 917
+Total Bytes: 62297
+Showing lines 821 to 910
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+821:     </p>
+822: </app-page>
+823: 
+824: <!-- PAGE 10: BAB V - ASPEK KEUANGAN (KELAYAKAN) -->
+825: <app-page pageId="bab3-keuangan.10" pageNum="68" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+826:     contentClass="flex flex-col">
+827:     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
+828:             class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+829:             Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan
+830:             Bisnis</span></div>
+831: 
+832:     <h5
+833:         class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+834:         9. NPV, IRR, dan Discounted Payback</h5>
+835:     <div class="grid grid-cols-3 gap-3 mb-3 font-sans">
+836:         <div class="rounded-xl bg-primary-container border border-primary-fixed p-3">
+837:             <p class="text-[9px] uppercase tracking-wider text-on-primary-container mb-1">NPV @ {{ (investmentMetrics.discountRate * 100).toFixed(0) }}%</p>
+838:             <p class="text-[18px] font-black text-primary mb-0">{{ formatCurrencyShort(investmentMetrics.npv) }}</p>
+839:         </div>
+840:         <div class="rounded-xl bg-primary-container border border-primary-fixed p-3">
+841:             <p class="text-[9px] uppercase tracking-wider text-on-primary-container mb-1">Project IRR</p>
+842:             <p class="text-[18px] fo
+<truncated 5839 bytes>
+:     <div class="overflow-hidden rounded-lg border border-outline-variant mb-4 font-sans">
+900:         <table class="w-full text-[12px] bg-white">
+901:             <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider"><tr><th class="p-2 text-left">Laporan Arus Kas</th>
+902:                 @for (row of integratedFinancialStatements; track row.year) {<th class="p-2 text-right">Th {{ row.year }}</th>}</tr></thead>
+903:             <tbody class="text-on-surface-variant">
+904:                 <tr><td class="p-2">Arus Kas Operasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.operatingCF) }}</td>}</tr>
+905:                 <tr><td class="p-2">Arus Kas Investasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.investingCF) }}</td>}</tr>
+906:                 <tr><td class="p-2">Arus Kas Pendanaan</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.financingCF) }}</td>}</tr>
+907:                 <tr><td class="p-2">Pembayaran Dividen</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.dividends) }}</td>}</tr>
+908:                 <tr><td class="p-2">Perubahan Kas Bersih</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netCashChange) }}</td>}</tr>
+909:                 <tr class="bg-surface-container font-bold"><td class="p-2 text-primary">Saldo Kas Akhir</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.endingCash) }}</td>}</tr>
+910:             </tbody>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+Created At: 2026-06-20T13:53:37Z
+Completed At: 2026-06-20T13:53:37Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.ts`
+Total Lines: 65
+Total Bytes: 2378
+Showing lines 1 to 65
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+2: import { PageComponent } from '../../../page/page.component';
+3: 
+4: // Models
+5: import {
+6:   CashFlowTableRow,
+7:   IntegratedFinancialYear,
+8:   InvestmentMetrics,
+9:   InvestorReturnItem,
+10:   InvestorReturnSummary,
+11:   OpexDetailItem,
+12:   RoiProjectionItem
+13: } from '../../../models/financial.model';
+14: 
+15: // Shared utilities (DRY — single source of truth)
+16: import { formatCurrencyShort } from '../../../utils/currency.util';
+17: 
+18: @Component({
+19:   selector: 'app-aspek-keuangan',
+20:   standalone: true,
+21:   imports: [PageComponent],
+22:   templateUrl: './aspek-keuangan.html',
+23:   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
+24:   changeDetection: ChangeDetectionStrategy.OnPush
+25: })
+26: export class AspekKeuangan {
+27:   @Input() initialCapital!: number;
+28:   @Input() opexGajiDetail!: readonly OpexDetailItem[];
+29:   @Input() salaryCostValue!: number;
+30:   @Input() opexOperasionalDetail!: readonly OpexDetailItem[];
+31:   @Input() operationalCostValue!: number;
+32:   @Input() opexSoftwareDetail!: readonly OpexDetailItem[];
+33:   @Input() softwareCostValue!: number;
+34:   @Input() opexMarketingDetail!: readonly OpexDetailItem[];
+35:   @Input() marketingCostValue!: number;
+36:   @Input() monthlyFixedCostTotal!: number;
+37:   @Input() billableHours!: number;
+38:   @Output() billableHoursChange = new EventEmitter<number>();
+39:   @Input() totalRevenue!: number;
+40:   @Input() totalCOGS!: number;
+41:   @Input() totalMonthlyExpense!: number;
+42:   @Input() monthlyNetProfit!: number;
+43:   @Input() roiProjection!: readonly RoiProjectionItem[];
+44:   @Input() cashFlowTableData!: readonly CashFlowTableRow[];
+45:   @Input() founderOwnership!: number;
+46:   @Input() investorOwnership!: number;
+47:   @Input() dividendPayoutRatio!: number;
+48:   @Input() discountRate!: number;
+49:   @Input() exitMultiple!: number;
+50:   @Input() investorReturns!: readonly InvestorReturnItem[];
+51:   @Input() investorReturnSummary!: InvestorReturnSummary;
+52:   @Input() investmentMetrics!: InvestmentMetrics;
+53:   @Input() integratedFinancialStatements!: readonly IntegratedFinancialYear[];
+54: 
+55:   onHoursChange(event: Event): void {
+56:     const target = event.target as HTMLInputElement;
+57:     if (target) {
+58:       this.billableHoursChange.emit(parseInt(target.value, 10));
+59:     }
+60:   }
+61: 
+62:   // Delegate to shared utility (eliminates duplication)
+63:   formatCurrencyShort = formatCurrencyShort;
+64: }
+65: 
+The above content shows the entire, complete file contents of the requested file.
+
+===
+Created At: 2026-06-20T13:54:26Z
+Completed At: 2026-06-20T13:54:26Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 916
+Total Bytes: 62296
+Showing lines 880 to 916
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+880:             Bisnis</span></div>
+881: 
+882:     <div class="overflow-hidden rounded-lg border border-outline-variant mb-4 font-sans">
+883:         <table class="w-full text-[12px] bg-white">
+884:             <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider"><tr><th class="p-2 text-left">Neraca Sederhana</th>
+885:                 @for (row of integratedFinancialStatements; track row.year) {<th class="p-2 text-right">Th {{ row.year }}</th>}</tr></thead>
+886:             <tbody class="text-on-surface-variant">
+887:                 <tr><td class="p-2">Kas</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.endingCash) }}</td>}</tr>
+888:                 <tr><td class="p-2">Aset Produktif Bersih</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netProductiveAssets) }}</td>}</tr>
+889:                 <tr class="bg-surface-container font-bold"><td class="p-2">Total Aset</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.totalAssets) }}</td>}</tr>
+890:                 <tr><td class="p-2">Liabilitas</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.liabilities) }}</td>}</tr>
+891:                 <tr><td class="p-2">Modal Disetor</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 te
+<truncated 1005 bytes>
+ear) {<th class="p-2 text-right">Th {{ row.year }}</th>}</tr></thead>
+902:             <tbody class="text-on-surface-variant">
+903:                 <tr><td class="p-2">Arus Kas Operasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.operatingCF) }}</td>}</tr>
+904:                 <tr><td class="p-2">Arus Kas Investasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.investingCF) }}</td>}</tr>
+905:                 <tr><td class="p-2">Arus Kas Pendanaan</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.financingCF) }}</td>}</tr>
+906:                 <tr><td class="p-2">Pembayaran Dividen</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.dividends) }}</td>}</tr>
+907:                 <tr><td class="p-2">Perubahan Kas Bersih</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netCashChange) }}</td>}</tr>
+908:                 <tr class="bg-surface-container font-bold"><td class="p-2 text-primary">Saldo Kas Akhir</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.endingCash) }}</td>}</tr>
+909:             </tbody>
+910:         </table>
+911:     </div>
+912:     <p class="text-[12px] text-on-surface-variant italic mt-auto mb-0 font-sans leading-[1.15]">
+913:         * Neraca merupakan proyeksi manajemen tanpa utang berbunga; aset produktif menggunakan pendekatan biaya perolehan dikurangi depresiasi. Seluruh tabel terhubung pada asumsi dan arus kas yang sama.
+914:     </p>
+915: </app-page>
+916: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+The USER performed the following action:
+Show the contents of file c:\Users\Asus\Documents\Suci\kamitechupdate\src\app\components\rencana-pembangunan\aspek-keuangan\aspek-keuangan.html from lines 732 to 779
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 1107
+Total Bytes: 80915
+Showing lines 732 to 779
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+732:                             formatCurrencyShort(row.y5) }}</td>
+733:                     </tr>
+734:                     }
+735:                 </tbody>
+736:             </table>
+737:         </div>
+738:     </div>
+739:     <p class="text-[12px] text-on-surface-variant italic mt-0 font-sans">* Asumsi penjualan stabil sesuai input
+740:         slider jam billable di Part 5 ({{billableHours}} jam/bulan). Tarif PPh Badan berubah menjadi 22% saat
+741:         laba sebelum pajak tahunan mencapai Rp 4,8 Miliar.</p>
+742: </app-page>
+743: 
+744: <!-- PAGE 9: BAB V - ASPEK KEUANGAN (EKONOMI INVESTOR) -->
+745: <app-page pageId="bab3-keuangan.9" pageNum="67" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+746:     contentClass="flex flex-col">
+747:     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
+748:             class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+749:             Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan
+750:             Bisnis</span></div>
+751: 
+752:     <h5
+753:         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+754:         8. Ekonomi Investor dan Kebijakan Pembagian Laba</h5>
+755:     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
+756:         Simulasi ini mengasumsikan komposisi kepemilikan mengikuti kontribusi modal: Founder {{
+757:         (founderOwnership * 100).toFixed(0) }}% dan investor {{ (investorOwnership * 100).toFixed(0) }}%.
+758:         Dividen mulai dibagikan pada Tahun ke-2 sebesar {{ (dividendPayoutRatio * 100).toFixed(0) }}% dari laba bersih
+759:         positif, sedangkan sisanya ditahan untuk mendukung pertumbuhan dan modal kerja perusahaan.
+760:     </p>
+761: 
+762:     <div class="grid grid-cols-4 gap-3 mb-5 font-sans">
+763:         <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3">
+764:             <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Modal Founder</p>
+765:             <p class="text-[18px] font-black text-primary mb-0">{{ formatCurrencyShort(investorReturnSummary.founderCapital) }}</p>
+766:         </div>
+767:         <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3">
+768:             <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Modal Investor</p>
+769:             <p class="text-[18px] font-black text-primary mb-0">{{ formatCurrencyShort(investorReturnSummary.investorCapital) }}</p>
+770:         </div>
+771:         <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3">
+772:             <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Payout Ratio</p>
+773:             <p class="text-[18px] font-black text-primary mb-0">{{ (dividendPayoutRatio * 100).toFixed(0) }}%</p>
+774:         </div>
+775:         <div class="rounded-xl border border-outline-variant bg-surface-container-low p-3">
+776:             <p class="text-[10px] uppercase tracking-wider text-on-surface-variant mb-1">Exit Multiple</p>
+777:             <p class="text-[18px] font-black text-primary mb-0">{{ exitMultiple.toFixed(1) }}x</p>
+778:         </div>
+779:     </div>
+
+
+===
+Created At: 2026-06-20T14:01:07Z
+Completed At: 2026-06-20T14:01:07Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 1107
+Total Bytes: 80550
+Showing lines 380 to 430
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+380:                         <td class="text-right font-sans font-bold py-1">Rp 4.500.000</td>
+381:                     </tr>
+382:                     <tr class="border-b border-dashed border-outline-variant">
+383:                         <td class="py-1 pl-4">Logo & Proposal</td>
+384:                         <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
+385:                     </tr>
+386:                     <tr class="border-b border-outline-variant bg-surface-container">
+387:                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
+388:                             Subtotal Branding</td>
+389:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 6.500.000</td>
+390:                     </tr>
+391: 
+392:                     <!-- Legalitas -->
+393:                     <tr class="border-b border-dashed border-outline-variant">
+394:                         <td class="py-1 pl-4">PT (Akta Notaris & PNBP) + Pendaftaran Merk</td>
+395:                         <td class="text-right font-sans font-bold py-1">Rp 5.500.000</td>
+396:                     </tr>
+397:                     <tr class="border-b border-dashed border-outline-variant">
+398:                         <td class="py-1 pl-4">Konsultasi Hukum</td>
+399:                         <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
+400:                     </tr>
+401:                     <tr class="border-b border-outli
+<truncated 32 bytes>
+>
+402:                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
+403:                             Subtotal Legalitas</td>
+404:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 7.500.000</td>
+405:                     </tr>
+406: 
+407:                     <!-- Lain-Lain -->
+408:                     <tr class="border-b border-outline-variant bg-surface-container">
+409:                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
+410:                             Subtotal Lain-Lain (ATK, Kabel, Kebersihan)</td>
+411:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 4.950.000</td>
+412:                     </tr>
+413: 
+414:                     <!-- Modal Kerja Operasional -->
+415:                     <tr class="border-b border-outline-variant bg-surface-container">
+416:                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
+417:                             Subtotal Modal Kerja</td>
+418:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 1.041.050.000</td>
+419:                     </tr>
+420: 
+421:                     <!-- Grand Total -->
+422:                     <tr class="bg-inverse-surface text-white font-bold">
+423:                         <td class="p-2 rounded-l-lg uppercase tracking-widest text-[13px]">Total CAPEX</td>
+424:                         <td class="p-2 text-right rounded-r-lg font-sans text-[15px] text-primary">Rp {{
+425:                             initialCapital.toLocaleString() }}</td>
+426:                     </tr>
+427:                 </tbody>
+428:             </table>
+429:         </div>
+430:     </div>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+Created At: 2026-06-20T14:01:38Z
+Completed At: 2026-06-20T14:01:38Z
+File Path: `file:///C:/Users/Asus/.gemini/antigravity-ide/brain/ceeeca0f-4f84-408b-bab4-8a7f9160c248/.system_generated/tasks/task-73.log`
+Total Lines: 164
+Total Bytes: 17016
+Showing lines 1 to 164
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: npm warn exec The following package was not found and will be installed: htmlhint@1.9.2
+2: 
+3:    C:\Users\Asus\Documents\Suci\kamitechupdate\src\app\components\rencana-pembangunan\aspek-keuangan\aspek-keuangan.html
+4:       L2 |<app-page pageId="bab3-keuangan" pageNum="59" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOp...
+5:                    ^ The attribute name of [ pageId ] must be in lowercase. (attr-lowercase)
+6:       L2 |<app-page pageId="bab3-keuangan" pageNum="59" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOp...
+7:                                           ^ The attribute name of [ pageNum ] must be in lowercase. (attr-lowercase)
+8:       L2 |...page pageId="bab3-keuangan" pageNum="59" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity...
+9:                                                      ^ The attribute name of [ footerText ] must be in lowercase. (attr-lowercase)
+10:       L2 |...terText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+11:                                                      ^ The attribute name of [ watermarkOpacity ] must be in lowercase. (attr-lowercase)
+12:       L3 |    contentClass="flex flex-col">
+13:           ^ The attribute name of [ contentClass ] must be in lowercase. (attr-lowercase)
+14:       L2 |<app-page pageId="bab3-keuangan" pageNum="59" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOp...
+15:           ^ Doctype must be declared before any non-comment content. (doctype-first)
+16:       L106 |<app-page pageId="bab3-keu
+<truncated 14222 bytes>
+.
+145:                                                 ^ The attribute name of [ pageNum ] must be in lowercase. (attr-lowercase)
+146:       L1005 |...e pageId="bab3-keuangan.14" pageNum="72" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity...
+147:                                                         ^ The attribute name of [ footerText ] must be in lowercase. (attr-lowercase)
+148:       L1005 |...terText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+149:                                                         ^ The attribute name of [ watermarkOpacity ] must be in lowercase. (attr-lowercase)
+150:       L1006 |    contentClass="flex flex-col">
+151:              ^ The attribute name of [ contentClass ] must be in lowercase. (attr-lowercase)
+152:       L1054 |<app-page pageId="bab3-keuangan.15" pageNum="73" footerText="Dokumen Studi Kelayakan Bisnis" watermar...
+153:                       ^ The attribute name of [ pageId ] must be in lowercase. (attr-lowercase)
+154:       L1054 |<app-page pageId="bab3-keuangan.15" pageNum="73" footerText="Dokumen Studi Kelayakan Bisnis" watermar...
+155:                                                 ^ The attribute name of [ pageNum ] must be in lowercase. (attr-lowercase)
+156:       L1054 |...e pageId="bab3-keuangan.15" pageNum="73" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity...
+157:                                                         ^ The attribute name of [ footerText ] must be in lowercase. (attr-lowercase)
+158:       L1054 |...terText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+159:                                                         ^ The attribute name of [ watermarkOpacity ] must be in lowercase. (attr-lowercase)
+160:       L1055 |    contentClass="flex flex-col">
+161:              ^ The attribute name of [ contentClass ] must be in lowercase. (attr-lowercase)
+162: 
+163: Scanned 1 files, found 79 errors in 1 files (28 ms)
+164: 
+The above content shows the entire, complete file contents of the requested file.
+
+===
+Created At: 2026-06-20T14:01:48Z
+Completed At: 2026-06-20T14:01:48Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 1107
+Total Bytes: 80550
+Showing lines 860 to 915
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+860:             <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider"><tr><th class="p-2 text-left">Laporan Laba Rugi</th>
+861:                 @for (row of integratedFinancialStatements; track row.year) {<th class="p-2 text-right">Th {{ row.year }}</th>}</tr></thead>
+862:             <tbody class="text-on-surface-variant">
+863:                 <tr class="border-b border-outline-variant"><td class="p-2 font-bold">Pendapatan</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.revenue) }}</td>}</tr>
+864:                 <tr><td class="p-2">HPP / COGS</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.cogs) }}</td>}</tr>
+865:                 <tr><td class="p-2">OPEX</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.opex) }}</td>}</tr>
+866:                 <tr><td class="p-2">Depresiasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.depreciation) }}</td>}</tr>
+867:                 <tr><td class="p-2">PPh Badan</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.tax) }}</td>}</tr>
+868:                 <tr class="bg-surface-container font-bold"><td class="p-2 text-primary">Laba Bersih</td>@fo
+<truncated 3342 bytes>
+ row.year) {<th class="p-2 text-right">Th {{ row.year }}</th>}</tr></thead>
+902:             <tbody class="text-on-surface-variant">
+903:                 <tr><td class="p-2">Arus Kas Operasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.operatingCF) }}</td>}</tr>
+904:                 <tr><td class="p-2">Arus Kas Investasi</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.investingCF) }}</td>}</tr>
+905:                 <tr><td class="p-2">Arus Kas Pendanaan</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.financingCF) }}</td>}</tr>
+906:                 <tr><td class="p-2">Pembayaran Dividen</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.dividends) }}</td>}</tr>
+907:                 <tr><td class="p-2">Perubahan Kas Bersih</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netCashChange) }}</td>}</tr>
+908:                 <tr class="bg-surface-container font-bold"><td class="p-2 text-primary">Saldo Kas Akhir</td>@for (row of integratedFinancialStatements; track row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.endingCash) }}</td>}</tr>
+909:             </tbody>
+910:         </table>
+911:     </div>
+912:     <p class="text-[12px] text-on-surface-variant italic mt-auto mb-0 font-sans leading-[1.15]">
+913:         * Neraca merupakan proyeksi manajemen tanpa utang berbunga; aset produktif menggunakan pendekatan biaya perolehan dikurangi depresiasi. Seluruh tabel terhubung pada asumsi dan arus kas yang sama.
+914:     </p>
+915: </app-page>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+Created At: 2026-06-20T14:02:17Z
+Completed At: 2026-06-20T14:02:17Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 1107
+Total Bytes: 80550
+Showing lines 380 to 440
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+380:                         <td class="text-right font-sans font-bold py-1">Rp 4.500.000</td>
+381:                     </tr>
+382:                     <tr class="border-b border-dashed border-outline-variant">
+383:                         <td class="py-1 pl-4">Logo & Proposal</td>
+384:                         <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
+385:                     </tr>
+386:                     <tr class="border-b border-outline-variant bg-surface-container">
+387:                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
+388:                             Subtotal Branding</td>
+389:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 6.500.000</td>
+390:                     </tr>
+391: 
+392:                     <!-- Legalitas -->
+393:                     <tr class="border-b border-dashed border-outline-variant">
+394:                         <td class="py-1 pl-4">PT (Akta Notaris & PNBP) + Pendaftaran Merk</td>
+395:                         <td class="text-right font-sans font-bold py-1">Rp 5.500.000</td>
+396:                     </tr>
+397:                     <tr class="border-b border-dashed border-outline-variant">
+398:                         <td class="py-1 pl-4">Konsultasi Hukum</td>
+399:                         <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
+400:                     </tr>
+401:                     <tr class="border-b border-outli
+<truncated 690 bytes>
+ihan)</td>
+411:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 4.950.000</td>
+412:                     </tr>
+413: 
+414:                     <!-- Modal Kerja Operasional -->
+415:                     <tr class="border-b border-outline-variant bg-surface-container">
+416:                         <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
+417:                             Subtotal Modal Kerja</td>
+418:                         <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 1.041.050.000</td>
+419:                     </tr>
+420: 
+421:                     <!-- Grand Total -->
+422:                     <tr class="bg-inverse-surface text-white font-bold">
+423:                         <td class="p-2 rounded-l-lg uppercase tracking-widest text-[13px]">Total CAPEX</td>
+424:                         <td class="p-2 text-right rounded-r-lg font-sans text-[15px] text-primary">Rp {{
+425:                             initialCapital.toLocaleString() }}</td>
+426:                     </tr>
+427:                 </tbody>
+428:             </table>
+429:         </div>
+430:     </div>
+431: </app-page>
+432: 
+433: <!-- PAGE 5: BAB V - ASPEK KEUANGAN (Perkiraan Pengeluaran - OPEX) -->
+434: <app-page pageId="bab3-keuangan.5" pageNum="63" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+435:     contentClass="flex flex-col">
+436:     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+437:         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+438:             Pembangunan</span>
+439:         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+440:     </div>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+Created At: 2026-06-20T14:03:51Z
+Completed At: 2026-06-20T14:03:51Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 742
+Total Bytes: 47490
+Showing lines 742 to 742
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+742: </app-page>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===
+Created At: 2026-06-20T14:03:57Z
+Completed At: 2026-06-20T14:03:57Z
+File Path: `file:///c:/Users/Asus/Documents/Suci/kamitechupdate/src/app/components/rencana-pembangunan/aspek-keuangan/aspek-keuangan.html`
+Total Lines: 742
+Total Bytes: 47490
+Showing lines 700 to 742
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+700:             <table class="w-full text-[12px] bg-white">
+701:                 <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+702:                     <tr>
+703:                         <th class="p-2 text-left">Komponen (Rp)</th>
+704:                         <th class="p-2 text-right">Tahun 1</th>
+705:                         <th class="p-2 text-right">Tahun 2</th>
+706:                         <th class="p-2 text-right">Tahun 3</th>
+707:                         <th class="p-2 text-right">Tahun 4</th>
+708:                         <th class="p-2 text-right">Tahun 5</th>
+709:                     </tr>
+710:                 </thead>
+711:                 <tbody class="font-sans text-on-surface-variant">
+712:                     @for (row of cashFlowTableData; track $index) {
+713:                     <tr class="border-b border-outline-variant last:border-0 hover:bg-surface-container-low transition-colors"
+714:                         [class.bg-surface-container]="row.isHeader" [class.font-bold]="row.isBold">
+715:                         <td class="p-2 font-sans" [class.font-bold]="row.isBold"
+716:                             [class.pl-4]="!row.isHeader && !row.isBold" [class.text-primary]="row.isHighlight">
+717:                             {{row.label}}</td>
+718:                         <td class="p-2 text-right" [class.text-red-600]="row.y1 < 0"
+719:                             [class.text-primary]="row.isHighlight && row.y1 >= 0">{{
+720:                             formatCurrencyShort(row.y1) }}</td>
+721:                         <td class="p-2 text-right" [class.text-red-600]="row.y2 < 0"
+722:                             [class.text-primary]="row.isHighlight && row.y2 >= 0">{{
+723:                             formatCurrencyShort(row.y2) }}</td>
+724:                         <td class="p-2 text-right" [class.text-red-600]="row.y3 < 0"
+725:                             [class.text-primary]="row.isHighlight && row.y3 >= 0">{{
+726:                             formatCurrencyShort(row.y3) }}</td>
+727:                         <td class="p-2 text-right" [class.text-red-600]="row.y4 < 0"
+728:                             [class.text-primary]="row.isHighlight && row.y4 >= 0">{{
+729:                             formatCurrencyShort(row.y4) }}</td>
+730:                         <td class="p-2 text-right" [class.text-red-600]="row.y5 < 0"
+731:                             [class.text-primary]="row.isHighlight && row.y5 >= 0">{{
+732:                             formatCurrencyShort(row.y5) }}</td>
+733:                     </tr>
+734:                     }
+735:                 </tbody>
+736:             </table>
+737:         </div>
+738:     </div>
+739:     <p class="text-[12px] text-on-surface-variant italic mt-0 font-sans">* Asumsi penjualan stabil sesuai input
+740:         slider jam billable di Part 5 ({{billableHours}} jam/bulan). Tarif PPh Badan berubah menjadi 22% saat
+741:         laba sebelum pajak tahunan mencapai Rp 4,8 Miliar.</p>
+742: </app-page>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+===

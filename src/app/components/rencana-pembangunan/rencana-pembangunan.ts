@@ -18,6 +18,10 @@ import {
   MarketAnalysisItem,
   RoiProjectionItem,
   CashFlowTableRow,
+  IntegratedFinancialYear,
+  InvestmentMetrics,
+  InvestorReturnItem,
+  InvestorReturnSummary,
 } from '../../models/financial.model';
 
 // Shared utilities (DRY — single source of truth)
@@ -63,6 +67,15 @@ export class RencanaPembangunan {
   @Input() monthlyNetProfit!: number;
   @Input() roiProjection!: readonly RoiProjectionItem[];
   @Input() cashFlowTableData!: readonly CashFlowTableRow[];
+  @Input() founderOwnership!: number;
+  @Input() investorOwnership!: number;
+  @Input() dividendPayoutRatio!: number;
+  @Input() discountRate!: number;
+  @Input() exitMultiple!: number;
+  @Input() investorReturns!: readonly InvestorReturnItem[];
+  @Input() investorReturnSummary!: InvestorReturnSummary;
+  @Input() investmentMetrics!: InvestmentMetrics;
+  @Input() integratedFinancialStatements!: readonly IntegratedFinancialYear[];
   @Input() marketAnalysis!: readonly MarketAnalysisItem[];
   @Input() keys!: readonly string[];
   @Input() isFcfPositive: boolean = true;

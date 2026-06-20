@@ -69,3 +69,57 @@ export interface CashFlowTableRow {
   readonly y4: number;
   readonly y5: number;
 }
+
+/** Annual allocation of profit between shareholders and retained earnings. */
+export interface InvestorReturnItem {
+  readonly year: number;
+  readonly netIncome: number;
+  readonly dividend: number;
+  readonly founderDividend: number;
+  readonly investorDividend: number;
+  readonly retainedEarnings: number;
+}
+
+/** Five-year investor return summary, including an illustrative exit value. */
+export interface InvestorReturnSummary {
+  readonly founderCapital: number;
+  readonly investorCapital: number;
+  readonly founderDividends: number;
+  readonly investorDividends: number;
+  readonly terminalEnterpriseValue: number;
+  readonly founderTerminalValue: number;
+  readonly investorTerminalValue: number;
+  readonly investorMoic: number;
+}
+
+/** Discounted project-return indicators. */
+export interface InvestmentMetrics {
+  readonly discountRate: number;
+  readonly npv: number;
+  readonly irr: number | null;
+  readonly discountedPaybackYears: number | null;
+  readonly profitabilityIndex: number;
+}
+
+/** Simplified integrated income statement, balance sheet, and cash flow values. */
+export interface IntegratedFinancialYear {
+  readonly year: number;
+  readonly revenue: number;
+  readonly cogs: number;
+  readonly opex: number;
+  readonly depreciation: number;
+  readonly tax: number;
+  readonly netIncome: number;
+  readonly operatingCF: number;
+  readonly investingCF: number;
+  readonly financingCF: number;
+  readonly dividends: number;
+  readonly netCashChange: number;
+  readonly endingCash: number;
+  readonly netProductiveAssets: number;
+  readonly totalAssets: number;
+  readonly liabilities: number;
+  readonly shareCapital: number;
+  readonly retainedEarnings: number;
+  readonly totalEquity: number;
+}

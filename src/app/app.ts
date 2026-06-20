@@ -78,6 +78,11 @@ export class App implements OnDestroy {
     readonly softwareCostValue = FINANCIAL_DEFAULTS.softwareCostValue;
     readonly salaryCostValue = FINANCIAL_DEFAULTS.salaryCostValue;
     readonly initialCapital = FINANCIAL_DEFAULTS.initialCapital;
+    readonly founderOwnership = FINANCIAL_DEFAULTS.founderOwnership;
+    readonly investorOwnership = FINANCIAL_DEFAULTS.investorOwnership;
+    readonly dividendPayoutRatio = FINANCIAL_DEFAULTS.dividendPayoutRatio;
+    readonly discountRate = FINANCIAL_DEFAULTS.discountRate;
+    readonly exitMultiple = FINANCIAL_DEFAULTS.exitMultiple;
 
     // ─── Financial Model ───────────────────────────────────────────────
     private readonly financialModel = new FinancialModel(FINANCIAL_DEFAULTS);
@@ -90,6 +95,10 @@ export class App implements OnDestroy {
     monthlyNetProfit = computed(() => this.financialModel.monthlyNetProfit(this.billableHours()));
     roiProjection = computed(() => this.financialModel.roiProjection(this.billableHours()));
     yearlyCashFlow = computed(() => this.financialModel.yearlyCashFlow(this.billableHours()));
+    investorReturns = computed(() => this.financialModel.investorReturns(this.billableHours()));
+    investorReturnSummary = computed(() => this.financialModel.investorReturnSummary(this.billableHours()));
+    investmentMetrics = computed(() => this.financialModel.investmentMetrics(this.billableHours()));
+    integratedFinancialStatements = computed(() => this.financialModel.integratedFinancialStatements(this.billableHours()));
 
     cashFlowTableData = computed((): CashFlowTableRow[] => {
         const data = this.yearlyCashFlow();
