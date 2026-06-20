@@ -177,5 +177,5 @@ export const FINANCIAL_DEFAULTS = {
   operationalCostValue: 30000000,
   softwareCostValue: 45000000,
   salaryCostValue: 404000000,
-  initialCapital: 50000000 + 100000000 + 254000000 + 36000000 + 6500000 + 7500000 + 4950000,
+  initialCapital: 1500000000,
 } as const;
