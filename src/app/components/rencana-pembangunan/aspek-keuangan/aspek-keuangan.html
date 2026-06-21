@@ -383,7 +383,7 @@
             Kelayakan
             Bisnis</span></div>
 
-    <div class="mb-6 flex-grow flex flex-col gap-4">
+    <div class="mb-6 flex-grow flex flex-col gap-2">
         <h5
             class="font-bold text-secondary text-[16px] mb-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
             7. Cash Flow</h5>
@@ -534,13 +534,13 @@
 <!-- PAGE 5: BAB V - ASPEK KEUANGAN (OPEX) -->
 <app-page pageId="bab3-keuangan.5" pageNum="65" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col font-sans">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
             class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
             Kelayakan
             Bisnis</span></div>
 
-    <div class="mb-6 flex-grow flex flex-col gap-4">
+    <div class="mb-0 flex-grow flex flex-col gap-1">
         <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">B. Rencana Anggaran Operasional
             (Biaya Tetap / Fixed Cost)
         </h6>
@@ -721,9 +721,10 @@
             </table>
         </div>
         <!-- D. Total Anggaran Operasional -->
+        <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">D. Total Anggaran Operasional
+            (Tahun Pertama)
+        </h6>
         <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm">
-            <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">D. Total Anggaran Operasional
-                (Tahun Pertama)</h6>
             <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse mt-2">
                 <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
                     <tr>
@@ -806,12 +807,14 @@
 
         <!-- Tabel Laba Rugi Bulanan -->
         <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-0">
+            <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">Rencana Pendapatan Bulanan
+            </h6>
             <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
                 <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
                     <tr>
                         <th class="py-1.5 px-3 text-center w-12 rounded-tl-lg">No</th>
                         <th class="py-1.5 px-3 text-left w-1/2">Jenis</th>
-                        <th class="py-1.5 px-3 text-right rounded-tr-lg">Laba Bersih (Pendapatan - Pengeluaran)</th>
+                        <th class="py-1.5 px-3 text-right rounded-tr-lg">Jumlah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -834,11 +837,11 @@
                             monthlyFixedCostTotal.toLocaleString() }}</td>
                     </tr>
                     <tr
-                        class="bg-red-50/50 font-bold text-red-700 border-b border-dashed border-outline-variant hover:bg-red-100/50 transition-colors">
+                        class="bg-blue-50/50 font-bold text-blue-700 border-b border-dashed border-outline-variant hover:bg-blue-100/50 transition-colors">
                         <td class="py-1.5 px-3 text-center border-r border-outline-variant border-dashed">3</td>
-                        <td class="py-1.5 px-3 border-r border-outline-variant border-dashed">Total Pengeluaran Bulanan
+                        <td class="py-1.5 px-3 border-r border-outline-variant border-dashed">Total Pendapatan Bulanan
                         </td>
-                        <td class="py-1.5 px-3 text-right">(Rp {{ totalMonthlyExpense.toLocaleString() }})</td>
+                        <td class="py-1.5 px-3 text-right">Rp {{ totalRevenue.toLocaleString() }}</td>
                     </tr>
                     <tr class="bg-inverse-surface text-white font-bold">
                         <td colspan="2"
@@ -851,7 +854,9 @@
             </table>
         </div>
         <!-- Tabel Rencana Pendapatan -->
-        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-1">
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-0">
+            <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">Rencana Pendapatan Tahunan
+            </h6>
             <table class="w-full text-[14px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
                 <thead class="bg-inverse-surface text-white uppercase text-[11px] font-bold tracking-wider">
                     <tr>
@@ -884,7 +889,7 @@
             <div class="grid grid-cols-2 gap-4">
                 <div
                     class="p-4 bg-surface-container-low rounded-xl border border-outline-variant flex flex-col justify-center shadow-sm">
-                    <span class="text-[14px] text-on-surface-variant uppercase tracking-widest mb-1 font-bold">Margin
+                    <span class="text-[14px] text-on-surface-variant uppercase tracking-widest mb-0 font-bold">Margin
                         Laba Bersih (Net Margin)</span>
                     <span class="text-[18px] font-bold font-sans text-on-surface">{{ (monthlyNetProfit /
                         totalRevenue * 100).toFixed(1) }}%</span>
@@ -893,7 +898,7 @@
                     class="p-4 bg-inverse-surface rounded-xl shadow-lg flex flex-col justify-center relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-12 h-12 bg-primary rounded-bl-full opacity-20">
                     </div>
-                    <span class="text-[14px] text-outline uppercase tracking-widest mb-1 font-bold">Estimasi
+                    <span class="text-[14px] text-outline uppercase tracking-widest mb-0 font-bold">Estimasi
                         Break Even Point (BEP)</span>
                     <span class="text-[18px] font-bold font-sans text-white">{{ (initialCapital /
                         monthlyNetProfit).toFixed(1) }} <span class="text-[16px] text-primary">Bulan</span></span>
