@@ -81,7 +81,7 @@ const risikoNew = `
 // Combine into fresh pages
 const pageHeader = (title, num) => `        <!-- PAGE ${num}: BAB III - ${title} -->
         <app-page pageId="bab3${num === 11 ? '' : '-p' + num}" pageNum="${num}" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03" contentClass="flex flex-col">
-            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+             <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
                 <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek Pembangunan</span>
                 <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
             </div>

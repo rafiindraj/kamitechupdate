@@ -6,7 +6,7 @@ const content = fs.readFileSync(path, 'utf8');
 function getElementWithMatchingTags(str, startSearch) {
     let startIndex = str.indexOf(startSearch);
     if (startIndex === -1) return '';
-    
+
     // Find the first '<div' after startIndex
     let divStart = str.indexOf('<div', startIndex);
     if (divStart === -1) return '';
@@ -52,16 +52,16 @@ function getFlexGrowContentForPage(pageMarker) {
     if (divStart === -1) {
         flexGrowTag = '<div class="flex flex-col gap-6 flex-grow">';
         divStart = content.indexOf(flexGrowTag, pStart);
-        if(divStart === -1) {
+        if (divStart === -1) {
             flexGrowTag = '<div class="space-y-6 flex-grow">';
             divStart = content.indexOf(flexGrowTag, pStart);
-            if(divStart === -1) {
+            if (divStart === -1) {
                 flexGrowTag = '<div class="space-y-4 flex-grow">';
                 divStart = content.indexOf(flexGrowTag, pStart);
             }
         }
     }
-    
+
     let depth = 0;
     let i = divStart;
     while (i < content.length) {
@@ -133,7 +133,7 @@ const risikoNew = `                <div>
 
 const pageHeader = (title, num) => `        <!-- PAGE ${num}: BAB III - ${title} -->
         <app-page pageId="bab3${num === 11 ? '' : '-p' + num}" pageNum="${num}" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03" contentClass="flex flex-col">
-            <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+             <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
                 <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek Pembangunan</span>
                 <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
             </div>
@@ -147,9 +147,9 @@ const pageFooter = `            </div>
         </app-page>
 `;
 
-function aspectsFix(str, oldHeader, newHeader) { 
-    if(!str) return '';
-    return str.replace(oldHeader, newHeader); 
+function aspectsFix(str, oldHeader, newHeader) {
+    if (!str) return '';
+    return str.replace(oldHeader, newHeader);
 }
 
 let newBlock = "";
@@ -177,8 +177,8 @@ keuanganText = keuanganText
     .replace(/E\. Proyeksi ROI Kumulatif/g, 'E.5. Proyeksi ROI Kumulatif')
     .replace(/F\. Model Sustainabilitas Arus Kas/g, 'E.6. Model Sustainabilitas Arus Kas');
 
-keuanganText = keuanganText.replace(/pageNum="(\d+)"/g, (match, p1) => { return `pageNum="${parseInt(p1)-1}"`; });
-keuanganText = keuanganText.replace(/<!-- PAGE (\d+):/g, (match, p1) => { return `<!-- PAGE ${parseInt(p1)-1}:`; });
+keuanganText = keuanganText.replace(/pageNum="(\d+)"/g, (match, p1) => { return `pageNum="${parseInt(p1) - 1}"`; });
+keuanganText = keuanganText.replace(/<!-- PAGE (\d+):/g, (match, p1) => { return `<!-- PAGE ${parseInt(p1) - 1}:`; });
 
 // Append P22 and P23 at end of Keuangan Text (which will be at the end before Penutup)
 let appendBlock = "";
@@ -187,11 +187,11 @@ appendBlock += pageHeader("ANALISIS RISIKO", 23) + '\n' + risikoNew + '\n' + pag
 
 let penutupText = content.substring(penutupStartIdx);
 penutupText = penutupText.replace(/<!-- PAGE 23: PENUTUP -->/, '<!-- PAGE 24: PENUTUP -->')
-  .replace(/pageNum="23"/, 'pageNum="24"');
+    .replace(/pageNum="23"/, 'pageNum="24"');
 penutupText = penutupText.replace(/<!-- PAGE 24: DAFTAR PUSTAKA & LAMPIRAN -->/, '<!-- PAGE 25: DAFTAR PUSTAKA & LAMPIRAN -->')
-  .replace(/pageNum="24"/, 'pageNum="25"');
+    .replace(/pageNum="24"/, 'pageNum="25"');
 penutupText = penutupText.replace(/<!-- PAGE 25: GLOSSARIUM -->/, '<!-- PAGE 26: GLOSSARIUM -->')
-  .replace(/pageNum="25"/, 'pageNum="26"');
+    .replace(/pageNum="25"/, 'pageNum="26"');
 
 const page11StartIdx = content.indexOf('<!-- PAGE 11: BAB III - LAYANAN & EKOSISTEM -->');
 let allLines = content.substring(0, page11StartIdx) + newBlock + keuanganText + appendBlock + penutupText;

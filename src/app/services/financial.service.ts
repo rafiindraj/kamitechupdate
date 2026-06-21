@@ -89,7 +89,7 @@ export class FinancialModel {
         let currentCOGS = this.totalCOGS(hours) * 12;
         let currentOpex = this.monthlyFixedCostTotal() * 12;
 
-        let cumulativeCF = 0;
+        let cumulativeCF = -this.cfg.initialCapital;
         const projection: YearlyCashFlowItem[] = [];
 
         for (let year = 1; year <= 5; year++) {
@@ -113,7 +113,7 @@ export class FinancialModel {
 
             const operatingCF = netIncome + depreciation;
 
-            const capex = year === 1 ? -this.cfg.initialCapital : -86000000;
+            const capex = year === 1 ? -458950000 : -86000000;
 
             const freeCashFlow = operatingCF + capex;
             cumulativeCF += freeCashFlow;
@@ -185,8 +185,7 @@ export class FinancialModel {
         const yearly = this.yearlyCashFlow(hours);
         const cashFlows = [
             -this.cfg.initialCapital,
-            yearly[0].operatingCF,
-            ...yearly.slice(1).map((item) => item.fcf)
+            ...yearly.map((item) => item.fcf)
         ];
         const npv = cashFlows.reduce(
             (total, cashFlow, period) => total + cashFlow / Math.pow(1 + this.cfg.discountRate, period),
@@ -229,9 +228,10 @@ export class FinancialModel {
         return yearly.map((item, index) => {
             const financingCF = item.year === 1 ? this.cfg.initialCapital : 0;
             const dividends = returns[index].dividend;
-            const netCashChange = item.operatingCF + item.capex + financingCF - dividends;
+            const actualCapex = item.capex;
+            const netCashChange = item.operatingCF + actualCapex + financingCF - dividends;
             endingCash += netCashChange;
-            productiveAssetCost += Math.abs(item.capex);
+            productiveAssetCost += Math.abs(actualCapex);
             accumulatedDepreciation += Math.abs(item.depreciation);
             const netProductiveAssets = Math.max(0, productiveAssetCost - accumulatedDepreciation);
             retainedEarnings += item.netIncome - dividends;
@@ -248,7 +248,7 @@ export class FinancialModel {
                 tax: item.tax,
                 netIncome: item.netIncome,
                 operatingCF: item.operatingCF,
-                investingCF: item.capex,
+                investingCF: actualCapex,
                 financingCF,
                 dividends: -dividends,
                 netCashChange,

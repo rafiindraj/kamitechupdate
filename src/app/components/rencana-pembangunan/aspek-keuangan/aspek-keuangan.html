@@ -1,7 +1,7 @@
 <!-- PAGE 1: BAB V - ASPEK KEUANGAN (Aktiva Berwujud & Tidak Berwujud) -->
 <app-page pageId="bab3-keuangan" pageNum="59" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
@@ -76,7 +76,7 @@
                 </p>
                 <ul class="space-y-2 text-[14px] text-on-surface-variant mb-0 font-sans flex-grow">
                     <li class="flex justify-between border-b border-dashed border-outline-variant pb-1">
-                        <span>Hak Paten (Pendaftaran Merk)</span>
+                        <span>Pendaftaran Merk</span>
                         <span class="font-bold text-on-surface">Rp 500.000</span>
                     </li>
                     <li class="flex justify-between border-b border-dashed border-outline-variant pb-1">
@@ -97,7 +97,7 @@
         </div>
 
         <p class="text-[12px] text-outline mt-3 text-right italic font-sans">*Lain-lain berupa alat tulis, perlengkapan
-            jaringan (switch/kabel), dan alat kebersihan sebesar Rp 5.450.000 melengkapi total anggaran belanja modal
+            jaringan (switch/kabel), dan alat kebersihan sebesar Rp 4.950.000 melengkapi total anggaran belanja modal
             (CAPEX).</p>
     </div>
 </app-page>
@@ -105,7 +105,7 @@
 <!-- PAGE 2: BAB V - ASPEK KEUANGAN (Sumber Pendanaan) -->
 <app-page pageId="bab3-keuangan.2" pageNum="60" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
@@ -114,68 +114,74 @@
     <!-- 2. Sumber Pendanaan -->
     <div class="flex flex-col flex-grow gap-4">
         <h5
-            class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+            class="font-bold text-secondary text-[16px] mb-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
             2. Sumber Pendanaan</h5>
 
         <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-2 indent-8">
-            Berdasarkan rencana pembagian saham yang telah disepakati dan dijabarkan pada Aspek Hukum &amp; Legalitas,
-            struktur permodalan PT KamiTech Solusi Digital didukung oleh pembiayaan internal (Founder) dan investasi
-            eksternal. Total kebutuhan investasi awal ditetapkan sebesar <strong>Rp 1.500.000.000</strong>.
+            Berdasarkan penyesuaian strategi mitigasi risiko, struktur permodalan PT KamiTech Solusi Digital kini
+            bertransisi menuju skema pendanaan penuh (<em>fully funded</em>) yang mencakup 6 bulan <em>runway</em> kas
+            operasional. Pendanaan ini didukung oleh pembiayaan internal (Founder) sebesar 60% dan penyertaan investasi
+            eksternal strategis sebesar 40%. Total kebutuhan modal ditetapkan sebesar <strong>Rp 3.542.950.000</strong>.
+            Modal awal ini dirancang khusus untuk menutup biaya persiapan (<em>Setup CAPEX</em>) dan menyediakan
+            <em>buffer</em> likuiditas OPEX selama 6 bulan perdana, sedangkan operasional bulan ke-7 dan seterusnya akan
+            ditutup secara mandiri dari perputaran pendapatan yang sudah mulai masuk sejak bulan pertama. Struktur
+            permodalan ini secara proaktif menghindari penarikan pinjaman bank, penerbitan surat utang, ataupun obligasi
+            guna meminimalkan risiko tekanan beban bunga tetap (fixed cost burden) di fase awal operasional, mengingat
+            karakteristik bisnis jasa teknologi informasi lebih mengutamakan fleksibilitas alokasi kas pada penguatan
+            talenta (human capital) dan infrastruktur cloud ketimbang pemenuhan kewajiban utang berbunga.
         </p>
 
         <div
-            class="bg-surface-container-low p-6 rounded-xl border border-outline-variant shadow-sm flex flex-col gap-6 items-center">
+            class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm grid gap-4 justify-items-center w-full">
 
             <!-- Total Cap -->
             <div class="text-center bg-white border border-outline-variant px-8 py-3 rounded-2xl shadow-sm">
                 <span class="text-[14px] text-on-surface-variant font-bold uppercase tracking-widest block mb-1">Total
-                    Kebutuhan Modal</span>
-                <span class="text-3xl font-black text-primary font-sans">Rp 1.500.000.000</span>
+                    Kebutuhan Modal (Incl. 6-Mo Runway)</span>
+                <span class="text-3xl font-black text-primary font-sans">Rp 3.542.950.000</span>
             </div>
 
             <!-- Diagram/Visual Pendanaan -->
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mt-4 w-full max-w-lg mx-auto">
+            <div class="grid grid-cols-[100px_1fr] items-center gap-6 mt-2 w-full max-w-sm mx-auto">
 
                 <!-- Pie Chart -->
-                <div class="relative w-40 h-40 rounded-full shadow-lg border-4 border-white flex-shrink-0"
+                <div class="relative w-24 h-24 rounded-full shadow-md border-2 border-white justify-self-center"
                     style="background: conic-gradient(#42A5F5 0% 60%, #FF8F00 60% 100%);">
                     <div class="absolute inset-0 rounded-full shadow-inner pointer-events-none"></div>
                     <!-- Donut hole -->
                     <div
-                        class="absolute inset-0 bg-surface-container-low m-8 rounded-full shadow-sm flex flex-col items-center justify-center border border-outline-variant/30">
-                        <span
-                            class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Saham</span>
+                        class="absolute inset-0 bg-surface-container-low m-6 rounded-full shadow-sm border border-outline-variant/30">
                     </div>
                 </div>
 
                 <!-- Legend & Values -->
-                <div class="flex flex-col gap-3 w-full">
+                <div class="grid gap-2 w-full">
                     <!-- Founder -->
-                    <div class="bg-primary/5 p-3 rounded-lg border border-primary/20 flex flex-col">
+                    <div class="bg-primary/5 p-2 rounded-lg border border-primary/20 flex flex-col">
                         <div class="flex justify-between items-center mb-0.5">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-primary shadow-sm"></div>
-                                <h6 class="font-bold text-on-surface text-[14px] m-0">Founder</h6>
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-primary shadow-sm"></div>
+                                <h6 class="font-bold text-on-surface text-[13px] m-0">Founder</h6>
                             </div>
-                            <span class="font-black text-primary text-[18px] leading-none">60%</span>
+                            <span class="font-black text-primary text-[15px] leading-none">60%</span>
                         </div>
-                        <span class="text-[11px] font-medium text-on-surface-variant ml-5 leading-none mb-1.5">(Modal
+                        <span class="text-[10px] font-medium text-on-surface-variant ml-4 leading-none mb-1">(Modal
                             Sendiri)</span>
-                        <span class="font-bold text-primary text-[14px] ml-5">Rp 900.000.000</span>
+                        <span class="font-bold text-primary text-[13px] ml-4">Rp 2.125.770.000</span>
                     </div>
 
                     <!-- MDI Ventures -->
-                    <div class="bg-[#FF8F00]/5 p-3 rounded-lg border border-[#FF8F00]/20 flex flex-col">
+                    <div class="bg-[#FF8F00]/5 p-2 rounded-lg border border-[#FF8F00]/20 flex flex-col">
                         <div class="flex justify-between items-center mb-0.5">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-[#FF8F00] shadow-sm"></div>
-                                <h6 class="font-bold text-on-surface text-[14px] m-0">MDI Ventures</h6>
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#FF8F00] shadow-sm"></div>
+                                <h6 class="font-bold text-on-surface text-[13px] m-0">MDI Ventures</h6>
                             </div>
-                            <span class="font-black text-[#FF8F00] text-[18px] leading-none">40%</span>
+                            <span class="font-black text-[#FF8F00] text-[15px] leading-none">40%</span>
                         </div>
-                        <span class="text-[11px] font-medium text-on-surface-variant ml-5 leading-none mb-1.5">(Modal
+                        <span class="text-[10px] font-medium text-on-surface-variant ml-4 leading-none mb-1">(Modal
                             Asing/Investor)</span>
-                        <span class="font-bold text-[#FF8F00] text-[14px] ml-5">Rp 600.000.000</span>
+                        <span class="font-bold text-[#FF8F00] text-[13px] ml-4">Rp 1.417.180.000</span>
                     </div>
                 </div>
             </div>
@@ -183,10 +189,11 @@
             <div
                 class="bg-surface-container-highest border border-outline-variant p-4 rounded-lg mt-2 w-full text-[14px]">
                 <p class="text-on-surface-variant font-sans leading-[1.15] text-justify m-0">
-                    Suntikan modal sebesar 60% dari Founder difokuskan untuk mengamankan kebutuhan aset tetap krusial
-                    dan pengembangan produk inti, sedangkan 40% dari investor dialokasikan sebagai dana strategis untuk
-                    penetrasi pasar B2B (marketing), perizinan legalitas skala korporasi, serta pengamanan landasan
-                    operasional (runway cash).
+                    Suntikan modal sebesar 60% dari Founder difokuskan untuk mengamankan Subtotal Aktiva / Setup CAPEX
+                    sebesar Rp 458.950.000 (Physical, Hardware, Legal, Branding) dan sebagian operasional awal.
+                    Sementara itu, 40% dari MDI Ventures/investor dialokasikan sepenuhnya untuk memperkuat Subtotal
+                    Modal Kerja sebesar Rp 3.084.000.000 (biaya tetap bulanan Rp 514.000.000 selama 6 bulan),
+                    mengeliminasi risiko kebangkrutan dini.
                 </p>
             </div>
         </div>
@@ -194,8 +201,338 @@
 </app-page>
 
 
-<!-- PAGE 3: BAB V - ASPEK KEUANGAN (Perkiraan Penerimaan) -->
+<!-- PAGE 3: BAB V - ASPEK KEUANGAN (Perkiraan Penerimaan & Pengeluaran) -->
 <app-page pageId="bab3-keuangan.3" pageNum="61" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
+            class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
+            Kelayakan
+            Bisnis</span></div>
+
+    <div class="mb-6 flex-grow flex flex-col gap-4">
+        <h5
+            class="font-bold text-secondary text-[16px] mb-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+            3. Perkiraan Penerimaan</h5>
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-0 indent-8">
+            Perkiraan penerimaan pada PT KamiTech Solusi Digital difokuskan pada optimalisasi dua aliran kas utama:
+            <strong>operasional</strong> dan <strong>non-operasional</strong>.
+        </p>
+        <ul class="list-disc pl-5 mb-0 space-y-1.5">
+            <li><strong>Penerimaan Operasional:</strong> Bersumber langsung dari bisnis inti (<em>core
+                    business</em>) perusahaan, yaitu pelunasan <em>invoice</em> per <em>milestone</em> proyek
+                pengembangan perangkat lunak B2B, serta pendapatan berulang (<em>recurring revenue</em>) dari
+                kontrak pemeliharaan (SLA) paska-rilis sistem.</li>
+            <li><strong>Penerimaan Non-Operasional:</strong> Meliputi suntikan investasi awal dari <em>Venture
+                    Capital</em> (MDI Ventures) dan pendiri, serta pendapatan insidental seperti bunga dari
+                penempatan dana <em>idle</em> sementara pada instrumen perbankan yang aman.</li>
+        </ul>
+
+        <h5
+            class="font-bold text-secondary text-[16px] mb-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+            4. Perkiraan Pengeluaran</h5>
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-0 indent-8">
+            Struktur pengeluaran (<em>cost structure</em>) dirancang untuk memprioritaskan kualitas talenta dan
+            reliabilitas infrastruktur, dengan proporsi <em>Fixed Cost</em> dan <em>Variable Cost</em> sebagai
+            berikut:
+        </p>
+        <ul class="list-disc pl-5 mb-0 space-y-1.5">
+            <li><strong>Biaya Tetap (Fixed Cost / OPEX):</strong> Merupakan komponen pengeluaran terbesar yang harus
+                dibayarkan terlepas dari volume proyek yang sedang berjalan. Ini mencakup gaji pokok tim teknis
+                (<em>developer, engineer, UI/UX</em>), biaya sewa <em>cloud computing</em> (AWS/GCP), lisensi
+                perangkat lunak penunjang produktivitas, serta biaya operasional kantor dan pemasaran B2B.</li>
+            <li><strong>Biaya Variabel (Variable Cost):</strong> Pengeluaran yang berfluktuasi secara proporsional
+                sesuai dengan volume layanan atau jumlah jam pengerjaan (<em>billable hours</em>). Ini termasuk
+                biaya server tambahan saat *traffic* tinggi, atau <em>fee</em> pihak ketiga/<em>freelancer</em> yang
+                dilibatkan pada proyek spesifik.</li>
+        </ul>
+    </div>
+</app-page>
+
+<!-- PAGE 3.1: BAB V - ASPEK KEUANGAN (Pendanaan & Investasi) -->
+<app-page pageId="bab3-keuangan.3_1" pageNum="62" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
+            class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
+            Kelayakan
+            Bisnis</span></div>
+
+    <div class="mb-6 flex-grow flex flex-col gap-4">
+        <!-- 5. Pendanaan & Investasi -->
+        <h5
+            class="font-bold text-secondary text-[16px] mb-1 mt-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+            5. Pendanaan &amp; Investasi</h5>
+
+        <div
+            class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-[#FF8F00]">
+            <p class="text-[16px] text-on-surface-variant leading-[1.15] mb-3 text-justify">
+                Pendanaan PT KamiTech Solusi Digital bersumber dari dua pilar utama: <strong>modal sendiri
+                    (equity) sebesar 60%</strong> dari Founder dan <strong>modal asing (investasi eksternal)
+                    sebesar 40%</strong> dari MDI Ventures. Struktur ini dirancang untuk menjaga keseimbangan
+                antara kendali operasional oleh pendiri dan akses terhadap jaringan strategis investor di
+                ekosistem digital Indonesia. Struktur <strong>Pendanaan</strong> (baik modal sendiri maupun asing) ini
+                bertindak sebagai titik awal (<em>leverage</em>) yang dikonversi secara proaktif menjadi aset
+                produktif dan layanan pengembangan perangkat lunak bernilai tinggi, dengan tujuan utama mengeksekusi
+                tender B2B untuk menghasilkan <strong>kekayaan</strong> berupa margin laba operasional sejak kuartal
+                pertama.
+            </p>
+            <p class="text-[16px] text-on-surface-variant leading-[1.15] mb-3 text-justify">
+                Alokasi dana investasi difokuskan pada tiga prioritas utama: (1) <strong>Investasi
+                    Sumber Daya Manusia</strong>; perekrutan dan pengembangan talenta teknis berkualitas
+                tinggi melalui program pelatihan intensif, sertifikasi profesional, dan skema retensi kompetitif;
+                (2) <strong>Investasi Teknologi &amp; Infrastruktur</strong>; pengadaan perangkat keras
+                development, lisensi perangkat lunak produktivitas (Microsoft 365, ClickUp), serta infrastruktur
+                cloud computing untuk mendukung kapasitas produksi; dan (3) <strong>Investasi Penetrasi
+                    Pasar</strong>; kampanye pemasaran B2B digital, pengembangan portofolio, partisipasi
+                dalam tender korporasi, serta pembangunan <em>brand awareness</em> di segmen enterprise.
+            </p>
+            <p class="text-[16px] text-on-surface-variant leading-[1.15] mb-0 text-justify">
+                Dengan total <strong>investasi sebesar Rp {{ initialCapital.toLocaleString() }}</strong>, struktur
+                pendanaan ini dirancang
+                secara taktis untuk mengakomodasi <strong>Modal Kerja Operasional selama 6 bulan pertama</strong>
+                (runway). Model pendanaan campuran ini tidak hanya menjamin KamiTech memiliki runway operasional yang
+                kuat untuk menavigasi fase awal pertumbuhan bisnis, tetapi juga sekaligus memanfaatkan jejaring dan
+                mentorship strategis dari MDI Ventures untuk mempercepat akuisisi klien korporat dan ekspansi layanan ke
+                segmen pasar yang lebih luas.
+            </p>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 3.2: BAB V - ASPEK KEUANGAN (Kebijakan Arus Kas) -->
+<app-page pageId="bab3-keuangan.3_2" pageNum="63" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
+            class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
+            Kelayakan
+            Bisnis</span></div>
+
+    <div class="mb-6 flex-grow flex flex-col gap-4">
+        <div class="flex-grow flex flex-col mb-4">
+            <h5
+                class="font-bold text-secondary text-[16px] mb-3 mt-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+                6. Kebijakan Arus Kas (Cash Flow)</h5>
+
+            <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-4">
+                <h6 class="font-bold text-[15px] text-on-surface mb-2 font-sans">A. Penerimaan Kas</h6>
+                <p class="text-[14px] text-on-surface-variant leading-[1.25] mb-3 text-justify">
+                    Penerimaan kas PT KamiTech Solusi Digital berfokus pada likuiditas yang dihasilkan dari aktivitas
+                    operasional utama dan pendanaan strategis. Sumber-sumber penerimaan kas perusahaan meliputi:
+                </p>
+                <ul
+                    class="list-disc pl-5 mb-0 text-[14px] text-on-surface-variant leading-[1.25] space-y-2 text-justify">
+                    <li><strong>Pendapatan Operasional B2B:</strong> Pembayaran termin (<em>invoice</em>) dari klien
+                        korporat atas penyelesaian <em>milestone</em> proyek pengembangan perangkat lunak atau solusi
+                        IT.</li>
+                    <li><strong>Pendapatan Berulang (<em>Recurring</em>):</strong> Penerimaan rutin dari biaya
+                        pemeliharaan (<em>SLA maintenance</em>) bulanan atau tahunan dari sistem klien yang telah
+                        beroperasi.</li>
+                    <li><strong>Suntikan Pendanaan:</strong> Pencairan dana investasi (modal asing) dari MDI Ventures
+                        dan setoran modal (<em>equity</em>) awal dari <em>Founder</em> untuk mengamankan
+                        <em>runway</em>.
+                    </li>
+                    <li><strong>Optimalisasi Aset:</strong> Penerimaan kas sekunder (seperti bunga) dari penempatan dana
+                        <em>idle</em> pada instrumen rendah risiko sebelum dana tersebut diserap untuk OPEX/CAPEX.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-4">
+                <h6 class="font-bold text-[15px] text-on-surface mb-2 font-sans">B. Pengeluaran Kas</h6>
+                <p class="text-[14px] text-on-surface-variant leading-[1.25] mb-3 text-justify">
+                    Pengeluaran kas dikelola secara ketat untuk memastikan kelangsungan operasional tanpa menguras
+                    <em>capital buffer</em> sebelum BEP tercapai. Alokasi pengeluaran kas utama mencakup:
+                </p>
+                <ul
+                    class="list-disc pl-5 mb-0 text-[14px] text-on-surface-variant leading-[1.25] space-y-2 text-justify">
+                    <li><strong>Biaya Tetap Operasional (OPEX):</strong> Pembayaran gaji bulanan untuk tim teknis
+                        (<em>developer, engineer</em>) dan operasional, yang mendominasi pengeluaran kas bulanan.</li>
+                    <li><strong>Infrastruktur & Lisensi:</strong> Pembayaran sewa server <em>cloud</em> (AWS/GCP),
+                        domain, <em>hosting</em>, dan biaya langganan perangkat lunak produktivitas secara berjangka.
+                    </li>
+                    <li><strong>Belanja Modal (CAPEX):</strong> Pembelian awal perangkat keras spesifikasi tinggi dan
+                        biaya legalitas pendirian PT di kuartal pertama.</li>
+                    <li><strong>Penetrasi Pasar B2B:</strong> Pengeluaran untuk aktivitas akuisisi klien, presentasi
+                        <em>pitching</em>, serta persiapan dokumen keikutsertaan tender korporat.
+                    </li>
+                    <li><strong>Penetrasi Pasar B2B:</strong> Pengeluaran untuk aktivitas akuisisi klien, presentasi
+                        <em>pitching</em>, serta persiapan dokumen keikutsertaan tender korporat.
+                    </li>
+                    <li><strong>Pajak Penghasilan:</strong> Alokasi pengeluaran kas wajib untuk pemenuhan kewajiban
+                        perpajakan kepada kas negara, yang dihitung berdasarkan presentase laba operasi (EBIT) tahunan
+                        berjalan sesuai dengan regulasi perpajakan yang berlaku.
+                    </li>
+                    <li><strong>Dividen:</strong> Pengeluaran kas non-operasional yang dialokasikan sebagai imbal hasil
+                        tunai (cash yield) bagi pemegang saham (Founder dan Investor) sebesar 30% dari laba bersih
+                        positif, yang didistribusikan setelah penutupan tahun buku perusahaan.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 4: BAB V - ASPEK KEUANGAN (Cash Flow & CAPEX) -->
+<app-page pageId="bab3-keuangan.4" pageNum="64" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
+            class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
+            Kelayakan
+            Bisnis</span></div>
+
+    <div class="mb-6 flex-grow flex flex-col gap-4">
+        <h5
+            class="font-bold text-secondary text-[16px] mb-0 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+            7. Cash Flow</h5>
+
+        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-0 indent-8">
+            Proyeksi <em>Cash Flow</em> KamiTech memetakan secara detail kapan dan bagaimana kas masuk serta keluar.
+            Terdiri dari
+            <strong>4 komponen</strong> dimulai dari biaya pengadaan, biaya persiapan operasi, biaya pembangunan, dan
+            biaya
+            maintenance akan
+            dijelaskan disini
+            Analisis ini dibagi menjadi dua kategori
+            utama:
+        </p>
+        <ul class="list-disc pl-5 mb-0 space-y-1.5">
+            <li><strong>Initial Cash Flow:</strong> Aliran kas keluar satu kali (<em>one-time cost</em>) di masa
+                <strong>biaya pengadaan, biaya persiapan operasi & biaya pembangunan</strong>
+            </li>
+            <li><strong>Operational Cash Flow:</strong> Aliran perputaran kas bulanan di masa <strong>biaya
+                    maintenance</strong></li>
+        </ul>
+
+        <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">A. Rencana Anggaran Initial Cash Flow
+            (Rincian
+            Belanja Modal)</h6>
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm">
+            <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
+                <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                    <tr>
+                        <th class="py-1.5 px-2 text-center w-10 rounded-tl-lg">No</th>
+                        <th class="py-1.5 px-2 text-left w-1/4">Komponen Biaya</th>
+                        <th class="py-1.5 px-2 text-left">Rincian</th>
+                        <th class="py-1.5 px-2 text-right rounded-tr-lg">Estimasi Biaya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Biaya Pengadaan -->
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td
+                            class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed">
+                            1</td>
+                        <td class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed">Biaya
+                            Pengadaan</td>
+                        <td class="py-1.5 px-2">Pengadaan Hardware (Laptop Dev)</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 254.000.000</td>
+                    </tr>
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Biaya Pengadaan</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp 254.000.000</td>
+                    </tr>
+
+                    <!-- Biaya Persiapan Operasi -->
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed"
+                            rowspan="6">2</td>
+                        <td class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed"
+                            rowspan="6">Biaya Persiapan Operasi</td>
+                        <td class="py-1.5 px-2">PT (Akta Notaris & PNBP) + Pendaftaran Merk</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 5.500.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Konsultasi Hukum</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 2.000.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Lisensi Microsoft 365 Business (1 Thn)</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 31.680.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Lisensi Clickup Team Management 3 Seat (1 Thn)</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 4.320.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Ide Branding ke Vendor</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 4.500.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Logo & Proposal</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 2.000.000</td>
+                    </tr>
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Biaya Persiapan Operasi</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp 50.000.000</td>
+                    </tr>
+
+                    <!-- Biaya Pembangunan -->
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed"
+                            rowspan="5">3</td>
+                        <td class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed"
+                            rowspan="5">Biaya Pembangunan</td>
+                        <td class="py-1.5 px-2">Sewa Kantor/Coworking Space (1 Thn)</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 50.000.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Renovasi Interior & Setup Jaringan Kantor</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 100.000.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">ATK, Kabel, dan Perlengkapan Kecil</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 2.950.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Peralatan Kebersihan</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 2.000.000</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Modal Kerja (Runway 6 Bulan)</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 3.084.000.000</td>
+                    </tr>
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Biaya Pembangunan</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp 3.238.950.000</td>
+                    </tr>
+
+                    <!-- Grand Total -->
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td colspan="3"
+                            class="py-2 px-3 rounded-bl-lg uppercase tracking-widest text-[11px] text-right">Total
+                            Kebutuhan Modal</td>
+                        <td class="py-2 px-3 text-right rounded-br-lg font-sans text-[13px] text-primary">Rp {{
+                            initialCapital.toLocaleString() }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 5: BAB V - ASPEK KEUANGAN (OPEX) -->
+<app-page pageId="bab3-keuangan.5" pageNum="65" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col font-sans">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
             class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -203,17 +540,239 @@
             Kelayakan
             Bisnis</span></div>
 
-    <div class="mb-6 flex-grow">
-        <h5
-            class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            3. Perkiraan Penerimaan</h5>
+    <div class="mb-6 flex-grow flex flex-col gap-4">
+        <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">B. Rencana Anggaran Operasional
+            (Biaya Tetap / Fixed Cost)
+        </h6>
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm">
+            <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
+                <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                    <tr>
+                        <th class="py-1.5 px-2 text-center w-10 rounded-tl-lg">No</th>
+                        <th class="py-1.5 px-2 text-left w-1/4">Jenis Biaya</th>
+                        <th class="py-1.5 px-2 text-left">Rincian</th>
+                        <th class="py-1.5 px-2 text-right rounded-tr-lg">Estimasi Biaya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Gaji Tim Header -->
+                    @for (row of opexGajiDetail; track $index) {
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        @if ($index === 0) {
+                        <td [attr.rowspan]="opexGajiDetail.length"
+                            class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed">
+                            1</td>
+                        <td [attr.rowspan]="opexGajiDetail.length"
+                            class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed">Gaji
+                            Tim</td>
+                        }
+                        <td class="py-1.5 px-2">{{row.item}} <span
+                                class="text-[11px] text-outline ml-1">{{row.detail}}</span></td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp {{row.amount.toLocaleString()}}
+                        </td>
+                    </tr>
+                    }
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Gaji</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp {{
+                            salaryCostValue.toLocaleString() }}</td>
+                    </tr>
 
+                    <!-- Operasional Kantor Header -->
+                    @for (row of opexOperasionalDetail; track $index) {
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        @if ($index === 0) {
+                        <td [attr.rowspan]="opexOperasionalDetail.length"
+                            class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed">
+                            2</td>
+                        <td [attr.rowspan]="opexOperasionalDetail.length"
+                            class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed">
+                            Operasional Kantor</td>
+                        }
+                        <td class="py-1.5 px-2">{{row.item}}</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp {{row.amount.toLocaleString()}}
+                        </td>
+                    </tr>
+                    }
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Operasional</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp {{
+                            operationalCostValue.toLocaleString() }}</td>
+                    </tr>
+
+                    <!-- Infrastruktur Cloud & Software Header -->
+                    @for (row of opexSoftwareDetail; track $index) {
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        @if ($index === 0) {
+                        <td [attr.rowspan]="opexSoftwareDetail.length"
+                            class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed">
+                            3</td>
+                        <td [attr.rowspan]="opexSoftwareDetail.length"
+                            class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed">
+                            Infrastruktur Cloud & Software</td>
+                        }
+                        <td class="py-1.5 px-2">{{row.item}}</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp {{row.amount.toLocaleString()}}
+                        </td>
+                    </tr>
+                    }
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Cloud & Software</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp {{
+                            softwareCostValue.toLocaleString() }}</td>
+                    </tr>
+
+                    <!-- Pemasaran B2B Header -->
+                    @for (row of opexMarketingDetail; track $index) {
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        @if ($index === 0) {
+                        <td [attr.rowspan]="opexMarketingDetail.length"
+                            class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed">
+                            4</td>
+                        <td [attr.rowspan]="opexMarketingDetail.length"
+                            class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed">
+                            Pemasaran B2B</td>
+                        }
+                        <td class="py-1.5 px-2">{{row.item}}</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp {{row.amount.toLocaleString()}}
+                        </td>
+                    </tr>
+                    }
+                    <tr class="border-b border-outline-variant bg-surface-container">
+                        <td colspan="3"
+                            class="py-1.5 px-3 font-bold text-on-surface text-[11px] uppercase tracking-wider text-right border-r border-outline-variant border-dashed">
+                            Subtotal Pemasaran</td>
+                        <td class="py-1.5 px-2 text-right font-sans font-bold text-on-surface">Rp {{
+                            marketingCostValue.toLocaleString() }}</td>
+                    </tr>
+
+                    <!-- Grand Total -->
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td colspan="3"
+                            class="py-2 px-3 rounded-bl-lg uppercase tracking-widest text-[11px] text-right">Total Biaya
+                            Maintenance Bulanan
+                        </td>
+                        <td class="py-2 px-3 text-right rounded-br-lg font-sans text-[13px] text-primary">Rp {{
+                            monthlyFixedCostTotal.toLocaleString() }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 6: BAB V - ASPEK KEUANGAN (Anggaran Operasional) -->
+<app-page pageId="bab3-keuangan.6" pageNum="66" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
+            class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
+            Kelayakan
+            Bisnis</span></div>
+
+    <div class="mb-6 flex-grow flex flex-col gap-4">
+        <!-- C. Biaya Variabel -->
+        <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">C. Rencana Anggaran Operasional
+            (Biaya Variabel / Variable Cost)
+        </h6>
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm">
+            <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
+                <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                    <tr>
+                        <th class="py-1.5 px-2 text-center w-10 rounded-tl-lg">No</th>
+                        <th class="py-1.5 px-2 text-left w-1/4">Jenis Biaya</th>
+                        <th class="py-1.5 px-2 text-left">Rincian</th>
+                        <th class="py-1.5 px-2 text-right rounded-tr-lg">Estimasi Biaya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2 text-center font-bold align-top border-r border-outline-variant border-dashed"
+                            rowspan="2">1</td>
+                        <td class="py-1.5 px-2 font-bold align-top border-r border-outline-variant border-dashed"
+                            rowspan="2">Biaya Variabel</td>
+                        <td class="py-1.5 px-2">HPP / Biaya Variabel Per Jam Layanan</td>
+                        <td class="py-1.5 px-2 text-right font-bold">Rp 5.000 / Jam</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-2">Estimasi Volume Layanan Rata-Rata Bulanan</td>
+                        <td class="py-1.5 px-2 text-right font-bold">2.050 Jam</td>
+                    </tr>
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td colspan="3"
+                            class="py-2 px-3 rounded-bl-lg uppercase tracking-widest text-[11px] text-right">Estimasi
+                            Biaya Variabel / Bulan</td>
+                        <td class="py-2 px-3 text-right rounded-br-lg font-sans text-[13px] text-primary">Rp 10.250.000
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- D. Total Anggaran Operasional -->
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm">
+            <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">D. Total Anggaran Operasional
+                (Tahun Pertama)</h6>
+            <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse mt-2">
+                <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                    <tr>
+                        <th class="py-1.5 px-3 text-left w-2/3 rounded-tl-lg">Keterangan</th>
+                        <th class="py-1.5 px-3 text-right rounded-tr-lg">Nilai (Rp/Tahun)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-3 font-bold border-r border-outline-variant border-dashed">Total Biaya
+                            Tetap (Biaya Tetap x 12 Bulan)</td>
+                        <td class="py-1.5 px-3 text-right font-bold">Rp {{ (monthlyFixedCostTotal * 12).toLocaleString()
+                            }}</td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-3 font-bold border-r border-outline-variant border-dashed">Total Biaya
+                            Variabel (Biaya Variabel x 12 Bulan)</td>
+                        <td class="py-1.5 px-3 text-right font-bold">Rp {{ (totalCOGS * 12).toLocaleString() }}</td>
+                    </tr>
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td class="py-2 px-3 rounded-bl-lg uppercase tracking-widest text-[11px] text-right">Total
+                            Operasional</td>
+                        <td class="py-2 px-3 text-right rounded-br-lg font-sans text-[13px] text-primary">Rp {{
+                            ((monthlyFixedCostTotal * 12) + (totalCOGS * 12)).toLocaleString() }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</app-page>
+
+<!-- PAGE 6.1: BAB V - ASPEK KEUANGAN (Penerimaan Operasional & Indikator) -->
+<app-page pageId="bab3-keuangan.6_1" pageNum="67" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
+            class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
+            Kelayakan
+            Bisnis</span></div>
+
+    <div class="mb-6 flex-grow flex flex-col gap-4">
         <!-- Proyeksi Pendapatan & Laba Rugi -->
-        <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">A. Penerimaan Operasional
+        <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">E. Rencana Pendapatan
         </h6>
 
         <div
-            class="flex items-center gap-4 mb-4 bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm">
+            class="flex items-center gap-4 mb-0 bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm">
             <div class="flex-grow">
                 <span class="text-[16px] font-bold text-on-surface-variant uppercase block mb-1">Target Jam
                     Penjualan
@@ -236,7 +795,7 @@
             </div>
         </div>
 
-        <div class="text-[16px] text-on-surface-variant text-justify font-sans mb-4">
+        <div class="text-[16px] text-on-surface-variant text-justify font-sans mb-0">
             <p class="indent-8 leading-[1.15] mb-0">
                 Tim eksekutor bertanggung jawab penuh dalam menghasilkan {{billableHours}} jam kerja produktif
                 per bulan, dengan rata-rata beban kerja sebesar {{ (billableHours / 17).toFixed(1) }} jam per
@@ -245,52 +804,82 @@
             </p>
         </div>
 
-        <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-6 font-sans">
-            <table class="w-full text-[16px] bg-white">
+        <!-- Tabel Laba Rugi Bulanan -->
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-0">
+            <table class="w-full text-[12px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
+                <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
+                    <tr>
+                        <th class="py-1.5 px-3 text-center w-12 rounded-tl-lg">No</th>
+                        <th class="py-1.5 px-3 text-left w-1/2">Jenis Pengeluaran Bulanan</th>
+                        <th class="py-1.5 px-3 text-right rounded-tr-lg">Laba Bersih (Pendapatan - Pengeluaran)</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr class="bg-inverse-surface text-white font-bold">
-                        <td class="p-3 uppercase tracking-widest text-[16px]">Total Rencana Pendapatan</td>
-                        <td class="p-3 text-right font-sans text-[16px] text-primary">Rp {{
-                            totalRevenue.toLocaleString() }}</td>
-                    </tr>
-                    <tr class="bg-surface-container">
-                        <td colspan="2"
-                            class="p-1.5 px-3 text-[14px] font-bold text-on-surface-variant uppercase tracking-wider border-b border-outline-variant">
-                            Rincian Pengeluaran Bulanan</td>
-                    </tr>
-                    <tr>
-                        <td
-                            class="p-2.5 px-4 border-b border-dashed border-outline-variant font-medium text-on-surface-variant">
-                            Total HPP Variabel (Biaya Server/Jam Ekstra)</td>
-                        <td
-                            class="p-2.5 text-right text-red-600 font-sans border-b border-dashed border-outline-variant">
-                            - Rp {{ totalCOGS.toLocaleString() }}</td>
-                    </tr>
-                    <tr>
-                        <td
-                            class="p-2.5 px-4 border-b border-dashed border-outline-variant font-medium text-on-surface-variant">
-                            Biaya OPEX Tetap Bulanan</td>
-                        <td
-                            class="p-2.5 text-right text-red-600 font-sans border-b border-dashed border-outline-variant">
-                            - Rp {{ monthlyFixedCostTotal.toLocaleString() }}</td>
-                    </tr>
-                    <tr class="bg-red-50/50 font-bold text-red-700 border-t border-outline-variant">
-                        <td class="p-3">Total Pengeluaran Bulanan</td>
-                        <td class="p-3 text-right font-sans">(Rp {{ totalMonthlyExpense.toLocaleString()
-                            }})</td>
-                    </tr>
-                    <tr class="bg-[#E3F2FD]/50 font-black text-on-surface border-t-2 border-outline-variant">
-                        <td class="p-4 text-[16px] uppercase tracking-widest">Estimasi Laba Bersih Bulanan
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-3 text-center font-bold border-r border-outline-variant border-dashed">1
                         </td>
-                        <td class="p-4 text-right font-sans text-[18px] text-primary">Rp {{
+                        <td class="py-1.5 px-3 font-bold border-r border-outline-variant border-dashed">Total HPP
+                            Variabel (Biaya Server/Jam Ekstra)</td>
+                        <td class="py-1.5 px-3 text-right text-red-600 font-bold">- Rp {{ totalCOGS.toLocaleString() }}
+                        </td>
+                    </tr>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-1.5 px-3 text-center font-bold border-r border-outline-variant border-dashed">2
+                        </td>
+                        <td class="py-1.5 px-3 font-bold border-r border-outline-variant border-dashed">Biaya OPEX Tetap
+                            Bulanan</td>
+                        <td class="py-1.5 px-3 text-right text-red-600 font-bold">- Rp {{
+                            monthlyFixedCostTotal.toLocaleString() }}</td>
+                    </tr>
+                    <tr
+                        class="bg-red-50/50 font-bold text-red-700 border-b border-dashed border-outline-variant hover:bg-red-100/50 transition-colors">
+                        <td class="py-1.5 px-3 text-center border-r border-outline-variant border-dashed">3</td>
+                        <td class="py-1.5 px-3 border-r border-outline-variant border-dashed">Total Pengeluaran Bulanan
+                        </td>
+                        <td class="py-1.5 px-3 text-right">(Rp {{ totalMonthlyExpense.toLocaleString() }})</td>
+                    </tr>
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td colspan="2"
+                            class="py-2.5 px-3 rounded-bl-lg uppercase tracking-widest text-[13px] text-right">Estimasi
+                            Laba Bersih Bulanan</td>
+                        <td class="py-2.5 px-3 text-right rounded-br-lg font-sans text-[15px] text-primary">Rp {{
                             monthlyNetProfit.toLocaleString() }}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
+        <!-- Tabel Rencana Pendapatan -->
+        <div class="bg-surface-container-low p-2 rounded-xl border border-outline-variant shadow-sm mb-4">
+            <table class="w-full text-[14px] font-sans text-on-surface-variant leading-[1.15] border-collapse">
+                <thead class="bg-inverse-surface text-white uppercase text-[11px] font-bold tracking-wider">
+                    <tr>
+                        <th class="py-2 px-3 text-center w-12 rounded-tl-lg">No</th>
+                        <th class="py-2 px-3 text-left w-2/3">Sumber Pendapatan</th>
+                        <th class="py-2 px-3 text-right rounded-tr-lg">Estimasi (Rp/Tahun)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
+                        <td class="py-2 px-3 text-center font-bold border-r border-outline-variant border-dashed">1</td>
+                        <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">Jasa Penngembangan
+                            (Laba bersih bulanan x 12)</td>
+                        <td class="py-2 px-3 text-right font-bold">Rp {{ (totalRevenue * 12).toLocaleString() }}</td>
+                    </tr>
+                    <tr class="bg-inverse-surface text-white font-bold">
+                        <td colspan="2"
+                            class="py-2.5 px-3 rounded-bl-lg uppercase tracking-widest text-[13px] text-right">Total
+                            Rencana Pendapatan Tahunan</td>
+                        <td class="py-2.5 px-3 text-right rounded-br-lg font-sans text-[15px] text-primary">Rp {{
+                            (totalRevenue * 12).toLocaleString() }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="mb-0">
-            <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">B. Indikator Keuangan Kunci
+            <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">F. Indikator Keuangan Kunci
             </h6>
             <div class="grid grid-cols-2 gap-4">
                 <div
@@ -314,320 +903,10 @@
     </div>
 </app-page>
 
-<!-- PAGE 4: BAB V - ASPEK KEUANGAN (Perkiraan Pengeluaran - CAPEX) -->
-<app-page pageId="bab3-keuangan.4" pageNum="62" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
-    contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
-        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
-            Pembangunan</span>
-        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
-    </div>
-
-    <div class="mb-4 flex-grow flex flex-col">
-        <h5
-            class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            4. Perkiraan Pengeluaran</h5>
-
-        <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
-            Perkiraan pengeluaran PT KamiTech Solusi Digital diklasifikasikan ke dalam tiga komponen utama:
-            belanja modal awal (Initial Cash Flow/CAPEX) yang bersifat satu kali di awal pendirian, biaya tetap
-            bulanan (OPEX) yang mencakup gaji, operasional, dan infrastruktur, serta biaya variabel yang
-            berfluktuasi mengikuti volume produksi jasa layanan.
-        </p>
-
-        <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">A. Initial Cash Flow (Rincian
-            Belanja Modal / CAPEX)</h6>
-        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm flex-grow">
-            <table class="w-full text-[14px] font-sans text-on-surface-variant leading-[1.15]">
-                <tbody>
-                    <!-- Kantor & Hardware -->
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Sewa Kantor/Coworking Space (1 Thn)</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 50.000.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Renovasi Interior & Setup Jaringan Kantor </td>
-                        <td class="text-right font-sans font-bold py-1">Rp 100.000.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Pengadaan Hardware (Laptop Dev)</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 254.000.000</td>
-                    </tr>
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Kantor & Hardware</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 404.000.000</td>
-                    </tr>
-
-                    <!-- Lisensi Software -->
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Lisensi Microsoft 365 Business (1 Thn)</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 31.680.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Lisensi Clickup Team Management 3 Seat (1 Thn)</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 4.320.000</td>
-                    </tr>
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Lisensi Software</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 36.000.000</td>
-                    </tr>
-
-                    <!-- Branding -->
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Ide Branding ke Vendor</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 4.500.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Logo & Proposal</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
-                    </tr>
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Branding</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 6.500.000</td>
-                    </tr>
-
-                    <!-- Legalitas -->
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">PT (Akta Notaris & PNBP) + Pendaftaran Merk</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 5.500.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Konsultasi Hukum</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
-                    </tr>
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Legalitas</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 7.500.000</td>
-                    </tr>
-
-                    <!-- Lain-Lain -->
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">ATK, Kabel, dan Perlengkapan Kecil</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 2.950.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">Peralatan Kebersihan</td>
-                        <td class="text-right font-sans font-bold py-1">Rp 2.000.000</td>
-                    </tr>
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Lain-Lain (ATK, Kabel, Kebersihan)</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 4.950.000</td>
-                    </tr>
-
-                    <!-- Modal Kerja Operasional -->
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Modal Kerja</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp 1.041.050.000</td>
-                    </tr>
-
-                    <!-- Grand Total -->
-                    <tr class="bg-inverse-surface text-white font-bold">
-                        <td class="p-2 rounded-l-lg uppercase tracking-widest text-[13px]">Total CAPEX</td>
-                        <td class="p-2 text-right rounded-r-lg font-sans text-[15px] text-primary">Rp {{
-                            initialCapital.toLocaleString() }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</app-page>
-
-<!-- PAGE 5: BAB V - ASPEK KEUANGAN (Perkiraan Pengeluaran - OPEX) -->
-<app-page pageId="bab3-keuangan.5" pageNum="63" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
-    contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
-        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
-            Pembangunan</span>
-        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
-    </div>
-
-    <div class="mb-4 flex-grow flex flex-col">
-        <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">B. Biaya Tetap Bulanan (Rincian
-            OPEX)
-        </h6>
-        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm flex-grow">
-            <table class="w-full text-[14px] font-sans text-on-surface-variant leading-[1.15]">
-                <tbody>
-                    <!-- Gaji Tim Header -->
-                    @for (row of opexGajiDetail; track $index) {
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">{{row.item}} <span
-                                class="text-[11px] text-outline ml-1">{{row.detail}}</span></td>
-                        <td class="text-right font-sans font-bold py-1">Rp {{row.amount.toLocaleString()}}
-                        </td>
-                    </tr>
-                    }
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Gaji</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp {{
-                            salaryCostValue.toLocaleString() }}</td>
-                    </tr>
-
-                    <!-- Operasional Kantor Header -->
-                    @for (row of opexOperasionalDetail; track $index) {
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">{{row.item}}</td>
-                        <td class="text-right font-sans font-bold py-1">Rp {{row.amount.toLocaleString()}}
-                        </td>
-                    </tr>
-                    }
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Operasional</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp {{
-                            operationalCostValue.toLocaleString() }}</td>
-                    </tr>
-
-                    <!-- Infrastruktur Cloud & Software Header -->
-                    @for (row of opexSoftwareDetail; track $index) {
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">{{row.item}}</td>
-                        <td class="text-right font-sans font-bold py-1">Rp {{row.amount.toLocaleString()}}
-                        </td>
-                    </tr>
-                    }
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Cloud & Software</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp {{
-                            softwareCostValue.toLocaleString() }}</td>
-                    </tr>
-
-                    <!-- Pemasaran B2B Header -->
-                    @for (row of opexMarketingDetail; track $index) {
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1 pl-4">{{row.item}}</td>
-                        <td class="text-right font-sans font-bold py-1">Rp {{row.amount.toLocaleString()}}
-                        </td>
-                    </tr>
-                    }
-                    <tr class="border-b border-outline-variant bg-surface-container">
-                        <td class="py-1.5 pl-4 font-bold text-on-surface text-[12px] uppercase tracking-wider">
-                            Subtotal Pemasaran</td>
-                        <td class="text-right font-sans font-bold text-on-surface py-1.5">Rp {{
-                            marketingCostValue.toLocaleString() }}</td>
-                    </tr>
-
-                    <!-- Grand Total -->
-                    <tr class="bg-inverse-surface text-white font-bold">
-                        <td class="p-2 rounded-l-lg uppercase tracking-widest text-[13px]">Total OPEX Bulanan
-                        </td>
-                        <td class="p-2 text-right rounded-r-lg font-sans text-[15px] text-primary">Rp {{
-                            monthlyFixedCostTotal.toLocaleString() }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</app-page>
-
-<!-- PAGE 6: BAB V - ASPEK KEUANGAN (Biaya Variabel & Pendanaan) -->
-<app-page pageId="bab3-keuangan.6" pageNum="64" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
-    contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
-        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
-            Pembangunan</span>
-        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
-    </div>
-
-    <div class="mb-4 flex-grow flex flex-col gap-4">
-        <!-- C. Biaya Variabel -->
-        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm">
-            <h6 class="font-bold text-[13px] text-on-surface mb-2 font-sans uppercase">C. Biaya Variabel (Variable
-                Cost)</h6>
-            <table class="w-full text-[13px] font-sans text-on-surface-variant leading-[1.15]">
-                <tbody>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1">HPP / Biaya Variabel Per Jam Layanan</td>
-                        <td class="text-right font-bold py-1">Rp 5.000 / Jam</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1">Estimasi Volume Layanan Rata-Rata Bulanan</td>
-                        <td class="text-right font-bold py-1">2.050 Jam</td>
-                    </tr>
-                    <tr class="bg-surface-container font-bold text-on-surface mt-1">
-                        <td class="p-1.5 rounded-l text-[12px] uppercase">Estimasi Biaya Variabel / Bulan</td>
-                        <td class="p-1.5 text-right rounded-r">Rp 10.250.000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- D. Total Anggaran Operasional -->
-        <div class="bg-[#F8FAFC] p-4 rounded-xl border border-primary/30 shadow-sm">
-            <h6 class="font-bold text-[14px] text-primary mb-2 font-sans uppercase">D. Total Anggaran Operasional
-                (Tahun Pertama)</h6>
-            <table class="w-full text-[14px] font-sans text-on-surface-variant leading-[1.15]">
-                <tbody>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1">Initial Cashflow (CAPEX 1x)</td>
-                        <td class="text-right font-bold py-1">Rp 1.500.000.000</td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1">Biaya Tetap Tahunan (OPEX &times; 12 bln)</td>
-                        <td class="text-right font-bold py-1">Rp {{ (monthlyFixedCostTotal * 12).toLocaleString() }}
-                        </td>
-                    </tr>
-                    <tr class="border-b border-dashed border-outline-variant">
-                        <td class="py-1">Biaya Variabel Tahunan (Estimasi 2050 jam &times; 12 bln)</td>
-                        <td class="text-right font-bold py-1">Rp 123.000.000</td>
-                    </tr>
-                    <tr class="bg-primary text-white font-bold mt-2">
-                        <td class="p-2 rounded-l text-[14px] uppercase tracking-wider">Total Kebutuhan Likuiditas
-                            Tahun 1</td>
-                        <td class="p-2 text-right rounded-r text-[15px]">Rp 7.791.000.000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- 5. Pendanaan & Investasi -->
-        <h5
-            class="font-bold text-secondary text-[16px] mb-1 mt-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-            5. Pendanaan &amp; Investasi</h5>
-
-        <div
-            class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-[#FF8F00]">
-            <p class="text-[14px] text-on-surface-variant leading-[1.15] mb-3 text-justify">
-                Pendanaan PT KamiTech Solusi Digital bersumber dari dua pilar utama: <strong>modal sendiri
-                    (equity) sebesar 60%</strong> dari Founder dan <strong>modal asing (investasi eksternal)
-                    sebesar 40%</strong> dari MDI Ventures. Struktur ini dirancang untuk menjaga keseimbangan
-                antara kendali operasional oleh pendiri dan akses terhadap jaringan strategis investor di
-                ekosistem digital Indonesia.
-            </p>
-            <p class="text-[14px] text-on-surface-variant leading-[1.15] mb-3 text-justify">
-                Alokasi dana investasi difokuskan pada tiga prioritas utama: (1) <strong>Investasi
-                    Sumber Daya Manusia</strong>; perekrutan dan pengembangan talenta teknis berkualitas
-                tinggi melalui program pelatihan intensif, sertifikasi profesional, dan skema retensi kompetitif;
-                (2) <strong>Investasi Teknologi &amp; Infrastruktur</strong>; pengadaan perangkat keras
-                development, lisensi perangkat lunak produktivitas (Microsoft 365, ClickUp), serta infrastruktur
-                cloud computing untuk mendukung kapasitas produksi; dan (3) <strong>Investasi Penetrasi
-                    Pasar</strong>; kampanye pemasaran B2B digital, pengembangan portofolio, partisipasi
-                dalam tender korporasi, serta pembangunan <em>brand awareness</em> di segmen enterprise.
-            </p>
-            <p class="text-[14px] text-on-surface-variant leading-[1.15] mb-0 text-justify">
-                Dengan total <strong>investasi sebesar Rp 1.500.000.000</strong>, struktur pendanaan ini dirancang
-                secara taktis untuk mengakomodasi <strong>Modal Kerja Operasional selama 3 bulan pertama</strong>
-                (runway). Model pendanaan campuran ini tidak hanya menjamin KamiTech memiliki runway operasional yang
-                aman untuk menavigasi fase awal pertumbuhan bisnis, tetapi juga sekaligus memanfaatkan jejaring dan
-                mentorship strategis dari MDI Ventures untuk mempercepat akuisisi klien korporat dan ekspansi layanan ke
-                segmen pasar yang lebih luas.
-            </p>
-        </div>
-    </div>
-</app-page>
-
 <!-- PAGE 7: BAB V - ASPEK KEUANGAN (ROI) -->
-<app-page pageId="bab3-keuangan.7" pageNum="65" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.7" pageNum="68" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
             class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
             Kelayakan
@@ -635,7 +914,7 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        6. Proyeksi ROI Kumulatif (1 Tahun)</h5>
+        8. Proyeksi ROI Kumulatif (1 Tahun)</h5>
     <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans">
         <table class="w-full text-[16px] bg-white">
             <thead class="bg-inverse-surface text-white uppercase text-[14px] font-bold tracking-widest">
@@ -671,27 +950,37 @@
             </tbody>
         </table>
     </div>
-    <p class="text-[12px] text-on-surface-variant italic mt-0 font-sans">* Asumsi penjualan stabil sesuai input
+    <p class="text-[13px] text-on-surface-variant italic mt-0 font-sans mb-1">* Asumsi penjualan stabil sesuai input
         slider jam billable di Part 5 ({{billableHours}} jam/bulan).</p>
+    <p
+        class="text-[13px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-0 border-l-4 border-primary pl-3 py-1">
+        <strong>Break-Even Point (BEP) Analysis:</strong> Dengan modal <em>safety net</em> (6-Month Runway) sebesar Rp
+        3,54 Miliar,
+        estimasi BEP secara matematis berada pada <strong>~{{ investmentMetrics.discountedPaybackYears ?
+            (investmentMetrics.discountedPaybackYears * 12).toFixed(1) : 'Lebih dari 60' }} Bulan</strong>. Profil ini
+        menunjukkan ketahanan likuiditas
+        yang jauh lebih kuat dalam menyerap fluktuasi penjualan B2B pada tahun pertama beroperasi.
+    </p>
 </app-page>
 
 <!-- PAGE 8: BAB V - ASPEK KEUANGAN (SUSTAINABLE MODEL) -->
-<app-page pageId="bab3-keuangan.8" pageNum="66" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.8" pageNum="69" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6"><span
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4"><span
             class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span><span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi
             Kelayakan
             Bisnis</span></div>
 
     <h5
-        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        7. Proyeksi Cash Flow (Sustainabilitas Arus Kas 5 Tahun)</h5>
+        class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        9. Proyeksi Cash Flow (Sustainabilitas Arus Kas 5 Tahun)</h5>
     <div class="overflow-hidden relative z-10 flex-grow flex flex-col">
         <div class="text-[16px] text-on-surface-variant text-justify font-sans mb-1">
             <p class="indent-8 leading-[1.15] mb-1">Pada model
                 ini, <strong>Belanja Modal (CAPEX) utama berupa Renovasi Interior, Pengadaan
-                    Hardware, Branding, Legalitas, Lain-Lain, serta Modal Kerja Operasional 3 Bulan hanya terjadi pada
+                    Hardware, Branding, Legalitas, Lain-Lain, serta Modal Kerja Operasional (Runway 6 Bulan) hanya
+                    terjadi pada
                     Tahun ke-1</strong>.
                 Sedangkan biaya yang bersifat berulang hanyalah Sewa Kantor (Rp 50 Juta) dan
                 Lisensi Software (Rp 36 Juta) yang dicatat sebagai pengeluaran CAPEX tahunan
@@ -749,9 +1038,9 @@
         laba sebelum pajak tahunan mencapai Rp 4,8 Miliar.</p>
 </app-page>
 <!-- PAGE 9: BAB V - ASPEK KEUANGAN (EKONOMI INVESTOR) -->
-<app-page pageId="bab3-keuangan.9" pageNum="67" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.9" pageNum="70" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
@@ -759,7 +1048,7 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        8. Ekonomi Investor dan Kebijakan Pembagian Laba</h5>
+        10. Ekonomi Investor dan Kebijakan Pembagian Laba</h5>
     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
         Simulasi ini mengasumsikan komposisi kepemilikan mengikuti kontribusi modal: Founder {{
         (founderOwnership * 100).toFixed(0) }}% dan investor {{ (investorOwnership * 100).toFixed(0) }}%.
@@ -837,7 +1126,7 @@
 </app-page>
 
 <!-- PAGE 10: BAB V - ASPEK KEUANGAN (KELAYAKAN) -->
-<app-page pageId="bab3-keuangan.10" pageNum="68" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.10" pageNum="71" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -847,20 +1136,20 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-4 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        9. NPV, IRR, dan Discounted Payback</h5>
+        11. NPV, IRR, dan Discounted Payback</h5>
 
     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
-        Indikator kelayakan finansial menunjukkan bahwa model bisnis KamiTech
-        memiliki prospek yang solid. <strong>Net Present Value (NPV)</strong> yang bernilai positif menegaskan bahwa
-        agregat proyeksi arus kas bebas di masa depan setelah didiskontokan dengan tingkat risiko (<em>discount
-            rate</em>) sebesar {{ (discountRate * 100).toFixed(0) }}% jauh melampaui nilai modal awal yang disuntikkan.
-        Hal ini dikonfirmasi oleh tingginya <strong>Internal Rate of Return (IRR)</strong> yang melebihi ekspektasi
-        imbal hasil standar (<em>Hurdle Rate</em>) di pasar modal. Selanjutnya, <strong>Profitability Index
-            (PI)</strong> di atas angka 1,0x membuktikan bahwa setiap Rupiah yang diinvestasikan sanggup menciptakan
-        nilai tambah eksponensial bagi perusahaan. Terakhir, dari perspektif mitigasi risiko likuiditas,
-        <strong>Discounted Payback Period</strong> memperlihatkan durasi yang efisien bagi para pemegang saham untuk
-        memperoleh kembali keseluruhan modal awal mereka sepenuhnya (walaupun telah disesuaikan dengan nilai waktu dari
-        uang).
+        Indikator kelayakan finansial menunjukkan bahwa pergeseran menuju pendanaan penuh dengan <em>safety net</em> kas
+        selama 6 bulan telah mematangkan profil risiko KamiTech. <strong>Net Present Value (NPV)</strong> yang bernilai
+        positif menegaskan bahwa agregat proyeksi arus kas bebas di masa depan—setelah didiskontokan dengan tingkat
+        risiko sebesar {{ (discountRate * 100).toFixed(0) }}%—secara meyakinkan melampaui nilai modal awal Rp 3,54
+        Miliar. Hal ini dikonfirmasi oleh <strong>Internal Rate of Return (IRR)</strong> yang kini direvisi berada pada
+        kisaran <strong>~{{ investmentMetrics.irr === null ? 'N/A' : (investmentMetrics.irr * 100).toFixed(1)
+            }}%</strong>. Angka ini mencerminkan tingkat imbal hasil institusional yang <em>mature</em> dan
+        ter-<em>de-risk</em>, lebih realistis dan terukur dibandingkan metrik <em>seed-stage</em> yang fluktuatif.
+        Selanjutnya, <strong>Profitability Index (PI)</strong> di atas angka 1,0x mengukuhkan penciptaan nilai tambah
+        secara presisi. Secara keseluruhan, struktur permodalan baru mendemonstrasikan bahwa proyek bisnis KamiTech
+        sangat siap dan stabil (<em>highly investable</em>) untuk skala korporasi.
     </p>
     <div class="grid grid-cols-2 gap-4 mb-6 font-sans">
         <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
@@ -887,7 +1176,7 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        10. Proyeksi Laporan Keuangan Terintegrasi</h5>
+        12. Proyeksi Laporan Keuangan Terintegrasi</h5>
 
     <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
         <table class="w-full text-[12px] bg-white">
@@ -900,28 +1189,40 @@
             </thead>
             <tbody class="text-on-surface-variant">
                 <tr class="border-b border-outline-variant">
-                    <td class="p-2 font-bold">Pendapatan</td>@for (row of integratedFinancialStatements; track row.year)
-                    {<td class="p-2 text-right">{{ formatCurrencyShort(row.revenue) }}</td>}
+                    <td class="p-2 font-bold">Pendapatan</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.revenue) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-dashed border-outline-variant">
-                    <td class="p-2 pl-4">HPP / COGS</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.cogs) }}</td>}
+                    <td class="p-2 pl-4">HPP / COGS</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.cogs) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-dashed border-outline-variant">
-                    <td class="p-2 pl-4">OPEX</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.opex) }}</td>}
+                    <td class="p-2 pl-4">OPEX</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.opex) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-dashed border-outline-variant">
-                    <td class="p-2 pl-4">Depresiasi</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.depreciation) }}</td>}
+                    <td class="p-2 pl-4">Depresiasi</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.depreciation) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-outline-variant">
-                    <td class="p-2 pl-4">PPh Badan</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.tax) }}</td>}
+                    <td class="p-2 pl-4">PPh Badan</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right text-red-600">{{ formatCurrencyShort(row.tax) }}</td>
+                    }
                 </tr>
                 <tr class="bg-surface-container font-bold">
-                    <td class="p-2 text-primary">Laba Bersih</td>@for (row of integratedFinancialStatements; track
-                    row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.netIncome) }}</td>}
+                    <td class="p-2 text-primary">Laba Bersih</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.netIncome) }}</td>
+                    }
                 </tr>
             </tbody>
         </table>
@@ -929,7 +1230,7 @@
 </app-page>
 
 <!-- PAGE 11: BAB V - ASPEK KEUANGAN (LAPORAN TERINTEGRASI LANJUTAN) -->
-<app-page pageId="bab3-keuangan.11" pageNum="69" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.11" pageNum="72" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -948,32 +1249,46 @@
             </thead>
             <tbody class="text-on-surface-variant">
                 <tr class="border-b border-dashed border-outline-variant">
-                    <td class="p-2 pl-4">Kas</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right">{{ formatCurrencyShort(row.endingCash) }}</td>}
+                    <td class="p-2 pl-4">Kas</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.endingCash) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-outline-variant">
-                    <td class="p-2 pl-4">Aset Produktif Bersih</td>@for (row of integratedFinancialStatements; track
-                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.netProductiveAssets) }}</td>}
+                    <td class="p-2 pl-4">Aset Produktif Bersih</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.netProductiveAssets) }}</td>
+                    }
                 </tr>
                 <tr class="bg-surface-container font-bold border-b border-outline-variant">
-                    <td class="p-2">Total Aset</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right">{{ formatCurrencyShort(row.totalAssets) }}</td>}
+                    <td class="p-2">Total Aset</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.totalAssets) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-dashed border-outline-variant">
-                    <td class="p-2 pl-4">Liabilitas</td>@for (row of integratedFinancialStatements; track row.year) {<td
-                        class="p-2 text-right">{{ formatCurrencyShort(row.liabilities) }}</td>}
+                    <td class="p-2 pl-4">Liabilitas</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.liabilities) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-dashed border-outline-variant">
-                    <td class="p-2 pl-4">Modal Disetor</td>@for (row of integratedFinancialStatements; track row.year) {
-                    <td class="p-2 text-right">{{ formatCurrencyShort(row.shareCapital) }}</td>}
+                    <td class="p-2 pl-4">Modal Disetor</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.shareCapital) }}</td>
+                    }
                 </tr>
                 <tr class="border-b border-outline-variant">
-                    <td class="p-2 pl-4">Akumulasi Laba Ditahan</td>@for (row of integratedFinancialStatements; track
-                    row.year) {<td class="p-2 text-right">{{ formatCurrencyShort(row.retainedEarnings) }}</td>}
+                    <td class="p-2 pl-4">Akumulasi Laba Ditahan</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right">{{ formatCurrencyShort(row.retainedEarnings) }}</td>
+                    }
                 </tr>
                 <tr class="bg-surface-container font-bold">
-                    <td class="p-2 text-primary">Total Ekuitas</td>@for (row of integratedFinancialStatements; track
-                    row.year) {<td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.totalEquity) }}</td>}
+                    <td class="p-2 text-primary">Total Ekuitas</td>
+                    @for (row of integratedFinancialStatements; track row.year) {
+                    <td class="p-2 text-right text-primary">{{ formatCurrencyShort(row.totalEquity) }}</td>
+                    }
                 </tr>
             </tbody>
         </table>
@@ -1023,17 +1338,17 @@
 </app-page>
 
 <!-- PAGE 12: BAB V - ASPEK KEUANGAN (ANALISIS SKENARIO) -->
-<app-page pageId="bab3-keuangan.12" pageNum="70" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.12" pageNum="73" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
     </div>
 
     <h5
-        class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        11. Analisis Skenario dan Sensitivitas</h5>
+        class="font-bold text-secondary text-[16px] mb-2 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
+        13. Analisis Skenario dan Sensitivitas</h5>
 
     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
         Dalam memproyeksikan kinerja keuangan KamiTech, analisis sensitivitas dilakukan untuk mengevaluasi dampak
@@ -1106,9 +1421,9 @@
 </app-page>
 
 <!-- PAGE 13: BAB V - ASPEK KEUANGAN (ASUMSI MODAL KERJA) -->
-<app-page pageId="bab3-keuangan.13" pageNum="71" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.13" pageNum="74" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
@@ -1116,7 +1431,7 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        12. Asumsi Modal Kerja</h5>
+        14. Asumsi Modal Kerja</h5>
 
     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-6 indent-8">
         Bisnis berbasis layanan (<em>services business</em>) memiliki karakteristik modal kerja yang berbeda dengan
@@ -1184,9 +1499,9 @@
 </app-page>
 
 <!-- PAGE 14: BAB V - ASPEK KEUANGAN (PAJAK & DEPRESIASI) -->
-<app-page pageId="bab3-keuangan.14" pageNum="72" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.14" pageNum="75" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
@@ -1194,7 +1509,7 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        13. Jadwal Pajak dan Depresiasi</h5>
+        15. Jadwal Pajak dan Depresiasi</h5>
 
     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-4 indent-8">
         Berdasarkan regulasi Pajak Penghasilan (PPh) Badan di Indonesia, UMKM dengan peredaran bruto tertentu
@@ -1265,9 +1580,9 @@
 </app-page>
 
 <!-- PAGE 15: BAB V - ASPEK KEUANGAN (EXIT STRATEGY) -->
-<app-page pageId="bab3-keuangan.15" pageNum="73" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-keuangan.15" pageNum="76" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-6 font-sans">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
             Pembangunan</span>
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
@@ -1275,7 +1590,7 @@
 
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
-        14. Asumsi Exit Investor</h5>
+        16. Asumsi Exit Investor</h5>
 
     <p class="text-[16px] text-on-surface-variant text-justify font-sans leading-[1.15] mb-6 indent-8">
         Bagi investor institusional seperti MDI Ventures atau pemodal ventura lainnya, pengembalian investasi

@@ -177,7 +177,7 @@ export const FINANCIAL_DEFAULTS = {
   operationalCostValue: 30000000,
   softwareCostValue: 45000000,
   salaryCostValue: 404000000,
-  initialCapital: 1500000000,
+  initialCapital: 3542950000,
   founderOwnership: 0.60,
   investorOwnership: 0.40,
   dividendPayoutRatio: 0.30,
