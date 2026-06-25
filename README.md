@@ -1,58 +1,72 @@
-# KamiTech
+# KamiTech Business Plan & Financial Modeler
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+> *Built with love to help my partner brainstorm ideas and lay out a beautiful feasibility study for their final project. Because every great dream deserves a solid foundation, and every challenging project is a little easier with some support from someone who cares.* 💡❤️
 
-## Development server
+KamiTech is an Angular-based web application designed to generate comprehensive business plans and financial projections. It provides an interactive interface for modeling company goals, operational expenses (OPEX), capital expenditures (CAPEX), team structures, and detailed financial forecasting (including EBITDA, ROI, and Cash Flow). The application also supports generating and downloading these projections as polished PDF documents.
 
-To start a local development server, run:
+## Features
+
+- **Interactive Financial Modeling**: Dynamically calculate total revenue, COGS, gross profit, EBITDA, and net income based on adjustable parameters like billable hours.
+- **Comprehensive Business Plan Sections**:
+  - Introduction (Pendahuluan)
+  - General Overview (Gambaran Umum)
+  - Development Plan (Rencana Pembangunan)
+- **Detailed Financial Projections**:
+  - 5-Year Cash Flow Projections (Free Cash Flow, Operating Cash Flow)
+  - Return on Investment (ROI) and Investment Metrics
+  - Integrated Financial Statements
+- **PDF Export**: Generate high-quality, print-ready PDF reports directly from the browser with customizable page selection.
+- **Modern Tech Stack**: Built with Angular 21 (Standalone Components) and styled with Tailwind CSS for a responsive, modern UI.
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) (v10 or higher)
+
+### Installation
+
+1. Navigate to the project directory:
+   ```bash
+   cd kamitechupdate
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development Server
+
+To start the local development server, run:
 
 ```bash
-ng serve
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Project Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `src/app/components/`: Contains UI components divided into business plan sections (`pendahuluan`, `gambaran-umum`, `rencana-pembangunan`).
+- `src/app/services/`: Core business logic including the `FinancialModel` and `PdfService`.
+- `src/app/models/`: TypeScript interfaces and types for financial data structures.
+- `src/app/constants/`: Static configuration data (company goals, predefined expenses, default financial parameters).
 
-```bash
-ng generate component component-name
-```
+## Building for Production
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+To build the project for production, run:
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Testing
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- **Unit Tests**: Run `npm run test` to execute unit tests via Vitest.
 
 ## Additional Resources
 
