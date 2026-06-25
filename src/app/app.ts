@@ -1,4 +1,4 @@
-import { Component, computed, signal, ViewEncapsulation, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, computed, signal, ViewEncapsulation, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -14,6 +14,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { FinancialModel } from './services/financial.service';
 import { PdfService } from './services/pdf.service';
 import { LoadingService } from './services/loading.service';
+import { PageSelectionService } from './services/page-selection.service';
 
 // Constants
 import { PRINT_OPTIMIZER_CSS } from './constants/web.constant';
@@ -47,7 +48,7 @@ import { formatCurrency, formatCurrencyShort } from './utils/currency.util';
     styleUrls: ['./app.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class App implements OnDestroy {
+export class App implements OnInit, OnDestroy {
     // ─── UI State ──────────────────────────────────────────────────────
     hideNav = false;
     isGenerating = false;
@@ -145,13 +146,22 @@ export class App implements OnDestroy {
     @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
     private loadingSub?: Subscription;
 
+    readonly pageSelection: PageSelectionService;
+
     constructor(
         private readonly pdfService: PdfService,
-        private readonly loading: LoadingService
+        private readonly loading: LoadingService,
+        pageSelection: PageSelectionService
     ) {
+        this.pageSelection = pageSelection;
         this.loadingSub = this.loading.isLoading$.subscribe((v) => {
             this.isGenerating = v;
         });
+    }
+
+    ngOnInit(): void {
+        // Register cover page (not wrapped in <app-page>)
+        this.pageSelection.registerPage('cover', 'cover');
     }
 
     ngOnDestroy(): void {

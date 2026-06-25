@@ -48,6 +48,9 @@
 
 </div>
 
+<!-- Excluded overlay -->
+<div *ngIf="!isPageSelected()" class="page-excluded-overlay"></div>
+
 <div class="relative z-10 flex-grow" [ngClass]="contentClass">
     <ng-content></ng-content>
 </div>
@@ -56,3 +59,25 @@
     <span class="text-[14px]" [ngClass]="footerTextClass">{{ footerText }}</span>
     <span class="text-[18px]" [ngClass]="pageNumClass">{{ pageNum }}</span>
 </div>
+
+<!-- Page Selection Toggle — positioned bottom-right OUTSIDE the page -->
+<button
+    class="page-toggle-btn print:hidden"
+    [class.page-toggle-btn--active]="isPageSelected()"
+    [class.page-toggle-btn--inactive]="!isPageSelected()"
+    (click)="toggleSelection()"
+    [attr.aria-label]="isPageSelected() ? 'Exclude page ' + pageNum + ' from print' : 'Include page ' + pageNum + ' in print'"
+    [attr.title]="isPageSelected() ? 'Click to exclude page ' + pageNum : 'Click to include page ' + pageNum">
+    <!-- Check icon -->
+    <svg *ngIf="isPageSelected()" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <!-- X icon -->
+    <svg *ngIf="!isPageSelected()" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+    <span class="text-[11px] font-bold font-sans tracking-wide">{{ pageNum }}</span>
+</button>

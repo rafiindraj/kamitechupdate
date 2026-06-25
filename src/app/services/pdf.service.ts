@@ -55,16 +55,27 @@ export class PdfService {
   /**
    * Generates a PDF from the given content element by:
    * 1. Extracting active CSS from the document
-   * 2. Sanitizing the element's innerHTML
-   * 3. POSTing to the PDF export endpoint via BaseApiService
-   * 4. Redirecting to the download URL on success
-   * 5. Falling back to browser print on failure
+   * 2. Cloning the element and stripping excluded pages from the clone
+   * 3. Sanitizing the cleaned innerHTML
+   * 4. POSTing to the PDF export endpoint via BaseApiService
+   * 5. Redirecting to the download URL on success
+   * 6. Falling back to browser print on failure
    *
    * @param contentElement - The ElementRef wrapping the printable content (#pdfContent)
    */
   generateAndDownload(contentElement: ElementRef): void {
     const activeCss = this.extractActiveCSS();
-    let rawHtml = contentElement?.nativeElement?.innerHTML || '';
+
+    // Clone the DOM so we can mutate it without affecting the live page
+    const clone = contentElement.nativeElement.cloneNode(true) as HTMLElement;
+
+    // Remove all excluded pages from the clone
+    clone.querySelectorAll('.page-excluded').forEach(el => el.remove());
+
+    // Remove toggle buttons and excluded overlays (print-only UI)
+    clone.querySelectorAll('.page-toggle-btn, .page-excluded-overlay').forEach(el => el.remove());
+
+    let rawHtml = clone.innerHTML || '';
     rawHtml = this.sanitizeHtml(rawHtml);
 
     const finalCss = activeCss + '\n' + PRINT_OPTIMIZER_CSS;

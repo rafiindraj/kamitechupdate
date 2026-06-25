@@ -39,12 +39,29 @@
             <button (click)="scrollTo('pustaka')"
                 class="hover:text-white transition-colors font-bold text-[#42A5F5]">Lampiran</button>
 
+            <button (click)="pageSelection.selectAll()"
+                class="ml-2 px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all text-[11px] font-bold border"
+                [class.bg-[#42A5F5]]="pageSelection.allSelected()"
+                [class.text-[#1C1B1F]]="pageSelection.allSelected()"
+                [class.border-[#42A5F5]]="pageSelection.allSelected()"
+                [class.bg-transparent]="!pageSelection.allSelected()"
+                [class.text-[#DCE0D9]]="!pageSelection.allSelected()"
+                [class.border-[#DCE0D9]]="!pageSelection.allSelected()"
+                title="Select all pages for printing">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="hidden sm:inline">All</span>
+                <span class="bg-black/20 px-1.5 py-0.5 rounded-full text-[10px]">{{ pageSelection.selectedCount() }}/{{ pageSelection.totalCount() }}</span>
+            </button>
+
             <button (click)="downloadPDF()"
-                [disabled]="isGenerating"
+                [disabled]="isGenerating || pageSelection.selectedCount() === 0"
                 [attr.aria-busy]="isGenerating"
-                [class.opacity-50]="isGenerating"
-                [class.cursor-not-allowed]="isGenerating"
-                class="ml-2 px-3 py-1.5 bg-[#42A5F5] hover:bg-[#1565C0] text-[#1C1B1F] font-bold rounded-full flex items-center gap-2 transition-all">
+                [class.opacity-50]="isGenerating || pageSelection.selectedCount() === 0"
+                [class.cursor-not-allowed]="isGenerating || pageSelection.selectedCount() === 0"
+                class="ml-1 px-3 py-1.5 bg-[#42A5F5] hover:bg-[#1565C0] text-[#1C1B1F] font-bold rounded-full flex items-center gap-2 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -60,8 +77,9 @@
     <main #pdfContent class="w-full max-w-5xl pt-24 pb-20 px-4 space-y-12 print:pt-0 print:space-y-0">
 
         <!-- PAGE 1: COVER -->
+        <div class="cover-toggle-wrapper relative w-full max-w-[21cm] mx-auto" [class.page-excluded]="!pageSelection.isSelected('cover')">
         <div id="cover"
-            class="relative w-full max-w-[21cm] mx-auto min-h-[29.7cm] shadow-2xl overflow-hidden flex flex-col justify-between bg-[#1C1B1F] text-white print:shadow-none print:w-full print:break-after-page">
+            class="relative w-full min-h-[29.7cm] shadow-2xl overflow-hidden flex flex-col justify-between bg-[#1C1B1F] text-white print:shadow-none print:w-full print:break-after-page">
             <div class="absolute top-0 right-0 w-48 h-48 bg-[#42A5F5] rounded-bl-[100%] z-0"></div>
 
             <div
@@ -137,6 +155,29 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Cover page excluded overlay -->
+        <div *ngIf="!pageSelection.isSelected('cover')" class="page-excluded-overlay"></div>
+
+        <!-- Cover Page Toggle -->
+        <button
+            class="page-toggle-btn print:hidden"
+            [class.page-toggle-btn--active]="pageSelection.isSelected('cover')"
+            [class.page-toggle-btn--inactive]="!pageSelection.isSelected('cover')"
+            (click)="pageSelection.togglePage('cover')"
+            [attr.title]="pageSelection.isSelected('cover') ? 'Click to exclude cover from print' : 'Click to include cover in print'">
+            <svg *ngIf="pageSelection.isSelected('cover')" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <svg *ngIf="!pageSelection.isSelected('cover')" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="text-[11px] font-bold font-sans tracking-wide">Cover</span>
+        </button>
         </div>
 
         <!-- PAGE i: KATA PENGANTAR -->

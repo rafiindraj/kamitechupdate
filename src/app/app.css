@@ -27,6 +27,9 @@
     page-break-after: always;
     overflow: hidden !important;
   }
+  /* Hide all toggle buttons and excluded overlays in print */
+  .page-toggle-btn,
+  .page-excluded-overlay { display: none !important; }
 }
 
 /* Screen Styles - M3 Surface Card */
@@ -43,10 +46,103 @@
     0 1px 2px rgba(0, 0, 0, 0.05),
     0 1px 3px 1px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   color: var(--color-on-surface);
+}
+
+/* ─── Page Selection Toggle Button ─────────────────────────────────── */
+
+.page-toggle-btn {
+  position: absolute;
+  bottom: -12px;
+  right: 16px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 8px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-sans);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  user-select: none;
+}
+
+.page-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.page-toggle-btn:active {
+  transform: translateY(0);
+}
+
+/* Active (included) state */
+.page-toggle-btn--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.page-toggle-btn--active:hover {
+  background-color: #1258a8;
+}
+
+/* Inactive (excluded) state */
+.page-toggle-btn--inactive {
+  background-color: var(--color-surface-container-high);
+  border-color: var(--color-outline-variant);
+  color: var(--color-on-surface-variant);
+}
+
+.page-toggle-btn--inactive:hover {
+  background-color: var(--color-surface-container-highest);
+  border-color: var(--color-outline);
+}
+
+/* ─── Excluded Page Visual ─────────────────────────────────────────── */
+
+.page-excluded {
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+
+.page-excluded:hover {
+  opacity: 0.65;
+}
+
+/* Excluded overlay — dashed border + "EXCLUDED" label */
+.page-excluded-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  border: 3px dashed var(--color-error, #BA1A1A);
+  border-radius: 4px;
+}
+
+.page-excluded-overlay::after {
+  content: 'EXCLUDED';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: var(--color-error, #BA1A1A);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* ─── Cover Toggle Wrapper ─────────────────────────────────────────── */
+.cover-toggle-wrapper {
+  position: relative;
 }
 
 /* Utilities */
