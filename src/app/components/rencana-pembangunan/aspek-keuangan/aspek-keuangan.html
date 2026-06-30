@@ -1061,13 +1061,13 @@
     </div>
 
     <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">
-        A Perhitungan Manual NPV (Skenario 12%)
+        A Perhitungan Manual NPV (Skenario 15%)
     </h6>
 
     <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
         Net Present Value (NPV) dihitung dengan menjumlahkan seluruh nilai kini (Present Value) dari arus kas bersih
         selama umur proyek, kemudian dikurangi dengan investasi awal. Skenario basis menggunakan tingkat diskonto
-        sebesar 12%. Berikut penjabaran langkah perhitungannya secara matematis:
+        sebesar 15%. Berikut penjabaran langkah perhitungannya secara matematis:
     </p>
 
     <!-- Formula Box -->
@@ -1086,7 +1086,7 @@
     <!-- Step by Step Calculation -->
     <div
         class="border border-outline-variant bg-white p-5 rounded-xl shadow-sm text-[12px] font-mono leading-relaxed mb-4 overflow-x-auto text-on-surface-variant">
-        <div class="font-bold text-[13px] text-primary mb-3">Substitusi Nilai Arus Kas (Discount Rate = 12%):</div>
+        <div class="font-bold text-[13px] text-primary mb-3">Substitusi Nilai Arus Kas (Discount Rate = 15%):</div>
         <div class="mb-2">
             NPV = -Rp {{ initialCapital.toLocaleString('id-ID') }}
         </div>
@@ -1113,7 +1113,7 @@
         </div>
         <div class="w-[60%] h-[1px] bg-outline-variant my-2"></div>
         <div class="text-[14px] text-primary font-bold">
-            NPV (12%) = Rp {{ totalNPV1.toLocaleString('id-ID', { maximumFractionDigits: 0 }) }}
+            NPV (15%) = Rp {{ totalNPV1.toLocaleString('id-ID', { maximumFractionDigits: 0 }) }}
         </div>
     </div>
 
@@ -1122,7 +1122,7 @@
         <p class="text-[13px] text-on-surface-variant font-sans text-justify mb-0 leading-relaxed">
             Hasil perhitungan menunjukkan nilai <strong>NPV Positif</strong> (lebih besar dari nol). Hal ini
             mengindikasikan bahwa proyek ini secara finansial layak untuk dijalankan karena memberikan nilai tambah
-            ekonomi melampaui tingkat imbal hasil yang disyaratkan (12%).
+            ekonomi melampaui tingkat imbal hasil yang disyaratkan (15%).
         </p>
     </div>
 </app-page>
@@ -1143,8 +1143,8 @@
     <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
         Tabel di bawah ini menyajikan dua skenario perhitungan Nilai Kini (<em>Present Value</em> / PV) dari Arus Kas
         Bebas selama 5 tahun umur proyeksi. Skenario pertama menggunakan tingkat diskonto basis proyek
-        (<strong>r<sub>1</sub> = 12%</strong>) yang terbukti menghasilkan NPV bernilai positif. Skenario kedua
-        menggunakan tingkat diskonto pembanding yang jauh lebih ekstrem (<strong>r<sub>2</sub> = 80%</strong>) dengan
+        (<strong>r<sub>1</sub> = 15%</strong>) yang terbukti menghasilkan NPV bernilai positif. Skenario kedua
+        menggunakan tingkat diskonto pembanding yang jauh lebih ekstrem (<strong>r<sub>2</sub> = 75%</strong>) dengan
         tujuan untuk mensimulasikan kondisi di mana NPV berubah menjadi negatif.
         Perbandingan nilai akhir (Total NPV) dari kedua skenario diskonto ini sangat krusial. Selisih antara NPV positif
         dan NPV negatif tersebut digunakan sebagai basis perhitungan dalam rumus interpolasi linier (pada kotak formula
@@ -1176,8 +1176,8 @@
                 <tr>
                     <th class="p-2 text-center w-12">Tahun</th>
                     <th class="p-2 text-right">Arus Kas Bebas (FCF)</th>
-                    <th class="p-2 text-right">PV 1 (r = 12%)</th>
-                    <th class="p-2 text-right">PV 2 (r = 80%)</th>
+                    <th class="p-2 text-right">PV 1 (r = 15%)</th>
+                    <th class="p-2 text-right">PV 2 (r = 75%)</th>
                 </tr>
             </thead>
             <tbody class="text-on-surface-variant">
@@ -1221,9 +1221,9 @@
     <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
         Internal Rate of Return (IRR) dicari dengan menemukan tingkat diskonto yang membuat NPV sama dengan nol. Secara
         manual, IRR dihitung menggunakan pendekatan interpolasi antara tingkat diskonto yang menghasilkan NPV positif
-        (r<sub>1</sub> = 12%) dan tingkat diskonto yang menghasilkan NPV negatif (r<sub>2</sub> = 20%).
+        (r<sub>1</sub> = 15%) dan tingkat diskonto yang menghasilkan NPV yang lebih kecil (r<sub>2</sub> = 75%).
         Berikut adalah langkah perhitungan NPV dan PV Pembanding untuk mendapatkan nilai IRR. Kita menggunakan dua
-        tingkat diskonto: <strong>r1 = 12%</strong> (mewakili Discount Rate proyek) dan <strong>r2 = 80%</strong>
+        tingkat diskonto: <strong>r1 = 15%</strong> (mewakili Discount Rate proyek) dan <strong>r2 = 75%</strong>
         sebagai pembanding. Investasi Awal (I0) adalah <strong>Rp {{ initialCapital.toLocaleString() }}</strong>.
     </p>
 
@@ -1232,8 +1232,8 @@
         class="border border-outline-variant bg-white p-5 rounded-xl shadow-sm text-[12px] font-mono leading-relaxed mb-4 text-on-surface-variant">
         <div class="font-bold text-[13px] text-primary mb-3">Substitusi Variabel Interpolasi:</div>
         <ul class="list-none p-0 m-0 mb-4 space-y-1">
-            <li><strong>r<sub>1</sub></strong> = 12%</li>
-            <li><strong>r<sub>2</sub></strong> = 80%</li>
+            <li><strong>r<sub>1</sub></strong> = 15%</li>
+            <li><strong>r<sub>2</sub></strong> = 75%</li>
             <li><strong>NPV<sub>1</sub></strong> = Rp {{ totalNPV1.toLocaleString('id-ID', { maximumFractionDigits: 0 })
                 }}</li>
             <li><strong>NPV<sub>2</sub></strong> = Rp {{ totalNPV2.toLocaleString('id-ID', { maximumFractionDigits: 0 })
@@ -1242,7 +1242,7 @@
 
         <div class="font-bold text-[13px] text-primary mb-3">Proses Perhitungan:</div>
         <div class="flex items-center gap-3 mb-3">
-            <span>IRR = 12% + </span>
+            <span>IRR = 15% + </span>
             <div class="flex items-center gap-1">
                 <span class="text-[20px] font-light">(</span>
                 <div class="flex flex-col items-center inline-block">
@@ -1253,11 +1253,11 @@
                 </div>
                 <span class="text-[20px] font-light">)</span>
             </div>
-            <span>&times; (80% - 12%)</span>
+            <span>&times; (75% - 15%)</span>
         </div>
 
         <div class="flex items-center gap-3 mb-3">
-            <span>IRR = 12% + </span>
+            <span>IRR = 15% + </span>
             <div class="flex items-center gap-1">
                 <span class="text-[20px] font-light">(</span>
                 <div class="flex flex-col items-center inline-block">
@@ -1267,11 +1267,11 @@
                 </div>
                 <span class="text-[20px] font-light">)</span>
             </div>
-            <span>&times; 68%</span>
+            <span>&times; 60%</span>
         </div>
 
         <div class="mb-3">
-            <span>IRR = 12% + ({{ (totalNPV1 / (totalNPV1 - totalNPV2)).toFixed(4) }}) &times; 68%</span>
+            <span>IRR = 15% + ({{ (totalNPV1 / (totalNPV1 - totalNPV2)).toFixed(4) }}) &times; 60%</span>
         </div>
 
         <div class="text-[14px] text-primary font-bold mt-2 pt-2 border-t border-outline-variant border-dashed">
@@ -1281,7 +1281,7 @@
 
     <div class="grid grid-cols-2 gap-4 mb-4 font-sans">
         <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
-            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Net Present Value (NPV 12%)</p>
+            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Net Present Value (NPV 15%)</p>
             <p class="text-[20px] font-black text-primary mb-0">{{ formatCurrencyShort(investmentMetrics.npv) }}</p>
             <p class="text-[10px] text-green-600 font-bold mt-1">(NPV &gt; 0 : Layak)</p>
         </div>
@@ -1646,7 +1646,7 @@
             <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
                 <tr>
                     <th class="p-2 text-center w-24">Tahun</th>
-                    <th class="p-2 text-right">PV (rate 12%)</th>
+                    <th class="p-2 text-right">PV (rate 15%)</th>
                 </tr>
             </thead>
             <tbody class="text-on-surface-variant">

@@ -182,6 +182,6 @@ export const FINANCIAL_DEFAULTS = {
   investorOwnership: 0.40,
   dividendPayoutRatio: 0.30,
   dividendStartYear: 2,
-  discountRate: 0.12,
+  discountRate: 0.15,
   exitMultiple: 5,
 } as const;

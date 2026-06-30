@@ -61,14 +61,14 @@ export class AspekKeuangan {
   }
 
   get pvTableData() {
-    const r1 = 0.12;
-    const r2 = 0.80;
-    
+    const r1 = 0.15;
+    const r2 = 0.75;
+
     return this.integratedFinancialStatements.map((item) => {
       const year = item.year;
       const fcf = item.operatingCF + item.investingCF;
       const pv1 = fcf / Math.pow(1 + r1, year);
-      const pv2 = fcf / Math.pow(1 + r2, year);
+      const pv2 = fcf / Math.pow(1 + r2, year); 
       return { year, fcf, pv1, pv2, r1, r2 };
     });
   }
@@ -94,13 +94,13 @@ export class AspekKeuangan {
   }
 
   get manualIrr() {
-    return 0.12 + (this.totalNPV1 / (this.totalNPV1 - this.totalNPV2)) * 0.68;
+    return 0.15 + (this.totalNPV1 / (this.totalNPV1 - this.totalNPV2)) * 0.60;
   }
 
   get dynamicPaybackData() {
     const rate = this.discountRate;
     let cumulativePv = -this.initialCapital;
-    
+
     const data = [{
       year: 0,
       fcf: -this.initialCapital,
@@ -125,21 +125,21 @@ export class AspekKeuangan {
   get dppCalculation() {
     const data = this.dynamicPaybackData;
     const bepRowIndex = data.findIndex((r) => r.cumulativePv >= 0 && r.year > 0);
-    
+
     if (bepRowIndex <= 0) {
       return null;
     }
 
     const tStarRow = data[bepRowIndex - 1];
     const tStarPlus1Row = data[bepRowIndex];
-    
+
     const tStar = tStarRow.year;
     const npvTStar = tStarRow.cumulativePv;
     const npvTStarPlus1 = tStarPlus1Row.cumulativePv;
-    
+
     const denominator = npvTStar - npvTStarPlus1;
     const dpp = tStar + (npvTStar / denominator);
-    
+
     return {
       tStar,
       npvTStar,
