@@ -63,40 +63,65 @@ export class PdfService {
    *
    * @param contentElement - The ElementRef wrapping the printable content (#pdfContent)
    */
-  generateAndDownload(contentElement: ElementRef): void {
-    const activeCss = this.extractActiveCSS();
-
-    // Clone the DOM so we can mutate it without affecting the live page
-    const clone = contentElement.nativeElement.cloneNode(true) as HTMLElement;
-
-    // Remove all excluded pages from the clone
-    clone.querySelectorAll('.page-excluded').forEach(el => el.remove());
-
-    // Remove toggle buttons and excluded overlays (print-only UI)
-    clone.querySelectorAll('.page-toggle-btn, .page-excluded-overlay').forEach(el => el.remove());
-
-    let rawHtml = clone.innerHTML || '';
-    rawHtml = this.sanitizeHtml(rawHtml);
-
-    const finalCss = activeCss + '\n' + PRINT_OPTIMIZER_CSS;
-
-    const payload: PdfPayload = {
-      css: finalCss,
-      html: rawHtml,
-    };
-
+  async generateAndDownload(contentElement: ElementRef): Promise<void> {
     this.loading.show();
 
-    this.baseApi.post<{ downloadUrl: string }>(API_ENDPOINTS.pdf.export, payload).subscribe({
-      next: (res) => {
-        this.loading.hide();
-        window.location.href = res.downloadUrl;
-      },
-      error: (err) => {
-        this.loading.hide();
-        console.warn('Backend PDF generation failed. Falling back to native browser print.', err);
-        setTimeout(() => window.print(), 100);
-      },
-    });
+    try {
+      const activeCss = this.extractActiveCSS();
+      const clone = contentElement.nativeElement.cloneNode(true) as HTMLElement;
+
+      clone.querySelectorAll('.page-excluded').forEach(el => el.remove());
+      clone.querySelectorAll('.page-toggle-btn, .page-excluded-overlay').forEach(el => el.remove());
+
+      // Convert ALL images to Base64 to ensure the backend renderer doesn't skip them
+      const images = Array.from(clone.querySelectorAll('img'));
+      await Promise.all(images.map(async (img) => {
+        if (!img.src || img.src.startsWith('data:')) return;
+        try {
+          // Fetch image and convert to blob
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          
+          // Convert blob to base64
+          const base64 = await new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result as string);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+          });
+          
+          img.setAttribute('src', base64);
+        } catch (err) {
+          console.warn('Could not convert image to base64, falling back to absolute URL:', img.src, err);
+          img.setAttribute('src', img.src);
+        }
+      }));
+
+      let rawHtml = clone.innerHTML || '';
+      rawHtml = this.sanitizeHtml(rawHtml);
+
+      const finalCss = activeCss + '\n' + PRINT_OPTIMIZER_CSS;
+
+      const payload: PdfPayload = {
+        css: finalCss,
+        html: rawHtml,
+      };
+
+      this.baseApi.post<{ downloadUrl: string }>(API_ENDPOINTS.pdf.export, payload).subscribe({
+        next: (res) => {
+          this.loading.hide();
+          window.location.href = res.downloadUrl;
+        },
+        error: (err) => {
+          this.loading.hide();
+          console.warn('Backend PDF generation failed. Falling back to native browser print.', err);
+          setTimeout(() => window.print(), 100);
+        },
+      });
+    } catch (e) {
+      this.loading.hide();
+      console.error('Error preparing PDF payload', e);
+      setTimeout(() => window.print(), 100);
+    }
   }
 }

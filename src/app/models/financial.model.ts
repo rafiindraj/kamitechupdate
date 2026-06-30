@@ -98,6 +98,7 @@ export interface InvestmentMetrics {
   readonly npv: number;
   readonly irr: number | null;
   readonly discountedPaybackYears: number | null;
+  readonly staticPaybackYears: number;
   readonly profitabilityIndex: number;
 }
 

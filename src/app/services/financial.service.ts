@@ -70,7 +70,7 @@ export class FinancialModel {
         let cumulative = -initial;
         const projection: RoiProjectionItem[] = [];
 
-        for (let i = 1; i <= 12; i++) {
+        for (let i = 1; i <= 24; i++) {
             cumulative += monthly;
             const isBEP = cumulative >= 0 && (cumulative - monthly) < 0;
             projection.push({
@@ -208,11 +208,16 @@ export class FinancialModel {
             ? 1 + (npv / this.cfg.initialCapital) 
             : 0;
 
+        const monthlyNetProfit = this.monthlyNetProfit(hours);
+        const annualCashFlow = monthlyNetProfit * 12;
+        const staticPaybackYears = annualCashFlow > 0 ? this.cfg.initialCapital / annualCashFlow : 0;
+
         return {
             discountRate: this.cfg.discountRate,
             npv,
             irr: this.calculateIrr(cashFlows),
             discountedPaybackYears,
+            staticPaybackYears,
             profitabilityIndex
         };
     }
