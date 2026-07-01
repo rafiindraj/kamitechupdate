@@ -20,13 +20,13 @@ describe('FinancialModel', () => {
 
     it('calculates totalRevenue correctly', () => {
         const model = new FinancialModel(cfg);
-        const rev = model.totalRevenue(2050);
-        expect(rev).toBe(2050 * cfg.pricePerHour);
+        const rev = model.totalRevenue(1375);
+        expect(rev).toBe(1375 * cfg.pricePerHour);
     });
 
     it('produces a 5-year cashflow array of length 5', () => {
         const model = new FinancialModel(cfg);
-        const cf = model.yearlyCashFlow(2050);
+        const cf = model.yearlyCashFlow(1375);
         expect(Array.isArray(cf)).toBe(true);
         expect(cf.length).toBe(5);
     });
@@ -65,7 +65,7 @@ describe('FinancialModel', () => {
 
     it('allocates dividends from year two using the configured ownership split', () => {
         const model = new FinancialModel(cfg);
-        const returns = model.investorReturns(2050);
+        const returns = model.investorReturns(1375);
 
         expect(returns[0].dividend).toBe(0);
         expect(returns[1].dividend).toBeCloseTo(returns[1].netIncome * cfg.dividendPayoutRatio);
@@ -75,7 +75,7 @@ describe('FinancialModel', () => {
 
     it('produces positive discounted investment metrics for the base scenario', () => {
         const model = new FinancialModel(cfg);
-        const metrics = model.investmentMetrics(2050);
+        const metrics = model.investmentMetrics(1375);
 
         expect(metrics.npv).toBeGreaterThan(0);
         expect(metrics.irr).not.toBeNull();
@@ -86,7 +86,7 @@ describe('FinancialModel', () => {
 
     it('keeps the projected balance sheet balanced every year', () => {
         const model = new FinancialModel(cfg);
-        const statements = model.integratedFinancialStatements(2050);
+        const statements = model.integratedFinancialStatements(1375);
 
         for (const statement of statements) {
             expect(statement.totalAssets).toBeCloseTo(statement.liabilities + statement.totalEquity);
@@ -95,7 +95,7 @@ describe('FinancialModel', () => {
 
     it('roiProjection returns 12 months', () => {
         const model = new FinancialModel(cfg);
-        const proj = model.roiProjection(2050);
+        const proj = model.roiProjection(1375);
         expect(proj.length).toBe(12);
     });
 });

@@ -208,9 +208,17 @@ export class FinancialModel {
             ? 1 + (npv / this.cfg.initialCapital) 
             : 0;
 
-        const monthlyNetProfit = this.monthlyNetProfit(hours);
-        const annualCashFlow = monthlyNetProfit * 12;
-        const staticPaybackYears = annualCashFlow > 0 ? this.cfg.initialCapital / annualCashFlow : 0;
+        let cumulative = cashFlows[0];
+        let staticPaybackYears = 0;
+        for (let period = 1; period < cashFlows.length; period++) {
+            const currentCashFlow = cashFlows[period];
+            const previousCumulative = cumulative;
+            cumulative += currentCashFlow;
+            if (cumulative >= 0 && currentCashFlow > 0) {
+                staticPaybackYears = (period - 1) + Math.abs(previousCumulative) / currentCashFlow;
+                break;
+            }
+        }
 
         return {
             discountRate: this.cfg.discountRate,

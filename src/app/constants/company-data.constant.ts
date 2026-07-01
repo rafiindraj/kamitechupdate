@@ -65,7 +65,7 @@ export const MARKET_ANALYSIS: readonly MarketAnalysisItem[] = [
   },
   {
     title: "Strategi Kompetisi & Harga",
-    content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 350.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)."
+    content: "Fokus pada skema Retainer bulanan untuk stabilitas operasional dengan pricing kompetitif (Rp 525.000/billable hour) yang didukung oleh efisiensi biaya overhead di Bandung (30-40% lebih rendah dari Jakarta)."
   }
 ];
 
@@ -161,7 +161,7 @@ export const GOALS_ARRAY: readonly GoalItem[] = [
   { title: "Menjadi IT Consulting Multinasional", desc: "Membangun perusahaan konsultan teknologi informasi yang berdaya saing global dengan berkantor pusat di Bandung, melalui penerapan standar internasional dalam arsitektur perangkat lunak, metodologi Agile, serta kolaborasi lintas negara guna melayani klien B2B di tingkat nasional maupun regional Asia Tenggara." },
   { title: "Membuka lapangan kerja digital terbesar di Kota Bandung", desc: "Menciptakan ekosistem kerja berteknologi tinggi yang menyerap talenta-talenta terbaik lulusan perguruan tinggi di Bandung, khususnya di bidang software engineering, DevSecOps, dan data analytics, sehingga mampu menekan angka pengangguran terdidik sekaligus meningkatkan kualitas SDM digital daerah secara berkelanjutan." },
   { title: "Menjadi pelopor cybersecurity awareness dan anti-fraud di Kota Bandung", desc: "Mengedukasi dan mendampingi organisasi serta masyarakat umum mengenai pentingnya keamanan siber melalui layanan penetration testing, audit IT, serta program sosialisasi kesadaran keamanan digital (security awareness), guna meminimalisir risiko kebocoran data dan tindak kejahatan siber di lingkungan bisnis maupun pemerintahan." },
-  { title: "Mempercepat akselerasi transformasi digital khususnya di Jawa Barat", desc: "Berperan aktif sebagai katalisator transformasi digital bagi UMKM dan korporasi di Jawa Barat dengan menyediakan solusi teknologi yang terjangkau, scalable, dan disesuaikan dengan kebutuhan spesifik masing-masing organisasi, sehingga mendorong peningkatan efisiensi operasional dan daya saing ekonomi regional secara signifikan." }
+  { title: "Mempercepat akselerasi transformasi digital khususnya di Jawa Barat", desc: "Berperan aktif sebagai katalisator transformasi digital bagi UMKM dan korporasi besar di Jawa Barat dengan menyediakan solusi teknologi yang terjangkau, scalable, dan disesuaikan dengan kebutuhan spesifik masing-masing organisasi, sehingga mendorong peningkatan efisiensi operasional dan daya saing ekonomi regional secara signifikan." }
 ];
 
 // ─── Misc Constants ────────────────────────────────────────────────────────
@@ -171,7 +171,7 @@ export const SECTION_KEYS: readonly string[] = ['a', 'b', 'c', 'd'];
 // ─── Financial Configuration Defaults ──────────────────────────────────────
 
 export const FINANCIAL_DEFAULTS = {
-  pricePerHour: 350000,
+  pricePerHour: 525000,
   unitTotalHPP: 5000,
   marketingCostValue: 35000000,
   operationalCostValue: 30000000,
@@ -182,6 +182,6 @@ export const FINANCIAL_DEFAULTS = {
   investorOwnership: 0.40,
   dividendPayoutRatio: 0.30,
   dividendStartYear: 2,
-  discountRate: 0.15,
+  discountRate: 0.40,
   exitMultiple: 5,
 } as const;

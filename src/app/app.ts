@@ -19,19 +19,19 @@ import { PageSelectionService } from './services/page-selection.service';
 // Constants
 import { PRINT_OPTIMIZER_CSS } from './constants/web.constant';
 import {
-  COMPANY_GOALS,
-  SERVICES_ITEMS,
-  MARKET_ANALYSIS,
-  DEV_STEPS,
-  TEAM_MEMBERS,
-  TENAGA_KERJA,
-  OPEX_GAJI_DETAIL,
-  OPEX_OPERASIONAL_DETAIL,
-  OPEX_SOFTWARE_DETAIL,
-  OPEX_MARKETING_DETAIL,
-  GOALS_ARRAY,
-  SECTION_KEYS,
-  FINANCIAL_DEFAULTS,
+    COMPANY_GOALS,
+    SERVICES_ITEMS,
+    MARKET_ANALYSIS,
+    DEV_STEPS,
+    TEAM_MEMBERS,
+    TENAGA_KERJA,
+    OPEX_GAJI_DETAIL,
+    OPEX_OPERASIONAL_DETAIL,
+    OPEX_SOFTWARE_DETAIL,
+    OPEX_MARKETING_DETAIL,
+    GOALS_ARRAY,
+    SECTION_KEYS,
+    FINANCIAL_DEFAULTS,
 } from './constants/company-data.constant';
 
 // Models
@@ -55,7 +55,7 @@ export class App implements OnInit, OnDestroy {
     readyToDownloadUrl: string | null = null;
 
     // ─── Reactive State ────────────────────────────────────────────────
-    billableHours = signal(2050);
+    billableHours = signal(1375);
 
     // ─── Static Data (delegated to constants) ──────────────────────────
     readonly goals = COMPANY_GOALS;
@@ -126,8 +126,8 @@ export class App implements OnInit, OnDestroy {
             getRow('Laba Bersih (Net Income)', 'netIncome', true, false, true),
             getRow('Arus Kas Operasi', 'operatingCF', true, true),
             getRow('Belanja Modal (CAPEX)', 'capex'),
-            getRow('Free Cash Flow (FCF)', 'fcf', true, true, true),
-            getRow('Kumulatif FCF', 'cumulative', true, false, true)
+            getRow('Net Cash Flow (NCF)', 'fcf', true, true, true),
+            getRow('Kumulatif NCF', 'cumulative', true, false, true)
         ];
     });
 

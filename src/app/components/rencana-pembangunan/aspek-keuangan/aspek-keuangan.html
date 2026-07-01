@@ -777,9 +777,9 @@
             <div class="flex-grow">
                 <span class="text-[16px] font-bold text-on-surface-variant uppercase block mb-1">Target Jam
                     Penjualan
-                    Klien (Billable Hours / Manpower / Bulan) (75% of Maximum Utilization 2.750 jam)<br /><span
+                    Klien (Billable Hours / Manpower / Bulan) (50% of Maximum Utilization 2.750 jam)<br /><span
                         class="normal-case font-normal text-on-surface-variant mt-0.5 block">Est. Rate: Rp
-                        350.000
+                        525.000
                         <a href="https://www.payscale.com/research/ID/Job=Software_Engineer/Salary" target="_blank"
                             class="text-primary hover:underline">(Payscale, 2026)</a> /
                         Jam Konsultasi &amp; Development</span></span>
@@ -1010,8 +1010,13 @@
             <p class="text-[13px] text-on-surface-variant text-justify mb-2">
                 Tingkat diskonto (r) adalah tingkat pengembalian yang diharapkan atau biaya modal yang digunakan untuk
                 mendiskontokan arus kas masa depan ke nilai sekarang. Pada proyek ini, tingkat diskonto ditetapkan
-                sebesar <strong>{{ (discountRate * 100).toFixed(0) }}%</strong>, mencerminkan risiko bisnis layanan IT
-                B2B dan ekspektasi imbal hasil minimum investor.
+                sebesar <strong>{{ (discountRate * 100).toFixed(0) }}%</strong>. Pemilihan angka diskonto yang agresif
+                ini didasarkan pada modifikasi pendekatan <em>Weighted Average Cost of Capital</em> (WACC 15%) untuk
+                <em>early-stage startup</em>. Nilai tersebut memperhitungkan tingginya <em>cost of equity</em> di sektor
+                <em>Software/IT Services</em>, ditambah dengan <em>illiquidity premium</em> untuk perusahaan privat,
+                serta ekspektasi imbal hasil (<em>hurdle rate</em>) khas dari investor <em>Venture Capital</em> yang
+                mengantisipasi risiko kegagalan sistemik (Damodaran, 2024). Angka ini akan membuktikan jika suku bunga
+                yang diberikan tetap tinggi apakah kamitech masih untung?
             </p>
             <div class="bg-white p-2 border border-outline-variant rounded font-mono text-[11px] text-center">
                 Rumus Faktor Diskonto (PVIF) = 1 / (1 + r)^t
@@ -1030,7 +1035,7 @@
             <div class="bg-white p-2 border border-outline-variant rounded font-mono text-[11px] text-center">
                 NPV = &Sigma; [ Ct / (1 + r)^t ] - I0
             </div>
-            <p class="text-[11px] text-on-surface-variant mt-1 text-center italic">Di mana: Ct = Arus kas bersih (FCF)
+            <p class="text-[11px] text-on-surface-variant mt-1 text-center italic">Di mana: Ct = Arus kas bersih (NCF)
                 tahun ke-t, r = Tingkat diskonto, I0 = Investasi awal</p>
         </div>
 
@@ -1061,13 +1066,13 @@
     </div>
 
     <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">
-        A Perhitungan Manual NPV (Skenario 15%)
+        A Perhitungan Manual NPV (Skenario 40%)
     </h6>
 
     <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
         Net Present Value (NPV) dihitung dengan menjumlahkan seluruh nilai kini (Present Value) dari arus kas bersih
         selama umur proyek, kemudian dikurangi dengan investasi awal. Skenario basis menggunakan tingkat diskonto
-        sebesar 15%. Berikut penjabaran langkah perhitungannya secara matematis:
+        sebesar 40%. Berikut penjabaran langkah perhitungannya secara matematis:
     </p>
 
     <!-- Formula Box -->
@@ -1086,7 +1091,7 @@
     <!-- Step by Step Calculation -->
     <div
         class="border border-outline-variant bg-white p-5 rounded-xl shadow-sm text-[12px] font-mono leading-relaxed mb-4 overflow-x-auto text-on-surface-variant">
-        <div class="font-bold text-[13px] text-primary mb-3">Substitusi Nilai Arus Kas (Discount Rate = 15%):</div>
+        <div class="font-bold text-[13px] text-primary mb-3">Substitusi Nilai Arus Kas (Discount Rate = 40%):</div>
         <div class="mb-2">
             NPV = -Rp {{ initialCapital.toLocaleString('id-ID') }}
         </div>
@@ -1096,7 +1101,7 @@
             <div class="flex flex-col items-center inline-block">
                 <span>Rp {{ item.fcf.toLocaleString('id-ID') }}</span>
                 <div class="w-[110%] h-[1px] bg-on-surface-variant my-[1px]"></div>
-                <span>(1 + 0.15)<sup>{{ item.year }}</sup></span>
+                <span>(1 + 0.40)<sup>{{ item.year }}</sup></span>
             </div>
             <span>= Rp {{ item.pv1.toLocaleString('id-ID', { maximumFractionDigits: 0 }) }}</span>
         </div>
@@ -1113,7 +1118,7 @@
         </div>
         <div class="w-[60%] h-[1px] bg-outline-variant my-2"></div>
         <div class="text-[14px] text-primary font-bold">
-            NPV (15%) = Rp {{ totalNPV1.toLocaleString('id-ID', { maximumFractionDigits: 0 }) }}
+            NPV (40%) = Rp {{ totalNPV1.toLocaleString('id-ID', { maximumFractionDigits: 0 }) }}
         </div>
     </div>
 
@@ -1122,7 +1127,7 @@
         <p class="text-[13px] text-on-surface-variant font-sans text-justify mb-0 leading-relaxed">
             Hasil perhitungan menunjukkan nilai <strong>NPV Positif</strong> (lebih besar dari nol). Hal ini
             mengindikasikan bahwa proyek ini secara finansial layak untuk dijalankan karena memberikan nilai tambah
-            ekonomi melampaui tingkat imbal hasil yang disyaratkan (15%).
+            ekonomi melampaui tingkat imbal hasil yang disyaratkan (40%).
         </p>
     </div>
 </app-page>
@@ -1143,8 +1148,8 @@
     <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
         Tabel di bawah ini menyajikan dua skenario perhitungan Nilai Kini (<em>Present Value</em> / PV) dari Arus Kas
         Bebas selama 5 tahun umur proyeksi. Skenario pertama menggunakan tingkat diskonto basis proyek
-        (<strong>r<sub>1</sub> = 15%</strong>) yang terbukti menghasilkan NPV bernilai positif. Skenario kedua
-        menggunakan tingkat diskonto pembanding yang jauh lebih ekstrem (<strong>r<sub>2</sub> = 75%</strong>) dengan
+        (<strong>r<sub>1</sub> = 40%</strong>) yang terbukti menghasilkan NPV bernilai positif. Skenario kedua
+        menggunakan tingkat diskonto pembanding yang jauh lebih ekstrem (<strong>r<sub>2</sub> = 70%</strong>) dengan
         tujuan untuk mensimulasikan kondisi di mana NPV berubah menjadi negatif.
         Perbandingan nilai akhir (Total NPV) dari kedua skenario diskonto ini sangat krusial. Selisih antara NPV positif
         dan NPV negatif tersebut digunakan sebagai basis perhitungan dalam rumus interpolasi linier (pada kotak formula
@@ -1175,9 +1180,9 @@
             <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
                 <tr>
                     <th class="p-2 text-center w-12">Tahun</th>
-                    <th class="p-2 text-right">Arus Kas Bebas (FCF)</th>
-                    <th class="p-2 text-right">PV 1 (r = 15%)</th>
-                    <th class="p-2 text-right">PV 2 (r = 75%)</th>
+                    <th class="p-2 text-right">Arus Kas Bersih (NCF)</th>
+                    <th class="p-2 text-right">PV 1 (r = 40%)</th>
+                    <th class="p-2 text-right">PV 2 (r = 70%)</th>
                 </tr>
             </thead>
             <tbody class="text-on-surface-variant">
@@ -1221,9 +1226,9 @@
     <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
         Internal Rate of Return (IRR) dicari dengan menemukan tingkat diskonto yang membuat NPV sama dengan nol. Secara
         manual, IRR dihitung menggunakan pendekatan interpolasi antara tingkat diskonto yang menghasilkan NPV positif
-        (r<sub>1</sub> = 15%) dan tingkat diskonto yang menghasilkan NPV yang lebih kecil (r<sub>2</sub> = 75%).
+        (r<sub>1</sub> = 40%) dan tingkat diskonto yang menghasilkan NPV yang lebih kecil (r<sub>2</sub> = 70%).
         Berikut adalah langkah perhitungan NPV dan PV Pembanding untuk mendapatkan nilai IRR. Kita menggunakan dua
-        tingkat diskonto: <strong>r1 = 15%</strong> (mewakili Discount Rate proyek) dan <strong>r2 = 75%</strong>
+        tingkat diskonto: <strong>r1 = 40%</strong> (mewakili Discount Rate proyek) dan <strong>r2 = 70%</strong>
         sebagai pembanding. Investasi Awal (I0) adalah <strong>Rp {{ initialCapital.toLocaleString() }}</strong>.
     </p>
 
@@ -1232,8 +1237,8 @@
         class="border border-outline-variant bg-white p-5 rounded-xl shadow-sm text-[12px] font-mono leading-relaxed mb-4 text-on-surface-variant">
         <div class="font-bold text-[13px] text-primary mb-3">Substitusi Variabel Interpolasi:</div>
         <ul class="list-none p-0 m-0 mb-4 space-y-1">
-            <li><strong>r<sub>1</sub></strong> = 15%</li>
-            <li><strong>r<sub>2</sub></strong> = 75%</li>
+            <li><strong>r<sub>1</sub></strong> = 40%</li>
+            <li><strong>r<sub>2</sub></strong> = 70%</li>
             <li><strong>NPV<sub>1</sub></strong> = Rp {{ totalNPV1.toLocaleString('id-ID', { maximumFractionDigits: 0 })
                 }}</li>
             <li><strong>NPV<sub>2</sub></strong> = Rp {{ totalNPV2.toLocaleString('id-ID', { maximumFractionDigits: 0 })
@@ -1242,7 +1247,7 @@
 
         <div class="font-bold text-[13px] text-primary mb-3">Proses Perhitungan:</div>
         <div class="flex items-center gap-3 mb-3">
-            <span>IRR = 15% + </span>
+            <span>IRR = 40% + </span>
             <div class="flex items-center gap-1">
                 <span class="text-[20px] font-light">(</span>
                 <div class="flex flex-col items-center inline-block">
@@ -1253,11 +1258,11 @@
                 </div>
                 <span class="text-[20px] font-light">)</span>
             </div>
-            <span>&times; (75% - 15%)</span>
+            <span>&times; (70% - 40%)</span>
         </div>
 
         <div class="flex items-center gap-3 mb-3">
-            <span>IRR = 15% + </span>
+            <span>IRR = 40% + </span>
             <div class="flex items-center gap-1">
                 <span class="text-[20px] font-light">(</span>
                 <div class="flex flex-col items-center inline-block">
@@ -1267,11 +1272,11 @@
                 </div>
                 <span class="text-[20px] font-light">)</span>
             </div>
-            <span>&times; 60%</span>
+            <span>&times; 30%</span>
         </div>
 
         <div class="mb-3">
-            <span>IRR = 15% + ({{ (totalNPV1 / (totalNPV1 - totalNPV2)).toFixed(4) }}) &times; 60%</span>
+            <span>IRR = 40% + ({{ (totalNPV1 / (totalNPV1 - totalNPV2)).toFixed(4) }}) &times; 30%</span>
         </div>
 
         <div class="text-[14px] text-primary font-bold mt-2 pt-2 border-t border-outline-variant border-dashed">
@@ -1281,7 +1286,7 @@
 
     <div class="grid grid-cols-2 gap-4 mb-4 font-sans">
         <div class="border border-outline-variant bg-surface-container-low p-4 rounded-xl shadow-sm text-center">
-            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Net Present Value (NPV 15%)</p>
+            <p class="text-[12px] uppercase tracking-wider text-on-surface-variant mb-1">Net Present Value (NPV 40%)</p>
             <p class="text-[20px] font-black text-primary mb-0">{{ formatCurrencyShort(investmentMetrics.npv) }}</p>
             <p class="text-[10px] text-green-600 font-bold mt-1">(NPV &gt; 0 : Layak)</p>
         </div>
@@ -1300,6 +1305,7 @@
         <em>mature</em>. Struktur permodalan baru mendemonstrasikan bahwa proyek bisnis KamiTech sangat siap dan stabil
         untuk skala korporasi.
     </p>
+
 </app-page>
 
 <!-- PAGE 15: BAB V - ASPEK KEUANGAN (PAYBACK PERIOD - 1) -->
@@ -1333,38 +1339,29 @@
         </div>
     </div>
 
-    <!-- Statis Payback Period (Bulan 1-12) -->
-    <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">A. Statis Payback Period (Bulan 1 - 12)
-    </h6>
+    <!-- Statis Payback Period (5 Tahun) -->
+    <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">A. Statis Payback Period (5 Tahun)</h6>
+    <p class="text-[14px] text-on-surface-variant text-justify font-sans leading-[1.25] mb-4">
+        Tabel berikut menyajikan perhitungan <em>Statis Payback Period</em> menggunakan data proyeksi NCF aktual selama
+        5 tahun tanpa memperhitungkan faktor diskonto. Pendekatan ini menunjukkan kapan nilai investasi awal dapat
+        tertutupi sepenuhnya oleh arus kas masuk secara nominal.
+    </p>
+
     <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
-        <table class="w-full text-[13px] bg-white h-full">
-            <thead class="bg-inverse-surface text-white uppercase text-[11px] font-bold tracking-widest">
+        <table class="w-full text-[13px] border-collapse bg-white">
+            <thead class="text-white font-bold" style="background-color: #3b82f6;">
                 <tr>
-                    <th class="p-2 text-left">Bulan Ke-</th>
-                    <th class="p-2 text-right">Cash Flow (Bulan Ini)</th>
-                    <th class="p-2 text-right">Kumulatif Arus Kas</th>
-                    <th class="p-2 text-center">Status</th>
+                    <th class="p-3 text-center border-r border-white/20">Titik Waktu</th>
+                    <th class="p-3 text-right border-r border-white/20">Net Cash Flows (NCF)</th>
+                    <th class="p-3 text-right">Cumulative NCF</th>
                 </tr>
             </thead>
-            <tbody class="font-sans text-on-surface-variant">
-                @for (row of roiProjection.slice(0, 12); track $index) {
-                <tr class="border-b border-outline-variant last:border-0 hover:bg-surface-container transition-colors"
-                    [class.bg-[#E3F2FD]]="row.isBEP" [class.bg-surface-container-low]="$index % 2 === 0 && !row.isBEP">
-                    <td class="p-2 font-sans font-medium" [class.font-bold]="row.isBEP">{{row.month}}</td>
-                    <td class="p-2 text-right" [class.text-red-600]="row.revenue < 0" [class.font-bold]="row.isBEP">Rp
-                        {{ row.revenue.toLocaleString() }}</td>
-                    <td class="p-2 text-right font-bold" [class.text-red-600]="row.cumulative < 0"
-                        [class.text-primary]="row.cumulative >= 0">Rp {{ row.cumulative.toLocaleString()
-                        }}</td>
-                    <td class="p-2 text-center text-[11px] font-sans font-bold uppercase tracking-wide">
-                        @if (row.isBEP) {
-                        <span class="px-1.5 py-0.5 bg-primary text-white rounded shadow-sm">BEP Reached!</span>
-                        } @else if ($index === 0 && row.cumulative < 0) { <span
-                            class="px-1.5 py-0.5 bg-inverse-surface text-white rounded shadow-sm">Investasi</span>
-                            } @else if (row.cumulative > 0) {
-                            <span class="px-1.5 py-0.5 bg-primary text-on-surface rounded shadow-sm">Profit</span>
-                            }
-                    </td>
+            <tbody style="background-color: #eff6ff;" class="text-black font-medium">
+                @for (row of staticPaybackData; track row.year) {
+                <tr class="border-b border-blue-200" [class.bg-white]="row.isBEP">
+                    <td class="p-3 text-center border-r border-blue-200">{{ row.year }}</td>
+                    <td class="p-3 text-right border-r border-blue-200">{{ row.fcf.toLocaleString() }}</td>
+                    <td class="p-3 text-right">{{ Math.round(row.cumulative).toLocaleString() }}</td>
                 </tr>
                 }
             </tbody>
@@ -1381,44 +1378,61 @@
         <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
     </div>
 
-    <!-- Statis Payback Period (Bulan 13-24) -->
-    <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">Statis Payback Period (Bulan 13 - 24)
+    <!-- Substitusi Statis Payback -->
+    <h6 class="font-bold text-[14px] text-on-surface mb-2 font-sans uppercase">Langkah Perhitungan Statis Payback Period
     </h6>
-    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm mb-4 font-sans w-full">
-        <table class="w-full text-[13px] bg-white h-full">
-            <thead class="bg-inverse-surface text-white uppercase text-[11px] font-bold tracking-widest">
-                <tr>
-                    <th class="p-2 text-left">Bulan Ke-</th>
-                    <th class="p-2 text-right">Cash Flow (Bulan Ini)</th>
-                    <th class="p-2 text-right">Kumulatif Arus Kas</th>
-                    <th class="p-2 text-center">Status</th>
-                </tr>
-            </thead>
-            <tbody class="font-sans text-on-surface-variant">
-                @for (row of roiProjection.slice(12, 24); track $index) {
-                <tr class="border-b border-outline-variant last:border-0 hover:bg-surface-container transition-colors"
-                    [class.bg-[#E3F2FD]]="row.isBEP" [class.bg-surface-container-low]="$index % 2 === 0 && !row.isBEP">
-                    <td class="p-2 font-sans font-medium" [class.font-bold]="row.isBEP">{{row.month}}</td>
-                    <td class="p-2 text-right" [class.text-red-600]="row.revenue < 0" [class.font-bold]="row.isBEP">Rp
-                        {{ row.revenue.toLocaleString() }}</td>
-                    <td class="p-2 text-right font-bold" [class.text-red-600]="row.cumulative < 0"
-                        [class.text-primary]="row.cumulative >= 0">Rp {{ row.cumulative.toLocaleString()
-                        }}</td>
-                    <td class="p-2 text-center text-[11px] font-sans font-bold uppercase tracking-wide">
-                        @if (row.isBEP) {
-                        <span class="px-1.5 py-0.5 bg-primary text-white rounded shadow-sm">BEP Reached!</span>
-                        } @else if (row.cumulative > 0) {
-                        <span class="px-1.5 py-0.5 bg-primary text-on-surface rounded shadow-sm">Profit</span>
-                        } @else {
-                        <span
-                            class="px-1.5 py-0.5 bg-surface-container-highest text-on-surface-variant rounded shadow-sm">Defisit</span>
-                        }
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
+    @if (sppCalculation) {
+    <div class="grid grid-cols-2 gap-2 mt-2 mb-4 font-sans">
+        <!-- Left Side: Calculation Formulas -->
+        <div
+            class="border border-outline-variant bg-surface-container-low p-6 rounded-xl shadow-sm flex flex-col items-center justify-center space-y-8">
+            <h6
+                class="font-bold text-[13px] text-on-surface uppercase tracking-wider w-full text-left mb-2 border-b border-outline-variant pb-2">
+                Substitusi Perhitungan</h6>
+            <!-- Formula 1 -->
+            <div class="flex items-center gap-2 text-[14px]">
+                <span class="italic font-serif text-[18px] font-medium">SPP = t* +</span>
+                <div class="flex flex-col items-center text-primary font-medium">
+                    <span class="italic font-serif text-[16px]">| Cum.NCF<sub>t*</sub> |</span>
+                    <div class="w-[120%] h-[2px] bg-primary my-1"></div>
+                    <span class="italic font-serif text-[16px]">NCF<sub>t*+1</sub></span>
+                </div>
+            </div>
+
+            <!-- Formula 2 (Substitution) -->
+            <div class="flex items-center gap-2 text-[14px] text-on-surface-variant">
+                <span class="italic font-serif text-[16px]">SPP = {{ sppCalculation.tStar }} +</span>
+                <div class="flex flex-col items-center">
+                    <span class="text-[14px]">{{
+                        Math.round(Math.abs(sppCalculation.cashFlowTStar)).toLocaleString('id-ID') }}</span>
+                    <div class="w-full h-[1px] bg-on-surface-variant my-1"></div>
+                    <span class="text-[14px]">{{ Math.round(sppCalculation.denominator).toLocaleString('id-ID')
+                        }}</span>
+                </div>
+            </div>
+
+            <!-- Formula 3 (Fraction) -->
+            <div class="flex items-center gap-2 text-[14px] text-on-surface-variant font-bold">
+                <span class="italic font-serif text-[16px]">SPP = {{ sppCalculation.tStar }} + {{
+                    (Math.abs(sppCalculation.cashFlowTStar) / sppCalculation.denominator).toFixed(2) }}</span>
+            </div>
+        </div>
+
+        <!-- Right Side: Final Result -->
+        <div
+            class="border border-outline-variant bg-white p-6 rounded-xl shadow-sm flex flex-col items-center justify-center">
+            <h6
+                class="font-bold text-[13px] text-on-surface uppercase tracking-wider w-full text-center mb-6 text-primary">
+                Hasil Akhir SPP</h6>
+            <span class="text-[48px] font-black text-primary leading-none">{{ sppCalculation.spp.toFixed(2) }}</span>
+            <span class="text-[16px] font-bold text-on-surface-variant mt-2 uppercase tracking-widest">Tahun</span>
+            <div
+                class="mt-4 px-3 py-1 bg-green-100 text-green-800 text-[11px] font-bold rounded-full uppercase tracking-wider">
+                Layak (Lebih cepat dari umur proyek)
+            </div>
+        </div>
     </div>
+    }
 
     <div
         class="mt-4 border border-outline-variant bg-surface-container-low p-5 rounded-xl shadow-sm border-l-4 border-l-primary flex flex-col justify-center font-sans">
@@ -1426,15 +1440,14 @@
             class="font-bold text-[14px] text-primary uppercase tracking-wider w-full text-left mb-2 border-b border-outline-variant pb-2">
             Kesimpulan Rumus Statis</h6>
         <p class="text-[13px] text-on-surface-variant font-sans text-justify mb-0 leading-relaxed">
-            Berdasarkan rumus Payback Period Statis yang telah diuraikan sebelumnya, perhitungan investasi awal dibagi
-            dengan total proyeksi kas diterima per tahun menghasilkan angka <strong>{{
-                investmentMetrics.staticPaybackYears.toFixed(2) }} tahun</strong>. Angka ini didapatkan dengan membagi
-            total investasi awal sebesar <strong>Rp {{ initialCapital.toLocaleString('id-ID') }}</strong> dengan
-            proyeksi arus kas bersih tahunan (sekitar <strong>Rp {{ (initialCapital /
-                investmentMetrics.staticPaybackYears).toLocaleString('id-ID', { maximumFractionDigits: 0 })
-                }}</strong>). Hal ini menegaskan bahwa tanpa memasukkan faktor penurunan nilai uang (inflasi/diskonto),
-            titik impas murni secara operasional akan dicapai secara presisi pada <strong>Bulan ke-{{
-                Math.ceil(investmentMetrics.staticPaybackYears * 12) }}</strong> sejak proyek berjalan.
+            Berdasarkan perhitungan aktual menggunakan arus kas bebas tahunan, nilai kumulatif kas mulai berubah positif
+            (titik impas) pada tahun kedua proyeksi. Menggunakan metode interpolasi pecahan proporsional, nilai
+            <strong>Statis Payback Period</strong> didapatkan secara presisi pada angka <strong>{{
+                investmentMetrics.staticPaybackYears.toFixed(2) }} tahun</strong> (sekitar {{
+            Math.ceil(investmentMetrics.staticPaybackYears * 12) }} bulan). Hal ini membuktikan bahwa operasional bisnis
+            perusahaan secara mandiri mampu menutup modal awalnya dalam waktu singkat tanpa asumsi <em>flat rate</em>,
+            melainkan dengan mengakomodasi pertumbuhan proyeksi (40%) yang telah ditetapkan pada model <em>revenue</em>
+            perusahaan.
         </p>
     </div>
 </app-page>
@@ -1646,7 +1659,7 @@
             <thead class="bg-inverse-surface text-white uppercase text-[10px] font-bold tracking-wider">
                 <tr>
                     <th class="p-2 text-center w-24">Tahun</th>
-                    <th class="p-2 text-right">PV (rate 15%)</th>
+                    <th class="p-2 text-right">PV (rate 40%)</th>
                 </tr>
             </thead>
             <tbody class="text-on-surface-variant">
