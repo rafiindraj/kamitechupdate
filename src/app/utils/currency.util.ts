@@ -44,3 +44,53 @@ export function formatCurrencyShort(value: number): string {
 
   return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
 }
+
+/**
+ * Formats the Net Cash Flow (NCF) value to 2 decimal places, truncated (not rounded up).
+ */
+export function formatCurrencyNCF(value: number): string {
+  if (value === 0) return '-';
+  const absVal = Math.abs(value);
+  let formatted = '';
+
+  if (absVal >= 1e9) {
+    const truncated = Math.floor((absVal / 1e9) * 100) / 100;
+    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'B';
+  } else if (absVal >= 1e6) {
+    const truncated = Math.floor((absVal / 1e6) * 100) / 100;
+    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'M';
+  } else if (absVal >= 1e3) {
+    const truncated = Math.floor((absVal / 1e3) * 100) / 100;
+    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'K';
+  } else {
+    formatted = absVal.toString();
+  }
+
+  return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
+}
+
+/**
+ * Formats a number as a short Indonesian Rupiah string (K/M/B suffix)
+ * truncated to a maximum of 3 decimal places (without rounding up/down).
+ */
+export function formatCurrencyTruncated3(value: number): string {
+  if (value === 0) return '-';
+  const absVal = Math.abs(value);
+  let formatted = '';
+
+  if (absVal >= 1e9) {
+    const truncated = Math.floor((absVal / 1e9) * 1000) / 1000;
+    formatted = parseFloat(truncated.toFixed(2)).toString() + 'B';
+  } else if (absVal >= 1e6) {
+    const truncated = Math.floor((absVal / 1e6) * 1000) / 1000;
+    formatted = parseFloat(truncated.toFixed(2)).toString() + 'M';
+  } else if (absVal >= 1e3) {
+    const truncated = Math.floor((absVal / 1e3) * 1000) / 1000;
+    formatted = parseFloat(truncated.toFixed(2)).toString() + 'K';
+  } else {
+    const truncated = Math.floor(absVal * 1000) / 1000;
+    formatted = parseFloat(truncated.toFixed(2)).toString();
+  }
+
+  return value < 0 ? `-Rp ${formatted}` : `Rp ${formatted}`;
+}

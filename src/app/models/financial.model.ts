@@ -53,6 +53,8 @@ export interface YearlyCashFlowItem {
   readonly netIncome: number;
   readonly operatingCF: number;
   readonly capex: number;
+  readonly dividend: number;
+  readonly cashFlowAfterDividend: number;
   readonly fcf: number;
   readonly cumulative: number;
 }
@@ -63,6 +65,7 @@ export interface CashFlowTableRow {
   readonly isBold: boolean;
   readonly isHeader: boolean;
   readonly isHighlight: boolean;
+  readonly y0: number;
   readonly y1: number;
   readonly y2: number;
   readonly y3: number;
@@ -115,6 +118,7 @@ export interface IntegratedFinancialYear {
   readonly investingCF: number;
   readonly financingCF: number;
   readonly dividends: number;
+  readonly fcf: number;
   readonly netCashChange: number;
   readonly endingCash: number;
   readonly netProductiveAssets: number;

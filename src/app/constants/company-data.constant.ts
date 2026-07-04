@@ -111,8 +111,8 @@ export const TEAM_MEMBERS: readonly TeamMember[] = [
 
 export const TENAGA_KERJA: readonly TenagaKerjaItem[] = [
   { role: "CEO / CTO", count: 2, salary: "Rp 30.000.000" },
-  { role: "IT Engineer (DevSecOps)", count: 4, salary: "Rp 20.000.000" },
-  { role: "IT Engineer (Front End, Back End, UI/UX & QA)", count: 12, salary: "Rp 15.000.000" },
+  { role: "IT Ops", count: 4, salary: "Rp 20.000.000" },
+  { role: "IT Dev", count: 12, salary: "Rp 15.000.000" },
   { role: "Finance Strategist", count: 1, salary: "Rp 20.000.000" },
   { role: "Business Analyst", count: 1, salary: "Rp 20.000.000" },
   { role: "Sales & Marketing, Accounting, Logistic, Tax", count: 4, salary: "Rp 11.000.000" }
@@ -121,18 +121,19 @@ export const TENAGA_KERJA: readonly TenagaKerjaItem[] = [
 // ─── OPEX Detail Breakdowns ────────────────────────────────────────────────
 
 export const OPEX_GAJI_DETAIL: readonly OpexDetailItem[] = [
-  { item: 'CEO / CTO', detail: '2 Orang × Rp 30.000.000', amount: 60000000 },
-  { item: 'IT Engineer (DevSecOps)', detail: '4 Orang × Rp 20.000.000', amount: 80000000 },
-  { item: 'IT Engineer (FE, BE, UI/UX & QA)', detail: '12 Orang × Rp 15.000.000', amount: 180000000 },
-  { item: 'Finance Strategist', detail: '1 Orang × Rp 20.000.000', amount: 20000000 },
-  { item: 'Business Analyst', detail: '1 Orang × Rp 20.000.000', amount: 20000000 },
-  { item: 'Sales, Marketing, Accounting, Logistic, Tax', detail: '4 Orang × Rp 11.000.000', amount: 44000000 },
+  { item: 'CEO / CTO', detail: '2 × Rp 30 Juta', amount: 60000000 },
+  { item: 'IT Ops', detail: '4 × Rp 20 Juta', amount: 80000000 },
+  { item: 'IT Dev', detail: '12 × Rp 15 Juta', amount: 180000000 },
+  { item: 'Finance Strategist', detail: '1 × Rp 20 Juta', amount: 20000000 },
+  { item: 'Business Analyst', detail: '1 × Rp 20 Juta', amount: 20000000 },
+  { item: 'Sales, Marketing, Accounting, Logistic, Tax', detail: '4 × Rp 11 Juta', amount: 44000000 },
 ];
 
 export const OPEX_OPERASIONAL_DETAIL: readonly OpexDetailItem[] = [
   { item: 'Listrik Kantor', amount: 5000000 },
   { item: 'Air (PDAM)', amount: 1000000 },
   { item: 'Dedicated Internet 5G', amount: 10000000 },
+  { item: 'Sewa Kantor', amount: 4000000 },
   { item: 'Kebersihan & Maintenance', amount: 5000000 },
   { item: 'Konsumsi & Pantry', amount: 5000000 },
   { item: 'Transportasi & Operasional Harian', amount: 4000000 },
@@ -143,7 +144,7 @@ export const OPEX_SOFTWARE_DETAIL: readonly OpexDetailItem[] = [
   { item: 'GitHub Team + Copilot Business', amount: 8000000 },
   { item: 'Domain & SSL Renewal', amount: 1000000 },
   { item: 'Monitoring & Analytics (Datadog/NR)', amount: 6000000 },
-  { item: 'SaaS Tools (Slack, Notion, Figma)', amount: 5000000 },
+  { item: 'Slack, Figma, M365, Clickup', amount: 5000000 },
   { item: 'Security & Backup Services', amount: 5000000 },
 ];
 
@@ -174,10 +175,10 @@ export const FINANCIAL_DEFAULTS = {
   pricePerHour: 525000,
   unitTotalHPP: 5000,
   marketingCostValue: 35000000,
-  operationalCostValue: 30000000,
+  operationalCostValue: 34000000,
   softwareCostValue: 45000000,
   salaryCostValue: 404000000,
-  initialCapital: 3542950000,
+  initialCapital: 3456950000,
   founderOwnership: 0.60,
   investorOwnership: 0.40,
   dividendPayoutRatio: 0.30,

@@ -2,7 +2,7 @@
 
 <app-aspek-teknis></app-aspek-teknis>
 
-<app-aspek-sdm [tenagaKerja]="tenagaKerja" [salaryCostValue]="salaryCostValue">
+<app-aspek-sdm [tenagaKerja]="tenagaKerja()" [salaryCostValue]="salaryCostValue()">
 </app-aspek-sdm>
 
 <app-aspek-hukum-lingkungan>
@@ -10,21 +10,22 @@
 
 <app-aspek-ekonomi></app-aspek-ekonomi>
 
-<app-aspek-keuangan [initialCapital]="initialCapital" [opexGajiDetail]="opexGajiDetail"
-  [salaryCostValue]="salaryCostValue" [opexOperasionalDetail]="opexOperasionalDetail"
-  [operationalCostValue]="operationalCostValue" [opexSoftwareDetail]="opexSoftwareDetail"
-  [softwareCostValue]="softwareCostValue" [opexMarketingDetail]="opexMarketingDetail"
-  [marketingCostValue]="marketingCostValue" [monthlyFixedCostTotal]="monthlyFixedCostTotal"
-  [billableHours]="billableHours" (billableHoursChange)="billableHoursChange.emit($event)" [totalRevenue]="totalRevenue"
-  [totalCOGS]="totalCOGS" [totalMonthlyExpense]="totalMonthlyExpense" [monthlyNetProfit]="monthlyNetProfit"
-  [roiProjection]="roiProjection" [cashFlowTableData]="cashFlowTableData"
-  [founderOwnership]="founderOwnership" [investorOwnership]="investorOwnership"
-  [dividendPayoutRatio]="dividendPayoutRatio" [discountRate]="discountRate" [exitMultiple]="exitMultiple"
-  [investorReturns]="investorReturns" [investorReturnSummary]="investorReturnSummary"
-  [investmentMetrics]="investmentMetrics" [integratedFinancialStatements]="integratedFinancialStatements">
+<app-aspek-keuangan [initialCapital]="initialCapital()" [opexGajiDetail]="opexGajiDetail()"
+  [salaryCostValue]="salaryCostValue()" [opexOperasionalDetail]="opexOperasionalDetail()"
+  [operationalCostValue]="operationalCostValue()" [opexSoftwareDetail]="opexSoftwareDetail()"
+  [softwareCostValue]="softwareCostValue()" [opexMarketingDetail]="opexMarketingDetail()"
+  [marketingCostValue]="marketingCostValue()" [monthlyFixedCostTotal]="monthlyFixedCostTotal()"
+  [billableHours]="billableHours()" (billableHoursChange)="billableHoursChange.emit($event)" [totalRevenue]="totalRevenue()"
+  [totalCOGS]="totalCOGS()" [totalMonthlyExpense]="totalMonthlyExpense()" [monthlyNetProfit]="monthlyNetProfit()"
+  [roiProjection]="roiProjection()" [cashFlowTableData]="cashFlowTableData()"
+  [founderOwnership]="founderOwnership()" [investorOwnership]="investorOwnership()"
+  [dividendPayoutRatio]="dividendPayoutRatio()" [discountRate]="discountRate()" [exitMultiple]="exitMultiple()"
+  [investorReturns]="investorReturns()" [investorReturnSummary]="investorReturnSummary()"
+  [investmentMetrics]="investmentMetrics()" [integratedFinancialStatements]="integratedFinancialStatements()">
 </app-aspek-keuangan>
 
-<app-aspek-lingkungan [marketAnalysis]="marketAnalysis" [keys]="keys">
+<app-aspek-lingkungan [marketAnalysis]="marketAnalysis()" [keys]="keys()">
 </app-aspek-lingkungan>
 
 <app-aspek-risiko></app-aspek-risiko>
+

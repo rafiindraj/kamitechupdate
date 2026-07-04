@@ -1,5 +1,5 @@
 <!-- PAGE 31: BAB III - ANALISIS LINGKUNGAN EKOSISTEM DIGITAL -->
-<app-page pageId="bab3-p24" pageNum="78" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-p24" pageNum="79" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
@@ -22,14 +22,14 @@
             </p>
 
             <div class="grid grid-cols-2 gap-4 text-[16px] text-on-surface-variant">
-                @for (item of marketAnalysis; track $index) {
+                @for (item of marketAnalysis(); track $index) {
                 <div
                     class="bg-surface-container-low p-4 rounded-xl border border-outline-variant shadow-sm relative overflow-hidden flex flex-col h-full">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-[#E3F2FD] opacity-30 rounded-bl-full"></div>
                     <h5
                         class="font-bold text-on-surface mb-2 flex items-center gap-2 font-sans text-[15px] z-10 relative">
                         <span
-                            class="w-6 h-6 bg-[#E3F2FD] rounded-md flex items-center justify-center text-[12px] text-primary font-bold uppercase">{{keys[$index]}}</span>
+                            class="w-6 h-6 bg-[#E3F2FD] rounded-md flex items-center justify-center text-[12px] text-primary font-bold uppercase">{{keys()[$index]}}</span>
                         {{item.title}}
                     </h5>
                     @if (item.list) {
@@ -50,7 +50,7 @@
 </app-page>
 
 <!-- PAGE 32: BAB III - ANALISIS LINGKUNGAN EKOSISTEM DIGITAL (Lanjutan) -->
-<app-page pageId="bab3-p25" pageNum="79" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+<app-page pageId="bab3-p25" pageNum="80" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
     contentClass="flex flex-col">
     <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
         <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek

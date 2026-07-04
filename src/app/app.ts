@@ -1,13 +1,12 @@
-import { Component, computed, signal, ViewEncapsulation, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, computed, signal, ViewEncapsulation, ElementRef, OnInit, inject, viewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 // Components
 import { PageComponent } from './page/page.component';
-import { Pendahuluan } from './components/pendahuluan/pendahuluan';
-import { GambaranUmum } from './components/gambaran-umum/gambaran-umum';
-import { RencanaPembangunan } from './components/rencana-pembangunan/rencana-pembangunan';
+import { PendahuluanComponent } from './components/pendahuluan/pendahuluan';
+import { GambaranUmumComponent } from './components/gambaran-umum/gambaran-umum';
+import { RencanaPembangunanComponent } from './components/rencana-pembangunan/rencana-pembangunan';
 import { LoadingComponent } from './components/loading/loading.component';
 
 // Services
@@ -17,7 +16,6 @@ import { LoadingService } from './services/loading.service';
 import { PageSelectionService } from './services/page-selection.service';
 
 // Constants
-import { PRINT_OPTIMIZER_CSS } from './constants/web.constant';
 import {
     COMPANY_GOALS,
     SERVICES_ITEMS,
@@ -38,20 +36,24 @@ import {
 import { CashFlowTableRow, YearlyCashFlowItem } from './models/financial.model';
 
 // Utilities
-import { formatCurrency, formatCurrencyShort } from './utils/currency.util';
+import { formatCurrency, formatCurrencyShort, formatCurrencyNCF } from './utils/currency.util';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, FormsModule, PageComponent, Pendahuluan, GambaranUmum, RencanaPembangunan, LoadingComponent],
+    imports: [CommonModule, FormsModule, PageComponent, PendahuluanComponent, GambaranUmumComponent, RencanaPembangunanComponent, LoadingComponent],
     templateUrl: './app.html',
     styleUrls: ['./app.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class App implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
+    private readonly pdfService = inject(PdfService);
+    private readonly loading = inject(LoadingService);
+    readonly pageSelection = inject(PageSelectionService);
+
     // ─── UI State ──────────────────────────────────────────────────────
     hideNav = false;
-    isGenerating = false;
+    readonly isGenerating = this.loading.isLoading;
     readyToDownloadUrl: string | null = null;
 
     // ─── Reactive State ────────────────────────────────────────────────
@@ -104,8 +106,13 @@ export class App implements OnInit, OnDestroy {
     cashFlowTableData = computed((): CashFlowTableRow[] => {
         const data = this.yearlyCashFlow();
         const getRow = (label: string, key: keyof YearlyCashFlowItem, isBold = false, isHeader = false, isHighlight = false): CashFlowTableRow => {
+            let y0 = 0;
+            if (key === 'capex' || key === 'fcf' || key === 'cashFlowAfterDividend' || key === 'cumulative') {
+                y0 = -this.initialCapital;
+            }
             return {
                 label, isBold, isHeader, isHighlight,
+                y0,
                 y1: data[0][key] as number,
                 y2: data[1][key] as number,
                 y3: data[2][key] as number,
@@ -127,6 +134,8 @@ export class App implements OnInit, OnDestroy {
             getRow('Arus Kas Operasi', 'operatingCF', true, true),
             getRow('Belanja Modal (CAPEX)', 'capex'),
             getRow('Net Cash Flow (NCF)', 'fcf', true, true, true),
+            getRow('Pembagian Dividen (30%)', 'dividend'),
+            getRow('Arus Kas setelah Dividen', 'cashFlowAfterDividend', true, false, true),
             getRow('Kumulatif NCF', 'cumulative', true, false, true)
         ];
     });
@@ -141,31 +150,14 @@ export class App implements OnInit, OnDestroy {
     // ─── Shared Utility Delegates (for template binding) ───────────────
     formatCurrency = formatCurrency;
     formatCurrencyShort = formatCurrencyShort;
+    formatCurrencyNCF = formatCurrencyNCF;
 
     // ─── ViewChild & Subscriptions ─────────────────────────────────────
-    @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
-    private loadingSub?: Subscription;
-
-    readonly pageSelection: PageSelectionService;
-
-    constructor(
-        private readonly pdfService: PdfService,
-        private readonly loading: LoadingService,
-        pageSelection: PageSelectionService
-    ) {
-        this.pageSelection = pageSelection;
-        this.loadingSub = this.loading.isLoading$.subscribe((v) => {
-            this.isGenerating = v;
-        });
-    }
+    readonly pdfContent = viewChild<ElementRef>('pdfContent');
 
     ngOnInit(): void {
         // Register cover page (not wrapped in <app-page>)
         this.pageSelection.registerPage('cover', 'cover');
-    }
-
-    ngOnDestroy(): void {
-        this.loadingSub?.unsubscribe();
     }
 
     // ─── Event Handlers ────────────────────────────────────────────────
@@ -192,6 +184,10 @@ export class App implements OnInit, OnDestroy {
      * Delegates PDF generation entirely to PdfService (SRP).
      */
     downloadPDF(): void {
-        this.pdfService.generateAndDownload(this.pdfContent);
+        const element = this.pdfContent();
+        if (element) {
+            this.pdfService.generateAndDownload(element);
+        }
     }
 }
+

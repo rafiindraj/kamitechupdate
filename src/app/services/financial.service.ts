@@ -113,7 +113,11 @@ export class FinancialModel {
 
             const operatingCF = netIncome + depreciation;
 
-            const capex = year === 1 ? -458950000 : -86000000;
+            const capex = year === 1 ? -372950000 : 0;
+
+            const dividend = year >= this.cfg.dividendStartYear && netIncome > 0
+                ? netIncome * this.cfg.dividendPayoutRatio
+                : 0;
 
             const freeCashFlow = operatingCF + capex;
             cumulativeCF += freeCashFlow;
@@ -131,6 +135,8 @@ export class FinancialModel {
                 netIncome,
                 operatingCF,
                 capex,
+                dividend: -dividend,
+                cashFlowAfterDividend: freeCashFlow - dividend,
                 fcf: freeCashFlow,
                 cumulative: cumulativeCF
             });
@@ -264,6 +270,7 @@ export class FinancialModel {
                 investingCF: actualCapex,
                 financingCF,
                 dividends: -dividends,
+                fcf: item.fcf,
                 netCashChange,
                 endingCash,
                 netProductiveAssets,

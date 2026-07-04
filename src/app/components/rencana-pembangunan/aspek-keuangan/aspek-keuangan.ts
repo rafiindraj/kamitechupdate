@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, output, computed } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { PageComponent } from '../../../page/page.component';
 
@@ -14,7 +14,7 @@ import {
 } from '../../../models/financial.model';
 
 // Shared utilities (DRY — single source of truth)
-import { formatCurrencyShort } from '../../../utils/currency.util';
+import { formatCurrencyShort, formatCurrencyNCF, formatCurrencyTruncated3 } from '../../../utils/currency.util';
 
 @Component({
   selector: 'app-aspek-keuangan',
@@ -24,34 +24,34 @@ import { formatCurrencyShort } from '../../../utils/currency.util';
   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AspekKeuangan {
-  @Input() initialCapital!: number;
-  @Input() opexGajiDetail!: readonly OpexDetailItem[];
-  @Input() salaryCostValue!: number;
-  @Input() opexOperasionalDetail!: readonly OpexDetailItem[];
-  @Input() operationalCostValue!: number;
-  @Input() opexSoftwareDetail!: readonly OpexDetailItem[];
-  @Input() softwareCostValue!: number;
-  @Input() opexMarketingDetail!: readonly OpexDetailItem[];
-  @Input() marketingCostValue!: number;
-  @Input() monthlyFixedCostTotal!: number;
-  @Input() billableHours!: number;
-  @Output() billableHoursChange = new EventEmitter<number>();
-  @Input() totalRevenue!: number;
-  @Input() totalCOGS!: number;
-  @Input() totalMonthlyExpense!: number;
-  @Input() monthlyNetProfit!: number;
-  @Input() roiProjection!: readonly RoiProjectionItem[];
-  @Input() cashFlowTableData!: readonly CashFlowTableRow[];
-  @Input() founderOwnership!: number;
-  @Input() investorOwnership!: number;
-  @Input() dividendPayoutRatio!: number;
-  @Input() discountRate!: number;
-  @Input() exitMultiple!: number;
-  @Input() investorReturns!: readonly InvestorReturnItem[];
-  @Input() investorReturnSummary!: InvestorReturnSummary;
-  @Input() investmentMetrics!: InvestmentMetrics;
-  @Input() integratedFinancialStatements!: readonly IntegratedFinancialYear[];
+export class AspekKeuanganComponent {
+  readonly initialCapital = input.required<number>();
+  readonly opexGajiDetail = input.required<readonly OpexDetailItem[]>();
+  readonly salaryCostValue = input.required<number>();
+  readonly opexOperasionalDetail = input.required<readonly OpexDetailItem[]>();
+  readonly operationalCostValue = input.required<number>();
+  readonly opexSoftwareDetail = input.required<readonly OpexDetailItem[]>();
+  readonly softwareCostValue = input.required<number>();
+  readonly opexMarketingDetail = input.required<readonly OpexDetailItem[]>();
+  readonly marketingCostValue = input.required<number>();
+  readonly monthlyFixedCostTotal = input.required<number>();
+  readonly billableHours = input.required<number>();
+  readonly billableHoursChange = output<number>();
+  readonly totalRevenue = input.required<number>();
+  readonly totalCOGS = input.required<number>();
+  readonly totalMonthlyExpense = input.required<number>();
+  readonly monthlyNetProfit = input.required<number>();
+  readonly roiProjection = input.required<readonly RoiProjectionItem[]>();
+  readonly cashFlowTableData = input.required<readonly CashFlowTableRow[]>();
+  readonly founderOwnership = input.required<number>();
+  readonly investorOwnership = input.required<number>();
+  readonly dividendPayoutRatio = input.required<number>();
+  readonly discountRate = input.required<number>();
+  readonly exitMultiple = input.required<number>();
+  readonly investorReturns = input.required<readonly InvestorReturnItem[]>();
+  readonly investorReturnSummary = input.required<InvestorReturnSummary>();
+  readonly investmentMetrics = input.required<InvestmentMetrics>();
+  readonly integratedFinancialStatements = input.required<readonly IntegratedFinancialYear[]>();
 
   onHoursChange(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -60,56 +60,60 @@ export class AspekKeuangan {
     }
   }
 
-  get pvTableData() {
+  readonly pvTableData = computed(() => {
     const r1 = 0.40;
-    const r2 = 0.70;
+    const r2 = 0.80;
+    const factors1 = [0.7143, 0.5102, 0.3644, 0.2603, 0.1859];
+    const factors2 = [0.5556, 0.3086, 0.1715, 0.0953, 0.0529];
 
-    return this.integratedFinancialStatements.map((item) => {
+    return this.integratedFinancialStatements().map((item) => {
       const year = item.year;
-      const fcf = item.operatingCF + item.investingCF;
-      const pv1 = fcf / Math.pow(1 + r1, year);
-      const pv2 = fcf / Math.pow(1 + r2, year); 
-      return { year, fcf, pv1, pv2, r1, r2 };
+      const fcf = item.fcf;
+      const factor1 = factors1[year - 1] || 0;
+      const factor2 = factors2[year - 1] || 0;
+      const pv1 = fcf * factor1;
+      const pv2 = fcf * factor2; 
+      return { year, fcf, pv1, pv2, r1, r2, factor1, factor2 };
     });
-  }
+  });
 
-  get totalPV1() {
-    return this.pvTableData.reduce((acc, curr) => acc + curr.pv1, 0);
-  }
+  readonly totalPV1 = computed(() => {
+    return this.pvTableData().reduce((acc, curr) => acc + curr.pv1, 0);
+  });
 
-  get totalFCF() {
-    return this.pvTableData.reduce((acc, curr) => acc + curr.fcf, 0);
-  }
+  readonly totalFCF = computed(() => {
+    return this.pvTableData().reduce((acc, curr) => acc + curr.fcf, 0);
+  });
 
-  get totalPV2() {
-    return this.pvTableData.reduce((acc, curr) => acc + curr.pv2, 0);
-  }
+  readonly totalPV2 = computed(() => {
+    return this.pvTableData().reduce((acc, curr) => acc + curr.pv2, 0);
+  });
 
-  get totalNPV1() {
-    return this.totalPV1 - this.initialCapital;
-  }
+  readonly totalNPV1 = computed(() => {
+    return this.totalPV1() - this.initialCapital();
+  });
 
-  get totalNPV2() {
-    return this.totalPV2 - this.initialCapital;
-  }
+  readonly totalNPV2 = computed(() => {
+    return this.totalPV2() - this.initialCapital();
+  });
 
-  get manualIrr() {
-    return 0.40 + (this.totalNPV1 / (this.totalNPV1 - this.totalNPV2)) * 0.30;
-  }
+  readonly manualIrr = computed(() => {
+    return 0.40 + (this.totalNPV1() / (this.totalNPV1() - this.totalNPV2())) * 0.40;
+  });
 
-  get staticPaybackData() {
-    let cumulative = -this.initialCapital;
+  readonly staticPaybackData = computed(() => {
+    let cumulative = -this.initialCapital();
 
     const data = [{
       year: 0,
-      fcf: -this.initialCapital,
+      fcf: -this.initialCapital(),
       cumulative: cumulative,
       isBEP: false
     }];
 
-    this.integratedFinancialStatements.forEach((item) => {
+    this.integratedFinancialStatements().forEach((item) => {
       const year = item.year;
-      const fcf = item.operatingCF + item.investingCF;
+      const fcf = item.fcf;
       const previousCumulative = cumulative;
       cumulative += fcf;
       const isBEP = previousCumulative < 0 && cumulative >= 0;
@@ -117,10 +121,10 @@ export class AspekKeuangan {
     });
 
     return data;
-  }
+  });
 
-  get sppCalculation() {
-    const data = this.staticPaybackData;
+  readonly sppCalculation = computed(() => {
+    const data = this.staticPaybackData();
     const bepRowIndex = data.findIndex((r) => r.cumulative >= 0 && r.year > 0);
 
     if (bepRowIndex <= 0) {
@@ -141,23 +145,23 @@ export class AspekKeuangan {
       denominator,
       spp
     };
-  }
+  });
 
-  get dynamicPaybackData() {
-    const rate = this.discountRate;
-    let cumulativePv = -this.initialCapital;
+  readonly dynamicPaybackData = computed(() => {
+    const rate = this.discountRate();
+    let cumulativePv = -this.initialCapital();
 
     const data = [{
       year: 0,
-      fcf: -this.initialCapital,
-      pv: -this.initialCapital,
+      fcf: -this.initialCapital(),
+      pv: -this.initialCapital(),
       cumulativePv: cumulativePv,
       isBEP: false
     }];
 
-    this.integratedFinancialStatements.forEach((item) => {
+    this.integratedFinancialStatements().forEach((item) => {
       const year = item.year;
-      const fcf = item.operatingCF + item.investingCF;
+      const fcf = item.fcf;
       const pv = fcf / Math.pow(1 + rate, year);
       const previousCumulative = cumulativePv;
       cumulativePv += pv;
@@ -166,10 +170,10 @@ export class AspekKeuangan {
     });
 
     return data;
-  }
+  });
 
-  get dppCalculation() {
-    const data = this.dynamicPaybackData;
+  readonly dppCalculation = computed(() => {
+    const data = this.dynamicPaybackData();
     const bepRowIndex = data.findIndex((r) => r.cumulativePv >= 0 && r.year > 0);
 
     if (bepRowIndex <= 0) {
@@ -180,20 +184,17 @@ export class AspekKeuangan {
     const tStarPlus1Row = data[bepRowIndex];
 
     const tStar = tStarRow.year;
-    const npvTStar = tStarRow.cumulativePv;
-    const npvTStarPlus1 = tStarPlus1Row.cumulativePv;
-
-    const denominator = npvTStar - npvTStarPlus1;
-    const dpp = tStar + (npvTStar / denominator);
+    const npvTStar = Math.abs(tStarRow.cumulativePv);
+    const pvNext = tStarPlus1Row.pv;
+    const dpp = tStar + (npvTStar / pvNext);
 
     return {
       tStar,
       npvTStar,
-      npvTStarPlus1,
-      denominator,
+      pvNext,
       dpp
     };
-  }
+  });
 
   get Math() {
     return Math;
@@ -201,4 +202,6 @@ export class AspekKeuangan {
 
   // Delegate to shared utility (eliminates duplication)
   formatCurrencyShort = formatCurrencyShort;
+  formatCurrencyNCF = formatCurrencyNCF;
+  formatCurrencyTruncated3 = formatCurrencyTruncated3;
 }

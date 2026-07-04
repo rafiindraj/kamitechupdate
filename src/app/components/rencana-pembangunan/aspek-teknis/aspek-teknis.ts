@@ -9,5 +9,5 @@ import { PageComponent } from '../../../page/page.component';
   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AspekTeknis {
+export class AspekTeknisComponent {
 }

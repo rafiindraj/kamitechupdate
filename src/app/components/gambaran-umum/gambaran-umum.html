@@ -74,9 +74,9 @@
                             <p class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
                                 Estimasi Modal Awal</p>
                             <p class="text-[16px] font-bold text-on-surface font-sans">Rp {{
-                                initialCapital.toLocaleString() }}</p>
+                                initialCapital().toLocaleString() }}</p>
                             <p class="text-[11px] text-on-surface-variant mt-0.5">Pendanaan Mandiri & Investor
-                                (Bootstrap)</p>
+                                (Pendanaan Campuran)</p>
                         </div>
                         <div>
                             <p class="text-[12px] text-on-surface-variant uppercase font-bold tracking-widest mb-0.5">
@@ -96,7 +96,7 @@
                 <p class="indent-8 leading-[1.15] mb-0">
                     Terkait dengan rencana realisasi pendirian usaha, perusahaan menargetkan tingkat persentase
                     ketercapaian sebesar <strong>100% dari total estimasi modal awal</strong> (senilai Rp {{
-                    initialCapital.toLocaleString() }}) dapat terserap dan terealisasi secara penuh pada Kuartal
+                    initialCapital().toLocaleString() }}) dapat terserap dan terealisasi secara penuh pada Kuartal
                     I tahun 2027. Realisasi persentase ini mencakup perampungan seluruh fondasi infrastruktur
                     utama, mulai dari tahap finalisasi sewa dan renovasi ruang kerja fisik, pengadaan aset
                     perangkat keras (<em>hardware</em>) untuk tim <em>engineer</em>, hingga pemenuhan
@@ -304,7 +304,7 @@
                     peningkatan efisiensi secara berkelanjutan melalui nilai-nilai utama berikut:</p>
             </div>
             <ul class="space-y-4 text-[16px] text-on-surface-variant font-sans pl-2">
-                @for (goal of goalsArray; track $index) {
+                @for (goal of goalsArray(); track $index) {
                 <li class="flex items-start gap-4">
                     <span
                         class="w-8 h-8 flex items-center justify-center bg-inverse-surface text-white text-[14px] rounded-full flex-shrink-0 font-bold mt-0.5">{{

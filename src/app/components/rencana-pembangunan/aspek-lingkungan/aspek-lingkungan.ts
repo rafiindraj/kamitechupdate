@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { PageComponent } from '../../../page/page.component';
 import { MarketAnalysisItem } from '../../../models/financial.model';
 
@@ -10,8 +10,9 @@ import { MarketAnalysisItem } from '../../../models/financial.model';
   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AspekLingkungan {
-  @Input() marketAnalysis!: readonly MarketAnalysisItem[];
-  @Input() keys!: readonly string[];
+export class AspekLingkunganComponent {
+  readonly marketAnalysis = input.required<readonly MarketAnalysisItem[]>();
+  readonly keys = input.required<readonly string[]>();
 }
+
 
