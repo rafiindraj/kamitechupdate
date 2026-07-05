@@ -16,7 +16,7 @@ import { PageSelectionService } from '../services/page-selection.service';
 export class PageComponent implements OnInit, OnDestroy {
   @Input() pageId: string = '';
   @Input() watermarkOpacity: string = '0.02';
-  @Input() contentClass: string = 'flex flex-col text-justify font-sans text-[16px] text-on-surface';
+  @Input() contentClass: string = 'flex flex-col text-left font-sans text-[16px] text-on-surface';
   @Input() footerText: string = '';
   @Input() footerTextClass: string = 'font-sans text-on-surface-variant';
   @Input() pageNum: string = '';

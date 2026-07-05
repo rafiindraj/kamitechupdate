@@ -58,3 +58,54 @@
   /* ── M3 Scrim ── */
   --color-scrim: #000000;
 }
+
+/* ── Global left alignment for all body text ── */
+/* Applies to all content inside pages, excludes headings/titles */
+app-page p,
+app-page li,
+app-page td,
+app-page dd,
+app-page blockquote,
+app-page span.block,
+app-page .grid > div > span:not(.font-bold):not(.text-cyan-400) {
+  text-align: left;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: break-word;
+  word-spacing: normal;
+}
+
+/* Redefine text-justify class as text-left for backward compatibility / fallback */
+.text-justify {
+  text-align: left !important;
+  -webkit-hyphens: none !important;
+  -moz-hyphens: none !important;
+  -ms-hyphens: none !important;
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  word-spacing: normal !important;
+}
+
+
+/* ── Exclude headings, titles, subtitles ── */
+app-page h1,
+app-page h2,
+app-page h3,
+app-page h4,
+app-page h5,
+app-page h6,
+app-page th,
+app-page caption,
+app-page legend {
+  text-align: revert;
+  hyphens: none;
+}
+
+/* ── Preserve explicit Tailwind alignment overrides ── */
+.text-center { text-align: center !important; hyphens: none !important; }
+.text-left   { text-align: left !important; }
+.text-right  { text-align: right !important; hyphens: none !important; }
