@@ -33,11 +33,11 @@ export function formatCurrencyShort(value: number): string {
   let formatted = '';
 
   if (absVal >= 1e9) {
-    formatted = (absVal / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+    formatted = (absVal / 1e9).toFixed(1).replace(/\.0$/, '') + 'M'; // B -> M (Miliar)
   } else if (absVal >= 1e6) {
-    formatted = (absVal / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+    formatted = (absVal / 1e6).toFixed(1).replace(/\.0$/, '') + 'jt'; // M -> jt (Juta)
   } else if (absVal >= 1e3) {
-    formatted = (absVal / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+    formatted = (absVal / 1e3).toFixed(1).replace(/\.0$/, '') + 'rb'; // K -> rb (ribu)
   } else {
     formatted = absVal.toString();
   }
@@ -55,13 +55,13 @@ export function formatCurrencyNCF(value: number): string {
 
   if (absVal >= 1e9) {
     const truncated = Math.floor((absVal / 1e9) * 100) / 100;
-    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'B';
+    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'M'; // B -> M (Miliar)
   } else if (absVal >= 1e6) {
     const truncated = Math.floor((absVal / 1e6) * 100) / 100;
-    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'M';
+    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'jt'; // M -> jt (Juta)
   } else if (absVal >= 1e3) {
     const truncated = Math.floor((absVal / 1e3) * 100) / 100;
-    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'K';
+    formatted = truncated.toFixed(2).replace(/\.00$/, '') + 'rb'; // K -> rb (ribu)
   } else {
     formatted = absVal.toString();
   }
@@ -80,13 +80,13 @@ export function formatCurrencyTruncated3(value: number): string {
 
   if (absVal >= 1e9) {
     const truncated = Math.floor((absVal / 1e9) * 1000) / 1000;
-    formatted = parseFloat(truncated.toFixed(2)).toString() + 'B';
+    formatted = parseFloat(truncated.toFixed(2)).toString() + 'M'; // B -> M (Miliar)
   } else if (absVal >= 1e6) {
     const truncated = Math.floor((absVal / 1e6) * 1000) / 1000;
-    formatted = parseFloat(truncated.toFixed(2)).toString() + 'M';
+    formatted = parseFloat(truncated.toFixed(2)).toString() + 'jt'; // M -> jt (Juta)
   } else if (absVal >= 1e3) {
     const truncated = Math.floor((absVal / 1e3) * 1000) / 1000;
-    formatted = parseFloat(truncated.toFixed(2)).toString() + 'K';
+    formatted = parseFloat(truncated.toFixed(2)).toString() + 'rb'; // K -> rb (ribu)
   } else {
     const truncated = Math.floor(absVal * 1000) / 1000;
     formatted = parseFloat(truncated.toFixed(2)).toString();

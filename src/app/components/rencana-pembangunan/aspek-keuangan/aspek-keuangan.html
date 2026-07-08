@@ -331,8 +331,7 @@
                     Penerimaan kas PT KamiTech Solusi Digital berfokus pada likuiditas yang dihasilkan dari aktivitas
                     operasional utama dan pendanaan strategis. Sumber-sumber penerimaan kas perusahaan meliputi:
                 </p>
-                <ul
-                    class="list-disc pl-5 mb-0 text-[14px] text-on-surface-variant leading-[1.25] space-y-2 text-left">
+                <ul class="list-disc pl-5 mb-0 text-[14px] text-on-surface-variant leading-[1.25] space-y-2 text-left">
                     <li><strong>Pendapatan Operasional B2B:</strong> Pembayaran termin (<em>invoice</em>) dari klien
                         korporat atas penyelesaian <em>milestone</em> proyek pengembangan perangkat lunak atau solusi
                         IT.</li>
@@ -356,8 +355,7 @@
                     Pengeluaran kas dikelola secara ketat untuk memastikan kelangsungan operasional tanpa menguras
                     <em>capital buffer</em> sebelum BEP tercapai. Alokasi pengeluaran kas utama mencakup:
                 </p>
-                <ul
-                    class="list-disc pl-5 mb-0 text-[14px] text-on-surface-variant leading-[1.25] space-y-2 text-left">
+                <ul class="list-disc pl-5 mb-0 text-[14px] text-on-surface-variant leading-[1.25] space-y-2 text-left">
                     <li><strong>Biaya Tetap Operasional (OPEX):</strong> Pembayaran gaji bulanan untuk tim teknis
                         (<em>developer, engineer</em>) dan operasional, yang mendominasi pengeluaran kas bulanan.</li>
                     <li><strong>Infrastruktur & Lisensi:</strong> Pembayaran sewa server <em>cloud</em> (AWS/GCP),
@@ -843,7 +841,7 @@
                     <tr class="bg-inverse-surface text-white font-bold">
                         <td colspan="2"
                             class="py-2.5 px-3 rounded-bl-lg uppercase tracking-widest text-[13px] text-right">Estimasi
-                            Laba Kotor Bulanan</td>
+                            Laba Operasi Bulanan</td>
                         <td class="py-2.5 px-3 text-right rounded-br-lg font-sans text-[15px] text-primary">Rp {{
                             monthlyNetProfit().toLocaleString() }}</td>
                     </tr>
@@ -867,7 +865,7 @@
                         class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
                         <td class="py-2 px-3 text-center font-bold border-r border-outline-variant border-dashed">1</td>
                         <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">Jasa Customized
-                            Solution (40%)</td>
+                            Solution (40% of Billable Hours)</td>
                         <td class="py-2 px-3 text-right font-bold">Rp {{ (totalRevenue() * 12 * 0.40).toLocaleString()
                             }}</td>
                     </tr>
@@ -875,7 +873,7 @@
                         class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
                         <td class="py-2 px-3 text-center font-bold border-r border-outline-variant border-dashed">2</td>
                         <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">Jasa System
-                            Migration &amp; DevOps (20%)</td>
+                            Migration &amp; DevOps (20% of Billable Hours)</td>
                         <td class="py-2 px-3 text-right font-bold">Rp {{ (totalRevenue() * 12 * 0.20).toLocaleString()
                             }}</td>
                     </tr>
@@ -883,7 +881,7 @@
                         class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
                         <td class="py-2 px-3 text-center font-bold border-r border-outline-variant border-dashed">3</td>
                         <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">Jasa Cybersecurity
-                            &amp; IT Audit (15%)</td>
+                            &amp; IT Audit (15% of Billable Hours)</td>
                         <td class="py-2 px-3 text-right font-bold">Rp {{ (totalRevenue() * 12 * 0.15).toLocaleString()
                             }}</td>
                     </tr>
@@ -891,15 +889,15 @@
                         class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
                         <td class="py-2 px-3 text-center font-bold border-r border-outline-variant border-dashed">4</td>
                         <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">Jasa Strategic
-                            Consulting (15%)</td>
+                            Consulting (15% of Billable Hours)</td>
                         <td class="py-2 px-3 text-right font-bold">Rp {{ (totalRevenue() * 12 * 0.15).toLocaleString()
                             }}</td>
                     </tr>
                     <tr
                         class="border-b border-dashed border-outline-variant hover:bg-surface-container-low transition-colors">
                         <td class="py-2 px-3 text-center font-bold border-r border-outline-variant border-dashed">5</td>
-                        <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">Pendapatan SLA
-                            Maintenance (Recurring - 10%)</td>
+                        <td class="py-2 px-3 font-bold border-r border-outline-variant border-dashed">SLA
+                            Maintenance (Recurring of 10% of Billable Hours)</td>
                         <td class="py-2 px-3 text-right font-bold">Rp {{ (totalRevenue() * 12 * 0.10).toLocaleString()
                             }}</td>
                     </tr>
@@ -1004,37 +1002,103 @@
     <h5
         class="font-bold text-secondary text-[16px] mb-3 font-sans tracking-wide uppercase border-b border-outline-variant pb-1">
         9. Diskonto, NPV & IRR</h5>
-    <p class="text-[16px] text-on-surface-variant text-left font-sans leading-[1.25] mb-4 indent-8">
+    <p class="text-[16px] text-on-surface-variant text-left font-sans leading-[1.25] mb-2 indent-8">
         Dalam analisis kelayakan investasi, nilai waktu uang (<em>time value of money</em>) merupakan prinsip krusial.
         Uang saat ini lebih bernilai dibandingkan uang di masa depan karena adanya inflasi dan biaya peluang
         (<em>opportunity cost</em>). Oleh karena itu, kita menggunakan tiga metrik utama untuk mengevaluasi
         profitabilitas proyek:
     </p>
 
-    <div class="space-y-4 mb-4">
+    <div class="space-y-2 mb-2">
         <!-- Diskonto -->
         <div
             class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-primary">
             <h6 class="font-bold text-[14px] text-primary mb-1">Tingkat Diskonto (Discount Rate)</h6>
-            <p class="text-[13px] text-on-surface-variant text-left mb-2">
-                Tingkat diskonto (r) adalah tingkat pengembalian yang diharapkan atau biaya modal yang digunakan untuk
-                mendiskontokan arus kas masa depan ke nilai sekarang. Pada proyek ini, tingkat diskonto ditetapkan
-                sebesar <strong>{{ (discountRate() * 100).toFixed(0) }}%</strong>. Discount Rate ini dipilih menggunakan
-                pendekatan konservatif berdasarkan konsep risk-adjusted discount rate. Nilai tersebut merupakan
-                modifikasi dari pendekatan <strong>Weighted Average Cost of Capital (WACC)</strong> untuk perusahaan
-                rintisan
-                (early-stage startup) dengan mempertimbangkan tingginya cost of equity, illiquidity premium, dan
-                ekspektasi tingkat pengembalian (hurdle rate) investor pada sektor teknologi sebagaimana dijelaskan oleh
-                Damodaran (2024). Penggunaan tingkat diskonto ini bertujuan menghasilkan penilaian
-                investasi yang lebih konservatif. Apabila proyek KamiTech tetap menghasilkan NPV
-                positif, maka proyek dinilai tetap layak meskipun mempertimbangkan risiko
-                bisnis dan biaya modal yang tinggi.
+            <p class="text-[13px] text-on-surface-variant text-left mb-0 text-justify leading-[1.35]">Mengingat struktur
+                permodalan PT KamiTech Solusi
+                Digital bersumber dari 100% pendanaan ekuitas (Founder dan MDI Ventures) tanpa adanya instrumen utang
+                (<em>zero debt</em>), maka secara matematis perhitungan <strong>Weighted Average Cost of Capital
+                    (WACC)</strong> ekuivalen dengan Biaya Ekuitas (<em>Cost of Equity</em> /
+                <em>K<sub>e</sub></em>). Untuk menentukan nilai <em>K<sub>e</sub></em> bagi perusahaan rintisan privat
+                (<em>private early-stage
+                    startup</em>) yang tidak memiliki rasio Beta di pasar saham, proyek ini menghindari penggunaan model
+                CAPM murni dan memilih menggunakan <strong>Build-Up Method</strong> (Pratt &amp; Grabowski, 2010).
+                Melalui metode aditif ini, tingkat diskonto KamiTech ditetapkan dan dijustifikasi sebesar
+                <strong>40,0%</strong>, yang didapatkan dari akumulasi lima komponen risiko berikut:
+            </p>
+
+            <!-- Build-Up Method Components -->
+            <div class="space-y-1.5 mb-0">
+                <div
+                    class="flex items-start gap-2 text-[12px] text-on-surface-variant bg-white rounded-lg p-2 border border-outline-variant/50">
+                    <span class="font-bold text-primary min-w-[36px] text-right">7,0%</span>
+                    <span class="leading-[1.3]"><strong>Tingkat Bebas Risiko</strong> (<em>Risk-Free Rate /
+                            R<sub>f</sub></em>): Mengacu pada yield Surat Utang Negara (SUN) Indonesia tenor 10 tahun
+                        (per Juli 2026).</span>
+                </div>
+                <div
+                    class="flex items-start gap-2 text-[12px] text-on-surface-variant bg-white rounded-lg p-2 border border-outline-variant/50">
+                    <span class="font-bold text-primary min-w-[36px] text-right">8,0%</span>
+                    <span class="leading-[1.3]"><strong>Premi Risiko Ekuitas</strong> (<em>Equity Risk Premium /
+                            ERP</em>): Kompensasi atas risiko memegang ekuitas di pasar Indonesia secara makro
+                        (Damodaran, 2026).</span>
+                </div>
+                <div
+                    class="flex items-start gap-2 text-[12px] text-on-surface-variant bg-white rounded-lg p-2 border border-outline-variant/50">
+                    <span class="font-bold text-primary min-w-[36px] text-right">4,0%</span>
+                    <span class="leading-[1.3]"><strong>Premi Ukuran Perusahaan</strong> (<em>Size Premium /
+                            RP<sub>size</sub></em>): Kompensasi atas risiko fundamental yang melekat pada perusahaan
+                        dengan kapitalisasi mikro/kecil (Pratt &amp; Grabowski, 2010).</span>
+                </div>
+                <div
+                    class="flex items-start gap-2 text-[12px] text-on-surface-variant bg-white rounded-lg p-2 border border-outline-variant/50">
+                    <span class="font-bold text-[#FF8F00] min-w-[36px] text-right">17,0%</span>
+                    <span class="leading-[1.3]"><strong>Premi Risiko Rintisan</strong> (<em>Startup Premium /
+                            RP<sub>startup</sub></em>): Premi spesifik (<em>judgment-based</em>) atas risiko kegagalan
+                        operasional (<em>execution risk</em>) pada bisnis pre-revenue atau tahap awal.</span>
+                </div>
+                <div
+                    class="flex items-start gap-2 text-[12px] text-on-surface-variant bg-white rounded-lg p-2 border border-outline-variant/50">
+                    <span class="font-bold text-primary min-w-[36px] text-right">4,0%</span>
+                    <span class="leading-[1.3]"><strong>Premi Ilikuiditas</strong> (<em>Illiquidity Premium /
+                            RP<sub>illiq</sub></em>): Diskonto tambahan karena saham kepemilikan tertutup KamiTech tidak
+                        likuid dan tidak dapat diperjualbelikan dengan cepat di pasar sekunder (Damodaran, 2026).</span>
+                </div>
+                <!-- Total -->
+                <div class="flex items-center gap-2 text-[13px] text-white bg-primary rounded-lg p-2 font-bold">
+                    <span class="min-w-[36px] text-right">40,0%</span>
+                    <span>Total Discount Rate (Build-Up Method)</span>
+                </div>
+            </div>
+
+            <p class="text-[13px] text-on-surface-variant text-left mb-2 text-justify leading-[1.35]">
+                Sebagai pilar uji silang (<em>cross-validation</em>), pendekatan <strong>Venture Capital Method</strong>
+                (Sahlman, 1990) secara independen menetapkan <em>required rate of return</em> untuk investor tahap awal
+                di sektor teknologi pada kisaran <strong>30% hingga 50%</strong>. Fakta bahwa akumulasi Build-Up Method
+                (40%) jatuh tepat di tengah rentang tersebut membuktikan bahwa tingkat diskonto ini valid dan dapat
+                dipertanggungjawabkan.
+                Penggunaan tingkat diskonto ekstrem sebesar 40% ini sengaja dipilih untuk menguji ketahanan
+                kas
+                perusahaan secara konservatif.
             </p>
             <div class="bg-white p-2 border border-outline-variant rounded font-mono text-[11px] text-center">
-                Rumus Faktor Diskonto (PVIF) = 1 / (1 + r)^t
+                Rumus Faktor Diskonto (PVIF) = 1 / (1 + r)<sup>t</sup>
             </div>
         </div>
+    </div>
+</app-page>
 
+<!-- PAGE 12: BAB V - ASPEK KEUANGAN (PERHITUNGAN MANUAL NPV - PART 1) -->
+<app-page pageId="bab3-keuangan.12" pageNum="70" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
+    contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
+    <!-- NPV & IRR Definitions (moved from page 69) -->
+    <div class="space-y-2 mb-2">
         <!-- NPV -->
         <div
             class="bg-surface-container-low p-3 rounded-xl border border-outline-variant shadow-sm border-l-4 border-l-secondary">
@@ -1045,7 +1109,7 @@
                 dan <strong>Tidak Layak</strong> jika NPV &lt; 0.
             </p>
             <div class="bg-white p-2 border border-outline-variant rounded font-mono text-[11px] text-center">
-                NPV = &Sigma; [ Ct / (1 + r)^t ] - I0
+                NPV = &Sigma; [ Ct / (1 + r)<sup>t</sup> ] - I0
             </div>
             <p class="text-[11px] text-on-surface-variant mt-1 text-center italic">Di mana: Ct = Arus kas bersih (NCF)
                 tahun ke-t, r = Tingkat diskonto, I0 = Investasi awal</p>
@@ -1066,16 +1130,6 @@
             </div>
         </div>
     </div>
-</app-page>
-
-<!-- PAGE 12: BAB V - ASPEK KEUANGAN (PERHITUNGAN MANUAL NPV - PART 1) -->
-<app-page pageId="bab3-keuangan.12" pageNum="70" footerText="Dokumen Studi Kelayakan Bisnis" watermarkOpacity="0.03"
-    contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
-        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
-            Pembangunan</span>
-        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
-    </div>
 
     <h6 class="font-bold text-[14px] text-on-surface mb-0 font-sans uppercase">
         A. Perhitungan Manual NPV (Skenario 40%)
@@ -1089,7 +1143,7 @@
 
     <!-- Formula Box -->
     <div
-        class="bg-surface-container-low border border-outline-variant rounded-xl p-4 mb-4 flex flex-col justify-center items-center shadow-sm w-[90%] mx-auto font-serif">
+        class="bg-surface-container-low border border-outline-variant rounded-xl p-4 mb-2 flex flex-col justify-center items-center shadow-sm w-[90%] mx-auto font-serif">
         <div class="flex items-center gap-3 text-on-surface mb-2">
             <span class="italic text-[16px] font-bold">NPV = -Investasi Awal + &Sigma; </span>
             <div class="flex flex-col items-center">
@@ -1100,10 +1154,22 @@
         </div>
     </div>
 
+
+</app-page>
+
+<!-- PAGE 12-PART2: BAB V - ASPEK KEUANGAN (PERHITUNGAN MANUAL NPV - PART 2) -->
+<app-page pageId="bab3-keuangan.12-part2" pageNum="71" footerText="Dokumen Studi Kelayakan Bisnis"
+    watermarkOpacity="0.03" contentClass="flex flex-col">
+    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
+        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
+            Pembangunan</span>
+        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
+    </div>
+
     <!-- PVIF Table (r = 40%) -->
     <div class="font-bold text-[13px] text-primary mb-2 font-sans text-center">Tabel Referensi Present Value Interest
         Factor (PVIF, r = 40%)</div>
-    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm w-[55%] mx-auto font-sans">
+    <div class="overflow-hidden rounded-xl border border-outline-variant shadow-sm w-[55%] mx-auto font-sans mb-2">
         <table class="w-full text-[13px] border-collapse bg-white">
             <thead class="text-white text-center font-bold" style="background-color: #29B6F6;">
                 <tr>
@@ -1154,16 +1220,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-</app-page>
-
-<!-- PAGE 12-PART2: BAB V - ASPEK KEUANGAN (PERHITUNGAN MANUAL NPV - PART 2) -->
-<app-page pageId="bab3-keuangan.12-part2" pageNum="71" footerText="Dokumen Studi Kelayakan Bisnis"
-    watermarkOpacity="0.03" contentClass="flex flex-col">
-    <div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4 font-sans">
-        <span class="text-[14px] font-sans text-on-surface-variant uppercase tracking-widest">Rencana dan Aspek
-            Pembangunan</span>
-        <span class="text-[14px] font-sans font-bold text-primary">KamiTech Studi Kelayakan Bisnis</span>
     </div>
 
     <h6 class="font-bold text-[14px] text-on-surface mb-3 font-sans uppercase">
