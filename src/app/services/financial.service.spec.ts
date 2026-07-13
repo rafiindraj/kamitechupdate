@@ -2,11 +2,13 @@ import { describe, it, expect } from 'vitest';
 import { FinancialModel } from './financial.service';
 
 describe('FinancialModel', () => {
+    // Mirrors the production pricing/cost structure so the base scenario
+    // stays profitable as the model evolves (see FINANCIAL_DEFAULTS).
     const cfg = {
-        pricePerHour: 350000,
+        pricePerHour: 525000,
         unitTotalHPP: 5000,
         marketingCostValue: 35000000,
-        operationalCostValue: 30000000,
+        operationalCostValue: 34000000,
         softwareCostValue: 45000000,
         salaryCostValue: 404000000,
         initialCapital: 1500000000,
@@ -93,9 +95,9 @@ describe('FinancialModel', () => {
         }
     });
 
-    it('roiProjection returns 12 months', () => {
+    it('roiProjection returns a 24-month horizon', () => {
         const model = new FinancialModel(cfg);
         const proj = model.roiProjection(1375);
-        expect(proj.length).toBe(12);
+        expect(proj.length).toBe(24);
     });
 });

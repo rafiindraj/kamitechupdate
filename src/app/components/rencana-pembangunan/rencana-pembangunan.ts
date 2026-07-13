@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { AspekPasarComponent } from './aspek-pasar/aspek-pasar';
 import { AspekTeknisComponent } from './aspek-teknis/aspek-teknis';
@@ -41,7 +41,6 @@ import { formatCurrency, formatCurrencyShort, formatCurrencyNCF } from '../../ut
   ],
   templateUrl: './rencana-pembangunan.html',
   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RencanaPembangunanComponent {
   readonly servicesItems = input.required<readonly ServiceItem[]>();

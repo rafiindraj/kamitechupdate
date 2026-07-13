@@ -52,9 +52,7 @@ export class AppComponent implements OnInit {
     readonly pageSelection = inject(PageSelectionService);
 
     // ─── UI State ──────────────────────────────────────────────────────
-    hideNav = false;
     readonly isGenerating = this.loading.isLoading;
-    readyToDownloadUrl: string | null = null;
 
     // ─── Reactive State ────────────────────────────────────────────────
     billableHours = signal(1375);

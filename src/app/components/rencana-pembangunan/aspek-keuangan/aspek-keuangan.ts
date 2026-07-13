@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, input, output, computed } from '@angular/core';
+import { Component, input, output, computed } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { PageComponent } from '../../../page/page.component';
 
@@ -22,7 +22,6 @@ import { formatCurrencyShort, formatCurrencyNCF, formatCurrencyTruncated3 } from
   imports: [PageComponent, DecimalPipe],
   templateUrl: './aspek-keuangan.html',
   styles: [`:host { display: flex; flex-direction: column; gap: 3rem; } @media print { :host { gap: 0; } }`],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AspekKeuanganComponent {
   readonly initialCapital = input.required<number>();

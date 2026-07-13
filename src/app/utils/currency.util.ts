@@ -21,11 +21,12 @@ export function formatCurrency(value: number): string {
 }
 
 /**
- * Formats a number as a short Indonesian Rupiah string (K/M/B suffix).
+ * Formats a number as a short Indonesian Rupiah string (rb/jt/M suffix).
  *
- * @example formatCurrencyShort(1500000)   → "Rp 1.5M"
- * @example formatCurrencyShort(-500000)   → "-Rp 500K"
- * @example formatCurrencyShort(0)         → "-"
+ * @example formatCurrencyShort(1500000000) → "Rp 1.5M"   (Miliar)
+ * @example formatCurrencyShort(1500000)    → "Rp 1.5jt"  (Juta)
+ * @example formatCurrencyShort(-500000)    → "-Rp 500rb" (ribu)
+ * @example formatCurrencyShort(0)          → "-"
  */
 export function formatCurrencyShort(value: number): string {
   if (value === 0) return '-';
@@ -70,8 +71,8 @@ export function formatCurrencyNCF(value: number): string {
 }
 
 /**
- * Formats a number as a short Indonesian Rupiah string (K/M/B suffix)
- * truncated to a maximum of 3 decimal places (without rounding up/down).
+ * Formats a number as a short Indonesian Rupiah string (rb/jt/M suffix)
+ * truncated (without rounding up/down) before formatting.
  */
 export function formatCurrencyTruncated3(value: number): string {
   if (value === 0) return '-';
